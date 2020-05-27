@@ -1,0 +1,80 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# qualR
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of qualR is facilitate the download of air pollutants and meteorological information from 
+[CETESB QUALAR system](https://qualar.cetesb.sp.gov.br/qualar/home.do). This information is often used for air quality model evaluation and air pollution data analysis in Sao Paulo State which is usally perform in R.
+
+## Installation
+
+You can install the released version of qualR by (I hope) :
+
+``` r
+devtools:install_github("quishqa/qualR")
+```
+
+## Example
+
+### Download one parameter
+
+If you want to download Ozone information from Pinheiros AQS, from January first to January 7th, you can do:
+
+```{r example}
+library(qualR)
+
+cetesb_aqs # To check Pinheiros aqs_code
+cetesb_param # TO check Ozone pol_code
+
+my_user_name <- "john.doe@mymail.com"
+my_password <- "drowssap"
+o3_code <- 63
+pin_code <- 99
+start_date <- "01/01/2020"
+end_date <- "07/01/2020"
+
+pin_o3 <- CetesbRetrieve(my_user_name,
+                         mymy_password,
+                         o3_code,
+                         pin_code,
+                         start_date,
+                         end_date)
+
+```
+
+### Download Criteria Pollutants
+
+```{r example}
+pin_pol <- CetesbRetrievePol(my_user_name,
+                             my_password,
+                             pin_code,
+                             start_date,
+                             end_date)
+```
+
+### Download Meteorological information
+
+```{r example}
+pin_met <- CetesbRetrieveMet(my_user_name,
+                             my_password,
+                             pin_code,
+                             start_date,
+                             end_date)
+```
+
+I hope this will be usefull for your research.

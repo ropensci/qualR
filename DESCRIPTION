@@ -1,0 +1,23 @@
+Package: qualR
+Title: A web scrapper for CETESB QUALAR system
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Mario",
+           family = "Gavidia-Calderón",
+           role = c("aut", "cre"),
+           email = "mario.calderon@iag.usp.br",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: A web scrapper to download information from CETESB Qualar
+    system. It contains function to download a single parameter, a set of
+    criteria pollutants and the most frequent meteorological parameters used in
+    model evaluation.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.0
+Imports: 
+    XML,
+    RCurl
+Depends: 
+    R (>= 2.10)
