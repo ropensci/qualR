@@ -139,11 +139,11 @@ pin_code <- 99
 start_date <- "01/01/2020"
 end_date <- "07/01/2020"
 
-pin_all <- CetesbRetrieveAll(my_user_name,
-                             my_password,
-                             pin_code,
-                             start_date,
-                             end_date)
+pin_all <- CetesbRetrieveMetPol(my_user_name,
+                                my_password,
+                                pin_code,
+                                start_date,
+                                end_date)
 ```
 
 ### One more example
@@ -161,11 +161,11 @@ ibi_code <- 83
 start_date <- "01/01/2020"
 end_date <- "07/01/2020"
 
-ibi_all <- CetesbRetrieveAll(my_user_name,
-                             my_password,
-                             ibi_code,
-                             start_date,
-                             end_date)
+ibi_all <- CetesbRetrieveMetPol(my_user_name,
+                                my_password,
+                                ibi_code,
+                                start_date,
+                                end_date)
 
 # To export the data frame we use write.table()
 write.table(ibi_all, "ibi_all.csv", sep = ",", row.names = F)
