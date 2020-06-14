@@ -146,9 +146,12 @@ pin_all <- CetesbRetrieveMetPol(my_user_name,
                                 end_date)
 ```
 
-### One more example
+### Some other examples
 
-Now, we want to download all the information from Ibirapuera AQS, and then export that data in `.csv` to be read by other software.
+#### To `.csv`
+
+Now, we want to download all the information from Ibirapuera AQS, and then export
+ that data in `.csv` to be read by other software.
 
 ```R
 library(qualR)
@@ -171,6 +174,36 @@ ibi_all <- CetesbRetrieveMetPol(my_user_name,
 write.table(ibi_all, "ibi_all.csv", sep = ",", row.names = F)
 ```
 
+#### A variable from all CETESB AQS
+
+Sometime, for some reason you need to download a variable (or all pollutant and
+meteorological one). In this example, we download a year of Ozone from all
+CETESB AQS.
+
+```R
+library(qualR)
+
+my_user_name <- "john.doe@mymail.com"
+my_password <- "drowssap"
+o3_code <- 63
+start_date <- "01/01/2019"
+end_date <- "31/12/2019"
+
+# All_o3 is a list with a data frame per AQS
+all_o3 <- lapply(cetesb_aqs$code, CetesbRetrieve,
+                 username = my_user_name,
+                 password = my_password,
+                 pol_code = o3_code,
+                 start_date = start_date,
+                 end_date = end_date)
+
+# If you want  to export all in csv
+all_o3_csv <- do.call(rbind, all_o3)
+write.table(all_o3_csv, "all_o3_csv.csv", sep = ",", row.names = F)
+
+```
+
+
 ## Caveat emptor
 
 * CETESB QUALAR system describes midnight as 24:00, for that reason the first hour
@@ -178,7 +211,10 @@ will be `NA`, because the data in CETESB starts at 01:00, and in `qualR` from 00
 For that reason, consider download one day before your study period.
 * To pad-out with `NA` when there is a missing date, `qualR` "tricks" the date
 information, an assume it's on **UTC** (when in reality it's on **"America/Sao_Paulo"** time).
-This avoids problems with merging data frames and also with Daylight saving time (DST) issues. Beware of this,when dealing with study periods that include **DST**. It always a good idea, to double check by retrieving the suspicious date from CETESB QUALAR system.
+This avoids problems with merging data frames and also with Daylight saving time (DST) issues.
+ Beware of this,when dealing with study periods that include **DST**.
+ It always a good idea, to double check by retrieving the suspicious date from CETESB QUALAR system.
+ 
 
 
 ## Acknowledgments
