@@ -53,7 +53,7 @@ If you want to download Ozone information from Pinheiros AQS, from January first
 library(qualR)
 
 cetesb_aqs # To check Pinheiros aqs_code
-cetesb_param # TO check Ozone pol_code
+cetesb_param # To check Ozone pol_code
 
 my_user_name <- "john.doe@mymail.com"
 my_password <- "drowssap"
@@ -75,7 +75,7 @@ pin_o3 <- CetesbRetrieve(my_user_name,
 ### Downloading criteria pollutants from one AQS
 
 
-We use `CetesbRetrievePol`. This function already have the parameter codes for O<sub>3</sub>, NO, NO<sub>2</sub>, CO, PM<sub>10</sub> and PM<sub>2.5</sub>. So, it doesn't require `pol_code`, only `aqs_code`. CO is in ppm, the other pollutants are in ug/m<sup>3</sup>.
+We use `CetesbRetrievePol`. This function already have the parameter codes for O<sub>3</sub>, NO, NO<sub>2</sub>, CO, PM<sub>10</sub> and PM<sub>2.5</sub>. So, it doesn't require `pol_code`, only `aqs_code`. CO is in ppm, the other pollutants are in &mu;g/m<sup>3</sup>.
 In this example, we download all these pollutants from Pinheiros AQS.
 
 ```R
@@ -156,7 +156,7 @@ Now, we want to download all the information from Ibirapuera AQS, and then expor
 ```R
 library(qualR)
 
-cetesb_aqs # To check Pinheiros aqs_code
+cetesb_aqs # To check Ibirapuera aqs_code
 
 my_user_name <- "john.doe@mymail.com"
 my_password <- "drowssap"
