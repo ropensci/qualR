@@ -28,7 +28,7 @@ devtools::install_github("quishqa/qualR")
 *  `CetesbRetrieveMetPol`: Download meteorological parameters and criteria pollutants
 from one AQS.
 
-To run these functions, you need to have an account and to know the station and parameter codes. To check those parameters you can do:
+To run these functions, you need to have an account and to know the AQS and parameter codes. To check those parameters you can do:
 
 ```R
 library(qualR)
@@ -203,6 +203,25 @@ write.table(all_o3_csv, "all_o3_csv.csv", sep = ",", row.names = F)
 
 ```
 
+#### AQS latitudes and longitudes
+
+Maybe you need to make a map of the AQS you use in your study. To check AQS latitude
+and longitude in degrees you can do:
+
+```R
+library(qualR)
+
+# To see all the AQS latitude and longitude
+cetesb_latlon
+```
+
+Here are some examples to make some plots:
+* [A  pollutant concentration point map.](https://randroll.wordpress.com/2020/06/18/a-point-concentration-map-with-r/)
+* [An AQS location map.](https://randroll.wordpress.com/2019/10/28/heatmaps-in-r-an-example-using-ozone-concentrations/)
+* [An AQS location map using shapefiles.](https://randroll.wordpress.com/2018/04/18/making-a-simple-map-with-r/)
+
+Also, in `cetesb_latlon` AQS name contains Portuguese diacritics and the location
+are based in information of 2017.
 
 ## Caveat emptor
 
@@ -214,7 +233,7 @@ information, an assume it's on **UTC** (when in reality it's on **"America/Sao_P
 This avoids problems with merging data frames and also with Daylight saving time (DST) issues.
  Beware of this,when dealing with study periods that include **DST**.
  It always a good idea, to double check by retrieving the suspicious date from CETESB QUALAR system.
- 
+
 
 
 ## Acknowledgments
