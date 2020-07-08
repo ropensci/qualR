@@ -14,5 +14,6 @@ cetesb_aqs
 \description{
 List of CETESB air quality stations (AQS) with their codes in
 CETESB QUALAR system. Use this to check the aqs_code parameter.
+AQS names are without diacritics.
 }
 \keyword{datasets}

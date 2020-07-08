@@ -14,5 +14,6 @@ cetesb_param
 \description{
 List of CETESB QUALAR available parameters. Use this to check the
 pol_code parameter.
+Parameter names are without diacritics.
 }
 \keyword{datasets}
