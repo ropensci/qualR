@@ -42,7 +42,7 @@ cetesb_param
 ```
 
 These functions return a data frame, with a `date` column in POSIXct, which allows you
-to use other packages as [openair](https://davidcarslaw.github.io/openair/).
+to use other packages for data analysis, such as [openair](https://davidcarslaw.github.io/openair/).
 
 
 ### Downloading one parameter from one AQS
@@ -176,8 +176,7 @@ write.table(ibi_all, "ibi_all.csv", sep = ",", row.names = F)
 
 #### A variable from all CETESB AQS
 
-Sometime, for some reason you need to download a variable (or all pollutant and
-meteorological one). In this example, we download a year of Ozone from all
+Sometimes, to check the spatial distribution of air pollutants, you need to download a pollutant from all the AQS. In this example, we download a year of Ozone from all
 CETESB AQS.
 
 ```R
@@ -205,7 +204,7 @@ write.table(all_o3_csv, "all_o3_csv.csv", sep = ",", row.names = F)
 
 #### AQS latitudes and longitudes
 
-Maybe you need to make a map of the AQS you use in your study. To check AQS latitude
+Maybe you need to make a map of the AQS you used in your study. To check AQS latitude
 and longitude in degrees you can do:
 
 ```R
@@ -225,9 +224,8 @@ are based in information of 2017.
 
 ## Caveat emptor
 
-* CETESB QUALAR system describes midnight as 24:00, for that reason the first hour
-will be `NA`, because the data in CETESB starts at 01:00, and in `qualR` from 00:00.
-For that reason, consider download one day before your study period.
+* CETESB QUALAR system describes midnight as 24:00,
+and the first hour of each day starts at 1:00. `qualR` transform it to get the time in 00-23 hour notation, for that reason you'll get `NA` at 00:00 of your first downloaded day. So, consider download one day before your study period.
 * To pad-out with `NA` when there is a missing date, `qualR` "tricks" the date
 information, an assume it's on **UTC** (when in reality it's on **"America/Sao_Paulo"** time).
 This avoids problems with merging data frames and also with Daylight saving time (DST) issues.
