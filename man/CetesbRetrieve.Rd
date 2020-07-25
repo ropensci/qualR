@@ -15,9 +15,9 @@ CetesbRetrieve(username, password, pol_code, aqs_code, start_date, end_date)
 
 \item{aqs_code}{Code of AQS}
 
-\item{start_date}{Date to start downloading in \%dd/\%mm/\%yyyy}
+\item{start_date}{Date to start downloading in dd/mm/yyyy}
 
-\item{end_date}{Date to end downloading in \%dd/\%mm/\%yyyy}
+\item{end_date}{Date to end downloading in dd/mm/yyyy}
 }
 \value{
 data.frame with the selected parameter information

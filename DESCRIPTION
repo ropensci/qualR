@@ -1,16 +1,21 @@
 Package: qualR
-Title: A web scrapper for CETESB QUALAR system
-Version: 0.0.0.9000
-Authors@R: 
+Title: An R package to download Sao Paulo air pollution data
+Version: 0.9.0
+Authors@R: c(
     person(given = "Mario",
            family = "Gavidia-Calderón",
            role = c("aut", "cre"),
            email = "mario.calderon@iag.usp.br",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
+           comment = c(ORCID = "0000-0002-7371-1116")),
+    person(given = "Maria de Fatima",
+           family = "Andrade",
+           role = c("ctb"),
+           email = "maria.andrade@iag.usp.br",
+           comment = c(ORCID = "0000-0001-5351-8311")))
 Description: A web scrapper to download information from CETESB Qualar
     system. It contains function to download a single parameter, a set of
     criteria pollutants and the most frequent meteorological parameters used in
-    model evaluation.
+    air quality data analysis and air quality model evaluation.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -20,4 +25,4 @@ Imports:
     XML,
     RCurl
 Depends: 
-    R (>= 2.10)
+    R (>= 3.5.0)

@@ -13,9 +13,9 @@ CetesbRetrievePol(username, password, aqs_code, start_date, end_date)
 
 \item{aqs_code}{Code of AQS}
 
-\item{start_date}{Date to start downloading in \%dd/\%mm/\%yyyy}
+\item{start_date}{Date to start downloading in dd/mm/yyyy}
 
-\item{end_date}{Date to end downloading in \%dd/\%mm/\%yyyy}
+\item{end_date}{Date to end downloading in dd/mm/yyyy}
 }
 \value{
 data.frame wth O3, NO, NO2, PM2.5, PM10 and CO information.
