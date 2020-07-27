@@ -137,7 +137,7 @@ summaryPlot(pin_pols, period = "months")
 
 ```
 
-![Summary plot created using `CetesbRetrievePol` output and openair `summaryPlot` function](summary_plot_pinheiros.svg)
+![Summary plot created using `CetesbRetrievePol` output and openair `summaryPlot` function](./summary_plot_pinheiros.svg)
 
 # Acknowledgements
 
