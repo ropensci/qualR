@@ -84,8 +84,8 @@ It also contains a dataset with AQS coordinates for mapping purposes.
 | Dataset       | Description                              |
 |---------------|------------------------------------------|
 | cetesb_aqs    | AQS name and AQS QUALAR code             |
-| cetesb_param  | Parameter name and parameter QUALAR code       |
-| cetesb_latlon | AQS name code and latitude and longitude |
+| cetesb_param  | Parameter name and parameter QUALAR code |
+| cetesb_latlon | AQS name, code, latitude and longitude   |
 
 # Example of use
 
