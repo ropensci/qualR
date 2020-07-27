@@ -28,19 +28,19 @@ of air quality models [@Seinfeld2016].
 
 The Sao Paulo State Environmental Agency (CETESB) manages the
 Air Quality Station network of the State of Sao Paulo.
-It is one of the best air quality monitoring systems in the region
-[@Riojas-Rodriguez2016].
+It is one of the best air quality monitoring systems in the region, with more than
+49 automatic air quality stations (AQS) [@Riojas-Rodriguez2016].
 This network covers the Metropolitan Area of Sao Paulo (MASP), the biggest megacity in
 South America.
 Researchers use its data in field and modeling studies, to analyse air
 pollution in the MASP [@Andrade2017].
-R is a suitable data analysis tool for these studies in MASP,
+R is a suitable data analysis tool for these studies,
 and its adoption in the air quality modeling community is
 steadily increasing [@Gavidia-Calderon2018; @Ibarra-Espinosa2018 ].
 
 The pollutant and meteorological data are publicly available via the
 [CETESB QUALAR System](https://cetesb.sp.gov.br/ar/qualar/).
-QUALAR allows researchers to download data from the air quality station (AQS) in `.csv`
+QUALAR allows researchers to download data from the air quality stations in `.csv`
 files, one variable per AQS at a time.
 This data needs preprocessing before being suitable for analysis.
 For example, instrument malfunctions can produce missing dates; time format might
@@ -74,10 +74,9 @@ This ensures compatibility with robust temporal analysis packages like
 | CetesbRetrieve     | Download one parameter from one AQS            |
 | CetesbRetrievePol  | Download criteria pollutants from one AQS      |
 | CetesbRetrieveMet  | Download meteorological parameters from one AQS|
-| CetesbRetrieveAll  | Download criteria pollutants and meteorological parameter from one AQS|            
+| CetesbRetrieveMetPol  | Download criteria pollutants and meteorological parameters from one AQS|            
 
-`qualR` depends on datasets to check for AQS and parameter codes.
-The functions above depend on them.  
+`qualR` depends on datasets to check for AQS and parameter codes.The functions above depend on them.  
 It also contains a dataset with AQS coordinates for mapping purposes.
 
 | Dataset       | Description                              |
@@ -139,7 +138,10 @@ summaryPlot(pin_pols, period = "months")
 
 # Acknowledgements
 We acknowledge CETESB for providing reliable atmospheric data,
-the [LAPAT-IAG](http://www.lapat.iag.usp.br/) team for testing and
-reporting issues, and Carlos Gavidia-Calderon for his technical advise.
+the programs CAPES (Coordenadoria de Aperfeiçoamento de Pessoal de Nível
+Superior), CNPq (Conselho Nacional de Desenvolvimento Científico e Tecnológico), and
+FAPESP (2016/18438-0 - Fundação de Amparo à Pesquisa do Estado do São Paulo).
+We are also thankful to the [LAPAT-IAG](http://www.lapat.iag.usp.br/) team for testing and
+reporting issues, and Carlos Gavidia-Calderon for his technical advice.
 
 # References
