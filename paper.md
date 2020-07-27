@@ -41,7 +41,7 @@ steadily increasing [@Gavidia-Calderon2018; @Ibarra-Espinosa2018 ].
 The pollutant and meteorological data are publicly available via the
 [CETESB QUALAR System](https://cetesb.sp.gov.br/ar/qualar/).
 QUALAR allows researchers to download data from the air quality station (AQS) in `.csv`
-files, one variable at a time.
+files, one variable per AQS at a time.
 This data needs preprocessing before being suitable for analysis.
 For example, instrument malfunctions can produce missing dates; time format might
 need adjustments, or the decimal separator need to be changed.
@@ -67,7 +67,6 @@ This ensures compatibility with robust temporal analysis packages like
 `openair` [@Carslaw2012].
 
 # Functions and data
-
 `qualR` has four functions:
 
 | Function           | Description                                    |
@@ -88,17 +87,16 @@ It also contains a dataset with AQS coordinates for mapping purposes.
 | cetesb_latlon | AQS name, code, latitude and longitude   |
 
 # Example of use
-
 In this example, we download ozone concentration from the Pinheiros AQS for January
 2020:
 
 ```R
 library(qualR)
 
-# To check Pinheiros code
+# To check Pinheiros AQS code
 cetesb_aqs
 
-# To check Ozone code
+# To check ozone code
 cetesb_param
 
 user_name <- "johnDoe@supermail.com"
@@ -140,7 +138,6 @@ summaryPlot(pin_pols, period = "months")
 ![Summary plot created using `CetesbRetrievePol` output and openair `summaryPlot` function](./summary_plot_pinheiros.png)
 
 # Acknowledgements
-
 We acknowledge CETESB for providing reliable atmospheric data,
 the [LAPAT-IAG](http://www.lapat.iag.usp.br/) team for testing and
 reporting issues, and Carlos Gavidia-Calderon for his technical advise.
