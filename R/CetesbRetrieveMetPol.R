@@ -11,7 +11,7 @@
 #' @param end_date Date to end downloading in dd/mm/yyyy
 #'
 #' @return data.frame with ith Temperature (C), Relative Humidity (%), Wind Speed (m/s) and Direction (degrees),
-#' Pressure information (hPa), O3, NO, NO2, PM2.5, PM10 and CO information.
+#' Pressure information (hPa), O3, NO, NO2, NOx, PM2.5, PM10 and CO information.
 #' @export
 #'
 #' @examples
@@ -63,6 +63,9 @@ CetesbRetrieveMetPol <- function(username, password,
                         aqs_code, start_date,
                         end_date)
 
+  nox <- CetesbRetrieve(username, password, 18,
+                        aqs_code, start_date,
+                        end_date)
 
   pm25 <- CetesbRetrieve(username, password, 57,
                          aqs_code, start_date,
@@ -88,6 +91,7 @@ CetesbRetrieveMetPol <- function(username, password,
                          o3 = o3$pol,
                          no = no$pol,
                          no2 = no2$pol,
+                         nox = nox$pol,
                          co = co$pol,
                          pm10 = pm10$pol,
                          pm25 = pm25$pol,

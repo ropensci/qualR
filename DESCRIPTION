@@ -9,7 +9,7 @@ Authors@R: c(
            comment = c(ORCID = "0000-0002-7371-1116")),
     person(given = "Maria de Fatima",
            family = "Andrade",
-           role = c("ctb"),
+           role = c("ctb", "ths"),
            email = "maria.andrade@iag.usp.br",
            comment = c(ORCID = "0000-0001-5351-8311")))
 Description: A web scrapper to download information from CETESB Qualar

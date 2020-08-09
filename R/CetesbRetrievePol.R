@@ -10,7 +10,7 @@
 #' @param end_date  Date to end downloading in dd/mm/yyyy
 #'
 #' @return data.frame wth O3, NO, NO2, PM2.5, PM10 and CO information.
-#' Units are ug/m3 except for CO which is in ppm.
+#' Units are ug/m3 except for CO which is in ppm, and NOx which is in ppb.
 #' @export
 #'
 #' @examples
@@ -41,16 +41,17 @@ CetesbRetrievePol <- function(username, password,
                         aqs_code, start_date,
                         end_date)
 
+  nox <- CetesbRetrieve(username, password, 18,
+                        aqs_code, start_date,
+                        end_date)
 
   pm25 <- CetesbRetrieve(username, password, 57,
                          aqs_code, start_date,
                          end_date)
 
-
   pm10 <- CetesbRetrieve(username, password, 12,
                          aqs_code, start_date,
                          end_date)
-
 
   co <- CetesbRetrieve(username, password, 16,
                        aqs_code, start_date,
@@ -61,6 +62,7 @@ CetesbRetrievePol <- function(username, password,
                         o3 = o3$pol,
                         no = no$pol,
                         no2 = no2$pol,
+                        nox = nox$pol,
                         co = co$pol,
                         pm10 = pm10$pol,
                         pm25 = pm25$pol,

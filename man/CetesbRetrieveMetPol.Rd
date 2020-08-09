@@ -19,7 +19,7 @@ CetesbRetrieveMetPol(username, password, aqs_code, start_date, end_date)
 }
 \value{
 data.frame with ith Temperature (C), Relative Humidity (\%), Wind Speed (m/s) and Direction (degrees),
-Pressure information (hPa), O3, NO, NO2, PM2.5, PM10 and CO information.
+Pressure information (hPa), O3, NO, NO2, NOx, PM2.5, PM10 and CO information.
 }
 \description{
 This function download the main meteorological parameters for model evaluation,

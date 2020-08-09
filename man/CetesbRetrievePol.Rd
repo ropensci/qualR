@@ -19,7 +19,7 @@ CetesbRetrievePol(username, password, aqs_code, start_date, end_date)
 }
 \value{
 data.frame wth O3, NO, NO2, PM2.5, PM10 and CO information.
-Units are ug/m3 except for CO which is in ppm.
+Units are ug/m3 except for CO which is in ppm, and NOx which is in ppb.
 }
 \description{
 This function download the criteria pollutants from one air quality station (AQS)
