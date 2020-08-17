@@ -75,7 +75,7 @@ pin_o3 <- CetesbRetrieve(my_user_name,
 ### Downloading criteria pollutants from one AQS
 
 
-We use `CetesbRetrievePol`. This function already have the parameter codes for O<sub>3</sub>, NO, NO<sub>2</sub>, CO, PM<sub>10</sub> and PM<sub>2.5</sub>. So, it doesn't require `pol_code`, only `aqs_code`. CO is in ppm, the other pollutants are in &mu;g/m<sup>3</sup>.
+We use `CetesbRetrievePol`. This function already have the parameter codes for O<sub>3</sub>, NO, NO<sub>2</sub>,  NO<sub>X</sub>, CO, PM<sub>10</sub> and PM<sub>2.5</sub>. So, it doesn't require `pol_code`, only `aqs_code`. CO is in ppm and  NO<sub>X</sub> is in ppb, the other pollutants are in &mu;g/m<sup>3</sup>.
 In this example, we download all these pollutants from Pinheiros AQS.
 
 ```R
