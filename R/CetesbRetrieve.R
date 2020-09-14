@@ -34,28 +34,28 @@ CetesbRetrieve <- function(username, password,
   aqs <- cetesb
   aqs_name <- aqs$name[aqs$code == aqs_code]
 
-  curl = RCurl::getCurlHandle()
-  RCurl::curlSetOpt(cookiejar = 'cookies.txt', followlocation = TRUE, autoreferer = TRUE, curl = curl)
+  # Logging to CETESB QUALAR
+  log_params <- list(
+    cetesb_login = username,
+    cetesb_password = password
+  )
 
-  url  <- "https://qualar.cetesb.sp.gov.br/qualar/autenticador"
+  url_log  <- "https://qualar.cetesb.sp.gov.br/qualar/autenticador"
+  log_qualar <- httr::POST(url_log, body = log_params, encode = "form")
 
-  # To actually log in in the site 'style = "POST" ' seems mandatory
-  RCurl::postForm(url, cetesb_login = username, cetesb_password = password,
-                  style = "POST", curl = curl)
+  # Downloading data from Air quality stations
+  url_aqs <-"https://qualar.cetesb.sp.gov.br/qualar/exportaDados.do?method=pesquisar"
 
+  aqs_params  <- list(irede = 'A',
+                      dataInicialStr = start_date,
+                      dataFinalStr   =  end_date,
+                      iTipoDado = 'P',
+                      estacaoVO.nestcaMonto = aqs_code,
+                      parametroVO.nparmt = pol_code)
 
-  url2 <-"https://qualar.cetesb.sp.gov.br/qualar/exportaDados.do?method=pesquisar"
+  ask <- httr::POST(url_aqs, body = aqs_params, encode = "form")
 
-  # Start the query
-  ask  <- RCurl::postForm(url2,
-                          irede = 'A',
-                          dataInicialStr = start_date,
-                          dataFinalStr   =  end_date,
-                          iTipoDado = 'P',
-                          estacaoVO.nestcaMonto = aqs_code,
-                          parametroVO.nparmt = pol_code,
-                          style = 'POST',
-                          curl = curl)
+  # Transforming query to dataframe
   pars <- XML::htmlParse(ask, encoding = "UTF-8") # 'Encoding "UTF-8", preserves special characteres
   tabl <- XML::getNodeSet(pars, "//table")
   dat  <- XML::readHTMLTable(tabl[[2]], skip.rows = 1, stringsAsFactors = F)
@@ -103,12 +103,6 @@ CetesbRetrieve <- function(username, password,
     }
 
   }
-
-  if (file.exists("cookies.txt")){
-    file.remove("cookies.txt")
-  }
-
-
 
   return(dat)
 }

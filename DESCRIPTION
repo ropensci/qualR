@@ -23,6 +23,6 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0
 Imports: 
     XML,
-    RCurl
+    httr
 Depends: 
     R (>= 3.5.0)
