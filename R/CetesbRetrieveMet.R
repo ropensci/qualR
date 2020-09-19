@@ -10,6 +10,7 @@
 #' @param aqs_code Code of AQS
 #' @param start_date Date to start downloading in dd/mm/yyyy
 #' @param end_date Date to end downloading in dd/mm/yyyy
+#' @param to_csv  Creates a csv file. FALSE by default
 #'
 #' @return data.frame wth Temperature (C), Relative Humidity (%), Wind Speed (m/s) and Direction (degrees),
 #' and Pressure information.
@@ -29,7 +30,11 @@
 #' }
 CetesbRetrieveMet <-  function(username, password,
                                aqs_code, start_date,
-                               end_date){
+                               end_date, to_csv = FALSE){
+
+  aqs <- cetesb
+  aqs_name <- aqs$name[aqs$code == aqs_code]
+
   tc <- CetesbRetrieve(username, password, 25,
                        aqs_code, start_date,
                        end_date)
@@ -62,6 +67,12 @@ CetesbRetrieveMet <-  function(username, password,
     "Download complete for", unique(all_met$aqs)
     ))
 
+  if (to_csv){
+    file_name <- paste0(aqs_name, "_", "MET_",
+                        gsub("/", "-", start_date), "_",
+                        gsub("/", "-", end_date), ".csv")
+    utils::write.table(all_met, file_name, sep = ",", row.names = F )
+  }
 
   return(all_met)
 }

@@ -8,6 +8,7 @@
 #' @param aqs_code Code of AQS
 #' @param start_date Date to start downloading in dd/mm/yyyy
 #' @param end_date  Date to end downloading in dd/mm/yyyy
+#' @param to_csv  Creates a csv file. FALSE by default
 #'
 #' @return data.frame wth O3, NO, NO2, PM2.5, PM10 and CO information.
 #' Units are ug/m3 except for CO which is in ppm, and NOx which is in ppb.
@@ -28,7 +29,10 @@
 #' }
 CetesbRetrievePol <- function(username, password,
                               aqs_code, start_date,
-                              end_date){
+                              end_date, to_csv = FALSE){
+  aqs <- cetesb
+  aqs_name <- aqs$name[aqs$code == aqs_code]
+
   o3 <- CetesbRetrieve(username, password, 63,
                        aqs_code, start_date,
                        end_date)
@@ -72,6 +76,12 @@ CetesbRetrievePol <- function(username, password,
     "Download complete for", unique(all_pol$aqs)
   ))
 
+  if (to_csv){
+    file_name <- paste0(aqs_name, "_", "POL_",
+                        gsub("/", "-", start_date), "_",
+                        gsub("/", "-", end_date), ".csv")
+    utils::write.table(all_pol, file_name, sep = ",", row.names = F )
+  }
 
   return(all_pol)
 }

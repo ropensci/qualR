@@ -9,6 +9,7 @@
 #' @param aqs_code Code of AQS
 #' @param start_date Date to start downloading in dd/mm/yyyy
 #' @param end_date Date to end downloading in dd/mm/yyyy
+#' @param to_csv  Creates a csv file. FALSE by default
 #'
 #' @return data.frame with the selected parameter information
 #' @export
@@ -29,10 +30,12 @@
 #' }
 CetesbRetrieve <- function(username, password,
                            pol_code, aqs_code,
-                           start_date, end_date){
+                           start_date, end_date, to_csv = FALSE){
 
   aqs <- cetesb
   aqs_name <- aqs$name[aqs$code == aqs_code]
+  pols <- params
+  pol_name <- pols$name[pols$code == pol_code]
 
   # Logging to CETESB QUALAR
   log_params <- list(
@@ -101,7 +104,15 @@ CetesbRetrieve <- function(username, password,
       dat <- data.frame(date = all.dates$date , pol = dat$value , aqs = aqs_name,
                         stringsAsFactors = F)
     }
+  }
 
+  if (to_csv){
+    pol_abr <- sub("\\ .*", "", pol_name)
+    file_name <- paste0(aqs_name, "_",
+                        pol_abr, "_",
+                        gsub("/", "-", start_date), "_",
+                        gsub("/", "-", end_date), ".csv")
+    utils::write.table(dat, file_name, sep = ",", row.names = F )
   }
 
   return(dat)

@@ -4,7 +4,15 @@
 \alias{CetesbRetrieve}
 \title{Download a single parameter from CETESB QUALAR system}
 \usage{
-CetesbRetrieve(username, password, pol_code, aqs_code, start_date, end_date)
+CetesbRetrieve(
+  username,
+  password,
+  pol_code,
+  aqs_code,
+  start_date,
+  end_date,
+  to_csv = FALSE
+)
 }
 \arguments{
 \item{username}{User name of CETESB QUALAR}
@@ -18,6 +26,8 @@ CetesbRetrieve(username, password, pol_code, aqs_code, start_date, end_date)
 \item{start_date}{Date to start downloading in dd/mm/yyyy}
 
 \item{end_date}{Date to end downloading in dd/mm/yyyy}
+
+\item{to_csv}{Creates a csv file. FALSE by default}
 }
 \value{
 data.frame with the selected parameter information

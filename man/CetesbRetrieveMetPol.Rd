@@ -4,7 +4,14 @@
 \alias{CetesbRetrieveMetPol}
 \title{Download meteorological and pollutant data from CETESB QUALAR}
 \usage{
-CetesbRetrieveMetPol(username, password, aqs_code, start_date, end_date)
+CetesbRetrieveMetPol(
+  username,
+  password,
+  aqs_code,
+  start_date,
+  end_date,
+  to_csv = FALSE
+)
 }
 \arguments{
 \item{username}{User name of CETESB QUALAR}
@@ -16,6 +23,8 @@ CetesbRetrieveMetPol(username, password, aqs_code, start_date, end_date)
 \item{start_date}{Date to start downloading in dd/mm/yyyy}
 
 \item{end_date}{Date to end downloading in dd/mm/yyyy}
+
+\item{to_csv}{Creates a csv file. FALSE by default}
 }
 \value{
 data.frame with ith Temperature (C), Relative Humidity (\%), Wind Speed (m/s) and Direction (degrees),
