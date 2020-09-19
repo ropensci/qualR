@@ -2,7 +2,7 @@
 
 The goal of qualR is to facilitate the download of air pollutants and meteorological
 information from [CETESB QUALAR system](https://qualar.cetesb.sp.gov.br/qualar/home.do).
-This information is often used for air quality model evaluation and
+This information is often used for air quality model evaluation and for
 air pollution data analysis in Sao Paulo State, which are usually perform in R.
 
 ## Installation
@@ -28,7 +28,7 @@ devtools::install_github("quishqa/qualR")
 *  `CetesbRetrieveMetPol`: Download meteorological parameters and criteria pollutants
 from one AQS.
 
-To run these functions, you need to have an account and to know the AQS and parameter codes. To check those parameters you can do:
+To run these functions, you first need to have an account in [CETESB QUALAR system](https://qualar.cetesb.sp.gov.br/qualar/home.do), and  to know the AQS and parameter codes. To check those parameters you can do:
 
 ```R
 library(qualR)
@@ -150,8 +150,14 @@ pin_all <- CetesbRetrieveMetPol(my_user_name,
 
 #### To `.csv`
 
-Now, we want to download all the information from Ibirapuera AQS, and then export
- that data in `.csv` to be read by other software.
+Now we want to download all the information from Ibirapuera AQS, and then export
+that data in `.csv` to be read by other software. `qualR` functions have the
+argument `to_csv`, which by default has `FALSE` value. So, if you want to
+export the data to `csv`, you just need to change it to `TRUE`.
+
+The csv file have the following file name: `{aqs_code}_{pol}_{start_date}_{end_date}.csv`.
+For the functions that retrieve more than one parameter the file name is:
+`{aqs_code}_{TYPE}_{start_date}_{end_date}.csv`, where `TYPE` is "POL", "MET", or "MET_POL".
 
 ```R
 library(qualR)
@@ -168,11 +174,12 @@ ibi_all <- CetesbRetrieveMetPol(my_user_name,
                                 my_password,
                                 ibi_code,
                                 start_date,
-                                end_date)
+                                end_date,
+                                to_csv = TRUE)
 
-# To export the data frame we use write.table()
-write.table(ibi_all, "ibi_all.csv", sep = ",", row.names = F)
 ```
+
+In this case, we will get the file `Pinheiros_MET_POL_01-01-2020_07-01-2020.csv`.
 
 #### A variable from all CETESB AQS
 
@@ -236,7 +243,8 @@ This avoids problems with merging data frames and also with Daylight saving time
 
 ## Acknowledgments
 
-Thanks to [CETESB](https://cetesb.sp.gov.br/ar/) for make public this atmospheric data.
+Thanks to [CETESB](https://cetesb.sp.gov.br/ar/) for make public this atmospheric data, and
+to the [LAPAT-IAG team](http://www.lapat.iag.usp.br/) for test and help to improve `qualR`.
 
 ## Last but not least
 
