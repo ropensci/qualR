@@ -84,7 +84,7 @@ CetesbRetrieve <- function(username, password,
   if (ncol(dat) != 19){
     dat <- data.frame(date = all.dates$date , pol = NA, aqs = aqs_name,
                       stringsAsFactors = F)
-    print('No data')
+    print(paste0('No data available for ', pol_name))
   } else if (ncol(dat) == 19) {
     names(dat) <- cet.names
     dat$date <- paste(dat$day, dat$hour, sep = '_')
@@ -100,7 +100,7 @@ CetesbRetrieve <- function(username, password,
       dat <- data.frame(date = dat$date , pol = dat$value, aqs = aqs_name,
                         stringsAsFactors = F)
     } else {
-      print(paste0('Download OK ', unique(stats::na.omit(dat$pol))))
+      print(paste0('Download OK ', pol_name))
       dat <- data.frame(date = all.dates$date , pol = dat$value , aqs = aqs_name,
                         stringsAsFactors = F)
     }
@@ -113,6 +113,9 @@ CetesbRetrieve <- function(username, password,
                         gsub("/", "-", start_date), "_",
                         gsub("/", "-", end_date), ".csv")
     utils::write.table(dat, file_name, sep = ",", row.names = F )
+
+    file_path <- paste(getwd(), file_name, sep = "/")
+    print(paste(file_path, "was created"))
   }
 
   return(dat)

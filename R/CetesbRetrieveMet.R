@@ -72,6 +72,9 @@ CetesbRetrieveMet <-  function(username, password,
                         gsub("/", "-", start_date), "_",
                         gsub("/", "-", end_date), ".csv")
     utils::write.table(all_met, file_name, sep = ",", row.names = F )
+
+    file_path <- paste(getwd(), file_name, sep = "/")
+    print(paste(file_path, "was created"))
   }
 
   return(all_met)
