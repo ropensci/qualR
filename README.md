@@ -229,6 +229,59 @@ Here are some examples to make some plots:
 Also, in `cetesb_latlon` AQS name contains Portuguese diacritics and the location
 are based in information of 2017.
 
+### A better way to save your credentials
+
+It not so safe to write your user and password when you are coding,
+unsafer even when sometimes we have to share our scripts.
+For this reason, it is a better practice (and safer) to save your credentials (i.e. user and password) in your **global environment**.
+
+An easier way to do it is by using `usethis` package.
+So, first install it by:
+
+```R
+install.packages("usethis")
+```
+
+Then use the function `edit_r_environ()`.
+It will show a new file called `.Renviron`, where you'll define your user and password.
+
+```R
+library(usethis)
+
+edit_r_environ()
+```
+
+It will open `.Renviron` file, there you define your credentials:
+```R
+QUALAR_USER="john.doe@mymail.com"
+QUALAR_PASS="drowssap"
+```
+Save it, and the changes will work after restart R.
+To call them, you use `Sys.getenv()`.
+
+So now, if we replicate the previous example *Downloading one parameter from one AQS*, it will be something like this:
+
+```R
+library(qualR)
+
+cetesb_aqs # To check Pinheiros aqs_code
+cetesb_param # To check Ozone pol_code
+
+o3_code <- 63
+pin_code <- 99
+start_date <- "01/01/2020"
+end_date <- "07/01/2020"
+
+pin_o3 <- CetesbRetrieve(Sys.getenv("QUALAR_USER"), # calling your user
+                         Sys.getenv("QUALAR_PASS"),  # calling your passord  
+                         o3_code,
+                         pin_code,
+                         start_date,
+                         end_date)
+```
+
+This idea came from this [awesome post](https://towardsdatascience.com/ten-time-saving-r-hacks-b411add26b96).
+
 ## Caveat emptor
 
 * CETESB QUALAR system describes midnight as 24:00,
