@@ -35,7 +35,8 @@ MonitorArRetrieve <- function(start_date, end_date, aqs_code, param, to_local=TR
     de_format <- format(de, format="%Y-%m-%d %H:%M:%S")
     date_range <- paste0("Data >= TIMESTAMP'", ds_format, "' AND ",
                          "Data <= TIMESTAMP'", de_format)
-    aqs <- paste0("' AND Estação = '", aqs, "'")
+    aqs <- paste0("' AND Esta", iconv("\u00e7\u00e3", "", "utf-8", "byte"),
+                  "o = '", aqs, "'")
     where <- paste0(date_range, aqs)
     return(where)
   }
@@ -53,7 +54,7 @@ MonitorArRetrieve <- function(start_date, end_date, aqs_code, param, to_local=TR
 
   res <- httr::GET(url,
                    query = list(
-                     where = where_query(start_date_format, end_date_format, aqs),
+                     where = where_query(start_date_format, end_date_format, aqs_code),
                      outFields = outfields,
                      f = 'json'
                    ))

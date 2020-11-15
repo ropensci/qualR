@@ -28,3 +28,22 @@
 #' \code{latitude} of AQS.
 "cetesb_latlon"
 
+#' Monitor Ar AQS stations.
+#'
+#' List of Monitor Ar Rio air quality stations (AQS) with their codes
+#' and locations. Use this to check the aqs_code parameter in
+#' MonitorArRetrieve() function.
+#'
+#' @format A data frame with 6 variables: \code{name}, \code{code}, \code{lon}, \code{lat},
+#' \code{X_UTM_Sirgas2000}, and  \code{Y_UTM_Sirgas2000}
+#'   of AQS.
+"monitor_ar_aqs"
+
+#' Monitor Ar Parameters
+#'
+#' List of Monitor Ar Rio available parameters. Use this to check the
+#' param parameter of MonitorArRetrieve() function .
+#'
+#' @format A data frame with 3 variables: \code{code}, \code{name}, and \code{units}
+#'   of parameter.
+"monitor_ar_param"
