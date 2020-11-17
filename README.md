@@ -1,9 +1,9 @@
 # qualR
 
 The goal of qualR is to facilitate the download of air pollutants and meteorological
-information from [CETESB QUALAR system](https://qualar.cetesb.sp.gov.br/qualar/home.do).
+information from [CETESB QUALAR system](https://qualar.cetesb.sp.gov.br/qualar/home.do) for Sao Paulo, and [MonitorAr](https://www.data.rio/datasets/dados-hor%C3%A1rios-do-monitoramento-da-qualidade-do-ar-monitorar), for Rio de Janeiro.
 This information is often used for air quality model evaluation and for
-air pollution data analysis in Sao Paulo State, which are usually perform in R.
+air pollution data analysis, which are usually perform in R.
 
 ## Installation
 
@@ -21,29 +21,40 @@ devtools::install_github("quishqa/qualR")
 ## How to use
 
 
-`qualR` have 4 functions:
-*  `CetesbRetrieve`: Download one parameter from one air quality station (AQS).
-*  `CetesbRetrievePol`: Download criteria pollutants from one AQS.
-*  `CetesbRetrieveMet`: Download meteorological parameters from one AQS.
+`qualR` have 5 functions:
+*  `CetesbRetrieve`: Download one parameter from one air quality station (AQS) from CETESB QUALAR System.
+*  `CetesbRetrievePol`: Download criteria pollutants from one AQS from CETESB QUALAR System.
+*  `CetesbRetrieveMet`: Download meteorological parameters from one AQS from CETESB QUALAR System.
 *  `CetesbRetrieveMetPol`: Download meteorological parameters and criteria pollutants
-from one AQS.
+from one AQS from CETESB QUALAR System.
+* `MonitorArRetrieve`: Download different parameters from MonitorAr - Rio program.
 
-To run these functions, you first need to have an account in [CETESB QUALAR system](https://qualar.cetesb.sp.gov.br/qualar/home.do), and  to know the AQS and parameter codes. To check those parameters you can do:
-
-```R
-library(qualR)
-
-# To see all the AQS with their codes
-cetesb_aqs
-
-# To see all parameters with their codes
-cetesb_param
-
-```
 
 These functions return a data frame, with a `date` column in POSIXct, which allows you
 to use other packages for data analysis, such as [openair](https://davidcarslaw.github.io/openair/).
 
+
+To download the information for Sao Paulo, you first need to have an account in [CETESB QUALAR system](https://qualar.cetesb.sp.gov.br/qualar/home.do). MonitorAr doesn't require an account. Then you have to know the AQS and parameter codes to use these functions.
+To check those parameters you can do:
+
+```R
+library(qualR)
+
+# To see all CETESB AQS names with their codes
+cetesb_aqs
+
+# To see all CETESB AQS parameters with their codes
+cetesb_param
+
+# To see all MonitorAr-Rio AQS names with their codes
+monitor_ar_aqs
+
+# To see all MonitorAr-Rio parameters with their codes
+monitor_ar_param
+
+```
+
+## Using `qualR` to download CETESB data
 
 ### Downloading one parameter from one AQS
 
@@ -281,6 +292,46 @@ pin_o3 <- CetesbRetrieve(Sys.getenv("QUALAR_USER"), # calling your user
 ```
 
 This idea came from this [awesome post](https://towardsdatascience.com/ten-time-saving-r-hacks-b411add26b96).
+
+
+## Using `qualR` to download MonitorAr - Rio data
+
+### Downloading one parameter from one AQS
+
+Here we will download Ozone information from Iraja AQS for February 2019.
+
+```R
+library(qualR)
+monitor_ar_aqs # To check Iraja AQS code
+monitor_ar_param # To check Ozone code
+
+start_date <- "01/02/2019"
+end_date <- "01/03/2019"
+aqs_code <- "IR"
+param <- "O3"
+
+ir_o3 <- MonitorArRetrieve(date_start, date_end, aqs_code, param)
+
+```
+
+### Downloading multiple parameters from one AQS
+
+Now, we wil download Ozone, Nitric oxide, Nitrogen dioxide, wind speed and direction.
+
+```R
+library(qualR)
+monitor_ar_aqs # To check Iraja AQS code
+monitor_ar_param # To check parameter codes
+
+date_start <- "01/02/2019"
+date_end <- "01/03/2019"
+aqs_code <- "IR"
+params <- c("O3", "NO", "NO2", "Dir_Vento", "Vel_Vento")
+
+
+ir_data <- MonitorArRetrieve(date_start, date_end, aqs_code, params)
+```
+
 
 ## Caveat emptor
 
