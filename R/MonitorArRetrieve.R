@@ -69,6 +69,7 @@ MonitorArRetrieve <- function(start_date, end_date, aqs_code, param, to_local=TR
 
   # Create an empry data frame is there is no input
   if (length(raw_data$feature) == 0){
+    print("Data unavailable")
     data_aqs <- data.frame(Data = NA)
     for (p in param){
       data_aqs[[p]] <- NA
