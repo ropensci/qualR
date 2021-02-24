@@ -41,8 +41,6 @@ MonitorArRetrieve <- function(start_date, end_date, aqs_code, param, to_local=TR
     return(where)
   }
 
-  where <- where_query(start_date_format, end_date_format, aqs_code)
-
   # Creating outFiled
   if (length(param) == 1){
     outfields <- paste("Data", param, sep = ",")
@@ -65,9 +63,20 @@ MonitorArRetrieve <- function(start_date, end_date, aqs_code, param, to_local=TR
   } else {
     print("Something goes wrong")
   }
-  # print(res$status)
+
+  # Reading json
   raw_data <- jsonlite::fromJSON(rawToChar(res$content))
-  data_aqs <- raw_data$features[[1]]
+
+  # Create an empry data frame is there is no input
+  if (length(raw_data$feature) == 0){
+    data_aqs <- data.frame(Data = NA)
+    for (p in param){
+      data_aqs[[p]] <- NA
+    }
+  } else {
+    data_aqs <- raw_data$features[[1]]
+  }
+
 
   # Changing epoch to human redable date
   data_aqs$Data <- as.POSIXct(data_aqs$Data/1000,  origin = "1970-01-01", tz = "UTC")
