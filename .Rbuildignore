@@ -3,3 +3,6 @@
 ^LICENSE\.md$
 ^data-raw$
 ^README\.Rmd$
+^paper.bib
+^paper.md
+^summary_plot_pinheiros.png
