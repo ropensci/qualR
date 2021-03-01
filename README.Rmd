@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 # qualR
 
 <!-- badges: start -->
+[![Travis build status](https://travis-ci.com/quishqa/qualR.svg?branch=master)](https://travis-ci.com/quishqa/qualR)
 <!-- badges: end -->
 
 The goal of qualR is facilitate the download of air pollutants and meteorological information from 

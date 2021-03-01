@@ -1,3 +1,5 @@
+[![Travis build status](https://travis-ci.com/quishqa/qualR.svg?branch=master)](https://travis-ci.com/quishqa/qualR)
+
 # qualR
 
 The goal of qualR is to facilitate the download of air pollutants and meteorological
