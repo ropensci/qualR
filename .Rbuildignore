@@ -7,3 +7,4 @@
 ^paper.md
 ^summary_plot_pinheiros.png
 ^\.travis\.yml$
+^appveyor\.yml$
