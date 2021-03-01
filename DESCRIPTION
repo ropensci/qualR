@@ -11,7 +11,12 @@ Authors@R: c(
            family = "Andrade",
            role = c("ctb", "ths"),
            email = "maria.andrade@iag.usp.br",
-           comment = c(ORCID = "0000-0001-5351-8311")))
+           comment = c(ORCID = "0000-0001-5351-8311")),
+    person(given = "Daniel",
+           family = "Schuch",
+           role = c("aut","ctb"),
+           email = "d.schuch@northeastern.edu",
+           comment = c(ORCID = "0000-0001-5977-4519")))
 Description: A web scrapper to download information from CETESB Qualar
     system. It contains function to download a single parameter, a set of
     criteria pollutants and the most frequent meteorological parameters used in
