@@ -4,5 +4,5 @@ test_that("MonitorArRetrieve works", {
                              aqs_code   = "CA",
                              param      = "O3")
 
-  expect_equal(673,nrow(ca_o3))
+  expect_equal(ncol(ca_o3),3)
 })
