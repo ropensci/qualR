@@ -45,7 +45,7 @@ MonitorArRetrieve <- function(start_date, end_date, aqs_code, param, to_local=TR
   if (length(param) == 1){
     outfields <- paste("Data", param, sep = ",")
   } else {
-    outfields <- paste("Data", paste(param, collapse = ","), sep = ",")
+    outfields <- paste("Data", paste(param, collapse = ","), sep = ",")  # nocov
   }
 
   url <- "https://services1.arcgis.com/OlP4dGNtIcnD3RYf/arcgis/rest/services/Qualidade_do_ar_dados_horarios_2011_2018/FeatureServer/2/query?"
@@ -61,7 +61,7 @@ MonitorArRetrieve <- function(start_date, end_date, aqs_code, param, to_local=TR
     print("Succesful request")
     print(paste("Downloading ", paste(param, collapse = " ")))
   } else {
-    print("Something goes wrong")
+    print("Something goes wrong")                                        # nocov
   }
 
   # Reading json
@@ -75,7 +75,7 @@ MonitorArRetrieve <- function(start_date, end_date, aqs_code, param, to_local=TR
       data_aqs[[p]] <- NA
     }
   } else {
-    data_aqs <- raw_data$features[[1]]
+    data_aqs <- raw_data$features[[1]]                                  # nocov
   }
 
 
@@ -109,13 +109,13 @@ MonitorArRetrieve <- function(start_date, end_date, aqs_code, param, to_local=TR
   # Changing Data column name to date
   colnames(data_aqs)[1] <- "date"
   if (to_csv){
-    file_name <- paste0(aqs_code, "_",
+    file_name <- paste0(aqs_code, "_",                               # nocov start
                         paste(param, collapse = "-"), "_",
                         gsub("/", "-", start_date), "_",
                         gsub("/", "-", end_date), ".csv")
     utils::write.table(data_aqs, file_name, sep = ",", row.names = F)
     file_path <- paste(getwd(), file_name, sep = "/")
-    print(paste(file_path, "was created"))
+    print(paste(file_path, "was created"))                           # nocov end
   }
 
   return(data_aqs)

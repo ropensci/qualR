@@ -8,3 +8,4 @@
 ^summary_plot_pinheiros.png
 ^\.travis\.yml$
 ^appveyor\.yml$
+^codecov\.yml$
