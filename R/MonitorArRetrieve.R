@@ -69,10 +69,10 @@ MonitorArRetrieve <- function(start_date, end_date, aqs_code, param, to_local=TR
 
   # Create an empry data frame is there is no input
   if (length(raw_data$feature) == 0){
-    print("Data unavailable")
+    print("Data unavailable")                                           # nocov start
     data_aqs <- data.frame(Data = NA)
     for (p in param){
-      data_aqs[[p]] <- NA
+      data_aqs[[p]] <- NA                                               # nocov end
     }
   } else {
     data_aqs <- raw_data$features[[1]]                                  # nocov
@@ -93,8 +93,8 @@ MonitorArRetrieve <- function(start_date, end_date, aqs_code, param, to_local=TR
   )
 
   if (nrow(all_dates) != nrow(data_aqs)){
-    print("Padding out missing dates with NA")
-    data_aqs <- merge(all_dates, data_aqs, all = TRUE)
+    print("Padding out missing dates with NA")                         # nocov
+    data_aqs <- merge(all_dates, data_aqs, all = TRUE)                 # nocov
   }
 
   # Adding aqs code to dataframe
