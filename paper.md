@@ -1,5 +1,5 @@
 ---
-title: 'qualR: An R package to download Sao Paulo air pollution data'
+title: 'qualR: An R package to download Sao Paulo and Rio de Janeiro air pollution data'
 tags:
   - R
   - air pollution
@@ -9,12 +9,18 @@ authors:
   - name: Mario Gavidia-Calderón
     orcid: 0000-0002-7371-1116
     affiliation: '1'
+  - name: Daniel Schuch
+    orchid: 0000-0001-5977-4519
+    affiliation: '2'
   - name: Maria de Fatima Andrade
     orcid: 0000-0001-5351-8311
     affiliation: '1'
 affiliations:
  - name: Institute of Astronomy, Geophysics, and Atmospheric Sciences, University of Sao Paulo, Brazil
    index: 1
+ - name: Department of Civil and Environmental Engineering, Northeastern University, USA
+   index: 2
+
 date: 20 July 2020
 bibliography: paper.bib
 ---
