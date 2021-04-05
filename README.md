@@ -1,6 +1,5 @@
-[![Travis build status](https://travis-ci.com/quishqa/qualR.svg?branch=master)](https://travis-ci.com/quishqa/qualR) [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/quishqa/qualR?branch=master&svg=true)](https://ci.appveyor.com/project/quishqa/qualR) [![Coverage Status](https://img.shields.io/codecov/c/github/quishqa/qualR/master.svg)](https://codecov.io/github/quishqa/qualR?branch=master)
-
 # qualR
+[![Travis build status](https://travis-ci.com/quishqa/qualR.svg?branch=master)](https://travis-ci.com/quishqa/qualR) [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/quishqa/qualR?branch=master&svg=true)](https://ci.appveyor.com/project/quishqa/qualR) [![Coverage Status](https://img.shields.io/codecov/c/github/quishqa/qualR/master.svg)](https://codecov.io/github/quishqa/qualR?branch=master)
 
 The goal of qualR is to facilitate the download of air pollutants and meteorological
 information from [CETESB QUALAR system](https://qualar.cetesb.sp.gov.br/qualar/home.do) for Sao Paulo, and [MonitorAr](https://www.data.rio/datasets/dados-hor%C3%A1rios-do-monitoramento-da-qualidade-do-ar-monitorar), for Rio de Janeiro.
@@ -344,6 +343,8 @@ information, an assume it's on **UTC** (when in reality it's on **"America/Sao_P
 This avoids problems with merging data frames and also with Daylight saving time (DST) issues.
  Beware of this,when dealing with study periods that include **DST**.
  It always a good idea, to double check by retrieving the suspicious date from CETESB QUALAR system.
+* Take into account that in CETESB data, the hourly averaged is the mean **until the  hour**.
+That is, a concentration value for **22:00 is the mean from 21:01 to 22:00**. 
 
 
 
