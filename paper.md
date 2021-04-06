@@ -28,17 +28,15 @@ bibliography: paper.bib
 # Summary
 Air quality monitoring networks provide air pollutant concentration for a given
 time and space.
-We can use this data to monitor the atmosphere for public health reasons.
-It can also be used to validate emission control policies and the performance
-of air quality models [@Seinfeld2016].
+We can use this data to monitor the atmosphere for public health reasons, for emission control policies  evaluation, and for air quality models verification [@Seinfeld2016].
 
 The Sao Paulo State Environmental Agency (CETESB) manages the
 Air Quality Station network of the State of Sao Paulo.
 It is one of the best air quality monitoring systems in the region, with more than
 49 automatic air quality stations (AQS) [@Riojas-Rodriguez2016].
-This network covers the Metropolitan Area of Sao Paulo (MASP), the biggest megacity in
+This network covers the Metropolitan Area of Sao Paulo (MASP), the largest city in
 South America.
-Researchers use its data in field and modeling studies, to analyse air
+Researchers use its data in field and modeling studies to analyse air
 pollution in the MASP [@Andrade2017].
 R is a suitable data analysis tool for these studies,
 and its adoption in the air quality modeling community is
@@ -48,15 +46,15 @@ The pollutant and meteorological data are publicly available via the
 [CETESB QUALAR System](https://cetesb.sp.gov.br/ar/qualar/).
 QUALAR allows researchers to download data from the air quality stations in `.csv`
 files, one variable per AQS at a time.
-This data needs preprocessing before being suitable for analysis.
-For example, instrument malfunctions can produce missing dates; time format might
-need adjustments, or the decimal separator need to be changed.
+This data needs preprocessing before analysis.
+For example, instrument malfunctions produce missing dates, time format might
+need adjustments, or the decimal separator needs to be changed.
 
 Around 80% of time in data analysis is devoted to data preparation [@Dasu2003].
 `qualR` streamlines this process producing high-quality data ready for
 analysis.
 It is built in R [@RCoreTeam2020] and uses functions from the XML[@XML] and
-Rcurl [@RCurl] packages.
+Rcurl [@httr] packages.
 `qualR` positively impacts research by allowing easy and fast data
 manipulation for Sao Paulo air pollution data.
 
@@ -69,7 +67,7 @@ multiple stations simultaneously.
 It also handles missing data by assigning `NA` values, ensuring a complete
 dataset.
 All `qualR` functions return data frames with a `date` column in POSIXct type.
-This ensures compatibility with robust temporal analysis packages like
+This ensures compatibility with robust air pollution analysis packages like
 `openair` [@Carslaw2012].
 
 # Functions and data
