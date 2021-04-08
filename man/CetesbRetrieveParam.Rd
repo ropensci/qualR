@@ -11,7 +11,7 @@ CetesbRetrieveParam(username, password, params, aqs_code, start_date, end_date)
 
 \item{password}{User name's password of CETESB QUALAR}
 
-\item{params}{Vector with the parameters abbreviations to download}
+\item{params}{a character vector with the parameters abbreviations to download}
 
 \item{aqs_code}{Code of AQS}
 
