@@ -1,4 +1,4 @@
-#' Download criteria pollutants from CETESB QUALAR
+#' Download meteorological parameters from CETESB QUALAR
 #'
 #' This function download the main meteorological parameters for
 #' model evaluation from one air quality station (AQS) of CETESB AQS network.
