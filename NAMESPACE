@@ -3,5 +3,6 @@
 export(CetesbRetrieve)
 export(CetesbRetrieveMet)
 export(CetesbRetrieveMetPol)
+export(CetesbRetrieveParam)
 export(CetesbRetrievePol)
 export(MonitorArRetrieve)
