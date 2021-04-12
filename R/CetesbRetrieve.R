@@ -35,6 +35,13 @@ CetesbRetrieve <- function(username, password,
   aqs <- cetesb
   aqs_name <- aqs$name[aqs$code == aqs_code]
   pols <- params
+
+  if (is.numeric(pol_code)){
+    pol_code <- pol_code
+  } else if (is.character(pol_code)){
+    pol_code <- params_code$code[params_code$name == toupper(pol_code)]
+  }
+
   pol_name <- pols$name[pols$code == pol_code]
 
   # Logging to CETESB QUALAR

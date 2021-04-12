@@ -2,7 +2,7 @@
 % Please edit documentation in R/CetesbRetrieveMet.R
 \name{CetesbRetrieveMet}
 \alias{CetesbRetrieveMet}
-\title{Download criteria pollutants from CETESB QUALAR}
+\title{Download meteorological parameters from CETESB QUALAR}
 \usage{
 CetesbRetrieveMet(
   username,
