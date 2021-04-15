@@ -6,11 +6,12 @@
 #'
 #' @param username User name of CETESB QUALAR
 #' @param password User name's password of CETESB QUALAR
-#' @param params a character vector with the parameters abbreviations to download
+#' @param parameters a character vector with the parameters abbreviations to download
 #' @param aqs_code Code of AQS
 #' @param start_date Date to start downloading in dd/mm/yyyy
 #' @param end_date Date to end downloading in dd/mm/yyyy
 #' @param verbose Print query summary
+#' @param to_csv  Creates a csv file. FALSE by default
 #'
 #' @return data.frame with parameters described in `params` vector
 #' @export
@@ -31,9 +32,9 @@
 #'                                  params, pin_code,
 #'                                  start_date, end_date)
 #' }
-CetesbRetrieveParam <- function(username, password, params,
+CetesbRetrieveParam <- function(username, password, parameters,
                                 aqs_code, start_date, end_date,
-                                verbose = TRUE){
+                                verbose = TRUE, to_csv = FALSE){
   aqs <- cetesb
 
   # Check if aqs_code is valid
@@ -48,7 +49,7 @@ CetesbRetrieveParam <- function(username, password, params,
          call. = FALSE)
   }
 
-  param <- toupper(params)
+  param <- toupper(parameters)
   codes_df <- params_code[params_code$name %in% param, ]
 
   # Adding query summary
@@ -73,5 +74,17 @@ CetesbRetrieveParam <- function(username, password, params,
   }
 
   aqs_data_df <- Reduce(merge, aqs_data)
+
+  if (to_csv){
+    file_name <- paste0(aqs_name, "_",
+                        paste0(param, collapse = "_"), "_",
+                        gsub("/", "-", start_date), "_",
+                        gsub("/", "-", end_date), ".csv")
+    utils::write.table(aqs_data_df, file_name, sep = ",", row.names = F )
+
+    file_path <- paste(getwd(), file_name, sep = "/")
+    print(paste(file_path, "was created"))
+  }
+
   return(aqs_data_df)
 }

@@ -4,20 +4,33 @@
 \alias{CetesbRetrieveParam}
 \title{Download list of observation from CETESB QUALAR}
 \usage{
-CetesbRetrieveParam(username, password, params, aqs_code, start_date, end_date)
+CetesbRetrieveParam(
+  username,
+  password,
+  parameters,
+  aqs_code,
+  start_date,
+  end_date,
+  verbose = TRUE,
+  to_csv = FALSE
+)
 }
 \arguments{
 \item{username}{User name of CETESB QUALAR}
 
 \item{password}{User name's password of CETESB QUALAR}
 
-\item{params}{a character vector with the parameters abbreviations to download}
+\item{parameters}{a character vector with the parameters abbreviations to download}
 
 \item{aqs_code}{Code of AQS}
 
 \item{start_date}{Date to start downloading in dd/mm/yyyy}
 
 \item{end_date}{Date to end downloading in dd/mm/yyyy}
+
+\item{verbose}{Print query summary}
+
+\item{to_csv}{Creates a csv file. FALSE by default}
 }
 \value{
 data.frame with parameters described in \code{params} vector
