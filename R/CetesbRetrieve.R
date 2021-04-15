@@ -30,7 +30,8 @@
 #' }
 CetesbRetrieve <- function(username, password,
                            pol_code, aqs_code,
-                           start_date, end_date, to_csv = FALSE){
+                           start_date, end_date,
+                           verbose = TRUE, to_csv = FALSE){
 
   aqs <- cetesb
   pols <- params
@@ -45,6 +46,9 @@ CetesbRetrieve <- function(username, password,
          call. = FALSE)
   }
 
+  # Getting full pollutant name
+  pol_name <- pols$name[pols$code == pol_code]
+
   # Check if pol_code is valid
   if (is.numeric(aqs_code) & aqs_code %in% aqs$code){
     aqs_code <- aqs_code
@@ -57,7 +61,14 @@ CetesbRetrieve <- function(username, password,
          call. = FALSE)
   }
 
-  pol_name <- pols$name[pols$code == pol_code]
+  # Adding query summary
+  if (verbose){
+    cat("Your query is:\n")
+    cat("Parameter:", pol_name, "\n")
+    cat("Air quality staion:", aqs_name, "\n")
+    cat("Period: From", start_date, "to", end_date, "\n")
+  }
+
 
   # Logging to CETESB QUALAR
   log_params <- list(
