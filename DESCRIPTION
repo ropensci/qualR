@@ -17,7 +17,7 @@ Authors@R: c(
            role = c("aut","ctb"),
            email = "d.schuch@northeastern.edu",
            comment = c(ORCID = "0000-0001-5977-4519")))
-Description: A web scrapper to download information from CETESB Qualar
+Description: A package to download information from CETESB QUALAR and
     MonitorAr systems. It contains function to download a single parameter, a set of
     criteria pollutants and the most frequent meteorological parameters used in
     air quality data analysis and air quality model evaluation.

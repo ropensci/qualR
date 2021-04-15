@@ -9,6 +9,7 @@
 #' @param aqs_code Code of AQS
 #' @param start_date Date to start downloading in dd/mm/yyyy
 #' @param end_date Date to end downloading in dd/mm/yyyy
+#' @param verbose Print query summary
 #' @param to_csv  Creates a csv file. FALSE by default
 #'
 #' @return data.frame with the selected parameter information
