@@ -10,11 +10,11 @@
 
 #' CETESB Parameters
 #'
-#' List of CETESB QUALAR available parameters. Use this to check the
+#' List of CETESB QUALAR available parameters and units. Use this to check the
 #' pol_code parameter.
 #' Parameter names are without diacritics.
 #'
-#' @format A data frame with 2 variables: \code{name} and \code{code}
+#' @format A data frame with 3 variables: \code{name}, \code{units}, and \code{code}
 #'   of parameter.
 "cetesb_param"
 
