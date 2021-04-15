@@ -33,13 +33,28 @@ CetesbRetrieve <- function(username, password,
                            start_date, end_date, to_csv = FALSE){
 
   aqs <- cetesb
-  aqs_name <- aqs$name[aqs$code == aqs_code]
   pols <- params
 
-  if (is.numeric(pol_code)){
+  # Check if pol_code is valid
+  if (is.numeric(pol_code) & pol_code %in% pols$code){
     pol_code <- pol_code
-  } else if (is.character(pol_code)){
+  } else if (is.character(pol_code) & toupper(pol_code) %in% (params_code$name)){
     pol_code <- params_code$code[params_code$name == toupper(pol_code)]
+  } else {
+    stop("Wrong pol_code value, please check cetesb_param",
+         call. = FALSE)
+  }
+
+  # Check if pol_code is valid
+  if (is.numeric(aqs_code) & aqs_code %in% aqs$code){
+    aqs_code <- aqs_code
+    aqs_name <- aqs$name[aqs$code == aqs_code]
+  } else if (is.character(aqs_code) & aqs_code %in% (aqs$name)){
+    aqs_name <- aqs_code
+    aqs_code <- aqs$code[aqs$name == aqs_code]
+  } else {
+    stop("Wrong aqs_code value, please check cetesb_latlon or cetesb_aqs",
+         call. = FALSE)
   }
 
   pol_name <- pols$name[pols$code == pol_code]
