@@ -34,6 +34,7 @@ CetesbRetrieve <- function(username, password,
                            start_date, end_date,
                            verbose = TRUE, to_csv = FALSE){
 
+  # Renaming dataframes
   aqs <- cetesb
   pols <- params
 
@@ -50,7 +51,7 @@ CetesbRetrieve <- function(username, password,
   # Getting full pollutant name
   pol_name <- pols$name[pols$code == pol_code]
 
-  # Check if pol_code is valid
+  # Check if aqs_code is valid
   if (is.numeric(aqs_code) & aqs_code %in% aqs$code){
     aqs_code <- aqs_code
     aqs_name <- aqs$name[aqs$code == aqs_code]
