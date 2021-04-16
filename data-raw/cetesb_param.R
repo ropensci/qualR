@@ -8,7 +8,7 @@ cetesb_param$name <- iconv(cetesb_param$name, from = "UTF-8", to = "ASCII//TRANS
 cetesb_param$units <- c("ug/m3", "ppm", "º", "º", "ppb",
                         "-", "ug/m3", "ug/m3", "ug/m3", "ug/m3",
                         "ppb", "ug/m3", "hPa", "W/m2", "W/m2",
-                        "ug/m3", "ºC", "ug/m3", "%", "/ms")
+                        "ug/m3", "ºC", "ug/m3", "%", "m/s")
 cetesb_param <- cetesb_param[c("name", "units", "code")]
 
 usethis::use_data(cetesb_param, overwrite = TRUE)

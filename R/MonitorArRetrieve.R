@@ -8,6 +8,7 @@
 #' @param aqs_code AQS code
 #' @param param Paremeter to download. It can be a vector with many parameters.
 #' @param to_local Date information in local time. TRUE by default.
+#' @param verbose Print query summary.
 #' @param to_csv Creates a csv file. FALSE by default
 #'
 #' @return data.frame with the selected parameter information
@@ -24,7 +25,29 @@
 #' ca_o3 <- MonitorArRetrieve(date_start, date_end, aqs_code, param)
 #'
 #' }
-MonitorArRetrieve <- function(start_date, end_date, aqs_code, param, to_local=TRUE, to_csv=FALSE){
+MonitorArRetrieve <- function(start_date, end_date, aqs_code, param,
+                              to_local=TRUE, verbose = TRUE, to_csv=FALSE){
+
+  # Check if params are measured
+  if (!prod(param %in% param_monitor_ar$code)){
+    stop("One or all wrong param codes are wrong, please check monitor_ar_param",
+         call. = FALSE)
+  }
+
+  if (!(aqs_code %in% aqs_monitor_ar$code )){
+    stop("Wrong aqs_code, please check monitor_ar_aqs",
+         call. = FALSE)
+  }
+
+  aqs_name <- aqs_monitor_ar$name[aqs_monitor_ar$code == aqs_code]
+
+    # Adding query summary
+  if (verbose){
+    cat("Your query is:\n")
+    cat("Parameter:", paste(param, collapse = ", "), "\n")
+    cat("Air quality staion:", aqs_name, "\n")
+    cat("Period: From", start_date, "to", end_date, "\n")
+  }
 
   start_date_format <- as.POSIXct(strptime(start_date, format="%d/%m/%Y"), tz = "UTC")
   end_date_format <-  as.POSIXct(strptime(end_date, format="%d/%m/%Y"), tz = "UTC")
@@ -61,7 +84,7 @@ MonitorArRetrieve <- function(start_date, end_date, aqs_code, param, to_local=TR
     print("Succesful request")
     print(paste("Downloading ", paste(param, collapse = " ")))
   } else {
-    print("Something goes wrong")                                        # nocov
+    stop("Unsuccesful request. Something goes wrong", call. = FALSE)                                        # nocov
   }
 
   # Reading json

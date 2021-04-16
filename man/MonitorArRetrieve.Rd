@@ -10,6 +10,7 @@ MonitorArRetrieve(
   aqs_code,
   param,
   to_local = TRUE,
+  verbose = TRUE,
   to_csv = FALSE
 )
 }
@@ -23,6 +24,8 @@ MonitorArRetrieve(
 \item{param}{Paremeter to download. It can be a vector with many parameters.}
 
 \item{to_local}{Date information in local time. TRUE by default.}
+
+\item{verbose}{Print query summary.}
 
 \item{to_csv}{Creates a csv file. FALSE by default}
 }
