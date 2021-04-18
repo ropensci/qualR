@@ -75,6 +75,14 @@ CetesbRetrieveParam <- function(username, password, parameters,
 
   aqs_data_df <- Reduce(merge, aqs_data)
 
+  # Changing wind speed and direction columns to ws and wd
+  if ("dv" %in% names(aqs_data_df)){
+    names(aqs_data_df)[names(aqs_data_df) == "dv"] <- "wd"
+  }
+  if ("vv" %in% names(aqs_data_df)){
+    names(aqs_data_df)[names(aqs_data_df) == "vv"] <- "ws"
+  }
+
   if (to_csv){
     file_name <- paste0(aqs_name, "_",
                         paste0(param, collapse = "_"), "_",
