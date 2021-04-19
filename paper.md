@@ -16,7 +16,7 @@ authors:
     orcid: 0000-0001-5351-8311
     affiliation: '1'
 affiliations:
- - name: Institute of Astronomy, Geophysics, and Atmospheric Sciences, University of Sao Paulo, Brazil
+ - name: Departamento de Ciências Atmosféricas, Instituto de Astronomia, Geofísica e Ciências Atmosféricas, Universidade de São Paulo, Brazil
    index: 1
  - name: Department of Civil and Environmental Engineering, Northeastern University, USA
    index: 2
@@ -45,7 +45,7 @@ steadily increasing [@Gavidia-Calderon2018; @Ibarra-Espinosa2018 ].
 The pollutant and meteorological data are publicly available via the
 [CETESB QUALAR System](https://cetesb.sp.gov.br/ar/qualar/).
 QUALAR allows researchers to download data from the air quality stations in `.csv`
-files, one variable per AQS at a time.
+files, one variable per AQS at a time in a simple query, or three parameters per AQS in advance query.
 This data needs preprocessing before analysis.
 For example, instrument malfunctions produce missing dates, time format might
 need adjustments, or the decimal separator needs to be changed.
@@ -71,23 +71,27 @@ This ensures compatibility with robust air pollution analysis packages like
 `openair` [@Carslaw2012].
 
 # Functions and data
-`qualR` has four functions:
+`qualR` has six functions:
 
 | Function           | Description                                    |
 |--------------------|------------------------------------------------|
-| CetesbRetrieve     | Download one parameter from one AQS            |
-| CetesbRetrievePol  | Download criteria pollutants from one AQS      |
-| CetesbRetrieveMet  | Download meteorological parameters from one AQS|
-| CetesbRetrieveMetPol  | Download criteria pollutants and meteorological parameters from one AQS|            
+| CetesbRetrieve     | Download one parameter from one CETESB AQS            |
+| CetesbRetrieveParam | Download a list of parameters from one CETESB  AQS            |
+| CetesbRetrievePol  | Download criteria pollutants from one CETESB AQS      |
+| CetesbRetrieveMet  | Download meteorological parameters from one CETESB AQS|
+| CetesbRetrieveMetPol  | Download criteria pollutants and meteorological parameters from one CETESB AQS|            
+| MonitorArRetrieve  | Download a list of parameters from one Monitor Ar AQS |            
 
-`qualR` depends on datasets to check for AQS and parameter codes.The functions above depend on them.  
-It also contains a dataset with AQS coordinates for mapping purposes.
+`qualR` above functions depends on datasets to check for AQS and parameter codes and names.
+These datasets are the folowing:
 
 | Dataset       | Description                              |
 |---------------|------------------------------------------|
-| cetesb_aqs    | AQS name and AQS QUALAR code             |
-| cetesb_param  | Parameter name and parameter QUALAR code |
+| cetesb_aqs    | QUAlAR AQS name and code             |
+| cetesb_param  | QUALAR parameter name code |
 | cetesb_latlon | AQS name, code, latitude and longitude   |
+| monitor_ar_aqs | Monitor Ar Program AQS name, code, latitude and longitude |
+| monitor_ar_param | Monitor Ar Program parameters names and codes |
 
 # Example of use
 In this example, we download ozone concentration from the Pinheiros AQS for January
