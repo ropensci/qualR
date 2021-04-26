@@ -41,13 +41,13 @@ CetesbRetrieveParam <- function(username, password, parameters,
   if (is.numeric(aqs_code) & aqs_code %in% aqs$code){
     aqs_code <- aqs_code
     aqs_name <- aqs$name[aqs$code == aqs_code]
-  } else if (is.character(aqs_code) & aqs_code %in% (aqs$name)){
+  } else if (is.character(aqs_code) & aqs_code %in% (aqs$name)){    # nocov start
     aqs_name <- aqs_code
     aqs_code <- aqs$code[aqs$name == aqs_code]
   } else {
     stop("Wrong aqs_code value, please check cetesb_latlon or cetesb_aqs",
          call. = FALSE)
-  }
+  }                                                                 # nocov end
 
   param <- toupper(parameters)
   codes_df <- params_code[params_code$name %in% param, ]
@@ -77,13 +77,13 @@ CetesbRetrieveParam <- function(username, password, parameters,
 
   # Changing wind speed and direction columns to ws and wd
   if ("dv" %in% names(aqs_data_df)){
-    names(aqs_data_df)[names(aqs_data_df) == "dv"] <- "wd"
+    names(aqs_data_df)[names(aqs_data_df) == "dv"] <- "wd"  # nocov
   }
   if ("vv" %in% names(aqs_data_df)){
     names(aqs_data_df)[names(aqs_data_df) == "vv"] <- "ws"
   }
 
-  if (to_csv){
+  if (to_csv){                                                   # nocov start
     file_name <- paste0(aqs_name, "_",
                         paste0(param, collapse = "_"), "_",
                         gsub("/", "-", start_date), "_",
@@ -92,7 +92,7 @@ CetesbRetrieveParam <- function(username, password, parameters,
 
     file_path <- paste(getwd(), file_name, sep = "/")
     print(paste(file_path, "was created"))
-  }
+  }                                                              # nocov end
 
   return(aqs_data_df)
 }

@@ -30,13 +30,13 @@ MonitorArRetrieve <- function(start_date, end_date, aqs_code, param,
 
   # Check if params are measured
   if (!prod(param %in% param_monitor_ar$code)){
-    stop("One or all wrong param codes are wrong, please check monitor_ar_param",
-         call. = FALSE)
+    stop("One or all wrong param codes are wrong, please check monitor_ar_param", # nocov
+         call. = FALSE)                                                           # nocov
   }
 
   if (!(aqs_code %in% aqs_monitor_ar$code )){
-    stop("Wrong aqs_code, please check monitor_ar_aqs",
-         call. = FALSE)
+    stop("Wrong aqs_code, please check monitor_ar_aqs",                           # nocov
+         call. = FALSE)                                                           # nocov
   }
 
   aqs_name <- aqs_monitor_ar$name[aqs_monitor_ar$code == aqs_code]
