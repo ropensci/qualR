@@ -132,13 +132,13 @@ MonitorArRetrieve <- function(start_date, end_date, aqs_code, param,
   # Changing Data column name to date
   colnames(data_aqs)[1] <- "date"
   if (to_csv){
-    file_name <- paste0(aqs_code, "_",                               # nocov start
+    file_name <- paste0(aqs_code, "_",
                         paste(param, collapse = "-"), "_",
                         gsub("/", "-", start_date), "_",
                         gsub("/", "-", end_date), ".csv")
     utils::write.table(data_aqs, file_name, sep = ",", row.names = F)
     file_path <- paste(getwd(), file_name, sep = "/")
-    print(paste(file_path, "was created"))                           # nocov end
+    print(paste(file_path, "was created"))
   }
 
   return(data_aqs)

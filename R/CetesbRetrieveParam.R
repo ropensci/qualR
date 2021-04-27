@@ -83,7 +83,7 @@ CetesbRetrieveParam <- function(username, password, parameters,
     names(aqs_data_df)[names(aqs_data_df) == "vv"] <- "ws"
   }
 
-  if (to_csv){                                                   # nocov start
+  if (to_csv){
     file_name <- paste0(aqs_name, "_",
                         paste0(param, collapse = "_"), "_",
                         gsub("/", "-", start_date), "_",
@@ -92,7 +92,7 @@ CetesbRetrieveParam <- function(username, password, parameters,
 
     file_path <- paste(getwd(), file_name, sep = "/")
     print(paste(file_path, "was created"))
-  }                                                              # nocov end
+  }
 
   return(aqs_data_df)
 }
