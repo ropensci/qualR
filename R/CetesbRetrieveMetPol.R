@@ -12,7 +12,7 @@
 #' @param verbose Print query summary
 #' @param to_csv Creates a csv file. FALSE by default
 #'
-#' @return data.frame with ith Temperature (C), Relative Humidity (%), Wind Speed (m/s) and Direction (degrees),
+#' @return data.frame with Temperature (C), Relative Humidity (%), Wind Speed (m/s) and Direction (degrees),
 #' Pressure information (hPa), O3, NO, NO2, NOx, PM2.5, PM10 and CO information.
 #' @export
 #'

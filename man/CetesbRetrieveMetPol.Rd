@@ -30,7 +30,7 @@ CetesbRetrieveMetPol(
 \item{to_csv}{Creates a csv file. FALSE by default}
 }
 \value{
-data.frame with ith Temperature (C), Relative Humidity (\%), Wind Speed (m/s) and Direction (degrees),
+data.frame with Temperature (C), Relative Humidity (\%), Wind Speed (m/s) and Direction (degrees),
 Pressure information (hPa), O3, NO, NO2, NOx, PM2.5, PM10 and CO information.
 }
 \description{
