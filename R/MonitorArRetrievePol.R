@@ -40,7 +40,7 @@ MonitorArRetrievePol <- function(start_date, end_date, aqs_code,
   names(all_pol) <- c("date", tolower(params), "aqs")
   names(all_pol)[8] <- "pm25"
 
-  if (to_local){
+  if (to_csv){
     file_name <- paste0(aqs_code, "_", "POL_",
                         gsub("/", "-", start_date), "_",
                         gsub("/", "-", end_date), ".csv")

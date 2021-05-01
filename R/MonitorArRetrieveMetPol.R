@@ -32,7 +32,7 @@ MonitorArRetrieveMetPol <- function(start_date, end_date, aqs_code,
     stop("Wrong aqs_code, please check monitor_ar_aqs")
   }
 
-  params <- c("Temp", "UR", "Vel_Vento", "Dir_Vento", "Press",
+  params <- c("Temp", "UR", "Vel_Vento", "Dir_Vento", "Pres",
               "O3", "NO", "NO2", "NOx", "CO", "PM10", "PM2_5")
 
   all_data <- MonitorArRetrieve(start_date, end_date, aqs_code,
@@ -43,7 +43,7 @@ MonitorArRetrieveMetPol <- function(start_date, end_date, aqs_code,
   names(all_data)[4:5] <- c("ws", "wd")
   names(all_data)[13] <- "pm25"
 
-  if (to_local){
+  if (to_csv){
     file_name <- paste0(aqs_code, "_", "ALL_",
                         gsub("/", "-", start_date), "_",
                         gsub("/", "-", end_date), ".csv")

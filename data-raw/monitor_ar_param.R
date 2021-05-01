@@ -2,7 +2,7 @@
 
 param_code <- c("SO2", "NO2", "NO", "NOx", "HCNM", "HCT",
                 "CH4", "CO", "O3", "PM10", "PM2_5",
-                "Chuva", "Press", "RS", "Temp", "UR",
+                "Chuva", "Pres", "RS", "Temp", "UR",
                 "Dir_Vento", "Vel_Vento")
 param_name <- c("Dioxido de enxofre", "Dioxido de nitrogenio", "Monoxido de Nitrogenio", "Oxidos de nitrogenio",
                 "Hidrocarbonetos Totais menos Metano", "Hidrocarbonetos Totais", "Metano", "Monoxido de Carbono",
