@@ -33,6 +33,16 @@ MonitorArRetrieveMet <- function(start_date, end_date, aqs_code,
 
   params <- c("Temp", "UR", "Vel_Vento", "Dir_Vento", "Pres")
 
+  # Adding query summary
+  aqs_name <- aqs_monitor_ar$name[aqs_monitor_ar$code == aqs_code]
+
+  if (verbose){
+    cat("Your query is:\n")
+    cat("Parameter:", paste(params, collapse = ", "), "\n")
+    cat("Air quality staion:", aqs_name, "\n")
+    cat("Period: From", start_date, "to", end_date, "\n")
+  }
+
   all_met <- MonitorArRetrieve(start_date, end_date, aqs_code,
                                params, to_local = to_local,
                                verbose = FALSE)

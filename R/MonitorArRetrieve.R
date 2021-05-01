@@ -41,7 +41,7 @@ MonitorArRetrieve <- function(start_date, end_date, aqs_code, param,
 
   aqs_name <- aqs_monitor_ar$name[aqs_monitor_ar$code == aqs_code]
 
-    # Adding query summary
+  # Adding query summary
   if (verbose){
     cat("Your query is:\n")
     cat("Parameter:", paste(param, collapse = ", "), "\n")

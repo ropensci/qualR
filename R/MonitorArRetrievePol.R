@@ -33,6 +33,16 @@ MonitorArRetrievePol <- function(start_date, end_date, aqs_code,
 
   params <- c("O3", "NO", "NO2", "NOx", "CO", "PM10", "PM2_5")
 
+  # Adding query summary
+  aqs_name <- aqs_monitor_ar$name[aqs_monitor_ar$code == aqs_code]
+
+  if (verbose){
+    cat("Your query is:\n")
+    cat("Parameter:", paste(params, collapse = ", "), "\n")
+    cat("Air quality staion:", aqs_name, "\n")
+    cat("Period: From", start_date, "to", end_date, "\n")
+  }
+
   all_pol <- MonitorArRetrieve(start_date, end_date, aqs_code,
                                params, to_local = to_local,
                                verbose = FALSE)
