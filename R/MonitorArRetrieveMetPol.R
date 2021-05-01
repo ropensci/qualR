@@ -40,7 +40,7 @@ MonitorArRetrieveMetPol <- function(start_date, end_date, aqs_code,
                                 verbose = FALSE)
 
   names(all_data) <- c("date", tolower(params), "aqs")
-  names(all_data)[4:5] <- c("ws", "wd")
+  names(all_data)[2:6] <- c("tc", "rh", "ws", "wd", "p")
   names(all_data)[13] <- "pm25"
 
   if (to_csv){
