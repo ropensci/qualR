@@ -81,8 +81,8 @@ MonitorArRetrieve <- function(start_date, end_date, aqs_code, param,
                    ))
   # Checking request
   if (res$status_code == 200){
-    print("Succesful request")
-    print(paste("Downloading ", paste(param, collapse = " ")))
+    cat("Succesful request")
+    cat(paste("Downloading ", paste(param, collapse = " ")))
   } else {
     stop("Unsuccesful request. Something goes wrong", call. = FALSE)                                        # nocov
   }
@@ -92,7 +92,7 @@ MonitorArRetrieve <- function(start_date, end_date, aqs_code, param,
 
   # Create an empry data frame is there is no input
   if (length(raw_data$feature) == 0){
-    print("Data unavailable")                                           # nocov start
+    cat("Data unavailable")                                           # nocov start
     data_aqs <- data.frame(Data = NA)
     for (p in param){
       data_aqs[[p]] <- NA                                               # nocov end
@@ -116,7 +116,7 @@ MonitorArRetrieve <- function(start_date, end_date, aqs_code, param,
   )
 
   if (nrow(all_dates) != nrow(data_aqs)){
-    print("Padding out missing dates with NA")                         # nocov
+    cat("Padding out missing dates with NA")                         # nocov
     data_aqs <- merge(all_dates, data_aqs, all = TRUE)                 # nocov
   }
 
@@ -138,7 +138,7 @@ MonitorArRetrieve <- function(start_date, end_date, aqs_code, param,
                         gsub("/", "-", end_date), ".csv")
     utils::write.table(data_aqs, file_name, sep = ",", row.names = F)
     file_path <- paste(getwd(), file_name, sep = "/")
-    print(paste(file_path, "was created"))
+    cat(paste(file_path, "was created"))
   }
 
   return(data_aqs)

@@ -119,7 +119,7 @@ CetesbRetrieve <- function(username, password,
   if (ncol(dat) != 19){
     dat <- data.frame(date = all.dates$date , pol = NA, aqs = aqs_name,     # nocov
                       stringsAsFactors = F)                                 # nocov
-    print(paste0('No data available for ', pol_name))                       # nocov
+    cat(paste0('No data available for ', pol_name))                       # nocov
   } else if (ncol(dat) == 19) {
     names(dat) <- cet.names
     dat$date <- paste(dat$day, dat$hour, sep = '_')
@@ -130,12 +130,12 @@ CetesbRetrieve <- function(username, password,
     dat <- merge(all.dates, dat, all = T)
 
     if (nrow(dat) != nrow(all.dates)){
-      print(paste0('Dates missmatch ', unique(stats::na.omit(dat$est))))    # nocov
-      print('Duplicated date in ',dat$date[duplicated(dat$date)])           # nocov
+      cat(paste0('Dates missmatch ', unique(stats::na.omit(dat$est))))    # nocov
+      cat('Duplicated date in ',dat$date[duplicated(dat$date)])           # nocov
       dat <- data.frame(date = dat$date , pol = dat$value, aqs = aqs_name,  # nocov
                         stringsAsFactors = F)                               # nocov
     } else {
-      print(paste0('Download OK ', pol_name))
+      cat(paste0('Download OK ', pol_name))
       dat <- data.frame(date = all.dates$date , pol = dat$value , aqs = aqs_name,
                         stringsAsFactors = F)
     }
@@ -150,7 +150,7 @@ CetesbRetrieve <- function(username, password,
     utils::write.table(dat, file_name, sep = ",", row.names = F )
 
     file_path <- paste(getwd(), file_name, sep = "/")
-    print(paste(file_path, "was created"))                            # nocov end
+    cat(paste(file_path, "was created"))                            # nocov end
   }
 
   return(dat)

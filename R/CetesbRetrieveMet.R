@@ -84,7 +84,7 @@ CetesbRetrieveMet <-  function(username, password,
                         p = p$pol,
                         aqs = tc$aqs,
                         stringsAsFactors = F)
-  print(paste(
+  cat(paste(
     "Download complete for", unique(all_met$aqs)
     ))
 
@@ -95,7 +95,7 @@ CetesbRetrieveMet <-  function(username, password,
     utils::write.table(all_met, file_name, sep = ",", row.names = F )
 
     file_path <- paste(getwd(), file_name, sep = "/")
-    print(paste(file_path, "was created"))                              # nocov end
+    cat(paste(file_path, "was created"))                              # nocov end
   }
 
   return(all_met)
