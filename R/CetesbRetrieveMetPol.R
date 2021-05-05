@@ -122,7 +122,7 @@ CetesbRetrieveMetPol <- function(username, password,
                          aqs = o3$aqs,
                          stringsAsFactors = F)
   cat(paste(
-    "Download complete for", unique(all_data$aqs)
+    "Download complete for", unique(all_data$aqs), "\n"
   ))
 
   if (to_csv){
@@ -132,7 +132,7 @@ CetesbRetrieveMetPol <- function(username, password,
     utils::write.table(all_data, file_name, sep = ",", row.names = F)
 
     file_path <- paste(getwd(), file_name, sep = "/")
-    cat(paste(file_path, "was created"))                            # nocov end
+    cat(paste(file_path, "was created", "\n"))                        # nocov end
   }
 
 

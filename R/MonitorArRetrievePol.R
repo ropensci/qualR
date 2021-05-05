@@ -28,7 +28,7 @@ MonitorArRetrievePol <- function(start_date, end_date, aqs_code,
                                  to_csv = FALSE){
   # Check is aqs_code is valid
   if (!(aqs_code %in% aqs_monitor_ar$code)){
-    stop("Wrong aqs_code, please check monitor_ar_aqs")
+    stop("Wrong aqs_code, please check monitor_ar_aqs", call. = FALSE)
   }
 
   params <- c("O3", "NO", "NO2", "NOx", "CO", "PM10", "PM2_5")
@@ -56,7 +56,7 @@ MonitorArRetrievePol <- function(start_date, end_date, aqs_code,
                         gsub("/", "-", end_date), ".csv")
     utils::write.table(all_pol, file_name, sep = ",", row.names = F)
     file_path <- paste(getwd(), file_name, sep = "/")
-    cat(file_path, "was created")
+    cat(file_path, "was created \n")
   }
 
   return(all_pol)

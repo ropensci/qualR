@@ -81,8 +81,8 @@ MonitorArRetrieve <- function(start_date, end_date, aqs_code, param,
                    ))
   # Checking request
   if (res$status_code == 200){
-    cat("Succesful request")
-    cat(paste("Downloading ", paste(param, collapse = " ")))
+    cat("Succesful request \n")
+    cat(paste("Downloading ", paste(param, collapse = " ")), "\n")
   } else {
     stop("Unsuccesful request. Something goes wrong", call. = FALSE)                                        # nocov
   }
@@ -90,9 +90,9 @@ MonitorArRetrieve <- function(start_date, end_date, aqs_code, param,
   # Reading json
   raw_data <- jsonlite::fromJSON(rawToChar(res$content))
 
-  # Create an empry data frame is there is no input
+  # Create an empty data frame is there is no input
   if (length(raw_data$feature) == 0){
-    cat("Data unavailable")                                           # nocov start
+    cat("Data unavailable", "\n")                                           # nocov start
     data_aqs <- data.frame(Data = NA)
     for (p in param){
       data_aqs[[p]] <- NA                                               # nocov end
@@ -102,10 +102,10 @@ MonitorArRetrieve <- function(start_date, end_date, aqs_code, param,
   }
 
 
-  # Changing epoch to human redable date
+  # Changing epoch to human readable date
   data_aqs$Data <- as.POSIXct(data_aqs$Data/1000,  origin = "1970-01-01", tz = "UTC")
 
-  # Check completition
+  # Check completion
   start_date2 <- paste(as.character(as.Date(start_date_format)), "00:30")
   end_date2 <- paste(as.character(as.Date(end_date_format) - 1), "23:30")
 
@@ -116,7 +116,7 @@ MonitorArRetrieve <- function(start_date, end_date, aqs_code, param,
   )
 
   if (nrow(all_dates) != nrow(data_aqs)){
-    cat("Padding out missing dates with NA")                         # nocov
+    cat("Padding out missing dates with NA \n")                         # nocov
     data_aqs <- merge(all_dates, data_aqs, all = TRUE)                 # nocov
   }
 
@@ -138,7 +138,7 @@ MonitorArRetrieve <- function(start_date, end_date, aqs_code, param,
                         gsub("/", "-", end_date), ".csv")
     utils::write.table(data_aqs, file_name, sep = ",", row.names = F)
     file_path <- paste(getwd(), file_name, sep = "/")
-    cat(paste(file_path, "was created"))
+    cat(paste(file_path, "was created \n"))
   }
 
   return(data_aqs)

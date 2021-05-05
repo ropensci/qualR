@@ -28,7 +28,7 @@ MonitorArRetrieveMet <- function(start_date, end_date, aqs_code,
                                  to_csv = FALSE){
   # Check is aqs_code is valid
   if (!(aqs_code %in% aqs_monitor_ar$code)){
-    stop("Wrong aqs_code, please check monitor_ar_aqs")
+    stop("Wrong aqs_code, please check monitor_ar_aqs", call. = FALSE)
   }
 
   params <- c("Temp", "UR", "Vel_Vento", "Dir_Vento", "Pres")
@@ -55,7 +55,7 @@ MonitorArRetrieveMet <- function(start_date, end_date, aqs_code,
                         gsub("/", "-", end_date), ".csv")
     utils::write.table(all_met, file_name, sep = ",", row.names = F)
     file_path <- paste(getwd(), file_name, sep = "/")
-    cat(file_path, "was created")
+    cat(file_path, "was created \n")
   }
 
   return(all_met)

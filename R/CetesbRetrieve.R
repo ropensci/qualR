@@ -130,12 +130,12 @@ CetesbRetrieve <- function(username, password,
     dat <- merge(all.dates, dat, all = T)
 
     if (nrow(dat) != nrow(all.dates)){
-      cat(paste0('Dates missmatch ', unique(stats::na.omit(dat$est))))    # nocov
-      cat('Duplicated date in ',dat$date[duplicated(dat$date)])           # nocov
+      cat(paste0('Dates missmatch ', unique(stats::na.omit(dat$est))), "\n")    # nocov
+      cat('Duplicated date in ',dat$date[duplicated(dat$date)], "\n")           # nocov
       dat <- data.frame(date = dat$date , pol = dat$value, aqs = aqs_name,  # nocov
                         stringsAsFactors = F)                               # nocov
     } else {
-      cat(paste0('Download OK ', pol_name))
+      cat(paste0('Download OK ', pol_name), "\n")
       dat <- data.frame(date = all.dates$date , pol = dat$value , aqs = aqs_name,
                         stringsAsFactors = F)
     }
@@ -150,7 +150,7 @@ CetesbRetrieve <- function(username, password,
     utils::write.table(dat, file_name, sep = ",", row.names = F )
 
     file_path <- paste(getwd(), file_name, sep = "/")
-    cat(paste(file_path, "was created"))                            # nocov end
+    cat(paste(file_path, "was created \n"))                            # nocov end
   }
 
   return(dat)

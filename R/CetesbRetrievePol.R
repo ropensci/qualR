@@ -93,8 +93,8 @@ CetesbRetrievePol <- function(username, password,
                         pm25 = pm25$pol,
                         aqs = o3$aqs,
                         stringsAsFactors = F)
-  print(paste(
-    "Download complete for", unique(all_pol$aqs)
+  cat(paste(
+    "Download complete for", unique(all_pol$aqs), "\n"
   ))
 
   if (to_csv){
@@ -104,7 +104,7 @@ CetesbRetrievePol <- function(username, password,
     utils::write.table(all_pol, file_name, sep = ",", row.names = F )
 
     file_path <- paste(getwd(), file_name, sep = "/")
-    print(paste(file_path, "was created"))                            # nocov end
+    cat(paste(file_path, "was created"), "\n")                            # nocov end
   }
 
   return(all_pol)

@@ -91,7 +91,7 @@ CetesbRetrieveParam <- function(username, password, parameters,
     utils::write.table(aqs_data_df, file_name, sep = ",", row.names = F )
 
     file_path <- paste(getwd(), file_name, sep = "/")
-    cat(paste(file_path, "was created"))
+    cat(paste(file_path, "was created \n"))
   }
 
   return(aqs_data_df)
