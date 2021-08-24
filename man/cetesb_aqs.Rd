@@ -3,17 +3,16 @@
 \docType{data}
 \name{cetesb_aqs}
 \alias{cetesb_aqs}
-\title{CETESB AQS stations.}
+\title{CETESB AQS station latitude and longitude}
 \format{
-A data frame with two variables: \code{name} and \code{code}
-of AQS.
+A data frame with 4 variables: \code{name} , \code{code}, \code{lat}, and
+\code{latitude} of AQS.
 }
 \usage{
 cetesb_aqs
 }
 \description{
-List of CETESB air quality stations (AQS) with their codes in
-CETESB QUALAR system. Use this to check the aqs_code parameter.
-AQS names are without diacritics.
+List of CETESB QUALAR AQS latitudes and longitudes. Use this to check the
+AQS location, if you need to make some maps. AQS names contains diacritics.
 }
 \keyword{datasets}

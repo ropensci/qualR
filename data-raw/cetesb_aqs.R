@@ -1,9 +1,8 @@
-## code to prepare `cetesb_aqs` dataset goes here
+## code to prepare `DATASET` dataset goes here
 
-cetesb_aqs <- read.table("~/R_tests/QualR/qualR/cetesb_qualR.dat", header = FALSE,
-                         sep = ',', col.names = c("code", "name"),
-                         stringsAsFactors = FALSE)
-cetesb_aqs <- cetesb_aqs[, c(2, 1)]
-cetesb_aqs$name <- iconv(cetesb_aqs$name, from = "UTF-8", to = "ASCII//TRANSLIT")
-
+cetesb_aqs <- read.table("~/R_tests/cetesb2017_latlon.dat",
+                            sep = ",", header = TRUE, dec = ".",
+                            stringsAsFactors = F)
+Encoding(cetesb_aqs$name) <- "UTF-8"
+save(cetesb_aqs, file = "data/cetesb_aqs.rda")
 usethis::use_data(cetesb_aqs, overwrite = TRUE)
