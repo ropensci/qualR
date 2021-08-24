@@ -25,7 +25,7 @@
 #' ca_o3 <- MonitorArRetrieve(date_start, date_end, aqs_code, param)
 #'
 #' }
-MonitorArRetrieve <- function(start_date, end_date, aqs_code, param,
+MonitorArRetrieveParam <- function(start_date, end_date, aqs_code, param,
                               to_local=TRUE, verbose = TRUE, to_csv=FALSE){
 
   # Check if params are measured
@@ -142,5 +142,4 @@ MonitorArRetrieve <- function(start_date, end_date, aqs_code, param,
   }
 
   return(data_aqs)
-
 }

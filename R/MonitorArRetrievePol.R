@@ -43,9 +43,9 @@ MonitorArRetrievePol <- function(start_date, end_date, aqs_code,
     cat("Period: From", start_date, "to", end_date, "\n")
   }
 
-  all_pol <- MonitorArRetrieve(start_date, end_date, aqs_code,
-                               params, to_local = to_local,
-                               verbose = FALSE)
+  all_pol <- MonitorArRetrieveParam(start_date, end_date, aqs_code,
+                                    params, to_local = to_local,
+                                    verbose = FALSE)
 
   names(all_pol) <- c("date", tolower(params), "aqs")
   names(all_pol)[8] <- "pm25"

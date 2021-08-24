@@ -43,9 +43,9 @@ MonitorArRetrieveMet <- function(start_date, end_date, aqs_code,
     cat("Period: From", start_date, "to", end_date, "\n")
   }
 
-  all_met <- MonitorArRetrieve(start_date, end_date, aqs_code,
-                               params, to_local = to_local,
-                               verbose = FALSE)
+  all_met <- MonitorArRetrieveParam(start_date, end_date, aqs_code,
+                                    params, to_local = to_local,
+                                    verbose = FALSE)
 
   names(all_met) <- c("date", "tc", "rh", "ws", "wd", "p", "aqs")
 
