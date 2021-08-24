@@ -13,7 +13,7 @@
 #' @param to_csv  Creates a csv file. FALSE by default
 #'
 #' @return data.frame with the selected parameter information
-#' @export
+#' @keywords internal
 #'
 #' @examples
 #' \dontrun{

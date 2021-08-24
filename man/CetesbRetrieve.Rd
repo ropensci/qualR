@@ -54,3 +54,4 @@ pin_o3 <- CetesbRetrieve(my_user_name, my_pass_word, o3_code, pin_code, start_da
 
 }
 }
+\keyword{internal}
