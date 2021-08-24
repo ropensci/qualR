@@ -82,6 +82,18 @@ CetesbRetrieveParam <- function(username, password, parameters,
   if ("vv" %in% names(aqs_data_df)){
     names(aqs_data_df)[names(aqs_data_df) == "vv"] <- "ws"
   }
+  if ("ur" %in% names(aqs_data_df)){
+    names(aqs_data_df)[names(aqs_data_df) == "ur"] <- "rh"
+  }
+  if ("temp" %in% names(aqs_data_df)){
+    names(aqs_data_df)[names(aqs_data_df) == "temp"] <- "tc"
+  }
+  if ("mp10" %in% names(aqs_data_df)){
+    names(aqs_data_df)[names(aqs_data_df) == "mp10"] <- "pm10"
+  }
+  if ("mp2.5" %in% names(aqs_data_df)){
+    names(aqs_data_df)[names(aqs_data_df) == "mp2.5"] <- "pm25"
+  }
 
   if (to_csv){
     file_name <- paste0(aqs_name, "_",
