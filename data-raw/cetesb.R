@@ -3,6 +3,7 @@
 cetesb <- read.table("~/R_tests/QualR/qualR/cetesb_qualR.dat", sep = ",",
                      header = FALSE, col.names = c("code", "name"),
                      stringsAsFactors = FALSE)
+cetesb$ascii <- iconv(cetesb$name, from = "UTF-8", to = "ASCII//TRANSLIT")
 params <- read.table("~/R_tests/cetesb_variables.dat", header = FALSE,
                      sep = ",", col.names = c("code", "name"),
                      stringsAsFactors = FALSE)

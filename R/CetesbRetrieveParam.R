@@ -41,9 +41,12 @@ CetesbRetrieveParam <- function(username, password, parameters,
   if (is.numeric(aqs_code) & aqs_code %in% aqs$code){
     aqs_code <- aqs_code
     aqs_name <- aqs$name[aqs$code == aqs_code]
-  } else if (is.character(aqs_code) & aqs_code %in% (aqs$name)){    # nocov start
+  } else if (is.character(aqs_code) & aqs_code %in% aqs$name){    # nocov start
     aqs_name <- aqs_code
     aqs_code <- aqs$code[aqs$name == aqs_code]
+  } else if (is.character(aqs_code) & aqs_code %in% aqs$ascii){    # nocov start
+    aqs_name <- aqs$name[aqs_code == aqs$ascii]
+    aqs_code <- aqs$code[aqs$ascii == aqs_code]
   } else {
     stop("Wrong aqs_code value, please check cetesb_latlon or cetesb_aqs",
          call. = FALSE)
