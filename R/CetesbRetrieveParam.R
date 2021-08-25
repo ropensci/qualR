@@ -89,14 +89,7 @@ CetesbRetrieveParam <- function(username, password, parameters,
   }
 
   if (to_csv){
-    file_name <- paste0(aqs_name, "_",
-                        paste0(param, collapse = "_"), "_",
-                        gsub("/", "-", start_date), "_",
-                        gsub("/", "-", end_date), ".csv")
-    utils::write.table(aqs_data_df, file_name, sep = ",", row.names = F )
-
-    file_path <- paste(getwd(), file_name, sep = "/")
-    cat(paste(file_path, "was created \n"))
+    WriteCSV(aqs_data_df, aqs_name, start_date, end_date, param)
   }
 
   return(aqs_data_df)

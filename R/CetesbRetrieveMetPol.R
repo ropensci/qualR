@@ -118,15 +118,8 @@ CetesbRetrieveMetPol <- function(username, password,
   ))
 
   if (to_csv){
-    file_name <- paste0(aqs_name, "_", "MET_POL_",                    # nocov start
-                        gsub("/", "-", start_date), "_",
-                        gsub("/", "-", end_date), ".csv")
-    utils::write.table(all_data, file_name, sep = ",", row.names = F)
-
-    file_path <- paste(getwd(), file_name, sep = "/")
-    cat(paste(file_path, "was created", "\n"))                        # nocov end
+    WriteCSV(all_data, aqs_name, start_date, end_date, "MET_POL")
   }
 
-
-  return(all_data)
+    return(all_data)
 }

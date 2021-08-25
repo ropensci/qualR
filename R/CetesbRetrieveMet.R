@@ -81,13 +81,7 @@ CetesbRetrieveMet <-  function(username, password,
     ))
 
   if (to_csv){
-    file_name <- paste0(aqs_name, "_", "MET_",                          # nocov start
-                        gsub("/", "-", start_date), "_",
-                        gsub("/", "-", end_date), ".csv")
-    utils::write.table(all_met, file_name, sep = ",", row.names = F )
-
-    file_path <- paste(getwd(), file_name, sep = "/")
-    cat(paste(file_path, "was created"), "\n")                              # nocov end
+    WriteCSV(all_met, aqs_name, start_date, end_date, "MET")
   }
 
   return(all_met)

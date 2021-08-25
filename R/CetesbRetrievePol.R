@@ -91,13 +91,7 @@ CetesbRetrievePol <- function(username, password,
   ))
 
   if (to_csv){
-    file_name <- paste0(aqs_name, "_", "POL_",                        # nocov start
-                        gsub("/", "-", start_date), "_",
-                        gsub("/", "-", end_date), ".csv")
-    utils::write.table(all_pol, file_name, sep = ",", row.names = F )
-
-    file_path <- paste(getwd(), file_name, sep = "/")
-    cat(paste(file_path, "was created"), "\n")                            # nocov end
+    WriteCSV(all_pol, aqs_name, start_date, end_date, "POL")
   }
 
   return(all_pol)

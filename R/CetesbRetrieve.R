@@ -142,15 +142,8 @@ CetesbRetrieve <- function(username, password,
   }
 
   if (to_csv){
-    pol_abr <- sub("\\ .*", "", pol_name)                             # nocov start
-    file_name <- paste0(aqs_name, "_",
-                        pol_abr, "_",
-                        gsub("/", "-", start_date), "_",
-                        gsub("/", "-", end_date), ".csv")
-    utils::write.table(dat, file_name, sep = ",", row.names = F )
-
-    file_path <- paste(getwd(), file_name, sep = "/")
-    cat(paste(file_path, "was created \n"))                            # nocov end
+    pol_abr <- sub("\\ .*", "", pol_name)
+    WriteCSV(dat, aqs_name, start_date, end_date, pol_abr)
   }
 
   return(dat)
