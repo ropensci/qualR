@@ -34,19 +34,11 @@ CetesbRetrieveMet <-  function(username, password,
                                end_date, verbose = TRUE,
                                to_csv = FALSE){
 
-  aqs <- cetesb
-
   # Check if aqs_code is valid
-  if (is.numeric(aqs_code) & aqs_code %in% aqs$code){
-    aqs_code <- aqs_code
-    aqs_name <- aqs$name[aqs$code == aqs_code]
-  } else if (is.character(aqs_code) & aqs_code %in% (aqs$name)){      # nocov start
-    aqs_name <- aqs_code
-    aqs_code <- aqs$code[aqs$name == aqs_code]
-  } else {
-    stop("Wrong aqs_code value or aqs name, please check cetesb_aqs",
-         call. = FALSE)
-  }                                                                   # nocov end
+  aqs <- cetesb
+  check_code <- CheckCetesbCode(aqs, aqs_code)
+  aqs_name <- check_code[1]
+  aqs_code <- as.numeric(check_code[2])
 
   # Adding query summary
   if (verbose){
