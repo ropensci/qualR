@@ -42,7 +42,7 @@ CetesbRetrievePol <- function(username, password,
     aqs_name <- aqs_code
     aqs_code <- aqs$code[aqs$name == aqs_code]
   } else {
-    stop("Wrong aqs_code value, please check cetesb_latlon or cetesb_aqs",
+    stop("Wrong aqs_code value or aqs name, please check cetesb_aqs",
          call. = FALSE)
   }                                                                    # nocov end
 
