@@ -75,14 +75,13 @@ cetesb_param # To check Ozone pol_code
 
 my_user_name <- "john.doe@mymail.com"
 my_password <- "drowssap"
-o3_code <- 63
 pin_code <- 99
 start_date <- "01/01/2020"
 end_date <- "07/01/2020"
 
 pin_o3 <- CetesbRetrieveParam(my_user_name,
                               my_password,
-                              o3_code, # It could also be "o3"
+                              "O3",
                               pin_code, # It could also be "Pinheiros"
                               start_date,
                               end_date)
@@ -101,7 +100,6 @@ cetesb_aqs # To check Pinheiros aqs_code
 
 my_user_name <- "john.doe@mymail.com"
 my_password <- "drowssap"
-pin_code <- 99
 start_date <- "01/01/2020"
 end_date <- "07/01/2020"
 
@@ -235,10 +233,10 @@ start_date <- "01/01/2019"
 end_date <- "31/12/2019"
 
 # All_o3 is a list with a data frame per AQS
-all_o3 <- lapply(cetesb_aqs$code, CetesbRetrieve,
+all_o3 <- lapply(cetesb_aqs$code, CetesbRetrieveParam,
                  username = my_user_name,
                  password = my_password,
-                 pol_code = o3_code,
+                 parameters = "O3",
                  start_date = start_date,
                  end_date = end_date)
 
