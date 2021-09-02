@@ -42,13 +42,29 @@ CetesbRetrieveParam <- function(username, password, parameters,
   aqs_name <- check_code[1]
   aqs_code <- as.numeric(check_code[2])
 
+  # Check parameters code
   param <- toupper(parameters)
-  codes_df <- params_code[params_code$name %in% param, ]
+  all_params <- c(params_code$name, params_code$code)
+  param_exist <- param %in% all_params
+
+  if (FALSE %in% param_exist){
+    stop(paste(paste(param[!param_exist], collapse = ", "),
+               "are wrong parameters, please check cetesb_param"),
+         call. = FALSE)
+  } else {
+    codes_df <- params_code[params_code$name %in% param, ]
+    if (nrow(codes_df) != length(param)){
+      codesd_df2 <- params_code[params_code$code %in% param, ]
+      codes_df <- rbind(codes_df, codesd_df2)
+      codes_df <- unique(codes_df)
+    }
+  }
+
 
   # Adding query summary
   if (verbose){
     cat("Your query is:\n")
-    cat("Parameter:", paste(param, collapse = ", "), "\n")
+    cat("Parameter:", paste(codes_df$name, collapse = ", "), "\n")
     cat("Air quality staion:", aqs_name, "\n")
     cat("Period: From", start_date, "to", end_date, "\n")
   }

@@ -3,6 +3,7 @@
 #' @param aqs data frame with cetesb aqs code and names
 #' @param aqs_code user's input code or name
 #'
+#' @noRd
 #' @keywords internal
 
 CheckCetesbCode <- function(aqs, aqs_code){

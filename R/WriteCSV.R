@@ -6,6 +6,7 @@
 #' @param end_date Download end date
 #' @param vars identifier in file name
 #'
+#' @noRd
 #' @keywords internal
 
 WriteCSV <- function(aqs_data_df, aqs_name, start_date, end_date, vars){
