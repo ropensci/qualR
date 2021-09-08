@@ -10,12 +10,10 @@ CheckCetesbCode <- function(aqs, aqs_code){
   if (is.numeric(aqs_code) & aqs_code %in% aqs$code){
     aqs_code <- aqs_code
     aqs_name <- aqs$name[aqs$code == aqs_code]
-  } else if (is.character(aqs_code) & aqs_code %in% aqs$name){
-    aqs_name <- aqs_code
-    aqs_code <- aqs$code[aqs$name == aqs_code]
-  } else if (is.character(aqs_code) & aqs_code %in% aqs$ascii){
-    aqs_name <- aqs$name[aqs_code == aqs$ascii]
-    aqs_code <- aqs$code[aqs$ascii == aqs_code]
+  } else if (is.character(aqs_code)){
+    aqs_code_ascii <- iconv(aqs_code, from = "UTF-8", to = "ASCII//TRANSLIT")
+    aqs_name <- aqs$name[aqs$ascii == aqs_code_ascii]
+    aqs_code <- aqs$code[aqs$ascii == aqs_code_ascii]
   } else {
     stop("Wrong aqs_code value or aqs name, please check cetesb_aqs",
          call. = FALSE)
