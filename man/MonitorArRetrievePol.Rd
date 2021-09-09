@@ -9,7 +9,7 @@ MonitorArRetrievePol(
   end_date,
   aqs_code,
   verbose = TRUE,
-  to_local = FALSE,
+  to_local = TRUE,
   to_csv = FALSE
 )
 }

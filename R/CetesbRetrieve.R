@@ -50,6 +50,7 @@ CetesbRetrieve <- function(username, password,
 
   # Getting full pollutant name
   pol_name <- pols$name[pols$code == pol_code]
+  pol_abr <- params_code$name[params_code$code == pol_code]
 
   # Check if aqs_code is valid
   if (is.numeric(aqs_code) & aqs_code %in% aqs$code){
@@ -135,14 +136,13 @@ CetesbRetrieve <- function(username, password,
       dat <- data.frame(date = dat$date , pol = dat$value, aqs = aqs_name,  # nocov
                         stringsAsFactors = F)                               # nocov
     } else {
-      cat(paste0('Download OK ', pol_name), "\n")
+      cat(paste0('Download OK ', pol_abr), "\n")
       dat <- data.frame(date = all.dates$date , pol = dat$value , aqs = aqs_name,
                         stringsAsFactors = F)
     }
   }
 
   if (to_csv){
-    pol_abr <- sub("\\ .*", "", pol_name)
     WriteCSV(dat, aqs_name, start_date, end_date, pol_abr)
   }
 
