@@ -24,7 +24,7 @@
 #' ca_pol <- MonitorArRetrievePol(start_date, end_date, "CA")
 #' }
 MonitorArRetrievePol <- function(start_date, end_date, aqs_code,
-                                 verbose = TRUE, to_local = FALSE,
+                               verbose = TRUE, to_local = TRUE,
                                  to_csv = FALSE){
   # Check is aqs_code is valid
   if (!(aqs_code %in% aqs_monitor_ar$code)){
@@ -39,7 +39,7 @@ MonitorArRetrievePol <- function(start_date, end_date, aqs_code,
   if (verbose){
     cat("Your query is:\n")
     cat("Parameter:", paste(params, collapse = ", "), "\n")
-    cat("Air quality staion:", aqs_name, "\n")
+    cat("Air quality station:", aqs_name, "\n")
     cat("Period: From", start_date, "to", end_date, "\n")
   }
 

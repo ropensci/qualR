@@ -39,7 +39,7 @@ MonitorArRetrieveMet <- function(start_date, end_date, aqs_code,
   if (verbose){
     cat("Your query is:\n")
     cat("Parameter:", paste(params, collapse = ", "), "\n")
-    cat("Air quality staion:", aqs_name, "\n")
+    cat("Air quality station:", aqs_name, "\n")
     cat("Period: From", start_date, "to", end_date, "\n")
   }
 

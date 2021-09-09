@@ -45,7 +45,7 @@ CetesbRetrieveMetPol <- function(username, password,
     cat("Your query is:\n")
     cat("Parameter: TC, RH, WS, WD, Pressure,\n",
         "O3, NO, NO2, NOX, PM2.5, PM10, CO \n")
-    cat("Air quality staion:", aqs_name, "\n")
+    cat("Air quality station:", aqs_name, "\n")
     cat("Period: From", start_date, "to", end_date, "\n")
   }
 

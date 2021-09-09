@@ -43,7 +43,7 @@ CetesbRetrievePol <- function(username, password,
   if (verbose){
     cat("Your query is:\n")
     cat("Parameter: O3, NO, NO2, NOX, MP2.5, MP10, CO\n")
-    cat("Air quality staion:", aqs_name, "\n")
+    cat("Air quality station:", aqs_name, "\n")
     cat("Period: From", start_date, "to", end_date, "\n")
   }
 
