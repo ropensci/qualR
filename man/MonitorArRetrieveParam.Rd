@@ -8,7 +8,7 @@ MonitorArRetrieveParam(
   start_date,
   end_date,
   aqs_code,
-  param,
+  parameters,
   to_local = TRUE,
   verbose = TRUE,
   to_csv = FALSE
@@ -21,7 +21,7 @@ MonitorArRetrieveParam(
 
 \item{aqs_code}{AQS code}
 
-\item{param}{Paremeter to download. It can be a vector with many parameters.}
+\item{parameters}{Paremeters to download. It can be a vector with many parameters.}
 
 \item{to_local}{Date information in local time. TRUE by default.}
 

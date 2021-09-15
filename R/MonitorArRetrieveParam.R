@@ -6,7 +6,7 @@
 #' @param start_date Date to start downloading in dd/mm/yyyy
 #' @param end_date Date to end downloading in dd/mm/yyyy
 #' @param aqs_code AQS code
-#' @param param Paremeter to download. It can be a vector with many parameters.
+#' @param parameters Paremeters to download. It can be a vector with many parameters.
 #' @param to_local Date information in local time. TRUE by default.
 #' @param verbose Print query summary.
 #' @param to_csv Creates a csv file. FALSE by default
@@ -25,11 +25,11 @@
 #' ca_o3 <- MonitorArRetrieve(date_start, date_end, aqs_code, param)
 #'
 #' }
-MonitorArRetrieveParam <- function(start_date, end_date, aqs_code, param,
+MonitorArRetrieveParam <- function(start_date, end_date, aqs_code, parameters,
                               to_local=TRUE, verbose = TRUE, to_csv=FALSE){
 
   # Check if params are measured
-  if (!prod(param %in% param_monitor_ar$code)){
+  if (!prod(parameters %in% param_monitor_ar$code)){
     stop("One or all wrong param codes, please check monitor_ar_param", # nocov
          call. = FALSE)                                                           # nocov
   }
@@ -44,7 +44,7 @@ MonitorArRetrieveParam <- function(start_date, end_date, aqs_code, param,
   # Adding query summary
   if (verbose){
     cat("Your query is:\n")
-    cat("Parameter:", paste(param, collapse = ", "), "\n")
+    cat("Parameter:", paste(parameters, collapse = ", "), "\n")
     cat("Air quality station:", aqs_name, "\n")
     cat("Period: From", start_date, "to", end_date, "\n")
   }
@@ -65,10 +65,10 @@ MonitorArRetrieveParam <- function(start_date, end_date, aqs_code, param,
   }
 
   # Creating outFiled
-  if (length(param) == 1){
-    outfields <- paste("Data", param, sep = ",")
+  if (length(parameters) == 1){
+    outfields <- paste("Data", parameters, sep = ",")
   } else {
-    outfields <- paste("Data", paste(param, collapse = ","), sep = ",")  # nocov
+    outfields <- paste("Data", paste(parameters, collapse = ","), sep = ",")  # nocov
   }
 
   url <- "https://services1.arcgis.com/OlP4dGNtIcnD3RYf/arcgis/rest/services/Qualidade_do_ar_dados_horarios_2011_2018/FeatureServer/2/query?"
@@ -82,7 +82,7 @@ MonitorArRetrieveParam <- function(start_date, end_date, aqs_code, param,
   # Checking request
   if (res$status_code == 200){
     cat("Succesful request \n")
-    cat(paste("Downloading ", paste(param, collapse = " ")), "\n")
+    cat(paste("Downloading ", paste(parameters, collapse = " ")), "\n")
   } else {
     stop("Unsuccesful request. Something goes wrong", call. = FALSE)                                        # nocov
   }
@@ -94,7 +94,7 @@ MonitorArRetrieveParam <- function(start_date, end_date, aqs_code, param,
   if (length(raw_data$feature) == 0){
     cat("Data unavailable", "\n")                                           # nocov start
     data_aqs <- data.frame(Data = NA)
-    for (p in param){
+    for (p in parameters){
       data_aqs[[p]] <- NA                                               # nocov end
     }
   } else {
@@ -133,7 +133,7 @@ MonitorArRetrieveParam <- function(start_date, end_date, aqs_code, param,
   colnames(data_aqs)[1] <- "date"
   if (to_csv){
     file_name <- paste0(aqs_code, "_",
-                        paste(param, collapse = "-"), "_",
+                        paste(parameters, collapse = "-"), "_",
                         gsub("/", "-", start_date), "_",
                         gsub("/", "-", end_date), ".csv")
     utils::write.table(data_aqs, file_name, sep = ",", row.names = F)

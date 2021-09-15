@@ -6,7 +6,7 @@ test_that("MonitorArRetrieve works", {
   ca_o3 <- MonitorArRetrieveParam(start_date = "01/02/2015",
                                   end_date   = "01/03/2015",
                                   aqs_code   = "CA",
-                                  param      = "O3",
+                                  parameters = "O3",
                                   to_csv     = TRUE)
 
   expect_equal(ncol(ca_o3),3)
