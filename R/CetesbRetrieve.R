@@ -52,17 +52,8 @@ CetesbRetrieve <- function(username, password,
   pol_name <- pols$name[pols$code == pol_code]
   pol_abr <- params_code$name[params_code$code == pol_code]
 
-  # Check if aqs_code is valid
-  if (is.numeric(aqs_code) & aqs_code %in% aqs$code){
-    aqs_code <- aqs_code
-    aqs_name <- aqs$name[aqs$code == aqs_code]
-  } else if (is.character(aqs_code) & aqs_code %in% (aqs$name)){                  # nocov start
-    aqs_name <- aqs_code
-    aqs_code <- aqs$code[aqs$name == aqs_code]
-  } else {
-    stop("Wrong aqs_code value or aqs name, please check cetesb_aqs",
-         call. = FALSE)
-  }                                                                               # nocov end
+  # Getting aqs_name in ascii
+  aqs_name <- aqs$ascii[aqs$code == aqs_code]
 
   # Adding query summary
   if (verbose){

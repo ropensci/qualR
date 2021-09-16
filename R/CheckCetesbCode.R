@@ -9,7 +9,7 @@
 CheckCetesbCode <- function(aqs, aqs_code){
   if (is.numeric(aqs_code) & aqs_code %in% aqs$code){
     aqs_code <- aqs_code
-  aqs_name <- aqs$ascii[aqs$code == aqs_code]
+    aqs_name <- aqs$ascii[aqs$code == aqs_code]
   } else if (is.character(aqs_code)){
     aqs_code_ascii <- iconv(aqs_code, from = "UTF-8", to = "ASCII//TRANSLIT")
     aqs_name <- aqs_code_ascii
