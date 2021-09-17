@@ -5,7 +5,9 @@
 ^README\.Rmd$
 ^paper.bib
 ^paper.md
-^summary_plot_pinheiros.png
+^pin_nox_lock20.png
+^rj_centro_2019.png
+^usp_o3_aug21.png
 ^\.travis\.yml$
 ^appveyor\.yml$
 ^codecov\.yml$
