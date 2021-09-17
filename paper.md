@@ -1,155 +1,202 @@
 ---
-title: 'qualR: An R package to download Sao Paulo and Rio de Janeiro air pollution data'
+title: 'qualR: An R package to download São Paulo and Rio de Janeiro air pollution
+  data'
 tags:
-  - R
-  - air pollution
-  - meteorology
-  - open data
+- R
+- air pollution
+- meteorology
+- open data
+date: "30 May 2021"
 authors:
-  - name: Mario Gavidia-Calderón
-    orcid: 0000-0002-7371-1116
-    affiliation: '1'
-  - name: Daniel Schuch
-    orchid: 0000-0001-5977-4519
-    affiliation: '2'
-  - name: Maria de Fatima Andrade
-    orcid: 0000-0001-5351-8311
-    affiliation: '1'
-affiliations:
- - name: Departamento de Ciências Atmosféricas, Instituto de Astronomia, Geofísica e Ciências Atmosféricas, Universidade de São Paulo, Brazil
-   index: 1
- - name: Department of Civil and Environmental Engineering, Northeastern University, USA
-   index: 2
-
-date: 20 July 2020
+- name: Mario Gavidia-Calderón
+  orcid: 0000-0002-7371-1116
+  affiliation: '1'
+- name: Daniel Schuch
+  orcid: 0000-0001-5977-4519
+  affiliation: '2'
+- name: Maria de Fatima Andrade
+  orcid: 0000-0001-5351-8311
+  affiliation: '1'
 bibliography: paper.bib
+affiliations:
+- name: Departamento de Ciências Atmosféricas, Instituto de Astronomia, Geofísica
+    e Ciências Atmosféricas, Universidade de São Paulo, Brazil
+  index: 1
+- name: Department of Civil and Environmental Engineering, Northeastern University,
+    USA
+  index: 2
 ---
 
 # Summary
-Air quality monitoring networks provide air pollutant concentration for a given
-time and space.
-We can use this data to monitor the atmosphere for public health reasons, for emission control policies  evaluation, and for air quality models verification [@Seinfeld2016].
+`qualR` is an R package to download air pollution data from the State of São Paulo and the city of Rio de Janeiro.
+It produces completed data frames (i.e. missing hours padded out with `NA`) with a `date` column in `POSIXct` that facilitates temporal aggregation.
+`qualR` positively impacts research by allowing easy and fast data analysis and code reproducibility.
 
-The Sao Paulo State Environmental Agency (CETESB) manages the
-Air Quality Station network of the State of Sao Paulo.
-It is one of the best air quality monitoring systems in the region, with more than
-49 automatic air quality stations (AQS) [@Riojas-Rodriguez2016].
-This network covers the Metropolitan Area of Sao Paulo (MASP), the largest city in
-South America.
-Researchers use its data in field and modeling studies to analyse air
-pollution in the MASP [@Andrade2017].
-R is a suitable data analysis tool for these studies,
-and its adoption in the air quality modeling community is
-steadily increasing [@Gavidia-Calderon2018; @Ibarra-Espinosa2018 ].
+# State of Need
+Air quality networks provide air pollutant concentration for a given time and space.
+This information is used to monitor the state of the atmosphere and to verify air quality models [@Seinfeld2016].
+According to [@Riojas-Rodriguez2016], Brazil has two of the most extensive air quality networks in South America.
+One is located in the State of São Paulo with more than 50 air quality stations (AQS)
+that also monitors the Metropolitan Area of São Paulo,
+the largest megacity of South America.
+The second air quality network is located in the State of Rio de Janeiro.
+Currently, the city of Rio de Janeiro is monitored by a network of eight AQS.
 
-The pollutant and meteorological data are publicly available via the
-[CETESB QUALAR System](https://cetesb.sp.gov.br/ar/qualar/).
-QUALAR allows researchers to download data from the air quality stations in `.csv`
-files, one variable per AQS at a time in a simple query, or three parameters per AQS in advance query.
-This data needs preprocessing before analysis.
-For example, instrument malfunctions produce missing dates, time format might
-need adjustments, or the decimal separator needs to be changed.
+[The São Paulo Environmental Agency (CETESB)](https://cetesb.sp.gov.br/ar/) manages the state air quality network and distributes the information through [QUALAR System](https://qualar.cetesb.sp.gov.br/qualar/home.do).
+To use QUALAR, you first need to create an [account](https://seguranca.cetesb.sp.gov.br/Home/CadastrarUsuario) before starting to manually download the measurements.
+QUALAR allows downloading one parameter for one AQS in the simple query option,
+or at least three parameters for one AQS in the advanced query option.
+The download is limited to one year of data for each query.
+The original QUALAR data is a comma-separated values file (CSV) that requires pre-processing.
+For example, the user needs to complete the missing dates (i.e. missing hours due to equipment calibration or malfunction),
+to change the decimal separator, and to change the date format to perform temporal analysis.
+On the other hand, the city of Rio de Janeiro, through the [Monitor Ar Program](https://www.rio.rj.gov.br/web/smac/monitorar-rio1),
+offers the measurements through [data.rio API](https://www.data.rio/datasets/dados-hor%C3%A1rios-do-monitoramento-da-qualidade-do-ar-monitorar).
+It is not so friendly to new users,
+and the information also needs the same pre-processing.
 
-Around 80% of time in data analysis is devoted to data preparation [@Dasu2003].
-`qualR` streamlines this process producing high-quality data ready for
-analysis.
-It is built in R [@RCoreTeam2020] and uses functions from the XML[@XML] and
-Rcurl [@httr] packages.
-`qualR` positively impacts research by allowing easy and fast data
-manipulation for Sao Paulo air pollution data.
+The data from CETESB and Monitor Ar program was used in environmental research
+together with additional data from observational campaigns [@Andrade2017], in
+model evaluation [@Gavidia-Calderon2018], and in pollutant exposure studies [@Dantas2020].
+Because around 80 % of the time in data analysis is spent in data preparation [@Dasu2003],
+and because the use of R is increasing,
+We decided to create `qualR` to produce high-quality data ready for analysis.
 
-# Statement of need
-Currently, the [CETESB QUALAR System](https://cetesb.sp.gov.br/ar/qualar/) is
-the only way of accessing the CETESB automatic air quality network.
-It requires having account to download one parameter per AQS at a time.
-`qualR` streamlines this process, allowing access to multiple parameters from
-multiple stations simultaneously.
-It also handles missing data by assigning `NA` values, ensuring a complete
-dataset.
-All `qualR` functions return data frames with a `date` column in POSIXct type.
+`qualR` allows the user to download multiple parameters and multiple years for one AQS,
+and by using R loops, it can easily download many AQS.
+It is built in R [@RCoreTeam2020] and uses the XML [@XML], httr [@httr], and jsonlite [@Ooms]  packages.
+`qualR` handles missing date hours by assigning `NA` values,
+ensuring a complete dataset.
+All `qualR` functions return data frames with a `date` column in `POSIXct` type.
 This ensures compatibility with robust air pollution analysis packages like
 `openair` [@Carslaw2012].
+The `qualR` functions allow exporting the data in a CSV file if the user prefers other software to analyze the data.
+The `qualR` package will improve research by allowing easy and fast high-quality datasets,
+easy exploratory data analysis, and code reproducibility.
 
-# Functions and data
-`qualR` has six functions:
 
-| Function           | Description                                    |
-|--------------------|------------------------------------------------|
-| CetesbRetrieve     | Download one parameter from one CETESB AQS            |
-| CetesbRetrieveParam | Download a list of parameters from one CETESB  AQS            |
-| CetesbRetrievePol  | Download criteria pollutants from one CETESB AQS      |
-| CetesbRetrieveMet  | Download meteorological parameters from one CETESB AQS|
-| CetesbRetrieveMetPol  | Download criteria pollutants and meteorological parameters from one CETESB AQS|            
-| MonitorArRetrieve  | Download a list of parameters from one Monitor Ar AQS |            
+# Functions and datasets
+`qualR` has 8 functions:
 
-`qualR` above functions depends on datasets to check for AQS and parameter codes and names.
-These datasets are the folowing:
+| Function                 | Description                                                                        |
+| ------------------------ | ---------------------------------------------------------------------------------- |
+| CetesbRetrieveParam      | Download a list of parameters from one CETESB  AQS                                 |
+| CetesbRetrievePol        | Download criteria pollutants from one CETESB AQS                                   |
+| CetesbRetrieveMet        | Download meteorological parameters from one CETESB AQS                             |
+| CetesbRetrieveMetPol     | Download criteria pollutants and meteorological parameters from one CETESB AQS     |
+| MonitorArRetrieveParam   | Download a list of parameters from one Monitor Ar AQS                              |
+| MonitorArRetrievePol     | Download criteria pollutants from one Monitor Ar AQS                               |
+| MonitorArRetrieveMet     | Download meteorological parameters from one Monitor Ar AQS                         |
+| MonitorArRetrieveMetPol  | Download criteria pollutants and meteorological parameters from one Monitor Ar AQS |
 
-| Dataset       | Description                              |
-|---------------|------------------------------------------|
-| cetesb_aqs    | QUAlAR AQS name and code             |
-| cetesb_param  | QUALAR parameter name code |
-| cetesb_latlon | AQS name, code, latitude and longitude   |
-| monitor_ar_aqs | Monitor Ar Program AQS name, code, latitude and longitude |
-| monitor_ar_param | Monitor Ar Program parameters names and codes |
+Table: `qualR` functions. \label{tab:fun_tab}
+
+The above functions require the parameter code or abbreviation (the `parameters` attribute can be pollutants or meteorological parameters) and the code or name of the air quality station (`aqs_code` attribute) to download.
+This information can be checked in the following datasets available in the package:
+
+| Dataset          | Description                                                |
+|------------------|----------------------------------------------------------- |
+| cetesb_aqs       | QUAlAR AQS names, codes, latitudes, and longitudes             |
+| cetesb_param     | QUALAR parameter names, units, and codes                     |
+| monitor_ar_aqs   | Monitor Ar Program AQS names, codes, latitudes, and longitudes |
+| monitor_ar_param | Monitor Ar Program parameter codes, names, and units         |
+
+Table: `qualR` dataset to check function `parameters` and  `aqs_code` values. \label{tab:ds_tab}
+
 
 # Example of use
-In this example, we download ozone concentration from the Pinheiros AQS for January
-2020:
+
+In this first example, by using the `CetesbRetrieveParam` function we downloaded NO<sub>X</sub> concentrations for March 2020.
+It exemplifies the effect of lockdown during COVID 19 pandemic on São Paulo pollutant concentrations.
+The lockdown started on March 22, 2020 and It is a period where transit was restricted.
 
 ```R
 library(qualR)
 
-# To check Pinheiros AQS code
-cetesb_aqs
+my_user <- "johnDoe@supermail.com"
+my_password <- "an_unbreakable_password"
 
-# To check ozone code
-cetesb_param
+print(cetesb_param) # to check ozone code
+print(cetesb_aqs) # to check aqs code name or code
 
-user_name <- "johnDoe@supermail.com"
-my_password  <- "an_unbreakable_password"
-o3_code <- 63
-pinheiros_code  <- 99
-start_day <- "01/01/2020"
-end_day   <- "30/01/2020"
-
-pin_o3 <- CetesbRetrieve(username = user_name,
-                         password = my_password,
-                         pol_code = o3_code,
-                         aqs_code = pinheiros_code,
-                         start_date = start_date,
-                         end_date = end_day)
-
-
+pin_nox <- CetesbRetrieveParam(username = my_user,
+                               password = my_password,
+                               aqs_code = "Pinheiros", # or 99
+                               parameters = "NOX", # or 18
+                               start_date = "01/03/2020",
+                               end_date = "31/03/2020")
 ```
 
-We can download criteria pollutants from Pinheiros AQS for the same
-period using the `CetesbRetrievePol` function. Further, we show how the output
-is ready to be used with openair's `summaryPlot` function, the resulting plot
-is shown in Figure 1.
+Then, we make a plot using R Base Graphics.
+The reduction in pollutant concentrations after March 22 are caused by the reduction of vehicular emissions \autoref{fig:nox_pin}.
 
 ```R
-library(qualR)
-library(openair)
+plot(pin_nox$date, pin_nox$nox, t = "l",
+     xlab = "2020", ylab = "",
+     main = unique(pin_nox$aqs))
+mtext(expression(NO[X]~" (ppb)"), side = 2, line = 2.5)
+abline(v = as.numeric(as.POSIXct("2020-03-22")), col = "red", lwd = 1)
+```
 
-pin_pols <- CetesbRetrievePol(username = user_name,
+![Hourly concentration of NO<sub>X</sub> during  March 2020 at Pinheiros station. The red line shows the beginning of the lockdown. \label{fig:nox_pin}](./pin_nox_lock20.png)
+
+To show the compatibility with `openair` package, we download ozone concentration from the AQS located at Universidade de São Paulo.
+We analyzed a high pollution episode in August 2021.
+We aim to find how many days the ozone state air quality standard was surpassed (140 &mu;g/m<sup>3</sup>  8-hour mean).
+
+
+```R
+usp_o3 <- CetesbRetrieveParam(username = my_user,
                               password = my_password,
-                              aqs_code = pinheiros_code,
-                              start_date = start_date,
-                              end_date = end_day)
+                              parameters = "O3", # or 63
+                              aqs_code = "Cid.Universitaria-USP-Ipen", # or 95
+                              start_date = "01/08/2021",
+                              end_date = "31/08/2021")
+```
+We used the openair `rollingMean` function to calculate ozone 8-hour mean.  
+Then we plot it and find that during this pollution episode ozone air quality standard was surpassed in three days \autoref{fig:o3_usp}.
 
-summaryPlot(pin_pols, period = "months")
+```R
+usp_o3 <- openair::rollingMean(usp_o3, width = 8)
 
+plot(usp_o3$date, usp_o3$rolling8o3, t = "l",
+     xlab = "2021", ylab = "",
+     main = unique(usp_o3$aqs))
+mtext(expression(O[3]~"8-hour mean ("*mu*"g/m"^3*")"), side = 2, line = 2.5)
+abline(h = 140, col = "red", lwd = 1)
 ```
 
-![Summary plot created using `CetesbRetrievePol` output and openair `summaryPlot` function](./summary_plot_pinheiros.png)
+![Ozone 8-hour rolling means at Universidade de São Paulo station. \label{fig:o3_usp}](./usp_o3_aug21.png)
+
+Finally, we download one year of PM<sub>10</sub> concentrations from an AQS located at Rio de Janeiro downtown,
+and using openair `timeVariation` function we explore the variation in different times scales of PM<sub>10</sub> concentration \autoref{fig:MonAr_pm10}.
+Note that no more data processing is required to use openair functions.
+
+```R
+print(monitor_ar_param) # to check pm10 code
+print(monitor_ar_aqs) # to check aqs code
+
+rj_centro <- MonitorArRetrieveParam(start_date = "01/01/2019",
+                                    end_date = "31/12/2019",
+                                    aqs_code = "CA",
+                                    parameters = "PM10",
+                                    to_local = FALSE)
+
+openair::timeVariation(rj_centro, pollutant = "PM10")
+```
+![Plot created using `MonitorArRetrieveParam` output and openair `TimeVariation` function. \label{fig:MonAr_pm10}](./rj_centro_2019.png)
+
+
+These examples show how easy `qualR` brings air quality measurements from São Paulo State and the city of Rio de Janeiro to our R session and how quickly exploratory data analysis can be performed.
+More information are available in the [`qualR` repository](https://github.com/quishqa/qualR).
 
 # Acknowledgements
-We acknowledge CETESB for providing reliable atmospheric data,
+We acknowledge CETESB and Monitor Ar Program for providing reliable atmospheric data,
 the programs CAPES (Coordenadoria de Aperfeiçoamento de Pessoal de Nível
-Superior), CNPq (Conselho Nacional de Desenvolvimento Científico e Tecnológico), and
-FAPESP (2016/18438-0 - Fundação de Amparo à Pesquisa do Estado do São Paulo).
-We are also thankful to the [LAPAT-IAG](http://www.lapat.iag.usp.br/) team for testing and
-reporting issues, and Carlos Gavidia-Calderon for his technical advice.
+Superior), CNPq (Conselho Nacional de Desenvolvimento Científico e Tecnológico),
+FAPESP (2016/18438-0 - Fundação de Amparo à Pesquisa do Estado do São Paulo),
+and the Wellcome Trust (subaward from Yale University to Northeastern University, subcontract number GR108374)
+
+We are also thankful to the [LAPAT-IAG](http://www.lapat.iag.usp.br/) team for testing and reporting issues.
 
 # References
