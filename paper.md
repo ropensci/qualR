@@ -35,44 +35,44 @@ It produces completed data frames (i.e. missing hours padded out with `NA`) with
 # State of Need
 Air quality networks provide air pollutant concentration for a given time and space.
 This information is used to monitor the state of the atmosphere and to verify air quality models [@Seinfeld2016].
-According to [@Riojas-Rodriguez2016], Brazil has two of the most extensive air quality networks in South America.
-One is located in the State of São Paulo with more than 50 air quality stations (AQS)
+Brazil has two of the most extensive air quality networks in South America [@Riojas-Rodriguez2016].
+The first network is located in the State of São Paulo.
+It has more than 50 air quality stations (AQS)
 that also monitors the Metropolitan Area of São Paulo,
 the largest megacity of South America.
 The second air quality network is located in the State of Rio de Janeiro.
 Currently, the city of Rio de Janeiro is monitored by a network of eight AQS.
 
-[The São Paulo Environmental Agency (CETESB)](https://cetesb.sp.gov.br/ar/) manages the state air quality network and distributes the information through [QUALAR System](https://qualar.cetesb.sp.gov.br/qualar/home.do).
-To use QUALAR, you first need to create an [account](https://seguranca.cetesb.sp.gov.br/Home/CadastrarUsuario) before starting to manually download the measurements.
+[The São Paulo Environmental Agency (CETESB)](https://cetesb.sp.gov.br/ar/) manages the state air quality network and distributes the information through the [QUALAR System](https://qualar.cetesb.sp.gov.br/qualar/home.do).
+To use QUALAR, you first need to create an [account](https://seguranca.cetesb.sp.gov.br/Home/CadastrarUsuario) to be able to manually download the measurements.
 QUALAR allows downloading one parameter for one AQS in the simple query option,
 or at least three parameters for one AQS in the advanced query option.
 The download is limited to one year of data for each query.
 The original QUALAR data is a comma-separated values file (CSV) that requires pre-processing.
-For example, the user needs to complete the missing dates (i.e. missing hours due to equipment calibration or malfunction),
-to change the decimal separator, and to change the date format to perform temporal analysis.
-On the other hand, the city of Rio de Janeiro, through the [Monitor Ar Program](https://www.rio.rj.gov.br/web/smac/monitorar-rio1),
-offers the measurements through [data.rio API](https://www.data.rio/datasets/dados-hor%C3%A1rios-do-monitoramento-da-qualidade-do-ar-monitorar).
-It is not so friendly to new users,
-and the information also needs the same pre-processing.
+Typical pre-preocessing tasks include: completing missing dates (i.e. missing hours due to equipment calibration or malfunction),
+changing the decimal separator, and changing the date format to perform temporal analysis.
+Regarding the city of Rio de Janeiro, the [Monitor Ar Program](https://www.rio.rj.gov.br/web/smac/monitorar-rio1),
+offers the measurements through the [data.rio API](https://www.data.rio/datasets/dados-hor%C3%A1rios-do-monitoramento-da-qualidade-do-ar-monitorar).
+It is not so user-friendly,
+and the information also needs the pre-processing.
 
-The data from CETESB and Monitor Ar program was used in environmental research
-together with additional data from observational campaigns [@Andrade2017], in
+The data from CETESB and Monitor Ar program is used in environmental research [@Andrade2017], in
 model evaluation [@Gavidia-Calderon2018], and in pollutant exposure studies [@Dantas2020].
-Because around 80 % of the time in data analysis is spent in data preparation [@Dasu2003],
-and because the use of R is increasing,
-We decided to create `qualR` to produce high-quality data ready for analysis.
+Given that 80 % of the time in data analysis is spent in data preparation [@Dasu2003],
+We create `qualR` to accelerate it.
+`qualR` is an R package for producing high-quality data ready for analysis.
 
-`qualR` allows the user to download multiple parameters and multiple years for one AQS,
+`qualR` allows the user to download of multiple parameters and multiple years per AQS,
 and by using R loops, it can easily download many AQS.
-It is built in R [@RCoreTeam2020] and uses the XML [@XML], httr [@httr], and jsonlite [@Ooms]  packages.
+It is built in R [@RCoreTeam2020], using the XML [@XML], httr [@httr], and jsonlite [@Ooms]  packages.
 `qualR` handles missing date hours by assigning `NA` values,
 ensuring a complete dataset.
 All `qualR` functions return data frames with a `date` column in `POSIXct` type.
 This ensures compatibility with robust air pollution analysis packages like
 `openair` [@Carslaw2012].
-The `qualR` functions allow exporting the data in a CSV file if the user prefers other software to analyze the data.
-The `qualR` package will improve research by allowing easy and fast high-quality datasets,
-easy exploratory data analysis, and code reproducibility.
+The `qualR` functions allow exporting the data in a CSV file for compatibility with other software tools.
+The `qualR` package improves research by producing high-quality datasets easily,
+enabling exploratory data analysis, and fostering reproducibility.
 
 
 # Functions and datasets
@@ -128,7 +128,7 @@ pin_nox <- CetesbRetrieveParam(username = my_user,
 ```
 
 Then, we make a plot using R Base Graphics.
-The reduction in pollutant concentrations after March 22 are caused by the reduction of vehicular emissions \autoref{fig:nox_pin}.
+The reduction in pollutant concentrations after March 22 is caused by the reduction of vehicular emissions \autoref{fig:nox_pin}.
 
 ```R
 plot(pin_nox$date, pin_nox$nox, t = "l",
@@ -140,7 +140,8 @@ abline(v = as.numeric(as.POSIXct("2020-03-22")), col = "red", lwd = 1)
 
 ![Hourly concentration of NO<sub>X</sub> during  March 2020 at Pinheiros station. The red line shows the beginning of the lockdown. \label{fig:nox_pin}](./pin_nox_lock20.png)
 
-To show the compatibility with `openair` package, we download ozone concentration from the AQS located at Universidade de São Paulo.
+To show the compatibility with the `openair` package,
+ we download ozone concentration from the AQS located at Universidade de São Paulo.
 We analyzed a high pollution episode in August 2021.
 We aim to find how many days the ozone state air quality standard was surpassed (140 &mu;g/m<sup>3</sup>  8-hour mean).
 
@@ -187,7 +188,7 @@ openair::timeVariation(rj_centro, pollutant = "PM10")
 ![Plot created using `MonitorArRetrieveParam` output and openair `TimeVariation` function. \label{fig:MonAr_pm10}](./rj_centro_2019.png)
 
 
-These examples show how easy `qualR` brings air quality measurements from São Paulo State and the city of Rio de Janeiro to our R session and how quickly exploratory data analysis can be performed.
+These examples show how easily `qualR` extracts air quality measurements from São Paulo State and the city of Rio de Janeiro to our R session and how quickly exploratory data analysis can be performed.
 More information are available in the [`qualR` repository](https://github.com/quishqa/qualR).
 
 # Acknowledgements
