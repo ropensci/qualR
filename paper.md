@@ -106,7 +106,7 @@ Table: `qualR` dataset to check function `parameters` and  `aqs_code` values. \l
 
 # Example of use
 
-In this first example, by using the `CetesbRetrieveParam` function we downloaded NO<sub>X</sub> concentrations for March 2020.
+In this first example, by using the `CetesbRetrieveParam` function we downloaded NO~X~ concentrations for March 2020.
 It exemplifies the effect of lockdown during COVID 19 pandemic on São Paulo pollutant concentrations.
 The lockdown started on March 22, 2020 and It is a period where transit was restricted.
 
@@ -138,7 +138,7 @@ mtext(expression(NO[X]~" (ppb)"), side = 2, line = 2.5)
 abline(v = as.numeric(as.POSIXct("2020-03-22")), col = "red", lwd = 1)
 ```
 
-![Hourly concentration of NO<sub>X</sub> during  March 2020 at Pinheiros station. The red line shows the beginning of the lockdown. \label{fig:nox_pin}](./pin_nox_lock20.png)
+![Hourly concentration of NO~X~ during  March 2020 at Pinheiros station. The red line shows the beginning of the lockdown. \label{fig:nox_pin}](./pin_nox_lock20.png)
 
 To show the compatibility with the `openair` package,
  we download ozone concentration from the AQS located at Universidade de São Paulo.
@@ -169,8 +169,8 @@ abline(h = 140, col = "red", lwd = 1)
 
 ![Ozone 8-hour rolling means at Universidade de São Paulo station. \label{fig:o3_usp}](./usp_o3_aug21.png)
 
-Finally, we download one year of PM<sub>10</sub> concentrations from an AQS located at Rio de Janeiro downtown,
-and using openair `timeVariation` function we explore the variation in different times scales of PM<sub>10</sub> concentration \autoref{fig:MonAr_pm10}.
+Finally, we download one year of PM~10~ concentrations from an AQS located at Rio de Janeiro downtown,
+and using openair `timeVariation` function we explore the variation in different times scales of PM~10~ concentration \autoref{fig:MonAr_pm10}.
 Note that no more data processing is required to use openair functions.
 
 ```R
