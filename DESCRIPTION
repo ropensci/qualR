@@ -1,6 +1,6 @@
 Package: qualR
 Title: An R package to download Sao Paulo and Rio de Janeiro air pollution data
-Version: 0.9.0
+Version: 0.9.5
 Authors@R: c(
     person(given = "Mario",
            family = "Gavidia-Calderón",
@@ -18,7 +18,7 @@ Authors@R: c(
            email = "d.schuch@northeastern.edu",
            comment = c(ORCID = "0000-0001-5977-4519")))
 Description: A package to download information from CETESB QUALAR and
-    MonitorAr systems. It contains function to download a single parameter, a set of
+    MonitorAr systems. It contains function to download different parameters, a set of
     criteria pollutants and the most frequent meteorological parameters used in
     air quality data analysis and air quality model evaluation.
 License: MIT + file LICENSE
