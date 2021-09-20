@@ -29,7 +29,7 @@ MonitorArRetrieveMetPol <- function(start_date, end_date, aqs_code,
                                     to_csv = FALSE){
   # Check is aqs_code is valid
   if (!(aqs_code %in% aqs_monitor_ar$code)){
-    stop("Wrong aqs_code, please check monitor_ar_aqs", call. = FALSE)
+    stop("Wrong aqs_code, please check monitor_ar_aqs", call. = FALSE) # nocov
   }
 
   params <- c("Temp", "UR", "Vel_Vento", "Dir_Vento", "Pres",
@@ -54,12 +54,12 @@ MonitorArRetrieveMetPol <- function(start_date, end_date, aqs_code,
   names(all_data)[13] <- "pm25"
 
   if (to_csv){
-    file_name <- paste0(aqs_code, "_", "ALL_",
-                        gsub("/", "-", start_date), "_",
-                        gsub("/", "-", end_date), ".csv")
-    utils::write.table(all_data, file_name, sep = ",", row.names = F)
-    file_path <- paste(getwd(), file_name, sep = "/")
-    cat(file_path, "was created \n")
+    file_name <- paste0(aqs_code, "_", "ALL_",                          # nocov
+                        gsub("/", "-", start_date), "_",                # nocov
+                        gsub("/", "-", end_date), ".csv")               # nocov
+    utils::write.table(all_data, file_name, sep = ",", row.names = F)   # nocov
+    file_path <- paste(getwd(), file_name, sep = "/")                   # nocov
+    cat(file_path, "was created \n")                                    # nocov
   }
 
   return(all_data)

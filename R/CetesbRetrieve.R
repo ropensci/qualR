@@ -134,7 +134,7 @@ CetesbRetrieve <- function(username, password,
   }
 
   if (to_csv){
-    WriteCSV(dat, aqs_name, start_date, end_date, pol_abr)
+    WriteCSV(dat, aqs_name, start_date, end_date, pol_abr) # nocov
   }
 
   return(dat)

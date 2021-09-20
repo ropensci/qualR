@@ -48,15 +48,15 @@ CetesbRetrieveParam <- function(username, password, parameters,
   param_exist <- param %in% all_params
 
   if (FALSE %in% param_exist){
-    stop(paste(paste(param[!param_exist], collapse = ", "),
-               "are wrong parameters, please check cetesb_param"),
-         call. = FALSE)
+    stop(paste(paste(param[!param_exist], collapse = ", "),         # nocov
+               "are wrong parameters, please check cetesb_param"),  # nocov
+         call. = FALSE)                                             # nocov
   } else {
     codes_df <- params_code[params_code$name %in% param, ]
     if (nrow(codes_df) != length(param)){
-      codesd_df2 <- params_code[params_code$code %in% param, ]
-      codes_df <- rbind(codes_df, codesd_df2)
-      codes_df <- unique(codes_df)
+      codesd_df2 <- params_code[params_code$code %in% param, ]      # nocov
+      codes_df <- rbind(codes_df, codesd_df2)                       # nocov
+      codes_df <- unique(codes_df)                                  # nocov
     }
   }
 
@@ -86,26 +86,26 @@ CetesbRetrieveParam <- function(username, password, parameters,
 
   # Changing wind speed and direction columns to ws and wd
   if ("dv" %in% names(aqs_data_df)){
-    names(aqs_data_df)[names(aqs_data_df) == "dv"] <- "wd"  # nocov
+    names(aqs_data_df)[names(aqs_data_df) == "dv"] <- "wd"      # nocov
   }
   if ("vv" %in% names(aqs_data_df)){
     names(aqs_data_df)[names(aqs_data_df) == "vv"] <- "ws"
   }
   if ("ur" %in% names(aqs_data_df)){
-    names(aqs_data_df)[names(aqs_data_df) == "ur"] <- "rh"
+    names(aqs_data_df)[names(aqs_data_df) == "ur"] <- "rh"      # nocov
   }
   if ("temp" %in% names(aqs_data_df)){
-    names(aqs_data_df)[names(aqs_data_df) == "temp"] <- "tc"
+    names(aqs_data_df)[names(aqs_data_df) == "temp"] <- "tc"    # nocov
   }
   if ("mp10" %in% names(aqs_data_df)){
-    names(aqs_data_df)[names(aqs_data_df) == "mp10"] <- "pm10"
+    names(aqs_data_df)[names(aqs_data_df) == "mp10"] <- "pm10"  # nocov
   }
   if ("mp2.5" %in% names(aqs_data_df)){
-    names(aqs_data_df)[names(aqs_data_df) == "mp2.5"] <- "pm25"
+    names(aqs_data_df)[names(aqs_data_df) == "mp2.5"] <- "pm25" # nocov
   }
 
   if (to_csv){
-    WriteCSV(aqs_data_df, aqs_name, start_date, end_date, param)
+    WriteCSV(aqs_data_df, aqs_name, start_date, end_date, param) # nocov
   }
 
   return(aqs_data_df)
