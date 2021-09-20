@@ -4,5 +4,5 @@ test_that("multiplication works", {
   end_date   <- "07/01/2020"
   ca_met     <- MonitorArRetrieveMet(start_date, end_date, "CA")
 
-  expect_equal(nrow(ca_met), 145)
+  expect_equal(ncol(ca_met), 7)
 })
