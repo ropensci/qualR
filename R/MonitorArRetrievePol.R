@@ -51,12 +51,7 @@ MonitorArRetrievePol <- function(start_date, end_date, aqs_code,
   names(all_pol)[8] <- "pm25"
 
   if (to_csv){
-    file_name <- paste0(aqs_code, "_", "POL_",
-                        gsub("/", "-", start_date), "_",
-                        gsub("/", "-", end_date), ".csv")
-    utils::write.table(all_pol, file_name, sep = ",", row.names = F)
-    file_path <- paste(getwd(), file_name, sep = "/")
-    cat(file_path, "was created \n")
+    WriteCSV(all_pol, aqs_name, start_date, end_date, "POL") # nocov
   }
 
   return(all_pol)

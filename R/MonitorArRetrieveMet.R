@@ -50,12 +50,7 @@ MonitorArRetrieveMet <- function(start_date, end_date, aqs_code,
   names(all_met) <- c("date", "tc", "rh", "ws", "wd", "p", "aqs")
 
   if (to_csv){
-    file_name <- paste0(aqs_code, "_", "MET_",
-                        gsub("/", "-", start_date), "_",
-                        gsub("/", "-", end_date), ".csv")
-    utils::write.table(all_met, file_name, sep = ",", row.names = F)
-    file_path <- paste(getwd(), file_name, sep = "/")
-    cat(file_path, "was created \n")
+    WriteCSV(all_met, aqs_name, start_date, end_date, "MET") # nocov
   }
 
   return(all_met)
