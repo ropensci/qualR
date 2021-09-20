@@ -15,8 +15,8 @@ CheckCetesbCode <- function(aqs, aqs_code){
     aqs_name <- aqs_code_ascii
     aqs_code <- aqs$code[aqs$ascii == aqs_code_ascii]
   } else {
-    stop("Wrong aqs_code value or aqs name, please check cetesb_aqs",
-         call. = FALSE)
+    stop("Wrong aqs_code value or aqs name, please check cetesb_aqs",  # nocov
+         call. = FALSE)                                                # nocov
   }
   aqs_code_name <- c(aqs_name, aqs_code)
   return(aqs_code_name)

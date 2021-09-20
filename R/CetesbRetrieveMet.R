@@ -81,7 +81,7 @@ CetesbRetrieveMet <-  function(username, password,
     ))
 
   if (to_csv){
-    WriteCSV(all_met, aqs_name, start_date, end_date, "MET")
+    WriteCSV(all_met, aqs_name, start_date, end_date, "MET") # nocov
   }
 
   return(all_met)

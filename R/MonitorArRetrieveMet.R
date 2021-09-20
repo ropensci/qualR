@@ -28,7 +28,7 @@ MonitorArRetrieveMet <- function(start_date, end_date, aqs_code,
                                  to_csv = FALSE){
   # Check is aqs_code is valid
   if (!(aqs_code %in% aqs_monitor_ar$code)){
-    stop("Wrong aqs_code, please check monitor_ar_aqs", call. = FALSE)
+    stop("Wrong aqs_code, please check monitor_ar_aqs", call. = FALSE) # nocov
   }
 
   params <- c("Temp", "UR", "Vel_Vento", "Dir_Vento", "Pres")
