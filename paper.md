@@ -196,7 +196,7 @@ We acknowledge CETESB and Monitor Ar Program for providing reliable atmospheric 
 the programs CAPES (Coordenadoria de Aperfeiçoamento de Pessoal de Nível
 Superior), CNPq (Conselho Nacional de Desenvolvimento Científico e Tecnológico),
 FAPESP (2016/18438-0 - Fundação de Amparo à Pesquisa do Estado do São Paulo),
-and the Wellcome Trust (subaward from Yale University to Northeastern University, subcontract number GR108374)
+and the Wellcome Trust (subaward from Yale University to Universidade de São Paulo, subcontract number GR108373)
 
 We are also thankful to the [LAPAT-IAG](http://www.lapat.iag.usp.br/) team for testing and reporting issues.
 
