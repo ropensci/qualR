@@ -32,7 +32,7 @@ affiliations:
 It produces completed data frames (i.e. missing hours padded out with `NA`) with a `date` column in `POSIXct` that facilitates temporal aggregation.
 `qualR` positively impacts research by allowing easy and fast data analysis and code reproducibility.
 
-# State of Need
+# Statement of Need
 Air quality networks provide air pollutant concentration for a given time and space.
 This information is used to monitor the state of the atmosphere and to verify air quality models [@Seinfeld2016].
 Brazil has two of the most extensive air quality networks in South America [@Riojas-Rodriguez2016].
