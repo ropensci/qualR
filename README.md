@@ -1,5 +1,6 @@
 # qualR
-[![Travis build status](https://travis-ci.com/quishqa/qualR.svg?branch=master)](https://travis-ci.com/quishqa/qualR) [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/quishqa/qualR?branch=master&svg=true)](https://ci.appveyor.com/project/quishqa/qualR) [![Coverage Status](https://img.shields.io/codecov/c/github/quishqa/qualR/master.svg)](https://codecov.io/github/quishqa/qualR?branch=master)
+[![Travis build status](https://travis-ci.com/quishqa/qualR.svg?branch=master)](https://travis-ci.com/quishqa/qualR) [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/quishqa/qualR?branch=master&svg=true)](https://ci.appveyor.com/project/quishqa/qualR) [![Coverage Status](https://img.shields.io/codecov/c/github/quishqa/qualR/master.svg)](https://codecov.io/github/quishqa/qualR?branch=master) [![status](https://joss.theoj.org/papers/d9e96637f111ed1cc499a21985ded9c9/status.svg)](https://joss.theoj.org/papers/d9e96637f111ed1cc499a21985ded9c9)
+
 
 The goal of `qualR` is to facilitate the download of air pollutants and meteorological
 information from [CETESB QUALAR System](https://qualar.cetesb.sp.gov.br/qualar/home.do) for Sao Paulo, and [MonitorAr Program](https://www.data.rio/datasets/dados-hor%C3%A1rios-do-monitoramento-da-qualidade-do-ar-monitorar), for Rio de Janeiro.
