@@ -1,5 +1,5 @@
 # qualR
-[![Travis build status](https://travis-ci.com/quishqa/qualR.svg?branch=master)](https://travis-ci.com/quishqa/qualR) [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/quishqa/qualR?branch=master&svg=true)](https://ci.appveyor.com/project/quishqa/qualR) [![Coverage Status](https://img.shields.io/codecov/c/github/quishqa/qualR/master.svg)](https://codecov.io/github/quishqa/qualR?branch=master) [![status](https://joss.theoj.org/papers/d9e96637f111ed1cc499a21985ded9c9/status.svg)](https://joss.theoj.org/papers/d9e96637f111ed1cc499a21985ded9c9)
+[![Travis build status](https://travis-ci.com/quishqa/qualR.svg?branch=master)](https://travis-ci.com/quishqa/qualR) [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/quishqa/qualR?branch=master&svg=true)](https://ci.appveyor.com/project/quishqa/qualR) [![Coverage Status](https://img.shields.io/codecov/c/github/quishqa/qualR/master.svg)](https://codecov.io/github/quishqa/qualR?branch=master)
 
 
 The goal of `qualR` is to facilitate the download of air pollutants and meteorological
