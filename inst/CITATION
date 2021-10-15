@@ -1,0 +1,15 @@
+citHeader("To cite qualR in publications use:")
+
+citEntry(
+  entry    = "Manual",
+  title    = "qualR: An R package to download Sao Paulo and Rio de Janeiro air pollution data",
+  author   = c(person("Mario", "Gavidia-Calderón"),
+               person("Daniel", "Schuch"),
+               person("Maria de Fatima", "Andrade")),
+  year     = 2021,
+  url      = "https://quishqa.github.io/qualR/",
+  textVersion = paste("Gavidia-Calderón, M., Schuch, D., Andrade, Maria de Fatima  (2021).",
+  "qualR: An R package to download Sao Paulo and Rio de Janeiro air pollution data.",
+  "URL: https://quishqa.github.io/qualR/"
+  )
+)
