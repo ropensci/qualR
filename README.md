@@ -6,6 +6,10 @@ The goal of `qualR` is to facilitate the download of air pollutants and meteorol
 information from [CETESB QUALAR System](https://qualar.cetesb.sp.gov.br/qualar/home.do) for Sao Paulo, and [MonitorAr Program](https://www.data.rio/datasets/dados-hor%C3%A1rios-do-monitoramento-da-qualidade-do-ar-monitorar), for Rio de Janeiro.
 This information is often used for air pollution data analysis and for air quality model evaluation.
 
+`qualR` functions return completed data frames (missing hours padded out with `NA`),
+ with a `date` column in `POSIXct` for temporal aggregation and for compatibility with [`openair` package ](https://github.com/davidcarslaw/openair).
+ `qualR` improves air pollution research by easily producing ready-to-use datasets, by facilitating exploratory data analysis, and by fostering reproducibility.
+
 ## Installation
 
 First, you need to install `devtools`:
