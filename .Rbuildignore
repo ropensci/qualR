@@ -12,3 +12,6 @@
 ^appveyor\.yml$
 ^codecov\.yml$
 ^NEWS.md
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
