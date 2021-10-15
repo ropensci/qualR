@@ -30,6 +30,8 @@ Imports:
     XML,
     httr,
     jsonlite
+URL: https://github.com/quishqa/qualR
+BugReports: https://github.com/quishqa/qualR/issues
 Suggests:
     covr,
     testthat (>= 3.0.0)
