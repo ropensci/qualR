@@ -1,0 +1,143 @@
+{
+  "@context": ["https://doi.org/10.5063/schema/codemeta-2.0", "http://schema.org"],
+  "@type": "SoftwareSourceCode",
+  "identifier": "qualR",
+  "description": "A package to download information from CETESB QUALAR and\n    MonitorAr systems. It contains function to download different parameters, a set of\n    criteria pollutants and the most frequent meteorological parameters used in\n    air quality data analysis and air quality model evaluation.",
+  "name": "qualR: An R package to download Sao Paulo and Rio de Janeiro air pollution data",
+  "codeRepository": "https://github.com/quishqa/qualR",
+  "issueTracker": "https://github.com/quishqa/qualR/issues",
+  "license": "https://spdx.org/licenses/MIT",
+  "version": "0.9.5",
+  "programmingLanguage": {
+    "@type": "ComputerLanguage",
+    "name": "R",
+    "url": "https://r-project.org"
+  },
+  "runtimePlatform": "R version 4.0.3 (2020-10-10)",
+  "author": [
+    {
+      "@type": "Person",
+      "givenName": "Mario",
+      "familyName": "Gavidia-Calderón",
+      "email": "mario.calderon@iag.usp.br",
+      "@id": "https://orcid.org/0000-0002-7371-1116"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Daniel",
+      "familyName": "Schuch",
+      "email": "d.schuch@northeastern.edu",
+      "@id": "https://orcid.org/0000-0001-5977-4519"
+    }
+  ],
+  "contributor": [
+    {
+      "@type": "Person",
+      "givenName": "Maria de Fatima",
+      "familyName": "Andrade",
+      "email": "maria.andrade@iag.usp.br",
+      "@id": "https://orcid.org/0000-0001-5351-8311"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Daniel",
+      "familyName": "Schuch",
+      "email": "d.schuch@northeastern.edu",
+      "@id": "https://orcid.org/0000-0001-5977-4519"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Maria de Fatima",
+      "familyName": "Andrade",
+      "email": "maria.andrade@iag.usp.br",
+      "@id": "https://orcid.org/0000-0001-5351-8311"
+    }
+  ],
+  "copyrightHolder": {},
+  "funder": {},
+  "maintainer": [
+    {
+      "@type": "Person",
+      "givenName": "Mario",
+      "familyName": "Gavidia-Calderón",
+      "email": "mario.calderon@iag.usp.br",
+      "@id": "https://orcid.org/0000-0002-7371-1116"
+    }
+  ],
+  "softwareSuggestions": [
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "covr",
+      "name": "covr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=covr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "testthat",
+      "name": "testthat",
+      "version": ">= 3.0.0",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=testthat"
+    }
+  ],
+  "softwareRequirements": [
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "XML",
+      "name": "XML",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=XML"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "httr",
+      "name": "httr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=httr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "jsonlite",
+      "name": "jsonlite",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=jsonlite"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "R",
+      "name": "R",
+      "version": ">= 3.5.0"
+    }
+  ],
+  "releaseNotes": "https://github.com/quishqa/qualR/blob/master/NEWS.md",
+  "readme": "https://github.com/quishqa/qualR/blob/master/README.md",
+  "fileSize": "80.892KB",
+  "contIntegration": ["https://travis-ci.com/quishqa/qualR", "https://ci.appveyor.com/project/quishqa/qualR"],
+  "keywords": ["cetesb", "sao-paulo", "brazil", "air-quality-data", "air-quality-measurements", "rio-de-janeiro", "air-pollutants"]
+}
