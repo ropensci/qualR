@@ -16,3 +16,4 @@
 ^docs$
 ^pkgdown$
 ^codemeta\.json$
+^CONTRIBUTING.md
