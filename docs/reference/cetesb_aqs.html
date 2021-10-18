@@ -40,8 +40,9 @@
 
 
 <meta property="og:title" content="CETESB AQS station latitude and longitude — cetesb_aqs" />
-<meta property="og:description" content="List of CETESB QUALAR AQS latitudes and longitudes. Use this to check the
-AQS location, if you need to make some maps. AQS names contains diacritics." />
+<meta property="og:description" content="List of CETESB QUALAR air qualitty stations (AQS) latitudes and longitudes.
+Use this to check the AQS aqs_code argument in CetesbRetrieveParam()
+function. AQS names are without diacritics." />
 
 
 
@@ -130,8 +131,9 @@ AQS location, if you need to make some maps. AQS names contains diacritics." />
     </div>
 
     <div class="ref-description">
-    <p>List of CETESB QUALAR AQS latitudes and longitudes. Use this to check the
-AQS location, if you need to make some maps. AQS names contains diacritics.</p>
+    <p>List of CETESB QUALAR air qualitty stations (AQS) latitudes and longitudes.
+Use this to check the AQS <code>aqs_code</code> argument in CetesbRetrieveParam()
+function. AQS names are without diacritics.</p>
     </div>
 
     <pre class="usage"><span class='va'>cetesb_aqs</span></pre>
@@ -139,9 +141,87 @@ AQS location, if you need to make some maps. AQS names contains diacritics.</p>
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data frame with 4 variables: <code>name</code> , <code>code</code>, <code>lat</code>, and
-<code>latitude</code> of AQS.</p>
+    <p>A data frame with 68 observations and 4 variables:</p><dl>
+<dt>name</dt><dd><p>CETESB AQS name.</p></dd>
+<dt>code</dt><dd><p>CETESB AQS code in QUALAR System.</p></dd>
+<dt>lat</dt><dd><p>CETESB AQS latitude.</p></dd>
+<dt>lon</dt><dd><p>CETESB AQS lontgitude.</p></dd>
 
+</dl>
+
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><span class='r-in'><span class='va'>cetesb_aqs</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                          name code       lat       lon</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1                   Americana  290 -22.72425 -47.33955</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2                   Araçatuba  107 -21.18684 -50.43932</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3                  Araraquara  106 -21.78252 -48.18583</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4                       Bauru  108 -22.32661 -49.09276</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5                     Cambuci   90 -23.56771 -46.61227</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6             Campinas-Centro   89 -22.90252 -47.05721</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7           Campinas-Taquaral  276 -22.87462 -47.05897</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8            Campinas-V.União  275 -22.94673 -47.11928</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9               Capão Redondo  269 -23.66836 -46.78004</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10                Carapicuíba  263 -23.53140 -46.83578</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11                  Catanduva  248 -21.14194 -48.98308</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12                     Centro   94 -23.54781 -46.64241</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13            Cerqueira César   91 -23.55354 -46.67270</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 14 Cid.Universitária-USP-Ipen   95 -23.56634 -46.73741</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 15                  Congonhas   73 -23.61632 -46.66347</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 16             Cubatão-Centro   87 -23.87903 -46.41848</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 17           Cubatão-V.Parisi   66 -23.84942 -46.38868</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 18       Cubatão-Vale do Mogi  119 -23.83159 -46.36957</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 19                    Diadema   92 -23.68588 -46.61162</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 20         Grajaú-Parelheiros   98 -23.77627 -46.69696</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 21              Guaratinguetá  289 -22.80192 -45.19112</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 22                  Guarulhos  118 -23.46321 -46.49621</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 23   Guarulhos-Paço Municipal  264 -23.45553 -46.51853</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 24         Guarulhos-Pimentas  279 -23.44012 -46.40995</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 25                 Ibirapuera   83 -23.59184 -46.66069</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 26                 Interlagos  262 -23.68051 -46.67504</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 27             Itaim Paulista  266 -23.50155 -46.42074</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 28                   Itaquera   97 -23.58001 -46.46665</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 29                    Jacareí  259 -23.29420 -45.96823</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 30                        Jaú  110 -22.29862 -48.56746</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 31                    Jundiaí  109 -23.19200 -46.89710</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 32                    Limeira  281 -22.56360 -47.41431</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 33    Marg.Tietê-Pte Remédios  270 -23.51871 -46.74332</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 34                    Marília  111 -22.19981 -49.95997</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 35                       Mauá   65 -23.66855 -46.46600</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 36            Mogi das Cruzes  287 -23.51817 -46.18686</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 37                      Mooca   85 -23.54973 -46.60042</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 38             N.Senhora do Ó   96 -23.48010 -46.69205</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 39                     Osasco  120 -23.52672 -46.79208</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 40          Parque D.Pedro II   72 -23.54485 -46.62768</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 41                   Paulínia  117 -22.77232 -47.15484</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 42               Paulínia Sul  112 -22.78681 -47.13656</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 43            Pico do Jaraguá  284 -23.45627 -46.76610</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 44                  Pinheiros   99 -23.56146 -46.70202</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 45                 Piracicaba  113 -22.70122 -47.64965</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 46            Pirassununga-EM  268 -22.00771 -47.42756</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 47        Presidente Prudente  114 -22.11994 -51.40878</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 48             Ribeirão Preto  288 -21.15394 -47.82848</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 49            S.André Capuava  100 -23.63980 -46.49164</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 50             S.André-Centro  101 -23.64562 -46.53633</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 51     S.André-Paço Municipal  254 -23.65699 -46.53092</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 52          S.Bernardo-Centro  272 -23.69867 -46.54623</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 53       S.Bernardo-Paulicéia  102 -23.67135 -46.58467</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 54              S.José Campos   88 -23.18789 -45.87120</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 55  S.José Campos-Jd.Satélite  277 -23.22365 -45.89080</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 56  S.José Campos-Vista Verde  278 -23.18370 -45.83090</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 57          S.Miguel Paulista  236 -23.49853 -46.44480</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 58            Santa Gertrudes  273 -22.45996 -47.53630</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 59                    Santana   63 -23.50599 -46.62896</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 60                Santo Amaro   64 -23.65498 -46.71000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 61                     Santos  258 -23.96306 -46.32117</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 62      Santos-Ponta da Praia  260 -23.98130 -46.30051</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 63         São Caetano do Sul   86 -23.61844 -46.55635</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 64      São José Do Rio Preto  116 -20.78469 -49.39828</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 65                   Sorocaba   67 -23.50243 -47.47903</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 66            Taboão da Serra  103 -23.60932 -46.75829</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 67                      Tatuí  256 -23.36075 -47.87080</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 68                    Taubaté  280 -23.03235 -45.57581</span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

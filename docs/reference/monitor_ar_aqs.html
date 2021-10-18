@@ -41,8 +41,8 @@
 
 <meta property="og:title" content="Monitor Ar AQS stations. — monitor_ar_aqs" />
 <meta property="og:description" content="List of Monitor Ar Rio air quality stations (AQS) with their codes
-and locations. Use this to check the aqs_code parameter in
-MonitorArRetrieve() function." />
+and locations. Use this to check the parameters argument in
+MonitorArRetrieveParam() function." />
 
 
 
@@ -132,8 +132,8 @@ MonitorArRetrieve() function." />
 
     <div class="ref-description">
     <p>List of Monitor Ar Rio air quality stations (AQS) with their codes
-and locations. Use this to check the aqs_code parameter in
-MonitorArRetrieve() function.</p>
+and locations. Use this to check the parameters argument in
+MonitorArRetrieveParam() function.</p>
     </div>
 
     <pre class="usage"><span class='va'>monitor_ar_aqs</span></pre>
@@ -141,10 +141,40 @@ MonitorArRetrieve() function.</p>
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data frame with 6 variables: <code>name</code>, <code>code</code>, <code>lon</code>, <code>lat</code>,
-<code>X_UTM_Sirgas2000</code>, and  <code>Y_UTM_Sirgas2000</code>
-of AQS.</p>
+    <p>A data frame with 8 observation and 6 variables:</p><dl>
+<dt>name</dt><dd><p>MonitorAr Program AQS name.</p></dd>
+<dt>code</dt><dd><p>MonitorAr Program AQS abbreviation.</p></dd>
+<dt>lon</dt><dd><p>MonitorAr Program AQS longitude.</p></dd>
+<dt>lat</dt><dd><p>MonitorAr Program AQS latitude.</p></dd>
+<dt>X_UTM_Sirgas2000</dt><dd><p>MonitorAr Program AQS longitude in SIRGAS 2000
+(EPSG:31983).</p></dd>
+<dt>Y_UTM_Sirgas2000</dt><dd><p>MonitorAr Program AQS latitude in SIRGAS 2000
+(EPSG:31983).</p></dd>
 
+</dl>
+
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><span class='r-in'><span class='va'>monitor_ar_aqs</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                         name code       lon       lat X_UTM_Sirgas2000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1 ESTACAO PEDRA DE GUARATIBA   PG -43.62901 -23.00438         640506.0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2              ESTACAO BANGU   BG -43.47107 -22.88791         656828.8</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3       ESTACAO CAMPO GRANDE   CG -43.55652 -22.88625         648064.5</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4              ESTACAO IRAJA   IR -43.32684 -22.83162         671696.6</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5         ESTACAO COPACABANA   AV -43.18048 -22.96500         686537.0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6             ESTACAO TIJUCA   SP -43.23266 -22.92492         681240.2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7      ESTACAO SAO CRISTOVAO   SC -43.22175 -22.89777         682395.8</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8             ESTACAO CENTRO   CA -43.17815 -22.90834         686853.7</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   Y_UTM_Sirgas2000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1          7455338</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2          7468075</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3          7468346</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4          7474147</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5          7459198</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6          7463703</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7          7466695</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8          7465470</span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

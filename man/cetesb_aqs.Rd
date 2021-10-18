@@ -5,14 +5,23 @@
 \alias{cetesb_aqs}
 \title{CETESB AQS station latitude and longitude}
 \format{
-A data frame with 4 variables: \code{name} , \code{code}, \code{lat}, and
-\code{latitude} of AQS.
+A data frame with 68 observations and 4 variables:
+\describe{
+\item{name}{CETESB AQS name.}
+\item{code}{CETESB AQS code in QUALAR System.}
+\item{lat}{CETESB AQS latitude.}
+\item{lon}{CETESB AQS lontgitude.}
+}
 }
 \usage{
 cetesb_aqs
 }
 \description{
-List of CETESB QUALAR AQS latitudes and longitudes. Use this to check the
-AQS location, if you need to make some maps. AQS names contains diacritics.
+List of CETESB QUALAR air qualitty stations (AQS) latitudes and longitudes.
+Use this to check the AQS \code{aqs_code} argument in CetesbRetrieveParam()
+function. AQS names are without diacritics.
+}
+\examples{
+cetesb_aqs
 }
 \keyword{datasets}

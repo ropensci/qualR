@@ -5,14 +5,22 @@
 \alias{monitor_ar_param}
 \title{Monitor Ar Parameters}
 \format{
-A data frame with 3 variables: \code{code}, \code{name}, and \code{units}
-of parameter.
+A data frame with 18 observations and 3 variables:
+\describe{
+\item{code}{MonitorAr parameter abbreviation or code.}
+\item{name}{MonitorAr parameter name}
+\item{units}{Parameter units.}
+}
 }
 \usage{
 monitor_ar_param
 }
 \description{
 List of Monitor Ar Rio available parameters. Use this to check the
-param parameter of MonitorArRetrieve() function .
+parameters argument in MonitorArRetrieveParam() function.
+Parameter names are without diacritics.
+}
+\examples{
+monitor_ar_param
 }
 \keyword{datasets}

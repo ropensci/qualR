@@ -5,15 +5,22 @@
 \alias{cetesb_param}
 \title{CETESB Parameters}
 \format{
-A data frame with 3 variables: \code{name}, \code{units}, and \code{code}
-of parameter.
+A data frame with 20 observations and 3 variables:
+\describe{
+\item{name}{CETESB QUALAR paramater abbreviation and name.}
+\item{units}{Parameter units.}
+\item{code}{Parameter CETESB QUALAR code.}
+}
 }
 \usage{
 cetesb_param
 }
 \description{
 List of CETESB QUALAR available parameters and units. Use this to check the
-pol_code parameter.
+\code{parameters} argument.
 Parameter names are without diacritics.
+}
+\examples{
+cetesb_param
 }
 \keyword{datasets}

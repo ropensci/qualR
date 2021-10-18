@@ -41,7 +41,8 @@
 
 <meta property="og:title" content="Monitor Ar Parameters — monitor_ar_param" />
 <meta property="og:description" content="List of Monitor Ar Rio available parameters. Use this to check the
-param parameter of MonitorArRetrieve() function ." />
+parameters argument in MonitorArRetrieveParam() function.
+Parameter names are without diacritics." />
 
 
 
@@ -131,7 +132,8 @@ param parameter of MonitorArRetrieve() function ." />
 
     <div class="ref-description">
     <p>List of Monitor Ar Rio available parameters. Use this to check the
-param parameter of MonitorArRetrieve() function .</p>
+parameters argument in MonitorArRetrieveParam() function.
+Parameter names are without diacritics.</p>
     </div>
 
     <pre class="usage"><span class='va'>monitor_ar_param</span></pre>
@@ -139,9 +141,36 @@ param parameter of MonitorArRetrieve() function .</p>
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data frame with 3 variables: <code>code</code>, <code>name</code>, and <code>units</code>
-of parameter.</p>
+    <p>A data frame with 18 observations and 3 variables:</p><dl>
+<dt>code</dt><dd><p>MonitorAr parameter abbreviation or code.</p></dd>
+<dt>name</dt><dd><p>MonitorAr parameter name</p></dd>
+<dt>units</dt><dd><p>Parameter units.</p></dd>
 
+</dl>
+
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><span class='r-in'><span class='va'>monitor_ar_param</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>         code                                name units</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1        SO2                  Dioxido de enxofre ug/m3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2        NO2               Dioxido de nitrogenio ug/m3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3         NO              Monoxido de Nitrogenio ug/m3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4        NOx                Oxidos de nitrogenio ug/m3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5       HCNM Hidrocarbonetos Totais menos Metano   ppm</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6        HCT              Hidrocarbonetos Totais   ppm</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7        CH4                              Metano ug/m3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8         CO                 Monoxido de Carbono   ppm</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9         O3                              Ozonio ug/m3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10      PM10                Particulas Inalaveis ug/m3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11     PM2_5          Particulas Inalaveis Finas ug/m3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12     Chuva          Precipitacao Pluviometrica    mm</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13      Pres                 Pressao Atmosferica  mbar</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 14        RS                      Radiacao Solar  W/m2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 15      Temp                         Temperatura    ºC</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 16        UR              Umidade Relativa do Ar     %</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 17 Dir_Vento                    Direcao do Vento     º</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 18 Vel_Vento                 Velocidade do Vento   m/s</span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

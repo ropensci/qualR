@@ -41,7 +41,7 @@
 
 <meta property="og:title" content="CETESB Parameters — cetesb_param" />
 <meta property="og:description" content="List of CETESB QUALAR available parameters and units. Use this to check the
-pol_code parameter.
+parameters argument.
 Parameter names are without diacritics." />
 
 
@@ -132,7 +132,7 @@ Parameter names are without diacritics." />
 
     <div class="ref-description">
     <p>List of CETESB QUALAR available parameters and units. Use this to check the
-pol_code parameter.
+<code>parameters</code> argument.
 Parameter names are without diacritics.</p>
     </div>
 
@@ -141,9 +141,38 @@ Parameter names are without diacritics.</p>
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data frame with 3 variables: <code>name</code>, <code>units</code>, and <code>code</code>
-of parameter.</p>
+    <p>A data frame with 20 observations and 3 variables:</p><dl>
+<dt>name</dt><dd><p>CETESB QUALAR paramater abbreviation and name.</p></dd>
+<dt>units</dt><dd><p>Parameter units.</p></dd>
+<dt>code</dt><dd><p>Parameter CETESB QUALAR code.</p></dd>
 
+</dl>
+
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><span class='r-in'><span class='va'>cetesb_param</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>                                          name units code</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1                               BEN (Benzeno) ug/m3   61</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2                    CO (Monoxido de Carbono)   ppm   16</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3                       DV (Direcao do Vento)     º   23</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4               DVG (Direcao do Vento Global)     º   21</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 5                ERT (Enxofre Reduzido Total)   ppb   19</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6  HCNM (Hidrocarbonetos Totais menos Metano)     -   59</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 7                 MP10 (Particulas Inalaveis) ug/m3   12</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 8          MP2.5 (Particulas Inalaveis Finas) ug/m3   57</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 9                 NO (Monoxido de Nitrogenio) ug/m3   17</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 10                NO2 (Dioxido de Nitrogenio) ug/m3   15</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 11                 NOx (Oxidos de Nitrogenio)   ppb   18</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12                                O3 (Ozonio) ug/m3   63</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 13                PRESS (Pressao Atmosferica)   hPa   29</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 14               RADG (Radiacao Solar Global)  W/m2   26</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 15             RADUV (Radiacao Ultra-violeta)  W/m2   56</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 16                   SO2 (Dioxido de Enxofre) ug/m3   13</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 17                   TEMP (Temperatura do Ar)    ºC   25</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 18                              TOL (Tolueno) ug/m3   62</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 19                UR (Umidade Relativa do Ar)     %   28</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 20                   VV (Velocidade do Vento)   m/s   24</span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
