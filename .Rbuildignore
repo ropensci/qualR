@@ -11,3 +11,9 @@
 ^\.travis\.yml$
 ^appveyor\.yml$
 ^codecov\.yml$
+^NEWS.md
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^codemeta\.json$
+^CONTRIBUTING.md

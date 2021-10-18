@@ -1,0 +1,143 @@
+---
+title: "How to use qualR"
+author:
+- name: Mario Gavidia-Calderón, Daniel Schuch & Maria de Fatima Andrade
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{How to use qualR}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Context
+Both the State of São Paulo and Rio de Janerio have one of the most extensive 
+air quality stations network in South America.
+[CETESB QUALAR System]() provide to the user the air quality data from the State
+of São Paulo. QUALAR System limits the download to one parameter from one air 
+station for one year in a simple query (three parameter in advance query).
+The data can have missing hours (e.g. due to calibration), 
+the decimal separator is ",", and the output is a CSV file.
+[data.rio]() hosts the air quality information from Monitor Ar Program.
+It is not an user-friendly API and the data needs the same preprocessor as the 
+data from QUALAR System.
+
+`qualR` surpasses these limitations and brings to your R session ready-to use 
+data frames with the information of air quality station from the State of 
+São Paulo and the city of Rio de Janeiro.
+
+# Approach
+
+`qualR` has the following functions:
+
+* `CetesbRetrieveParam`: Download a list of different parameter from one air quality station (AQS) from CETESB QUALAR System.
+* `CetesbRetrievePol`: Download criteria pollutants from one AQS from CETESB QUALAR System.
+* `CetesbRetrieveMet`: Download meteorological parameters from one AQS from CETESB QUALAR System.
+* `CetesbRetrieveMetPol`: Download meteorological parameters and criteria pollutants from one AQS from CETESB QUALAR System.
+* `MonitorArRetrieve`: Download a list of different parameters from MonitorAr - Rio program.
+* `MonitorArRetrievePol`: Download criteria pollutants from one AQS from MonitorAr - Rio program.
+* `MonitorArRetrieveMet`: Download meteorological parameters from one AQS from MonitorAr - Rio program.
+* `MonitorArRetrieveMetPol`: Download meteorological parameters and criteria pollutants from one AQS from MonitorAr - Rio Program.
+
+
+
+# Example to download data from Rio de Janeiro
+
+In this example we want to download one year PM10 concentration from an 
+air quality station located in Rio de Janeiro downtown. We need to do the following:
+
+1. Check for the code or abbreviation of the station.
+```{r setup}
+library(qualR)
+monitor_ar_aqs
+```
+2. Check for the code or abbreviation of the parameters.
+```{r}
+monitor_ar_param
+```
+3. We have that the air quality station `code` is `CA` (Estação Centro), and
+PM10 `code` is `PM10`. So we use the function `MonitorArRetrieveParam()`.
+```{r}
+rj_centro <- MonitorArRetrieveParam(start_date = "01/01/2019",
+                                    end_date = "31/12/2019",
+                                    aqs_code = "CA",
+                                    parameters = "PM10")
+
+head(rj_centro)
+```
+4. We can download multiple parameters too. For example, maybe we need to know 
+the relationship between PM10 and Wind Speed. To do that we just need to 
+define a vector with the parameters we need.
+```{r}
+to_dwld <- c("PM10", "Vel_Vento")
+
+rj_ca_params <- MonitorArRetrieveParam(start_date = "01/01/2019",
+                                    end_date = "31/12/2019",
+                                    aqs_code = "CA",
+                                    parameters = to_dwld)
+head(rj_ca_params)
+```
+5. Now we can make a simple plot
+```{r fig.height=5, fig.width=5}
+plot(rj_ca_params$Vel_Vento, rj_ca_params$PM10,
+     xlab = "Wind speed (m/s)",
+     ylab = "")
+mtext(expression(PM[10]~" ("*mu*"g/m"^3*")"), side = 2, line = 2.5)
+
+```
+
+
+
+# Compatibility with `openair`
+`qualR` functions returns a completed data frame (i.e. missing hours padded out
+with `NA`) with a `date` column in `POSIXct`. This ensure compatibility with the
+`openair`package.
+
+Here is the code to  use openair `timeVariation()` function. Note that no 
+preprocessing is needed.
+```{r eval=FALSE}
+openair::timeVariation(rj_centro, pollutant = "PM10")
+```
+
+# Example to download data from São Paulo State stations
+To use `CetesbRetrieve` you first need to create an account in 
+[CETESB QUALAR System](https://seguranca.cetesb.sp.gov.br/Home/CadastrarUsuario).
+The `CetesbRetrieve` functions are similar as `MonitorArRetrieve` functions, but 
+they require the `username` and `password` arguments.
+[Check this section](https://github.com/quishqa/qualR#a-better-way-to-save-your-credentials) on `qualR` README to safetly configure your user name and 
+password on your R session.
+
+In this example, we download Ozone concentration from an air quality station 
+located at Universidade de São Paulo (USP-Ipen) for August, 2021.
+1. Check the station `code` or `name` 
+```{r}
+head(cetesb_aqs, 15)
+```
+2. Check ozone `code` or abbreviation
+```{r}
+head(cetesb_param, 15)
+```
+3. The air quality station is `95` and ozone code is `63`. So to retrieve the 
+data we should use the `CetesbRetrieveParam`function like this:
+```{r eval=FALSE}
+usp_o3 <- CetesbRetrieveParam(username = my_user,
+                              password = my_password,
+                              parameters = "O3", # or 63
+                              aqs_code = "Cid.Universitaria-USP-Ipen",  # or 95
+                              start_date = "01/08/2021",
+                              end_date = "31/08/2021")      
+```
+
+
+
+# More information
+- You can check [`qualR` README](https://github.com/quishqa/qualR#readme) for more examples and good practices.
+- You can also check [this tutorial](https://github.com/quishqa/qualR_tuto) for more examples of `qualR` and how it works
+with `openair`.

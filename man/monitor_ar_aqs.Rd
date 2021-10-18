@@ -5,16 +5,27 @@
 \alias{monitor_ar_aqs}
 \title{Monitor Ar AQS stations.}
 \format{
-A data frame with 6 variables: \code{name}, \code{code}, \code{lon}, \code{lat},
-\code{X_UTM_Sirgas2000}, and  \code{Y_UTM_Sirgas2000}
-of AQS.
+A data frame with 8 observation and 6 variables:
+\describe{
+\item{name}{MonitorAr Program AQS name.}
+\item{code}{MonitorAr Program AQS abbreviation.}
+\item{lon}{MonitorAr Program AQS longitude.}
+\item{lat}{MonitorAr Program AQS latitude.}
+\item{X_UTM_Sirgas2000}{MonitorAr Program AQS longitude in SIRGAS 2000
+(EPSG:31983).}
+\item{Y_UTM_Sirgas2000}{MonitorAr Program AQS latitude in SIRGAS 2000
+(EPSG:31983).}
+}
 }
 \usage{
 monitor_ar_aqs
 }
 \description{
 List of Monitor Ar Rio air quality stations (AQS) with their codes
-and locations. Use this to check the aqs_code parameter in
-MonitorArRetrieve() function.
+and locations. Use this to check the parameters argument in
+MonitorArRetrieveParam() function.
+}
+\examples{
+monitor_ar_aqs
 }
 \keyword{datasets}

@@ -30,9 +30,14 @@ Imports:
     XML,
     httr,
     jsonlite
+URL: https://github.com/quishqa/qualR
+BugReports: https://github.com/quishqa/qualR/issues
 Suggests:
+    knitr,
     covr,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    rmarkdown
 Depends: 
     R (>= 3.5.0)
 Config/testthat/edition: 3
+VignetteBuilder: knitr
