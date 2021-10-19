@@ -26,7 +26,8 @@
 #' start_date <- "01/01/2020"
 #' end_date <- "07/01/2020"
 #'
-#' pin_o3 <- CetesbRetrieve(my_user_name, my_pass_word, o3_code, pin_code, start_date, end_date)
+#' pin_o3 <- CetesbRetrieve(my_user_name, my_pass_word, o3_code, pin_code,
+#'                          start_date, end_date)
 #'
 #' }
 CetesbRetrieve <- function(username, password,
@@ -41,12 +42,13 @@ CetesbRetrieve <- function(username, password,
   # Check if pol_code is valid
   if (is.numeric(pol_code) & pol_code %in% pols$code){
     pol_code <- pol_code
-  } else if (is.character(pol_code) & toupper(pol_code) %in% (params_code$name)){ # nocov start
+  } else if (is.character(pol_code) & toupper(pol_code) %in%
+             (params_code$name)){ # nocov start
     pol_code <- params_code$code[params_code$name == toupper(pol_code)]
   } else {
     stop("Wrong pol_code value, please check cetesb_param",
          call. = FALSE)
-  }                                                                               # nocov end
+  }                                                                 # nocov end
 
   # Getting full pollutant name
   pol_name <- pols$name[pols$code == pol_code]
@@ -57,10 +59,10 @@ CetesbRetrieve <- function(username, password,
 
   # Adding query summary
   if (verbose){
-    cat("Your query is:\n")                                                       # nocov
-    cat("Parameter:", pol_name, "\n")                                             # nocov
-    cat("Air quality staion:", aqs_name, "\n")                                    # nocov
-    cat("Period: From", start_date, "to", end_date, "\n")                         # nocov
+    cat("Your query is:\n")                                              # nocov
+    cat("Parameter:", pol_name, "\n")                                    # nocov
+    cat("Air quality staion:", aqs_name, "\n")                           # nocov
+    cat("Period: From", start_date, "to", end_date, "\n")                # nocov
   }
 
 
@@ -74,7 +76,8 @@ CetesbRetrieve <- function(username, password,
   log_qualar <- httr::POST(url_log, body = log_params, encode = "form")
 
   # Downloading data from Air quality stations
-  url_aqs <-"https://qualar.cetesb.sp.gov.br/qualar/exportaDados.do?method=pesquisar"
+  url_aqs <- paste0("https://qualar.cetesb.sp.gov.br/qualar/",
+                    "exportaDados.do?method=pesquisar")
 
   aqs_params  <- list(irede = 'A',
                       dataInicialStr = start_date,
@@ -86,7 +89,8 @@ CetesbRetrieve <- function(username, password,
   ask <- httr::POST(url_aqs, body = aqs_params, encode = "form")
 
   # Transforming query to dataframe
-  pars <- XML::htmlParse(ask, encoding = "UTF-8") # 'Encoding "UTF-8", preserves special characteres
+  # 'Encoding "UTF-8", preserves special characteres
+  pars <- XML::htmlParse(ask, encoding = "UTF-8")
   tabl <- XML::getNodeSet(pars, "//table")
   dat  <- XML::readHTMLTable(tabl[[2]], skip.rows = 1, stringsAsFactors = FALSE)
 
@@ -109,9 +113,9 @@ CetesbRetrieve <- function(username, password,
 
   # In case there is no data
   if (ncol(dat) != 19){
-    dat <- data.frame(date = all.dates$date , pol = NA, aqs = aqs_name,     # nocov
-                      stringsAsFactors = FALSE)                                 # nocov
-    cat(paste0('No data available for ', pol_name), "\n")                       # nocov
+    dat <- data.frame(date = all.dates$date , pol = NA, aqs = aqs_name,  # nocov
+                      stringsAsFactors = FALSE)                          # nocov
+    cat(paste0('No data available for ', pol_name), "\n")                # nocov
   } else if (ncol(dat) == 19) {
     names(dat) <- cet.names
     dat$date <- paste(dat$day, dat$hour, sep = '_')
@@ -122,14 +126,17 @@ CetesbRetrieve <- function(username, password,
     dat <- merge(all.dates, dat, all = TRUE)
 
     if (nrow(dat) != nrow(all.dates)){
-      cat(paste0('Dates missmatch ', unique(stats::na.omit(dat$est))), "\n")    # nocov
-      cat('Duplicated date in ',dat$date[duplicated(dat$date)], "\n")           # nocov
-      dat <- data.frame(date = dat$date , pol = dat$value, aqs = aqs_name,  # nocov
-                        stringsAsFactors = FALSE)                               # nocov
+      cat(paste0('Dates missmatch ',
+                 unique(stats::na.omit(dat$est))), "\n")                # nocov
+      cat('Duplicated date in ',
+          dat$date[duplicated(dat$date)], "\n")                         # nocov
+      dat <- data.frame(date = dat$date , pol = dat$value,
+                        aqs = aqs_name,                                 # nocov
+                        stringsAsFactors = FALSE)                       # nocov
     } else {
       cat(paste0('Download OK ', pol_abr), "\n")
-      dat <- data.frame(date = all.dates$date , pol = dat$value , aqs = aqs_name,
-                        stringsAsFactors = FALSE)
+      dat <- data.frame(date = all.dates$date , pol = dat$value ,
+                        aqs = aqs_name, stringsAsFactors = FALSE)
     }
   }
 
