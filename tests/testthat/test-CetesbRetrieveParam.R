@@ -1,7 +1,7 @@
 test_that("CetesbRetrieveParam works!", {
 
   current_folder <- getwd()
-  on.exit(setwd(current), add = T)
+  on.exit(setwd(current_folder), add = T)
 
   load("sysdata.rda")
 
