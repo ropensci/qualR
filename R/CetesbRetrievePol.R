@@ -1,7 +1,8 @@
 #' Download criteria pollutants from CETESB QUALAR
 #'
-#' This function download the criteria pollutants from one air quality station (AQS)
-#' of CETESB AQS network. It will pad out the date with missing data with NA.
+#' This function download the criteria pollutants from one air quality station
+#' (AQS) of CETESB AQS network.
+#' It will pad out the date with missing data with NA.
 #'
 #' @param username User name of CETESB QUALAR
 #' @param password User name's password of CETESB QUALAR
@@ -25,7 +26,8 @@
 #' start_date <- "01/01/2020"
 #' end_date <- "07/01/2020"
 #'
-#' pin_pol <- CetesbRetrieve(my_user_name, my_pass_word, pin_code, start_date, end_date)
+#' pin_pol <- CetesbRetrieve(my_user_name, my_pass_word, pin_code,
+#'                           start_date, end_date)
 #'
 #' }
 CetesbRetrievePol <- function(username, password,

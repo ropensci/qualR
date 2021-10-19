@@ -50,7 +50,8 @@ pin_code <- 99 # Check with cetesb_aqs
 start_date <- "01/01/2020"
 end_date <- "07/01/2020"
 
-pin_o3 <- CetesbRetrieve(my_user_name, my_pass_word, o3_code, pin_code, start_date, end_date)
+pin_o3 <- CetesbRetrieve(my_user_name, my_pass_word, o3_code, pin_code,
+                         start_date, end_date)
 
 }
 }

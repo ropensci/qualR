@@ -34,8 +34,9 @@ data.frame wth O3, NO, NO2, PM2.5, PM10 and CO information.
 Units are ug/m3 except for CO which is in ppm, and NOx which is in ppb.
 }
 \description{
-This function download the criteria pollutants from one air quality station (AQS)
-of CETESB AQS network. It will pad out the date with missing data with NA.
+This function download the criteria pollutants from one air quality station
+(AQS) of CETESB AQS network.
+It will pad out the date with missing data with NA.
 }
 \examples{
 \dontrun{
@@ -47,7 +48,8 @@ pin_code <- 99 # Check with cetesb_aqs
 start_date <- "01/01/2020"
 end_date <- "07/01/2020"
 
-pin_pol <- CetesbRetrieve(my_user_name, my_pass_word, pin_code, start_date, end_date)
+pin_pol <- CetesbRetrieve(my_user_name, my_pass_word, pin_code,
+                          start_date, end_date)
 
 }
 }

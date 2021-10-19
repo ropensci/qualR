@@ -6,7 +6,8 @@
 #'
 #' @param username User name of CETESB QUALAR
 #' @param password User name's password of CETESB QUALAR
-#' @param parameters a character vector with the parameters abbreviations to download
+#' @param parameters a character vector with the parameters abbreviations
+#'                    to download
 #' @param aqs_code Code of AQS
 #' @param start_date Date to start downloading in dd/mm/yyyy
 #' @param end_date Date to end downloading in dd/mm/yyyy

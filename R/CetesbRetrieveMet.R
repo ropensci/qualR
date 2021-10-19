@@ -13,8 +13,8 @@
 #' @param verbose Print query summary
 #' @param to_csv  Creates a csv file. FALSE by default
 #'
-#' @return data.frame wth Temperature (C), Relative Humidity (%), Wind Speed (m/s) and Direction (degrees),
-#' and Pressure information.
+#' @return data.frame wth Temperature (C), Relative Humidity (%),
+#' Wind Speed (m/s) and Direction (degrees), and Pressure information.
 #' @export
 #'
 #' @examples
@@ -27,7 +27,8 @@
 #' start_date <- "01/01/2020"
 #' end_date <- "07/01/2020"
 #'
-#' pin_pol <- CetesbRetrieveMet(my_user_name, my_pass_word, pin_code, start_date, end_date)
+#' pin_pol <- CetesbRetrieveMet(my_user_name, my_pass_word, pin_code,
+#'                              start_date, end_date)
 #' }
 CetesbRetrieveMet <-  function(username, password,
                                aqs_code, start_date,

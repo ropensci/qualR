@@ -1,8 +1,9 @@
 #' Download meteorological and pollutant data from Monitor Ar Program
 #'
-#' This function download the main meteorological parameters for model evaluation,
-#' together with criteria pollutatns for in air quality station (AQS) of Monitor Ar
-#' program. It will pad out the date with missing data with NA
+#' This function download the main meteorological parameters for model
+#' evaluation, together with criteria pollutatns for in air quality station
+#' (AQS) of Monitor Ar program.
+#' It will pad out the date with missing data with NA
 #'
 #' @param start_date Date to start downloading dd/mm/yyyy
 #' @param end_date Date to end downloading dd/mm/yyyy
@@ -11,15 +12,15 @@
 #' @param to_local Date information in local time. TRUE by default.
 #' @param to_csv Creates a csv file. FALSE by default.
 #'
-#' @return data.frame with Temperature (C), Relative Humidity (%), Wind Speed (m/s) and
-#' Direction (degrees), Pressure information (hPa), O3, NO, NO2, NOx, PM2.5, PM10 and CO
-#' information
+#' @return data.frame with Temperature (C), Relative Humidity (%),
+#' Wind Speed (m/s) and Direction (degrees), Pressure information (hPa),
+#'  O3, NO, NO2, NOx, PM2.5, PM10 and CO information.
 #' @export
 #'
 #' @examples
 #' \dontrun{
-#' # Downloading main meteorological parameters and criteria pollutant from CENTRO AQS
-#' # from January first to 7th of 2020
+#' # Downloading main meteorological parameters and criteria pollutant
+#' # from CENTRO AQS from January first to 7th of 2020
 #' start_date <- "01/01/2020"
 #' end_date <- "07/01/2020"
 #' ca_all <- MonitorArRetrieceMetPol(start_date, end_date, "CA")

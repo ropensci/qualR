@@ -11,8 +11,8 @@
 #' @param to_local Date information in local time. TRUE by default.
 #' @param to_csv Create a csv file. FALSE by default.
 #'
-#' @return data.frame with Temperatur (c), Relative Humidity (%), Wind speed (m/s) and direction (degrees)
-#' and Pressure information
+#' @return data.frame with Temperatur (c), Relative Humidity (%),
+#' Wind speed (m/s) and direction (degrees) and Pressure information.
 #' @export
 #'
 #' @examples

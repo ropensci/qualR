@@ -30,8 +30,8 @@ CetesbRetrieveMet(
 \item{to_csv}{Creates a csv file. FALSE by default}
 }
 \value{
-data.frame wth Temperature (C), Relative Humidity (\%), Wind Speed (m/s) and Direction (degrees),
-and Pressure information.
+data.frame wth Temperature (C), Relative Humidity (\%),
+Wind Speed (m/s) and Direction (degrees), and Pressure information.
 }
 \description{
 This function download the main meteorological parameters for
@@ -48,6 +48,7 @@ pin_code <- 99 # Check with cetesb_aqs
 start_date <- "01/01/2020"
 end_date <- "07/01/2020"
 
-pin_pol <- CetesbRetrieveMet(my_user_name, my_pass_word, pin_code, start_date, end_date)
+pin_pol <- CetesbRetrieveMet(my_user_name, my_pass_word, pin_code,
+                             start_date, end_date)
 }
 }

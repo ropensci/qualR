@@ -20,7 +20,8 @@ CetesbRetrieveParam(
 
 \item{password}{User name's password of CETESB QUALAR}
 
-\item{parameters}{a character vector with the parameters abbreviations to download}
+\item{parameters}{a character vector with the parameters abbreviations
+to download}
 
 \item{aqs_code}{Code of AQS}
 

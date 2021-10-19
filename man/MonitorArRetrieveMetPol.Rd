@@ -27,19 +27,20 @@ MonitorArRetrieveMetPol(
 \item{to_csv}{Creates a csv file. FALSE by default.}
 }
 \value{
-data.frame with Temperature (C), Relative Humidity (\%), Wind Speed (m/s) and
-Direction (degrees), Pressure information (hPa), O3, NO, NO2, NOx, PM2.5, PM10 and CO
-information
+data.frame with Temperature (C), Relative Humidity (\%),
+Wind Speed (m/s) and Direction (degrees), Pressure information (hPa),
+O3, NO, NO2, NOx, PM2.5, PM10 and CO information.
 }
 \description{
-This function download the main meteorological parameters for model evaluation,
-together with criteria pollutatns for in air quality station (AQS) of Monitor Ar
-program. It will pad out the date with missing data with NA
+This function download the main meteorological parameters for model
+evaluation, together with criteria pollutatns for in air quality station
+(AQS) of Monitor Ar program.
+It will pad out the date with missing data with NA
 }
 \examples{
 \dontrun{
-# Downloading main meteorological parameters and criteria pollutant from CENTRO AQS
-# from January first to 7th of 2020
+# Downloading main meteorological parameters and criteria pollutant
+from CENTRO AQS from January first to 7th of 2020
 start_date <- "01/01/2020"
 end_date <- "07/01/2020"
 ca_all <- MonitorArRetrieceMetPol(start_date, end_date, "CA")

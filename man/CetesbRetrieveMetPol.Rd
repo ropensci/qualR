@@ -30,25 +30,28 @@ CetesbRetrieveMetPol(
 \item{to_csv}{Creates a csv file. FALSE by default}
 }
 \value{
-data.frame with Temperature (C), Relative Humidity (\%), Wind Speed (m/s) and Direction (degrees),
-Pressure information (hPa), O3, NO, NO2, NOx, PM2.5, PM10 and CO information.
+data.frame with Temperature (C), Relative Humidity (\%),
+Wind Speed (m/s) and Direction (degrees), Pressure information (hPa),
+O3, NO, NO2, NOx, PM2.5, PM10 and CO information.
 }
 \description{
-This function download the main meteorological parameters for model evaluation,
-together with criteria pollutants for one air quality station (AQS).
-It will pad out the date with missing data with NA.
+This function download the main meteorological parameters for model
+evaluation, together with criteria pollutants for one
+air quality station (AQS). It will pad out the date with
+missing data with NA.
 }
 \examples{
 \dontrun{
-# Downloading main meteorological parameters and criteria pollutants from Pinheiros AQS
-# from January first to 7th of 2020
+# Downloading main meteorological parameters and criteria pollutants
+from Pinheiros AQS from January first to 7th of 2020
 my_user_name <- "John Doe"
 my_pass_word <- "drowssap"
 pin_code <- 99 # Check with cetesb_aqs
 start_date <- "01/01/2020"
 end_date <- "07/01/2020"
 
-pin_pol <- CetesbRetrieveMetPol(my_user_name, my_pass_word, pin_code, start_date, end_date)
+pin_pol <- CetesbRetrieveMetPol(my_user_name, my_pass_word, pin_code,
+                                start_date, end_date)
 
 }
 }
