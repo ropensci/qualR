@@ -88,7 +88,7 @@ CetesbRetrieve <- function(username, password,
   # Transforming query to dataframe
   pars <- XML::htmlParse(ask, encoding = "UTF-8") # 'Encoding "UTF-8", preserves special characteres
   tabl <- XML::getNodeSet(pars, "//table")
-  dat  <- XML::readHTMLTable(tabl[[2]], skip.rows = 1, stringsAsFactors = F)
+  dat  <- XML::readHTMLTable(tabl[[2]], skip.rows = 1, stringsAsFactors = FALSE)
 
   # Creating a complete date data frame to merge and to pad out with NA
   end_date2  <- as.character(as.Date(end_date, format = '%d/%m/%Y') + 1)
@@ -110,7 +110,7 @@ CetesbRetrieve <- function(username, password,
   # In case there is no data
   if (ncol(dat) != 19){
     dat <- data.frame(date = all.dates$date , pol = NA, aqs = aqs_name,     # nocov
-                      stringsAsFactors = F)                                 # nocov
+                      stringsAsFactors = FALSE)                                 # nocov
     cat(paste0('No data available for ', pol_name), "\n")                       # nocov
   } else if (ncol(dat) == 19) {
     names(dat) <- cet.names
@@ -119,17 +119,17 @@ CetesbRetrieve <- function(username, password,
                            tz = 'UTC')
     dat$value <- as.numeric(gsub(",", ".", gsub("\\.", "", dat$value)))
     dat <- dat[dat$test == 'Sim', ]
-    dat <- merge(all.dates, dat, all = T)
+    dat <- merge(all.dates, dat, all = TRUE)
 
     if (nrow(dat) != nrow(all.dates)){
       cat(paste0('Dates missmatch ', unique(stats::na.omit(dat$est))), "\n")    # nocov
       cat('Duplicated date in ',dat$date[duplicated(dat$date)], "\n")           # nocov
       dat <- data.frame(date = dat$date , pol = dat$value, aqs = aqs_name,  # nocov
-                        stringsAsFactors = F)                               # nocov
+                        stringsAsFactors = FALSE)                               # nocov
     } else {
       cat(paste0('Download OK ', pol_abr), "\n")
       dat <- data.frame(date = all.dates$date , pol = dat$value , aqs = aqs_name,
-                        stringsAsFactors = F)
+                        stringsAsFactors = FALSE)
     }
   }
 

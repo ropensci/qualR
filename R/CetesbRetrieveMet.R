@@ -75,7 +75,7 @@ CetesbRetrieveMet <-  function(username, password,
                         wd = wd$pol,
                         p = p$pol,
                         aqs = tc$aqs,
-                        stringsAsFactors = F)
+                        stringsAsFactors = FALSE)
   cat(paste(
     "Download complete for", unique(all_met$aqs), "\n"
     ))

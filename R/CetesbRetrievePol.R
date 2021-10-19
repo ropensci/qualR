@@ -85,7 +85,7 @@ CetesbRetrievePol <- function(username, password,
                         pm10 = pm10$pol,
                         pm25 = pm25$pol,
                         aqs = o3$aqs,
-                        stringsAsFactors = F)
+                        stringsAsFactors = FALSE)
   cat(paste(
     "Download complete for", unique(all_pol$aqs), "\n"
   ))
