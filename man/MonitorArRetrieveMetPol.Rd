@@ -40,7 +40,7 @@ It will pad out the date with missing data with NA
 \examples{
 \dontrun{
 # Downloading main meteorological parameters and criteria pollutant
-from CENTRO AQS from January first to 7th of 2020
+# from CENTRO AQS from January first to 7th of 2020
 start_date <- "01/01/2020"
 end_date <- "07/01/2020"
 ca_all <- MonitorArRetrieceMetPol(start_date, end_date, "CA")

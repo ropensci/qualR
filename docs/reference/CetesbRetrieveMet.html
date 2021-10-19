@@ -181,8 +181,8 @@ It will pad out the date with missing data with NA.</p>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>data.frame wth Temperature (C), Relative Humidity (%), Wind Speed (m/s) and Direction (degrees),
-and Pressure information.</p>
+    <p>data.frame wth Temperature (C), Relative Humidity (%),
+Wind Speed (m/s) and Direction (degrees), and Pressure information.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
@@ -194,7 +194,8 @@ and Pressure information.</p>
 <span class='r-in'><span class='va'>start_date</span> <span class='op'>&lt;-</span> <span class='st'>"01/01/2020"</span></span>
 <span class='r-in'><span class='va'>end_date</span> <span class='op'>&lt;-</span> <span class='st'>"07/01/2020"</span></span>
 <span class='r-in'></span>
-<span class='r-in'><span class='va'>pin_pol</span> <span class='op'>&lt;-</span> <span class='fu'>CetesbRetrieveMet</span><span class='op'>(</span><span class='va'>my_user_name</span>, <span class='va'>my_pass_word</span>, <span class='va'>pin_code</span>, <span class='va'>start_date</span>, <span class='va'>end_date</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>pin_pol</span> <span class='op'>&lt;-</span> <span class='fu'>CetesbRetrieveMet</span><span class='op'>(</span><span class='va'>my_user_name</span>, <span class='va'>my_pass_word</span>, <span class='va'>pin_code</span>,</span>
+<span class='r-in'>                             <span class='va'>start_date</span>, <span class='va'>end_date</span><span class='op'>)</span></span>
 <span class='r-in'><span class='op'>}</span></span>
 </pre>
   </div>

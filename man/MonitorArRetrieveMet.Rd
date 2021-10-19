@@ -27,8 +27,8 @@ MonitorArRetrieveMet(
 \item{to_csv}{Create a csv file. FALSE by default.}
 }
 \value{
-data.frame with Temperatur (c), Relative Humidity (\%), Wind speed (m/s) and direction (degrees)
-and Pressure information
+data.frame with Temperatur (c), Relative Humidity (\%),
+Wind speed (m/s) and direction (degrees) and Pressure information.
 }
 \description{
 This function download the main meterorological paramenters from one

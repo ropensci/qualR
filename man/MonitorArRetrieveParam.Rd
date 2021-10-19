@@ -21,7 +21,8 @@ MonitorArRetrieveParam(
 
 \item{aqs_code}{AQS code}
 
-\item{parameters}{Paremeters to download. It can be a vector with many parameters.}
+\item{parameters}{Paremeters to download.
+It can be a vector with many parameters.}
 
 \item{to_local}{Date information in local time. TRUE by default.}
 
@@ -33,8 +34,8 @@ MonitorArRetrieveParam(
 data.frame with the selected parameter information
 }
 \description{
-This function download air quality and meteorology measurements from MonitorAr-Rio
-program from Rio de Janeiro city.
+This function download air quality and meteorology measurements from
+MonitorAr-Rio program from Rio de Janeiro city.
 }
 \examples{
 \dontrun{

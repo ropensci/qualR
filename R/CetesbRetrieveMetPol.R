@@ -21,7 +21,7 @@
 #' @examples
 #' \dontrun{
 #' # Downloading main meteorological parameters and criteria pollutants
-#' from Pinheiros AQS from January first to 7th of 2020
+#' # from Pinheiros AQS from January first to 7th of 2020
 #' my_user_name <- "John Doe"
 #' my_pass_word <- "drowssap"
 #' pin_code <- 99 # Check with cetesb_aqs
