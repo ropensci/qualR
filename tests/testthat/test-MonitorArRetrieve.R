@@ -1,5 +1,8 @@
 test_that("MonitorArRetrieve works", {
 
+  current_folder <- getwd()
+  on.exit(setwd(current), add = T)
+
   dir.create(file.path(tempdir(), "cetesb-data"))
   setwd(file.path(tempdir(), "cetesb-data"))
 
