@@ -88,7 +88,9 @@ head(rj_ca_params)
 ```{r fig.height=5, fig.width=5}
 plot(rj_ca_params$Vel_Vento, rj_ca_params$PM10,
      xlab = "Wind speed (m/s)",
-     ylab = "")
+     ylab = "",
+     xlim = c(0,4),
+     ylim = c(0,120))
 mtext(expression(PM[10]~" ("*mu*"g/m"^3*")"), side = 2, line = 2.5)
 
 ```
