@@ -40,10 +40,10 @@ CetesbRetrieve <- function(username, password,
   pols <- params
 
   # Check if pol_code is valid
-  if (is.numeric(pol_code) & pol_code %in% pols$code){
+  if (is.numeric(pol_code) & pol_code %in% pols$code){              # nocov start
     pol_code <- pol_code
   } else if (is.character(pol_code) & toupper(pol_code) %in%
-             (params_code$name)){ # nocov start
+             (params_code$name)){
     pol_code <- params_code$code[params_code$name == toupper(pol_code)]
   } else {
     stop("Wrong pol_code value, please check cetesb_param",
@@ -126,18 +126,18 @@ CetesbRetrieve <- function(username, password,
     dat <- merge(all.dates, dat, all = TRUE)
 
     if (nrow(dat) != nrow(all.dates)){
-      cat(paste0('Dates missmatch ',
-                 unique(stats::na.omit(dat$est))), "\n")                # nocov
+      cat(paste0('Dates missmatch ',                                    # nocov start
+                 unique(stats::na.omit(dat$est))), "\n")
       cat('Duplicated date in ',
-          dat$date[duplicated(dat$date)], "\n")                         # nocov
+          dat$date[duplicated(dat$date)], "\n")
       dat <- data.frame(date = dat$date , pol = dat$value,
-                        aqs = aqs_name,                                 # nocov
-                        stringsAsFactors = FALSE)                       # nocov
+                        aqs = aqs_name,
+                        stringsAsFactors = FALSE)
     } else {
       cat(paste0('Download OK ', pol_abr), "\n")
       dat <- data.frame(date = all.dates$date , pol = dat$value ,
                         aqs = aqs_name, stringsAsFactors = FALSE)
-    }
+    }                                                                   # nocov end
   }
 
   if (to_csv){
