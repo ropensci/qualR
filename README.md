@@ -378,8 +378,11 @@ That is, a concentration value for **22:00 is the mean from 21:01 to 22:00**.
 
 ## Acknowledgments
 
-Thanks to [CETESB](https://cetesb.sp.gov.br/ar/) and to [MonitorAr Program](https://www.rio.rj.gov.br/web/smac/monitorar-rio1) for make public this atmospheric data,
-and to the [LAPAT-IAG team](http://www.lapat.iag.usp.br/) for test and help to improve `qualR`.
+Thanks to [CETESB](https://cetesb.sp.gov.br/ar/) and to [MonitorAr Program](https://www.rio.rj.gov.br/web/smac/monitorar-rio1) for make public this atmospheric data.
+
+We  acknowledge the programs CAPES (Coordenadoria de Aperfeiçoamento de Pessoal de Nível Superior), CNPq (Conselho Nacional de Desenvolvimento Científico e Tecnológico), FAPESP (2016/18438-0 - Fundação de Amparo à Pesquisa do Estado do São Paulo), and the Wellcome Trust (subaward from Yale University to Universidade de São Paulo, subcontract number GR108373).
+
+Finally, we want to thanks to the [LAPAT-IAG team](http://www.lapat.iag.usp.br/) for test and help to improve `qualR`.
 
 ## Last but not least
 
