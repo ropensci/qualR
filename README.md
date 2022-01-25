@@ -376,6 +376,9 @@ This avoids problems with merging data frames and also with Daylight saving time
 That is, a concentration value for **22:00 is the mean from 21:01 to 22:00**.
 * Currently, MonitorAr only has data until March, 2021.
 
+## Code of Conduct
+
+Please note that the qualR project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
 
 ## Acknowledgments
 

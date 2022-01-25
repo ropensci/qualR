@@ -13,3 +13,4 @@
 ^pkgdown$
 ^codemeta\.json$
 ^CONTRIBUTING\.md$
+^CODE_OF_CONDUCT\.md$
