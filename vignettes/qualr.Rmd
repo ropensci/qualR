@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 ```
 
 # Context
-Both the State of São Paulo and Rio de Janerio have one of the most extensive 
+Both the State of São Paulo and Rio de Janeiro have one of the most extensive 
 air quality stations network in South America.
 [CETESB QUALAR System]() provide to the user the air quality data from the State
 of São Paulo. QUALAR System limits the download to one parameter from one air 
@@ -113,7 +113,7 @@ To use `CetesbRetrieve` you first need to create an account in
 [CETESB QUALAR System](https://seguranca.cetesb.sp.gov.br/Home/CadastrarUsuario).
 The `CetesbRetrieve` functions are similar as `MonitorArRetrieve` functions, but 
 they require the `username` and `password` arguments.
-[Check this section](https://github.com/quishqa/qualR#a-better-way-to-save-your-credentials) on `qualR` README to safetly configure your user name and 
+[Check this section](https://github.com/quishqa/qualR#a-better-way-to-save-your-credentials) on `qualR` README to safely configure your user name and 
 password on your R session.
 
 In this example, we download Ozone concentration from an air quality station 

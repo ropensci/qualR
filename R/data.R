@@ -1,6 +1,6 @@
 #' CETESB AQS station latitude and longitude
 #'
-#' List of CETESB QUALAR air qualitty stations (AQS) latitudes and longitudes.
+#' List of CETESB QUALAR air quality stations (AQS) latitudes and longitudes.
 #' Use this to check the AQS \code{aqs_code} argument in CetesbRetrieveParam()
 #' function. AQS names are without diacritics.
 #'
@@ -9,7 +9,7 @@
 #' \item{name}{CETESB AQS name.}
 #' \item{code}{CETESB AQS code in QUALAR System.}
 #' \item{lat}{CETESB AQS latitude.}
-#' \item{lon}{CETESB AQS lontgitude.}
+#' \item{lon}{CETESB AQS longitude.}
 #' }
 #' @examples
 #' cetesb_aqs
@@ -23,7 +23,7 @@
 #'
 #' @format A data frame with 20 observations and 3 variables:
 #' \describe{
-#' \item{name}{CETESB QUALAR paramater abbreviation and name.}
+#' \item{name}{CETESB QUALAR parameter abbreviation and name.}
 #' \item{units}{Parameter units.}
 #' \item{code}{Parameter CETESB QUALAR code.}
 #' }

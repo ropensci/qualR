@@ -21,7 +21,7 @@ MonitorArRetrieveParam(
 
 \item{aqs_code}{AQS code}
 
-\item{parameters}{Paremeters to download.
+\item{parameters}{Parameters to download.
 It can be a vector with many parameters.}
 
 \item{to_local}{Date information in local time. TRUE by default.}

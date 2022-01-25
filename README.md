@@ -3,7 +3,7 @@
 
 
 The goal of `qualR` is to facilitate the download of air pollutants and meteorological
-information from [CETESB QUALAR System](https://qualar.cetesb.sp.gov.br/qualar/home.do) for Sao Paulo, and [MonitorAr Program](https://www.data.rio/datasets/dados-hor%C3%A1rios-do-monitoramento-da-qualidade-do-ar-monitorar), for Rio de Janeiro.
+information from [CETESB QUALAR System](https://qualar.cetesb.sp.gov.br/qualar/home.do) for São Paulo, and [MonitorAr Program](https://www.data.rio/datasets/dados-hor%C3%A1rios-do-monitoramento-da-qualidade-do-ar-monitorar), for Rio de Janeiro.
 This information is often used for air pollution data analysis and for air quality model evaluation.
 
 `qualR` functions return completed data frames (missing hours padded out with `NA`),
@@ -41,7 +41,7 @@ These functions return a data frame, with a `date` column in POSIXct, which allo
 to use other packages for data analysis, such as [openair](https://davidcarslaw.github.io/openair/).
 
 
-To download the information for Sao Paulo, you first need to have an account in [CETESB QUALAR system](https://qualar.cetesb.sp.gov.br/qualar/home.do).
+To download the information for São Paulo, you first need to have an account in [CETESB QUALAR system](https://qualar.cetesb.sp.gov.br/qualar/home.do).
 [Here](https://seguranca.cetesb.sp.gov.br/Home/CadastrarUsuario), you can sign up to CETESB QUALAR system.
 MonitorAr doesn't require an account.
 
@@ -344,7 +344,7 @@ ir_o3 <- MonitorArRetrieve(date_start, date_end, aqs_code, param)
 
 #### Downloading multiple parameters from one AQS
 
-`MonitorArRetrieve` is similar to `CetesbRetrieveParam`, so it allows us to download multiple paramenters.
+`MonitorArRetrieve` is similar to `CetesbRetrieveParam`, so it allows us to download multiple parameters.
 Here, we will download Ozone, Nitric oxide, Nitrogen dioxide, wind speed and direction.
 
 ```R
@@ -380,7 +380,7 @@ That is, a concentration value for **22:00 is the mean from 21:01 to 22:00**.
 
 Thanks to [CETESB](https://cetesb.sp.gov.br/ar/) and to [MonitorAr Program](https://www.rio.rj.gov.br/web/smac/monitorar-rio1) for make public this atmospheric data.
 
-We  acknowledge the programs CAPES (Coordenadoria de Aperfeiçoamento de Pessoal de Nível Superior), CNPq (Conselho Nacional de Desenvolvimento Científico e Tecnológico), FAPESP (2016/18438-0 - Fundação de Amparo à Pesquisa do Estado do São Paulo), and the Wellcome Trust (subaward from Yale University to Universidade de São Paulo, subcontract number GR108373).
+We  acknowledge the programs CAPES (Coordenadoria de Aperfeiçoamento de Pessoal de Nível Superior), CNPq (Conselho Nacional de Desenvolvimento Científico e Tecnológico), FAPESP (2016/18438-0 - Fundação de Amparo à Pesquisa do Estado do São Paulo), and the Welcome Trust (subaward from Yale University to Universidade de São Paulo, subcontract number GR108373).
 
 Finally, we want to thanks to the [LAPAT-IAG team](http://www.lapat.iag.usp.br/) for test and help to improve `qualR`.
 

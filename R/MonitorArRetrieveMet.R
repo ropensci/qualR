@@ -1,6 +1,6 @@
 #' Download meteorological parameters from Monitor Ar program
 #'
-#' This function download the main meterorological paramenters from one
+#' This function download the main meteorological parameters from one
 #' air quality station (AQS) of Monitor Ar network. It will
 #' pad out the date with missing data with NA.
 #'
@@ -11,7 +11,7 @@
 #' @param to_local Date information in local time. TRUE by default.
 #' @param to_csv Create a csv file. FALSE by default.
 #'
-#' @return data.frame with Temperatur (c), Relative Humidity (%),
+#' @return data.frame with Temperature (c), Relative Humidity (%),
 #' Wind speed (m/s) and direction (degrees) and Pressure information.
 #' @export
 #'

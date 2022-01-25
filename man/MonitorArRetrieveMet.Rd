@@ -27,11 +27,11 @@ MonitorArRetrieveMet(
 \item{to_csv}{Create a csv file. FALSE by default.}
 }
 \value{
-data.frame with Temperatur (c), Relative Humidity (\%),
+data.frame with Temperature (c), Relative Humidity (\%),
 Wind speed (m/s) and direction (degrees) and Pressure information.
 }
 \description{
-This function download the main meterorological paramenters from one
+This function download the main meteorological parameters from one
 air quality station (AQS) of Monitor Ar network. It will
 pad out the date with missing data with NA.
 }

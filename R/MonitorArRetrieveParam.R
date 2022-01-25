@@ -6,7 +6,7 @@
 #' @param start_date Date to start downloading in dd/mm/yyyy
 #' @param end_date Date to end downloading in dd/mm/yyyy
 #' @param aqs_code AQS code
-#' @param parameters Paremeters to download.
+#' @param parameters Parameters to download.
 #' It can be a vector with many parameters.
 #' @param to_local Date information in local time. TRUE by default.
 #' @param verbose Print query summary.

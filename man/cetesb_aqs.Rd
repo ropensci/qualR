@@ -10,14 +10,14 @@ A data frame with 68 observations and 4 variables:
 \item{name}{CETESB AQS name.}
 \item{code}{CETESB AQS code in QUALAR System.}
 \item{lat}{CETESB AQS latitude.}
-\item{lon}{CETESB AQS lontgitude.}
+\item{lon}{CETESB AQS longitude.}
 }
 }
 \usage{
 cetesb_aqs
 }
 \description{
-List of CETESB QUALAR air qualitty stations (AQS) latitudes and longitudes.
+List of CETESB QUALAR air quality stations (AQS) latitudes and longitudes.
 Use this to check the AQS \code{aqs_code} argument in CetesbRetrieveParam()
 function. AQS names are without diacritics.
 }

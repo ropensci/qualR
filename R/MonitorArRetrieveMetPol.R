@@ -1,7 +1,7 @@
 #' Download meteorological and pollutant data from Monitor Ar Program
 #'
 #' This function download the main meteorological parameters for model
-#' evaluation, together with criteria pollutatns for in air quality station
+#' evaluation, together with criteria pollutants for in air quality station
 #' (AQS) of Monitor Ar program.
 #' It will pad out the date with missing data with NA
 #'

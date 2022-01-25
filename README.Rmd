@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 <!-- badges: end -->
 
 The goal of qualR is facilitate the download of air pollutants and meteorological information from 
-[CETESB QUALAR system](https://qualar.cetesb.sp.gov.br/qualar/home.do). This information is often used for air quality model evaluation and air pollution data analysis in Sao Paulo State which is usally perform in R.
+[CETESB QUALAR system](https://qualar.cetesb.sp.gov.br/qualar/home.do). This information is often used for air quality model evaluation and air pollution data analysis in São Paulo State which is usually perform in R.
 
 ## Installation
 
@@ -79,4 +79,4 @@ pin_met <- CetesbRetrieveMet(my_user_name,
                              end_date)
 ```
 
-I hope this will be usefull for your research.
+I hope this will be useful for your research.

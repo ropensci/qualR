@@ -30,7 +30,7 @@ CetesbRetrieveMet(
 \item{to_csv}{Creates a csv file. FALSE by default}
 }
 \value{
-data.frame wth Temperature (C), Relative Humidity (\%),
+data.frame with Temperature (C), Relative Humidity (\%),
 Wind Speed (m/s) and Direction (degrees), and Pressure information.
 }
 \description{

@@ -7,7 +7,7 @@
 \format{
 A data frame with 20 observations and 3 variables:
 \describe{
-\item{name}{CETESB QUALAR paramater abbreviation and name.}
+\item{name}{CETESB QUALAR parameter abbreviation and name.}
 \item{units}{Parameter units.}
 \item{code}{Parameter CETESB QUALAR code.}
 }

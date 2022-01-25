@@ -18,7 +18,7 @@
 
 ## Features
 - Initial version
-- Download one parameter from one air quality station with `CetesbRetrieve` funcion.
-- Download criteria pollutants from one air quality station with `CetesbRetrievePol` funcion.
-- Download meteorological parameters from one air quality station with `CetesbRetrieveMet` funcion.
-- Download criteria pollutants anf meteorological parameters from one air quality station with `CetesbRetrieveAll` funcion.
+- Download one parameter from one air quality station with `CetesbRetrieve` function.
+- Download criteria pollutants from one air quality station with `CetesbRetrievePol` function.
+- Download meteorological parameters from one air quality station with `CetesbRetrieveMet` function.
+- Download criteria pollutants and meteorological parameters from one air quality station with `CetesbRetrieveAll` function.

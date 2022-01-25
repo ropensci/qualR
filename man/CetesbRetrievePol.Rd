@@ -30,7 +30,7 @@ CetesbRetrievePol(
 \item{to_csv}{Creates a csv file. FALSE by default}
 }
 \value{
-data.frame wth O3, NO, NO2, PM2.5, PM10 and CO information.
+data.frame with O3, NO, NO2, PM2.5, PM10 and CO information.
 Units are ug/m3 except for CO which is in ppm, and NOx which is in ppb.
 }
 \description{
