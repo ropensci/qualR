@@ -3,11 +3,7 @@
 ^LICENSE\.md$
 ^data-raw$
 ^README\.Rmd$
-^paper.bib
-^paper.md
-^pin_nox_lock20.png
-^rj_centro_2019.png
-^usp_o3_aug21.png
+^paper$
 ^\.travis\.yml$
 ^appveyor\.yml$
 ^codecov\.yml$
@@ -16,4 +12,4 @@
 ^docs$
 ^pkgdown$
 ^codemeta\.json$
-^CONTRIBUTING.md
+^CONTRIBUTING\.md$
