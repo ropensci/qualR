@@ -1,6 +1,6 @@
 Package: qualR
 Title: An R package to download São Paulo and Rio de Janeiro air pollution data
-Version: 0.9.5
+Version: 0.9.6
 Authors@R: c(
     person(given = "Mario",
            family = "Gavidia-Calderón",

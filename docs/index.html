@@ -5,13 +5,13 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>An R package to download Sao Paulo and Rio de Janeiro air pollution data • qualR</title>
+<title>An R package to download São Paulo and Rio de Janeiro air pollution data • qualR</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
 <script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script><meta property="og:title" content="An R package to download Sao Paulo and Rio de Janeiro air pollution data">
+<script src="pkgdown.js"></script><meta property="og:title" content="An R package to download São Paulo and Rio de Janeiro air pollution data">
 <meta property="og:description" content="A package to download information from CETESB QUALAR and
     MonitorAr systems. It contains function to download different parameters, a set of
     criteria pollutants and the most frequent meteorological parameters used in
@@ -34,7 +34,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">qualR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.6</span>
       </span>
     </div>
 
@@ -88,7 +88,7 @@
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#qualr-an-r-package-to-download-s%C3%A3o-paulo-and-rio-de-janeiro-air-pollution-data" class="anchor"></a>qualR: An R package to download São Paulo and Rio de Janeiro air pollution data</h1></div>
 
-<p>The goal of <code>qualR</code> is to facilitate the download of air pollutants and meteorological information from <a href="https://qualar.cetesb.sp.gov.br/qualar/home.do">CETESB QUALAR System</a> for Sao Paulo, and <a href="https://www.data.rio/datasets/dados-hor%C3%A1rios-do-monitoramento-da-qualidade-do-ar-monitorar">MonitorAr Program</a>, for Rio de Janeiro. This information is often used for air pollution data analysis and for air quality model evaluation.</p>
+<p>The goal of <code>qualR</code> is to facilitate the download of air pollutants and meteorological information from <a href="https://qualar.cetesb.sp.gov.br/qualar/home.do">CETESB QUALAR System</a> for São Paulo, and <a href="https://www.data.rio/datasets/dados-hor%C3%A1rios-do-monitoramento-da-qualidade-do-ar-monitorar">MonitorAr Program</a>, for Rio de Janeiro. This information is often used for air pollution data analysis and for air quality model evaluation.</p>
 <p><code>qualR</code> functions return completed data frames (missing hours padded out with <code>NA</code>), with a <code>date</code> column in <code>POSIXct</code> for temporal aggregation and for compatibility with <a href="https://github.com/davidcarslaw/openair"><code>openair</code> package</a>. <code>qualR</code> improves air pollution research by easily producing ready-to-use datasets, by facilitating exploratory data analysis, and by fostering reproducibility.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
@@ -98,7 +98,7 @@
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span></code></pre></div>
 <p>Then, you can install <code>qualR</code> by:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"quishqa/qualR"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"quishqa/qualR"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="how-to-use" class="section level2">
 <h2 class="hasAnchor">
@@ -123,7 +123,7 @@
 <code>MonitorArRetrieveMetPol</code>: Download meteorological parameters and criteria pollutants from one AQS from MonitorAr - Rio Program.</li>
 </ul>
 <p>These functions return a data frame, with a <code>date</code> column in POSIXct, which allows you to use other packages for data analysis, such as <a href="https://davidcarslaw.github.io/openair/">openair</a>.</p>
-<p>To download the information for Sao Paulo, you first need to have an account in <a href="https://qualar.cetesb.sp.gov.br/qualar/home.do">CETESB QUALAR system</a>. <a href="https://seguranca.cetesb.sp.gov.br/Home/CadastrarUsuario">Here</a>, you can sign up to CETESB QUALAR system. MonitorAr doesn’t require an account.</p>
+<p>To download the information for São Paulo, you first need to have an account in <a href="https://qualar.cetesb.sp.gov.br/qualar/home.do">CETESB QUALAR system</a>. <a href="https://seguranca.cetesb.sp.gov.br/Home/CadastrarUsuario">Here</a>, you can sign up to CETESB QUALAR system. MonitorAr doesn’t require an account.</p>
 <p>Then you have to know the AQS and parameter codes (i.e. pollutant or meteorological data) to use these functions. Currently, <code>CetesbRetrieve</code> family functions also accept the parameter abbreviation (i.e “O3” instead of 63), and the complete name of the AQS (i.e “Pinheiros” instead of 99) as inputs. To check those parameters you can check the following datasets:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR">qualR</a></span><span class="op">)</span>
@@ -379,7 +379,7 @@
 <div id="downloading-multiple-parameters-from-one-aqs" class="section level4">
 <h4 class="hasAnchor">
 <a href="#downloading-multiple-parameters-from-one-aqs" class="anchor"></a>Downloading multiple parameters from one AQS</h4>
-<p><code>MonitorArRetrieve</code> is similar to <code>CetesbRetrieveParam</code>, so it allows us to download multiple paramenters. Here, we will download Ozone, Nitric oxide, Nitrogen dioxide, wind speed and direction.</p>
+<p><code>MonitorArRetrieve</code> is similar to <code>CetesbRetrieveParam</code>, so it allows us to download multiple parameters. Here, we will download Ozone, Nitric oxide, Nitrogen dioxide, wind speed and direction.</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR">qualR</a></span><span class="op">)</span>
 <span class="va">monitor_ar_aqs</span> <span class="co"># To check Iraja AQS code</span>
@@ -404,11 +404,16 @@
 <li>Currently, MonitorAr only has data until March, 2021.</li>
 </ul>
 </div>
+<div id="code-of-conduct" class="section level2">
+<h2 class="hasAnchor">
+<a href="#code-of-conduct" class="anchor"></a>Code of Conduct</h2>
+<p>Please note that the qualR project is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
+</div>
 <div id="acknowledgments" class="section level2">
 <h2 class="hasAnchor">
 <a href="#acknowledgments" class="anchor"></a>Acknowledgments</h2>
 <p>Thanks to <a href="https://cetesb.sp.gov.br/ar/">CETESB</a> and to <a href="https://www.rio.rj.gov.br/web/smac/monitorar-rio1">MonitorAr Program</a> for make public this atmospheric data.</p>
-<p>We acknowledge the programs CAPES (Coordenadoria de Aperfeiçoamento de Pessoal de Nível Superior), CNPq (Conselho Nacional de Desenvolvimento Científico e Tecnológico), FAPESP (2016/18438-0 - Fundação de Amparo à Pesquisa do Estado do São Paulo), and the Wellcome Trust (subaward from Yale University to Universidade de São Paulo, subcontract number GR108373).</p>
+<p>We acknowledge the programs CAPES (Coordenadoria de Aperfeiçoamento de Pessoal de Nível Superior), CNPq (Conselho Nacional de Desenvolvimento Científico e Tecnológico), FAPESP (2016/18438-0 - Fundação de Amparo à Pesquisa do Estado do São Paulo), and the Welcome Trust (subaward from Yale University to Universidade de São Paulo, subcontract number GR108373).</p>
 <p>Finally, we want to thanks to the <a href="http://www.lapat.iag.usp.br/">LAPAT-IAG team</a> for test and help to improve <code>qualR</code>.</p>
 </div>
 <div id="last-but-not-least" class="section level2">
@@ -440,6 +445,7 @@
 <h2>Community</h2>
 <ul class="list-unstyled">
 <li><a href="CONTRIBUTING.html">Contributing guide</a></li>
+<li><a href="CODE_OF_CONDUCT.html">Code of conduct</a></li>
 </ul>
 </div>
 <div class="citation">
@@ -463,6 +469,8 @@
 <li><a href="https://travis-ci.com/quishqa/qualR"><img src="https://travis-ci.com/quishqa/qualR.svg?branch=master" alt="Travis build status"></a></li>
 <li><a href="https://ci.appveyor.com/project/quishqa/qualR"><img src="https://ci.appveyor.com/api/projects/status/github/quishqa/qualR?branch=master&amp;svg=true" alt="AppVeyor build status"></a></li>
 <li><a href="https://codecov.io/github/quishqa/qualR?branch=master"><img src="https://img.shields.io/codecov/c/github/quishqa/qualR/master.svg" alt="Coverage Status"></a></li>
+<li><a href="https://zenodo.org/badge/latestdoi/267442363"><img src="https://zenodo.org/badge/267442363.svg" alt="DOI"></a></li>
+<li><a href="https://github.com/ropensci/software-review/issues/474"><img src="https://badges.ropensci.org/474_status.svg"></a></li>
 </ul>
 </div>
 </div>

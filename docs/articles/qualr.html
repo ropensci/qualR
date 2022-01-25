@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">qualR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.6</span>
       </span>
     </div>
 
@@ -85,7 +85,7 @@
       <h1 data-toc-skip>How to use qualR</h1>
                         <h4 class="author">Mario Gavidia-Calderón, Daniel Schuch &amp; Maria de Fatima Andrade</h4>
                         
-            <h4 class="date">2021-11-15</h4>
+            <h4 class="date">2022-01-25</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/quishqa/qualR/blob/master/vignettes/qualr.Rmd"><code>vignettes/qualr.Rmd</code></a></small>
       <div class="hidden name"><code>qualr.Rmd</code></div>
@@ -97,7 +97,7 @@
 <div id="context" class="section level1">
 <h1 class="hasAnchor">
 <a href="#context" class="anchor"></a>Context</h1>
-<p>Both the State of São Paulo and Rio de Janerio have one of the most extensive air quality stations network in South America. <a href="">CETESB QUALAR System</a> provide to the user the air quality data from the State of São Paulo. QUALAR System limits the download to one parameter from one air station for one year in a simple query (three parameter in advance query). The data can have missing hours (e.g. due to calibration), the decimal separator is “,”, and the output is a CSV file. <a href="">data.rio</a> hosts the air quality information from Monitor Ar Program. It is not an user-friendly API and the data needs the same preprocessor as the data from QUALAR System.</p>
+<p>Both the State of São Paulo and Rio de Janeiro have one of the most extensive air quality stations network in South America. <a href="">CETESB QUALAR System</a> provide to the user the air quality data from the State of São Paulo. QUALAR System limits the download to one parameter from one air station for one year in a simple query (three parameter in advance query). The data can have missing hours (e.g. due to calibration), the decimal separator is “,”, and the output is a CSV file. <a href="">data.rio</a> hosts the air quality information from Monitor Ar Program. It is not an user-friendly API and the data needs the same preprocessor as the data from QUALAR System.</p>
 <p><code>qualR</code> surpasses these limitations and brings to your R session ready-to use data frames with the information of air quality station from the State of São Paulo and the city of Rio de Janeiro.</p>
 </div>
 <div id="approach" class="section level1">
@@ -248,7 +248,7 @@
 <div id="example-to-download-data-from-são-paulo-state-stations" class="section level1">
 <h1 class="hasAnchor">
 <a href="#example-to-download-data-from-s%C3%A3o-paulo-state-stations" class="anchor"></a>Example to download data from São Paulo State stations</h1>
-<p>To use <code>CetesbRetrieve</code> you first need to create an account in <a href="https://seguranca.cetesb.sp.gov.br/Home/CadastrarUsuario">CETESB QUALAR System</a>. The <code>CetesbRetrieve</code> functions are similar as <code>MonitorArRetrieve</code> functions, but they require the <code>username</code> and <code>password</code> arguments. <a href="https://github.com/quishqa/qualR#a-better-way-to-save-your-credentials">Check this section</a> on <code>qualR</code> README to safetly configure your user name and password on your R session.</p>
+<p>To use <code>CetesbRetrieve</code> you first need to create an account in <a href="https://seguranca.cetesb.sp.gov.br/Home/CadastrarUsuario">CETESB QUALAR System</a>. The <code>CetesbRetrieve</code> functions are similar as <code>MonitorArRetrieve</code> functions, but they require the <code>username</code> and <code>password</code> arguments. <a href="https://github.com/quishqa/qualR#a-better-way-to-save-your-credentials">Check this section</a> on <code>qualR</code> README to safely configure your user name and password on your R session.</p>
 <p>In this example, we download Ozone concentration from an air quality station located at Universidade de São Paulo (USP-Ipen) for August, 2021. 1. Check the station <code>code</code> or <code>name</code></p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">cetesb_aqs</span>, <span class="fl">15</span><span class="op">)</span>
