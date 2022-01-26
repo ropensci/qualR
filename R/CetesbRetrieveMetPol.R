@@ -45,11 +45,11 @@ CetesbRetrieveMetPol <- function(username, password,
 
   # Adding query summary
   if (verbose){
-    cat("Your query is:\n")
-    cat("Parameter: TC, RH, WS, WD, Pressure,\n",
-        "O3, NO, NO2, NOX, PM2.5, PM10, CO \n")
-    cat("Air quality station:", aqs_name, "\n")
-    cat("Period: From", start_date, "to", end_date, "\n")
+    message("Your query is: ")
+    message(paste("Parameter: TC, RH, WS, WD, Pressure,",
+                  "O3, NO, NO2, NOX, PM2.5, PM10, CO"))
+    message("Air quality station: ", aqs_name)
+    message("Period: From", start_date, " to ", end_date)
   }
 
   tc <- CetesbRetrieve(username, password, 25,
@@ -116,8 +116,8 @@ CetesbRetrieveMetPol <- function(username, password,
                          pm25 = pm25$pol,
                          aqs = o3$aqs,
                          stringsAsFactors = FALSE)
-  cat(paste(
-    "Download complete for", unique(all_data$aqs), "\n"
+  message(paste(
+    "Download complete for", unique(all_data$aqs)
   ))
 
   if (to_csv){

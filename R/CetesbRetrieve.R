@@ -59,10 +59,10 @@ CetesbRetrieve <- function(username, password,
 
   # Adding query summary
   if (verbose){
-    cat("Your query is:\n")                                              # nocov
-    cat("Parameter:", pol_name, "\n")                                    # nocov
-    cat("Air quality staion:", aqs_name, "\n")                           # nocov
-    cat("Period: From", start_date, "to", end_date, "\n")                # nocov
+    message("Your query is:")                                              # nocov
+    message("Parameter: ", pol_name)                                    # nocov
+    message("Air quality staion: ", aqs_name)                           # nocov
+    message("Period: From ", start_date," to ", end_date)                # nocov
   }
 
 
@@ -115,7 +115,7 @@ CetesbRetrieve <- function(username, password,
   if (ncol(dat) != 19){
     dat <- data.frame(date = all.dates$date , pol = NA, aqs = aqs_name,  # nocov
                       stringsAsFactors = FALSE)                          # nocov
-    cat(paste0('No data available for ', pol_name), "\n")                # nocov
+    message(paste0('No data available for ', pol_name))                # nocov
   } else if (ncol(dat) == 19) {
     names(dat) <- cet.names
     dat$date <- paste(dat$day, dat$hour, sep = '_')
@@ -126,15 +126,15 @@ CetesbRetrieve <- function(username, password,
     dat <- merge(all.dates, dat, all = TRUE)
 
     if (nrow(dat) != nrow(all.dates)){
-      cat(paste0('Dates missmatch ',                              # nocov start
-                 unique(stats::na.omit(dat$est))), "\n")
-      cat('Duplicated date in ',
-          dat$date[duplicated(dat$date)], "\n")
+      message(paste0('Dates missmatch ',                              # nocov start
+              unique(stats::na.omit(dat$est))))
+      message('Duplicated date in ',
+              dat$date[duplicated(dat$date)])
       dat <- data.frame(date = dat$date , pol = dat$value,
                         aqs = aqs_name,
                         stringsAsFactors = FALSE)
     } else {
-      cat(paste0('Download OK ', pol_abr), "\n")
+      message(paste0('Download OK ', pol_abr))
       dat <- data.frame(date = all.dates$date , pol = dat$value ,
                         aqs = aqs_name, stringsAsFactors = FALSE)
     }                                                             # nocov end

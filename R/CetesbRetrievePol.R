@@ -43,10 +43,10 @@ CetesbRetrievePol <- function(username, password,
 
   # Adding query summary
   if (verbose){
-    cat("Your query is:\n")
-    cat("Parameter: O3, NO, NO2, NOX, MP2.5, MP10, CO\n")
-    cat("Air quality station:", aqs_name, "\n")
-    cat("Period: From", start_date, "to", end_date, "\n")
+    message("Your query is:")
+    message("Parameter: O3, NO, NO2, NOX, MP2.5, MP10, CO")
+    message("Air quality station: ", aqs_name)
+    message("Period: From ", start_date, " to ", end_date)
   }
 
   o3 <- CetesbRetrieve(username, password, 63,
@@ -88,8 +88,8 @@ CetesbRetrievePol <- function(username, password,
                         pm25 = pm25$pol,
                         aqs = o3$aqs,
                         stringsAsFactors = FALSE)
-  cat(paste(
-    "Download complete for", unique(all_pol$aqs), "\n"
+  message(paste(
+    "Download complete for", unique(all_pol$aqs)
   ))
 
   if (to_csv){

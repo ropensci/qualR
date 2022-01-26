@@ -43,10 +43,10 @@ CetesbRetrieveMet <-  function(username, password,
 
   # Adding query summary
   if (verbose){
-    cat("Your query is:\n")
-    cat("Parameter: TC, RH, WS, WD, Pressure \n")
-    cat("Air quality station:", aqs_name, "\n")
-    cat("Period: From", start_date, "to", end_date, "\n")
+    message("Your query is:")
+    message("Parameter: TC, RH, WS, WD, Pressure")
+    message("Air quality station: ", aqs_name)
+    message("Period: From ", start_date, " to ", end_date)
   }
 
   tc <- CetesbRetrieve(username, password, 25,
@@ -77,8 +77,8 @@ CetesbRetrieveMet <-  function(username, password,
                         p = p$pol,
                         aqs = tc$aqs,
                         stringsAsFactors = FALSE)
-  cat(paste(
-    "Download complete for", unique(all_met$aqs), "\n"
+  message(paste(
+    "Download complete for", unique(all_met$aqs)
     ))
 
   if (to_csv){

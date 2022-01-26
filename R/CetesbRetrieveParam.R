@@ -64,10 +64,10 @@ CetesbRetrieveParam <- function(username, password, parameters,
 
   # Adding query summary
   if (verbose){
-    cat("Your query is:\n")
-    cat("Parameter:", paste(codes_df$name, collapse = ", "), "\n")
-    cat("Air quality station:", aqs_name, "\n")
-    cat("Period: From", start_date, "to", end_date, "\n")
+    message("Your query is:")
+    message("Parameter: ", paste(codes_df$name, collapse = ", "))
+    message("Air quality station: ", aqs_name)
+    message("Period: From ", start_date, " to ", end_date)
   }
 
   # Downloading data

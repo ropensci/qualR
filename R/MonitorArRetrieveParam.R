@@ -44,10 +44,10 @@ MonitorArRetrieveParam <- function(start_date, end_date, aqs_code, parameters,
 
   # Adding query summary
   if (verbose){
-    cat("Your query is:\n")
-    cat("Parameter:", paste(parameters, collapse = ", "), "\n")
-    cat("Air quality station:", aqs_name, "\n")
-    cat("Period: From", start_date, "to", end_date, "\n")
+    message("Your query is:")
+    message("Parameter: ", paste(parameters, collapse = ", "))
+    message("Air quality station: ", aqs_name)
+    message("Period: From ", start_date, " to ", end_date)
   }
 
   start_date_format <- as.POSIXct(strptime(start_date, format="%d/%m/%Y"),
@@ -88,8 +88,8 @@ MonitorArRetrieveParam <- function(start_date, end_date, aqs_code, parameters,
                    ))
   # Checking request
   if (res$status_code == 200){
-    cat("Succesful request \n")
-    cat(paste("Downloading ", paste(parameters, collapse = " ")), "\n")
+    message("Succesful request")
+    message(paste("Downloading ", paste(parameters, collapse = " ")))
   } else {
     stop("Unsuccesful request. Something goes wrong", call. = FALSE)     # nocov
   }
@@ -99,7 +99,7 @@ MonitorArRetrieveParam <- function(start_date, end_date, aqs_code, parameters,
 
   # Create an empty data frame is there is no input
   if (length(raw_data$feature) == 0){
-    cat("Data unavailable", "\n")                                  # nocov start
+    message("Data unavailable")                             # nocov start
     data_aqs <- data.frame(Data = NA)
     for (p in parameters){
       data_aqs[[p]] <- NA                                          # nocov end
@@ -126,7 +126,7 @@ MonitorArRetrieveParam <- function(start_date, end_date, aqs_code, parameters,
   )
 
   if (nrow(all_dates) != nrow(data_aqs)){
-    cat("Padding out missing dates with NA \n")                       # nocov
+    message("Padding out missing dates with NA")                     # nocov
     data_aqs <- merge(all_dates, data_aqs, all = TRUE)                # nocov
   }
 

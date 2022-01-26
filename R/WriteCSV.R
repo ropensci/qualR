@@ -17,5 +17,5 @@ WriteCSV <- function(aqs_data_df, aqs_name, start_date, end_date, vars){
   utils::write.table(aqs_data_df, file_name, sep = ",", row.names = FALSE)
 
   file_path <- paste(getwd(), file_name, sep = "/")
-  cat(paste(file_path, "was created \n"))
+  message(paste(file_path, "was created"))
 }
