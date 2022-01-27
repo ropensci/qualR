@@ -55,9 +55,9 @@ MonitorArRetrieveMetPol <- function(start_date, end_date, aqs_code,
   names(all_data)[2:6] <- c("tc", "rh", "ws", "wd", "p")
   names(all_data)[13] <- "pm25"
 
-  if (to_csv){
-    WriteCSV(all_data, aqs_name, start_date, end_date, "MET_POL", csv_path) # nocov
-  }
+  if (to_csv){                                                  # nocov start
+    WriteCSV(all_data, aqs_name, start_date, end_date, "MET_POL", csv_path)
+  }                                                             # nocov end
 
   return(all_data)
 }

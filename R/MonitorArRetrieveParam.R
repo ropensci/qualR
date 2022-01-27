@@ -143,9 +143,9 @@ MonitorArRetrieveParam <- function(start_date, end_date, aqs_code, parameters,
 
   # Changing Data column name to date
   colnames(data_aqs)[1] <- "date"
-  if (to_csv){
-    WriteCSV(data_aqs, aqs_name, start_date, end_date, parameters, csv_path) # nocov
-  }
+  if (to_csv){                                                  # nocov start
+    WriteCSV(data_aqs, aqs_name, start_date, end_date, parameters, csv_path)
+  }                                                             # nocov end
 
   return(data_aqs)
 }

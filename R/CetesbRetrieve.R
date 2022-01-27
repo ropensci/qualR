@@ -59,10 +59,10 @@ CetesbRetrieve <- function(username, password,
 
   # Adding query summary
   if (verbose){
-    message("Your query is:")                                              # nocov
+    message("Your query is:")                                           # nocov
     message("Parameter: ", pol_name)                                    # nocov
     message("Air quality staion: ", aqs_name)                           # nocov
-    message("Period: From ", start_date," to ", end_date)                # nocov
+    message("Period: From ", start_date," to ", end_date)               # nocov
   }
 
 
@@ -126,7 +126,7 @@ CetesbRetrieve <- function(username, password,
     dat <- merge(all.dates, dat, all = TRUE)
 
     if (nrow(dat) != nrow(all.dates)){
-      message(paste0('Dates missmatch ',                              # nocov start
+      message(paste0('Dates missmatch ',                          # nocov start
               unique(stats::na.omit(dat$est))))
       message('Duplicated date in ',
               dat$date[duplicated(dat$date)])

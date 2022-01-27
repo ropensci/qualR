@@ -121,9 +121,9 @@ CetesbRetrieveMetPol <- function(username, password,
     "Download complete for", unique(all_data$aqs)
   ))
 
-  if (to_csv){
-    WriteCSV(all_data, aqs_name, start_date, end_date, "MET_POL", csv_path) # nocov
-  }
+  if (to_csv){                                                  # nocov start
+    WriteCSV(all_data, aqs_name, start_date, end_date, "MET_POL", csv_path)
+  }                                                             # nocov end
 
     return(all_data)
 }

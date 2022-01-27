@@ -107,9 +107,9 @@ CetesbRetrieveParam <- function(username, password, parameters,
     names(aqs_data_df)[names(aqs_data_df) == "mp2.5"] <- "pm25" # nocov
   }
 
-  if (to_csv){
-    WriteCSV(aqs_data_df, aqs_name, start_date, end_date, param, csv_path) # nocov
-  }
+  if (to_csv){                                                  # nocov start
+    WriteCSV(aqs_data_df, aqs_name, start_date, end_date, param, csv_path)
+  }                                                             # nocov end
 
   return(aqs_data_df)
 }
