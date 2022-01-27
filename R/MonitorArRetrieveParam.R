@@ -11,6 +11,7 @@
 #' @param to_local Date information in local time. TRUE by default.
 #' @param verbose Print query summary.
 #' @param to_csv Creates a csv file. FALSE by default
+#' @param csv_path Path to save the csv file.
 #'
 #' @return data.frame with the selected parameter information
 #' @export
@@ -27,7 +28,8 @@
 #'
 #' }
 MonitorArRetrieveParam <- function(start_date, end_date, aqs_code, parameters,
-                              to_local=TRUE, verbose = TRUE, to_csv=FALSE){
+                                   to_local=TRUE, verbose = TRUE,
+                                   to_csv = FALSE, csv_path = ""){
 
   # Check if params are measured
   if (!prod(parameters %in% param_monitor_ar$code)){
@@ -142,7 +144,7 @@ MonitorArRetrieveParam <- function(start_date, end_date, aqs_code, parameters,
   # Changing Data column name to date
   colnames(data_aqs)[1] <- "date"
   if (to_csv){
-    WriteCSV(data_aqs, aqs_name, start_date, end_date, parameters) # nocov
+    WriteCSV(data_aqs, aqs_name, start_date, end_date, parameters, csv_path) # nocov
   }
 
   return(data_aqs)

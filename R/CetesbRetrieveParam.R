@@ -13,6 +13,7 @@
 #' @param end_date Date to end downloading in dd/mm/yyyy
 #' @param verbose Print query summary
 #' @param to_csv  Creates a csv file. FALSE by default
+#' @param csv_path Path to save the csv file
 #'
 #' @return data.frame with parameters described in `params` vector
 #' @export
@@ -35,7 +36,8 @@
 #' }
 CetesbRetrieveParam <- function(username, password, parameters,
                                 aqs_code, start_date, end_date,
-                                verbose = TRUE, to_csv = FALSE){
+                                verbose = TRUE, to_csv = FALSE,
+                                csv_path = ""){
 
   # Check if aqs_code is valid
   aqs <- cetesb
@@ -106,7 +108,7 @@ CetesbRetrieveParam <- function(username, password, parameters,
   }
 
   if (to_csv){
-    WriteCSV(aqs_data_df, aqs_name, start_date, end_date, param) # nocov
+    WriteCSV(aqs_data_df, aqs_name, start_date, end_date, param, csv_path) # nocov
   }
 
   return(aqs_data_df)

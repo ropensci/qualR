@@ -10,6 +10,7 @@
 #' @param verbose Print query summary.
 #' @param to_local Date information in local time. TRUE by default.
 #' @param to_csv Creates a csv file. FALSE by default.
+#' @param csv_path Path to save the csv file.
 #'
 #' @return data.frame with O3, NO, NO2, NOx, PM2.5, PM10 and CO
 #' information.
@@ -24,8 +25,8 @@
 #' ca_pol <- MonitorArRetrievePol(start_date, end_date, "CA")
 #' }
 MonitorArRetrievePol <- function(start_date, end_date, aqs_code,
-                               verbose = TRUE, to_local = TRUE,
-                                 to_csv = FALSE){
+                                 verbose = TRUE, to_local = TRUE,
+                                 to_csv = FALSE, csv_path = ""){
   # Check is aqs_code is valid
   if (!(aqs_code %in% aqs_monitor_ar$code)){
     stop("Wrong aqs_code, please check monitor_ar_aqs", call. = FALSE) # nocov
@@ -51,7 +52,7 @@ MonitorArRetrievePol <- function(start_date, end_date, aqs_code,
   names(all_pol)[8] <- "pm25"
 
   if (to_csv){
-    WriteCSV(all_pol, aqs_name, start_date, end_date, "POL") # nocov
+    WriteCSV(all_pol, aqs_name, start_date, end_date, "POL", csv_path) # nocov
   }
 
   return(all_pol)

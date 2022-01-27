@@ -11,6 +11,7 @@
 #' @param end_date  Date to end downloading in dd/mm/yyyy
 #' @param verbose Print query summary
 #' @param to_csv  Creates a csv file. FALSE by default
+#' @param csv_path Path to save the csv file
 #'
 #' @return data.frame with O3, NO, NO2, PM2.5, PM10 and CO information.
 #' Units are ug/m3 except for CO which is in ppm, and NOx which is in ppb.
@@ -33,7 +34,7 @@
 CetesbRetrievePol <- function(username, password,
                               aqs_code, start_date,
                               end_date, verbose = TRUE,
-                              to_csv = FALSE){
+                              to_csv = FALSE, csv_path = ""){
 
   # Check if aqs_code is valid
   aqs <- cetesb
@@ -93,7 +94,7 @@ CetesbRetrievePol <- function(username, password,
   ))
 
   if (to_csv){
-    WriteCSV(all_pol, aqs_name, start_date, end_date, "POL") # nocov
+    WriteCSV(all_pol, aqs_name, start_date, end_date, "POL", csv_path) # nocov
   }
 
   return(all_pol)

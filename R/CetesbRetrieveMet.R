@@ -12,6 +12,7 @@
 #' @param end_date Date to end downloading in dd/mm/yyyy
 #' @param verbose Print query summary
 #' @param to_csv  Creates a csv file. FALSE by default
+#' @param csv_path Path to save the csv file.
 #'
 #' @return data.frame with Temperature (C), Relative Humidity (%),
 #' Wind Speed (m/s) and Direction (degrees), and Pressure information.
@@ -33,7 +34,7 @@
 CetesbRetrieveMet <-  function(username, password,
                                aqs_code, start_date,
                                end_date, verbose = TRUE,
-                               to_csv = FALSE){
+                               to_csv = FALSE, csv_path = ""){
 
   # Check if aqs_code is valid
   aqs <- cetesb
@@ -82,7 +83,7 @@ CetesbRetrieveMet <-  function(username, password,
     ))
 
   if (to_csv){
-    WriteCSV(all_met, aqs_name, start_date, end_date, "MET") # nocov
+    WriteCSV(all_met, aqs_name, start_date, end_date, "MET", csv_path) # nocov
   }
 
   return(all_met)
