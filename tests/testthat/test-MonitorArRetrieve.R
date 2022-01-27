@@ -1,10 +1,7 @@
 test_that("MonitorArRetrieve works", {
 
-  # current_folder <- getwd()
-  # on.exit(setwd(current_folder), add = T)
-
-  csv_path <- dir.create(file.path(tempdir(), "cetesb-data"))
-  # setwd(file.path(tempdir(), "cetesb-data"))
+  csv_path <- file.path(tempdir(), "cetesb-data")
+  dir.create(csv_path)
 
   ca_o3 <- MonitorArRetrieveParam(start_date = "01/02/2015",
                                   end_date   = "01/03/2015",

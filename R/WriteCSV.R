@@ -17,9 +17,9 @@ WriteCSV <- function(aqs_data_df, aqs_name, start_date, end_date,
                       gsub("/", "-", end_date), ".csv")
 
   if (csv_path == ""){
-    file_path <- paste(getwd(), file_name, sep = "/")
+    file_path <- paste(getwd(), file_name, sep = "/") # nocov
   } else {
-    file_path <- paste(csv_path, file_name, sep = "/")
+    file_path <- paste(csv_path, file_name, sep = "/") # nocov
   }
 
   utils::write.table(aqs_data_df, file_path, sep = ",", row.names = FALSE)

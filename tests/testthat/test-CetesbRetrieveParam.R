@@ -1,12 +1,9 @@
 test_that("CetesbRetrieveParam works!", {
 
-  # current_folder <- getwd()
-  # on.exit(setwd(current_folder), add = T)
-
   load("sysdata.rda")
 
-  csv_path <- dir.create(file.path(tempdir(), "cetesb-data2"))
-  # setwd(file.path(tempdir(), "cetesb-data2"))
+  csv_path <- file.path(tempdir(), "cetesb-data2")
+  dir.create(csv_path)
 
   pin_param <- CetesbRetrieveParam(u,p,c("o3","NOX", "VV"), 99,
                                    "01/01/2020", "07/01/2020",
