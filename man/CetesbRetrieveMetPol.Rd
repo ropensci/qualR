@@ -11,7 +11,8 @@ CetesbRetrieveMetPol(
   start_date,
   end_date,
   verbose = TRUE,
-  to_csv = FALSE
+  to_csv = FALSE,
+  csv_path = ""
 )
 }
 \arguments{
@@ -28,6 +29,8 @@ CetesbRetrieveMetPol(
 \item{verbose}{Print query summary}
 
 \item{to_csv}{Creates a csv file. FALSE by default}
+
+\item{csv_path}{Path to save the csv file.}
 }
 \value{
 data.frame with Temperature (C), Relative Humidity (\%),

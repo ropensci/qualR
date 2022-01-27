@@ -11,7 +11,8 @@ MonitorArRetrieveParam(
   parameters,
   to_local = TRUE,
   verbose = TRUE,
-  to_csv = FALSE
+  to_csv = FALSE,
+  csv_path = ""
 )
 }
 \arguments{
@@ -29,6 +30,8 @@ It can be a vector with many parameters.}
 \item{verbose}{Print query summary.}
 
 \item{to_csv}{Creates a csv file. FALSE by default}
+
+\item{csv_path}{Path to save the csv file.}
 }
 \value{
 data.frame with the selected parameter information

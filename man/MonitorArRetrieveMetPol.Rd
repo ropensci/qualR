@@ -10,7 +10,8 @@ MonitorArRetrieveMetPol(
   aqs_code,
   verbose = TRUE,
   to_local = TRUE,
-  to_csv = FALSE
+  to_csv = FALSE,
+  csv_path = ""
 )
 }
 \arguments{
@@ -25,6 +26,8 @@ MonitorArRetrieveMetPol(
 \item{to_local}{Date information in local time. TRUE by default.}
 
 \item{to_csv}{Creates a csv file. FALSE by default.}
+
+\item{csv_path}{Path to save the csv file.}
 }
 \value{
 data.frame with Temperature (C), Relative Humidity (\%),

@@ -10,7 +10,8 @@ MonitorArRetrievePol(
   aqs_code,
   verbose = TRUE,
   to_local = TRUE,
-  to_csv = FALSE
+  to_csv = FALSE,
+  csv_path = ""
 )
 }
 \arguments{
@@ -25,6 +26,8 @@ MonitorArRetrievePol(
 \item{to_local}{Date information in local time. TRUE by default.}
 
 \item{to_csv}{Creates a csv file. FALSE by default.}
+
+\item{csv_path}{Path to save the csv file.}
 }
 \value{
 data.frame with O3, NO, NO2, NOx, PM2.5, PM10 and CO
