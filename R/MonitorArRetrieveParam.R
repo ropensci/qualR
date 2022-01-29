@@ -147,6 +147,35 @@ MonitorArRetrieveParam <- function(start_date, end_date, aqs_code, parameters,
 
   # Changing Data column name to date
   colnames(data_aqs)[1] <- "date"
+
+  # Changing wind speed and direction columns to ws and wd
+  if ("Dir_Vento" %in% names(data_aqs)){
+    names(data_aqs)[names(data_aqs) == "Dir_Vento"] <- "wd"      # nocov
+  }
+  if ("Vel_Vento" %in% names(data_aqs)){
+    names(data_aqs)[names(data_aqs) == "Vel_Vento"] <- "ws"
+  }
+  if ("UR" %in% names(data_aqs)){
+    names(data_aqs)[names(data_aqs) == "UR"] <- "rh"      # nocov
+  }
+  if ("Chuva" %in% names(data_aqs)){
+    names(data_aqs)[names(data_aqs) == "Chuva"] <- "rain"      # nocov
+  }
+  if ("Pres" %in% names(data_aqs)){
+    names(data_aqs)[names(data_aqs) == "Pres"] <- "p"      # nocov
+  }
+  if ("Temp" %in% names(data_aqs)){
+    names(data_aqs)[names(data_aqs) == "Temp"] <- "tc"    # nocov
+  }
+  if ("PM2_5" %in% names(data_aqs)){
+    names(data_aqs)[names(data_aqs) == "PM2_5"] <- "pm25"  # nocov
+  }
+
+  names(data_aqs)[-c(1, ncol(data_aqs))] <- tolower(
+    names(data_aqs)[-c(1, ncol(data_aqs))]
+  )
+
+
   if (to_csv){                                                  # nocov start
     WriteCSV(data_aqs, aqs_name, start_date, end_date, parameters, csv_path)
   }                                                             # nocov end

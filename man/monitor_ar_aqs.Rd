@@ -11,9 +11,9 @@ A data frame with 8 observation and 6 variables:
 \item{code}{MonitorAr Program AQS abbreviation.}
 \item{lon}{MonitorAr Program AQS longitude.}
 \item{lat}{MonitorAr Program AQS latitude.}
-\item{X_UTM_Sirgas2000}{MonitorAr Program AQS longitude in SIRGAS 2000
+\item{x_utm_sirgas2000}{MonitorAr Program AQS longitude in SIRGAS 2000
 (EPSG:31983).}
-\item{Y_UTM_Sirgas2000}{MonitorAr Program AQS latitude in SIRGAS 2000
+\item{y_utm_sirgas2000}{MonitorAr Program AQS latitude in SIRGAS 2000
 (EPSG:31983).}
 }
 }

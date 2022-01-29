@@ -86,7 +86,7 @@ head(rj_ca_params)
 ```
 5. Now we can make a simple plot
 ```{r fig.height=5, fig.width=5}
-plot(rj_ca_params$Vel_Vento, rj_ca_params$PM10,
+plot(rj_ca_params$ws, rj_ca_params$pm10,
      xlab = "Wind speed (m/s)",
      ylab = "",
      xlim = c(0,4),
