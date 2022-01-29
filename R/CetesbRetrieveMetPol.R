@@ -117,6 +117,10 @@ CetesbRetrieveMetPol <- function(username, password,
                          pm25 = pm25$pol,
                          aqs = o3$aqs,
                          stringsAsFactors = FALSE)
+
+  cols_unchange <- -c(1, ncol(all_data))
+  all_data[, cols_unchange] <- sapply(all_data[, cols_unchange], as.numeric)
+
   message(paste(
     "Download complete for", unique(all_data$aqs)
   ))

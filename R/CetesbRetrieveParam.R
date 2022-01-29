@@ -107,6 +107,11 @@ CetesbRetrieveParam <- function(username, password, parameters,
     names(aqs_data_df)[names(aqs_data_df) == "mp2.5"] <- "pm25" # nocov
   }
 
+  # Ensure columns as numeric
+  cols_unchange <- c(-1, -ncol(aqs_data_df))
+  aqs_data_df[, cols_unchange] <- sapply(aqs_data_df[, cols_unchange],
+                                         as.numeric)
+
   if (to_csv){                                                  # nocov start
     WriteCSV(aqs_data_df, aqs_name, start_date, end_date, param, csv_path)
   }                                                             # nocov end

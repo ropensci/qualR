@@ -78,6 +78,10 @@ CetesbRetrieveMet <-  function(username, password,
                         p = p$pol,
                         aqs = tc$aqs,
                         stringsAsFactors = FALSE)
+
+  cols_unchange <- -c(1, ncol(all_met))
+  all_met[, cols_unchange] <- sapply(all_met[, cols_unchange], as.numeric)
+
   message(paste(
     "Download complete for", unique(all_met$aqs)
     ))

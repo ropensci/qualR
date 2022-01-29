@@ -141,6 +141,10 @@ MonitorArRetrieveParam <- function(start_date, end_date, aqs_code, parameters,
     attributes(data_aqs$Data)$tzone <- "America/Sao_Paulo"
   }
 
+  # Ensure columns as numeric
+  cols_unchange <- -c(1, ncol(data_aqs))
+  data_aqs[, cols_unchange] <- sapply(data_aqs[, cols_unchange], as.numeric)
+
   # Changing Data column name to date
   colnames(data_aqs)[1] <- "date"
   if (to_csv){                                                  # nocov start

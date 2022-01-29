@@ -51,6 +51,10 @@ MonitorArRetrievePol <- function(start_date, end_date, aqs_code,
   names(all_pol) <- c("date", tolower(params), "aqs")
   names(all_pol)[8] <- "pm25"
 
+  # Ensure columns as numeric
+  cols_unchange <- -c(-1, -ncol(all_pol))
+  all_pol[, cols_unchange] <- sapply(all_pol[, cols_unchange], as.numeric)
+
   if (to_csv){
     WriteCSV(all_pol, aqs_name, start_date, end_date, "POL", csv_path) # nocov
   }

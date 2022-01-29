@@ -13,6 +13,7 @@ test_that("CetesbRetrieveMetPol", {
   expect_equal(TRUE,  "numeric" %in% class(pinheiros$rh))
   expect_equal(TRUE,  "numeric" %in% class(pinheiros$ws))
   expect_equal(TRUE,  "numeric" %in% class(pinheiros$wd))
+  expect_equal(TRUE,  "numeric" %in% class(pinheiros$p))
   expect_equal(TRUE,  "numeric" %in% class(pinheiros$o3))
   expect_equal(TRUE,  "numeric" %in% class(pinheiros$no))
   expect_equal(TRUE,  "numeric" %in% class(pinheiros$no2))

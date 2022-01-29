@@ -50,6 +50,9 @@ MonitorArRetrieveMet <- function(start_date, end_date, aqs_code,
 
   names(all_met) <- c("date", "tc", "rh", "ws", "wd", "p", "aqs")
 
+  cols_unchage <- -c(1, ncol(all_met))
+  all_met[, cols_unchage] <- sapply(all_met[, cols_unchage], as.numeric)
+
   if (to_csv){
     WriteCSV(all_met, aqs_name, start_date, end_date, "MET", csv_path) # nocov
   }
