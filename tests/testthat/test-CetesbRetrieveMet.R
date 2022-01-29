@@ -6,5 +6,6 @@ test_that("CetesbRetrieveMet works", {
                                start_date   = "01/01/2020",
                                end_date     = "07/01/2020")
 
-  expect_equal( ncol(pin_pol), 7)
+  expect_equal(ncol(pin_pol), 7)
+  expect_equal(nrow(pin_pol), 169)
 })

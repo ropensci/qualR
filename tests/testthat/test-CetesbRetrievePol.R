@@ -6,5 +6,6 @@ test_that("CetesbRetrievePol.R works", {
                                start_date   = "01/01/2020",
                                end_date     = "07/01/2020")
 
-  expect_equal(ncol(pin_pol), 9)
+  co_mean <- mean(pin_pol$co, na.rm = TRUE)
+  expect_equal(co_mean > 0.3, co_mean < 0.4)
 })

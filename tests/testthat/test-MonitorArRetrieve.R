@@ -9,5 +9,9 @@ test_that("MonitorArRetrieve works", {
                                   parameters = "O3",
                                   to_csv     = TRUE, csv_path = csv_path)
 
-  expect_equal(ncol(ca_o3),3)
+  expect_equal(TRUE,
+               file.exists(
+                 paste0(csv_path,
+                        "/ESTACAO CENTRO_O3_01-02-2015_01-03-2015.csv")
+               ))
 })

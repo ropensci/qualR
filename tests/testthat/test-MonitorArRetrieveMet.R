@@ -5,4 +5,6 @@ test_that("multiplication works", {
   ca_met     <- MonitorArRetrieveMet(start_date, end_date, "CA")
 
   expect_equal(ncol(ca_met), 7)
+  expect_equal(nrow(ca_met), 144)
+
 })

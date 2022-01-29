@@ -7,4 +7,18 @@ test_that("CetesbRetrieveMetPol", {
                                     end_date     = "07/01/2020")
 
   expect_equal(ncol(pinheiros), 14)
+
+  expect_equal(TRUE,  "data.frame" %in% class(pinheiros))
+  expect_equal(TRUE,  "numeric" %in% class(pinheiros$tc))
+  expect_equal(TRUE,  "numeric" %in% class(pinheiros$rh))
+  expect_equal(TRUE,  "numeric" %in% class(pinheiros$ws))
+  expect_equal(TRUE,  "numeric" %in% class(pinheiros$wd))
+  expect_equal(TRUE,  "numeric" %in% class(pinheiros$o3))
+  expect_equal(TRUE,  "numeric" %in% class(pinheiros$no))
+  expect_equal(TRUE,  "numeric" %in% class(pinheiros$no2))
+  expect_equal(TRUE,  "numeric" %in% class(pinheiros$nox))
+  expect_equal(TRUE,  "numeric" %in% class(pinheiros$co))
+  expect_equal(TRUE,  "numeric" %in% class(pinheiros$pm10))
+  expect_equal(TRUE,  "numeric" %in% class(pinheiros$pm25))
+  expect_equal(TRUE,  "character" %in% class(pinheiros$aqs))
 })

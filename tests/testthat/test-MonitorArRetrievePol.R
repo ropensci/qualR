@@ -4,5 +4,6 @@ test_that("multiplication works", {
   end_date   <- "07/01/2020"
   ca_pol     <- MonitorArRetrievePol(start_date, end_date, "CA")
 
-  expect_equal(ncol(ca_pol), 9)
+  co_mean <- mean(ca_pol, na.rm = TRUE)
+  expect_equal(co_mean > 0.5, co_mean < 0.52)
 })
