@@ -27,18 +27,18 @@
 #' start_date <- "01/01/2020"
 #' end_date <- "07/01/2020"
 #'
-#' pin_pol <- CetesbRetrieve(my_user_name, my_pass_word, pin_code,
-#'                           start_date, end_date)
+#' pin_pol <- cetesb_retrieve_pol(my_user_name, my_pass_word, pin_code,
+#'                                start_date, end_date)
 #'
 #' }
-CetesbRetrievePol <- function(username, password,
-                              aqs_code, start_date,
-                              end_date, verbose = TRUE,
-                              to_csv = FALSE, csv_path = ""){
+cetesb_retrieve_pol <- function(username, password,
+                                aqs_code, start_date,
+                                end_date, verbose = TRUE,
+                                to_csv = FALSE, csv_path = ""){
 
   # Check if aqs_code is valid
   aqs <- cetesb
-  check_code <- CheckCetesbCode(aqs, aqs_code)
+  check_code <- check_cetesb_code(aqs, aqs_code)
   aqs_name <- check_code[1]
   aqs_code <- as.numeric(check_code[2])
 
@@ -50,33 +50,33 @@ CetesbRetrievePol <- function(username, password,
     message("Period: From ", start_date, " to ", end_date)
   }
 
-  o3 <- CetesbRetrieve(username, password, 63,
-                       aqs_code, start_date,
-                       end_date, verbose = FALSE)
-
-  no <- CetesbRetrieve(username, password, 17,
-                       aqs_code, start_date,
-                       end_date, verbose = FALSE)
-
-  no2 <- CetesbRetrieve(username, password, 15,
+  o3 <- cetesb_retrieve(username, password, 63,
                         aqs_code, start_date,
                         end_date, verbose = FALSE)
 
-  nox <- CetesbRetrieve(username, password, 18,
+  no <- cetesb_retrieve(username, password, 17,
                         aqs_code, start_date,
                         end_date, verbose = FALSE)
 
-  pm25 <- CetesbRetrieve(username, password, 57,
+  no2 <- cetesb_retrieve(username, password, 15,
                          aqs_code, start_date,
                          end_date, verbose = FALSE)
 
-  pm10 <- CetesbRetrieve(username, password, 12,
+  nox <- cetesb_retrieve(username, password, 18,
                          aqs_code, start_date,
                          end_date, verbose = FALSE)
 
-  co <- CetesbRetrieve(username, password, 16,
-                       aqs_code, start_date,
-                       end_date, verbose = FALSE)
+  pm25 <- cetesb_retrieve(username, password, 57,
+                          aqs_code, start_date,
+                          end_date, verbose = FALSE)
+
+  pm10 <- cetesb_retrieve(username, password, 12,
+                          aqs_code, start_date,
+                          end_date, verbose = FALSE)
+
+  co <- cetesb_retrieve(username, password, 16,
+                        aqs_code, start_date,
+                        end_date, verbose = FALSE)
 
 
   all_pol <- data.frame(date = o3$date,
@@ -98,7 +98,7 @@ CetesbRetrievePol <- function(username, password,
   ))
 
   if (to_csv){
-    WriteCSV(all_pol, aqs_name, start_date, end_date, "POL", csv_path) # nocov
+    write_csv(all_pol, aqs_name, start_date, end_date, "POL", csv_path) # nocov
   }
 
   return(all_pol)

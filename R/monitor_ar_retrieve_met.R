@@ -22,11 +22,11 @@
 #' # from January first to 7th of 2020
 #' start_date <- "01/01/2020"
 #' end_date <- "07/01/2020"
-#' ca_met <- MonitorArRetrieveMet(start_date, end_date, "CA")
+#' ca_met <- monitor_ar_retrieve_met(start_date, end_date, "CA")
 #' }
-MonitorArRetrieveMet <- function(start_date, end_date, aqs_code,
-                                 verbose = TRUE, to_local = TRUE,
-                                 to_csv = FALSE, csv_path = ""){
+monitor_ar_retrieve_met <- function(start_date, end_date, aqs_code,
+                                    verbose = TRUE, to_local = TRUE,
+                                    to_csv = FALSE, csv_path = ""){
   # Check is aqs_code is valid
   if (!(aqs_code %in% aqs_monitor_ar$code)){
     stop("Wrong aqs_code, please check monitor_ar_aqs", call. = FALSE) # nocov
@@ -44,9 +44,9 @@ MonitorArRetrieveMet <- function(start_date, end_date, aqs_code,
     message("Period: From ", start_date, " to ", end_date)
   }
 
-  all_met <- MonitorArRetrieveParam(start_date, end_date, aqs_code,
-                                    params, to_local = to_local,
-                                    verbose = FALSE)
+  all_met <- monitor_ar_retrieve_param(start_date, end_date, aqs_code,
+                                       params, to_local = to_local,
+                                       verbose = FALSE)
 
   names(all_met) <- c("date", "tc", "rh", "ws", "wd", "p", "aqs")
 
@@ -54,7 +54,7 @@ MonitorArRetrieveMet <- function(start_date, end_date, aqs_code,
   all_met[, cols_unchage] <- sapply(all_met[, cols_unchage], as.numeric)
 
   if (to_csv){
-    WriteCSV(all_met, aqs_name, start_date, end_date, "MET", csv_path) # nocov
+    write_csv(all_met, aqs_name, start_date, end_date, "MET", csv_path) # nocov
   }
 
   return(all_met)

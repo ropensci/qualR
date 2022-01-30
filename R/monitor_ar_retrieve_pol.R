@@ -22,11 +22,11 @@
 #' # from January first to 7th of 2020
 #' start_date <- "01/01/2020"
 #' end_date <- "07/01/2020"
-#' ca_pol <- MonitorArRetrievePol(start_date, end_date, "CA")
+#' ca_pol <- monitor_ar_retrieve_pol(start_date, end_date, "CA")
 #' }
-MonitorArRetrievePol <- function(start_date, end_date, aqs_code,
-                                 verbose = TRUE, to_local = TRUE,
-                                 to_csv = FALSE, csv_path = ""){
+monitor_ar_retrieve_pol <- function(start_date, end_date, aqs_code,
+                                    verbose = TRUE, to_local = TRUE,
+                                    to_csv = FALSE, csv_path = ""){
   # Check is aqs_code is valid
   if (!(aqs_code %in% aqs_monitor_ar$code)){
     stop("Wrong aqs_code, please check monitor_ar_aqs", call. = FALSE) # nocov
@@ -44,9 +44,9 @@ MonitorArRetrievePol <- function(start_date, end_date, aqs_code,
     message("Period: From ", start_date, " to ", end_date)
   }
 
-  all_pol <- MonitorArRetrieveParam(start_date, end_date, aqs_code,
-                                    params, to_local = to_local,
-                                    verbose = FALSE)
+  all_pol <- monitor_ar_retrieve_param(start_date, end_date, aqs_code,
+                                       params, to_local = to_local,
+                                       verbose = FALSE)
 
   names(all_pol) <- c("date", tolower(params), "aqs")
   names(all_pol)[8] <- "pm25"
@@ -56,7 +56,7 @@ MonitorArRetrievePol <- function(start_date, end_date, aqs_code,
   all_pol[, cols_unchange] <- sapply(all_pol[, cols_unchange], as.numeric)
 
   if (to_csv){
-    WriteCSV(all_pol, aqs_name, start_date, end_date, "POL", csv_path) # nocov
+    write_csv(all_pol, aqs_name, start_date, end_date, "POL", csv_path) # nocov
   }
 
   return(all_pol)

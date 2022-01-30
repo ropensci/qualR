@@ -28,17 +28,17 @@
 #' start_date <- "01/01/2020"
 #' end_date <- "07/01/2020"
 #'
-#' pin_pol <- CetesbRetrieveMet(my_user_name, my_pass_word, pin_code,
-#'                              start_date, end_date)
+#' pin_pol <- cetesb_retrieve_met(my_user_name, my_pass_word, pin_code,
+#'                                start_date, end_date)
 #' }
-CetesbRetrieveMet <-  function(username, password,
-                               aqs_code, start_date,
-                               end_date, verbose = TRUE,
-                               to_csv = FALSE, csv_path = ""){
+cetesb_retrieve_met <-  function(username, password,
+                                 aqs_code, start_date,
+                                 end_date, verbose = TRUE,
+                                 to_csv = FALSE, csv_path = ""){
 
   # Check if aqs_code is valid
   aqs <- cetesb
-  check_code <- CheckCetesbCode(aqs, aqs_code)
+  check_code <- check_cetesb_code(aqs, aqs_code)
   aqs_name <- check_code[1]
   aqs_code <- as.numeric(check_code[2])
 
@@ -50,23 +50,23 @@ CetesbRetrieveMet <-  function(username, password,
     message("Period: From ", start_date, " to ", end_date)
   }
 
-  tc <- CetesbRetrieve(username, password, 25,
+  tc <- cetesb_retrieve(username, password, 25,
                        aqs_code, start_date,
                        end_date, verbose = FALSE)
 
-  rh <- CetesbRetrieve(username, password, 28,
+  rh <- cetesb_retrieve(username, password, 28,
                        aqs_code, start_date,
                        end_date, verbose = FALSE)
 
-  ws <- CetesbRetrieve(username, password, 24,
+  ws <- cetesb_retrieve(username, password, 24,
                        aqs_code, start_date,
                        end_date, verbose = FALSE)
 
-  wd <- CetesbRetrieve(username, password, 23,
+  wd <- cetesb_retrieve(username, password, 23,
                        aqs_code, start_date,
                        end_date, verbose = FALSE)
 
-  p <- CetesbRetrieve(username, password, 29,
+  p <- cetesb_retrieve(username, password, 29,
                       aqs_code, start_date,
                       end_date, verbose = FALSE)
 
@@ -87,7 +87,7 @@ CetesbRetrieveMet <-  function(username, password,
     ))
 
   if (to_csv){
-    WriteCSV(all_met, aqs_name, start_date, end_date, "MET", csv_path) # nocov
+    write_csv(all_met, aqs_name, start_date, end_date, "MET", csv_path) # nocov
   }
 
   return(all_met)

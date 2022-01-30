@@ -37,14 +37,14 @@ São Paulo and the city of Rio de Janeiro.
 
 `qualR` has the following functions:
 
-* `CetesbRetrieveParam`: Download a list of different parameter from one air quality station (AQS) from CETESB QUALAR System.
-* `CetesbRetrievePol`: Download criteria pollutants from one AQS from CETESB QUALAR System.
-* `CetesbRetrieveMet`: Download meteorological parameters from one AQS from CETESB QUALAR System.
-* `CetesbRetrieveMetPol`: Download meteorological parameters and criteria pollutants from one AQS from CETESB QUALAR System.
-* `MonitorArRetrieve`: Download a list of different parameters from MonitorAr - Rio program.
-* `MonitorArRetrievePol`: Download criteria pollutants from one AQS from MonitorAr - Rio program.
-* `MonitorArRetrieveMet`: Download meteorological parameters from one AQS from MonitorAr - Rio program.
-* `MonitorArRetrieveMetPol`: Download meteorological parameters and criteria pollutants from one AQS from MonitorAr - Rio Program.
+* `cetesb_retrieve_param`: Download a list of different parameter from one air quality station (AQS) from CETESB QUALAR System.
+* `cetesb_retrieve_pol`: Download criteria pollutants from one AQS from CETESB QUALAR System.
+* `cetesb_retrieve_met`: Download meteorological parameters from one AQS from CETESB QUALAR System.
+* `cetesb_retrieve_met_pol`: Download meteorological parameters and criteria pollutants from one AQS from CETESB QUALAR System.
+* `monitor_ar_retrieve_param`: Download a list of different parameters from MonitorAr - Rio program.
+* `monitor_ar_retrieve_pol`: Download criteria pollutants from one AQS from MonitorAr - Rio program.
+* `monitor_ar_retrieve_met`: Download meteorological parameters from one AQS from MonitorAr - Rio program.
+* `monitor_ar_retrieve_met_pol`: Download meteorological parameters and criteria pollutants from one AQS from MonitorAr - Rio Program.
 
 
 
@@ -63,9 +63,9 @@ monitor_ar_aqs
 monitor_ar_param
 ```
 3. We have that the air quality station `code` is `CA` (Estação Centro), and
-PM10 `code` is `PM10`. So we use the function `MonitorArRetrieveParam()`.
+PM10 `code` is `PM10`. So we use the function `monitor_ar_retrieve_param()`.
 ```{r}
-rj_centro <- MonitorArRetrieveParam(start_date = "01/01/2019",
+rj_centro <- monitor_ar_retrieve_param(start_date = "01/01/2019",
                                     end_date = "31/12/2019",
                                     aqs_code = "CA",
                                     parameters = "PM10")
@@ -78,7 +78,7 @@ define a vector with the parameters we need.
 ```{r}
 to_dwld <- c("PM10", "Vel_Vento")
 
-rj_ca_params <- MonitorArRetrieveParam(start_date = "01/01/2019",
+rj_ca_params <- monitor_ar_retrieve_param(start_date = "01/01/2019",
                                     end_date = "31/12/2019",
                                     aqs_code = "CA",
                                     parameters = to_dwld)
@@ -109,9 +109,9 @@ openair::timeVariation(rj_centro, pollutant = "PM10")
 ```
 
 # Example to download data from São Paulo State stations
-To use `CetesbRetrieve` you first need to create an account in 
+To use `cetesb_retrieve` you first need to create an account in 
 [CETESB QUALAR System](https://seguranca.cetesb.sp.gov.br/Home/CadastrarUsuario).
-The `CetesbRetrieve` functions are similar as `MonitorArRetrieve` functions, but 
+The `cetesb_retrieve` functions are similar as `monitor_ar_retrieve_param` functions, but 
 they require the `username` and `password` arguments.
 [Check this section](https://github.com/quishqa/qualR#a-better-way-to-save-your-credentials) on `qualR` README to safely configure your user name and 
 password on your R session.
@@ -127,14 +127,14 @@ head(cetesb_aqs, 15)
 head(cetesb_param, 15)
 ```
 3. The air quality station is `95` and ozone code is `63`. So to retrieve the 
-data we should use the `CetesbRetrieveParam`function like this:
+data we should use the `cetesb_retrieve_param`function like this:
 ```{r eval=FALSE}
-usp_o3 <- CetesbRetrieveParam(username = my_user,
-                              password = my_password,
-                              parameters = "O3", # or 63
-                              aqs_code = "Cid.Universitaria-USP-Ipen",  # or 95
-                              start_date = "01/08/2021",
-                              end_date = "31/08/2021")      
+usp_o3 <- cetesb_retrieve_param(username = my_user,
+                                password = my_password,
+                                parameters = "O3", # or 63
+                                aqs_code = "Cid.Universitaria-USP-Ipen",  # or 95
+                                start_date = "01/08/2021",
+                                end_date = "31/08/2021")      
 ```
 
 

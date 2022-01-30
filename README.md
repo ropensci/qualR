@@ -28,14 +28,14 @@ devtools::install_github("quishqa/qualR")
 
 
 `qualR` have the following functions:
-* `CetesbRetrieveParam`: Download a list of different parameter from one air quality station (AQS) from CETESB QUALAR System.
-* `CetesbRetrievePol`: Download criteria pollutants from one AQS from CETESB QUALAR System.
-* `CetesbRetrieveMet`: Download meteorological parameters from one AQS from CETESB QUALAR System.
-* `CetesbRetrieveMetPol`: Download meteorological parameters and criteria pollutants from one AQS from CETESB QUALAR System.
-* `MonitorArRetrieve`: Download a list of different parameters from MonitorAr - Rio program.
-* `MonitorArRetrievePol`: Download criteria pollutants from one AQS from MonitorAr - Rio program.
-* `MonitorArRetrieveMet`: Download meteorological parameters from one AQS from MonitorAr - Rio program.
-* `MonitorArRetrieveMetPol`: Download meteorological parameters and criteria pollutants from one AQS from MonitorAr - Rio Program.
+* `cetesb_retrieve_param`: Download a list of different parameter from one air quality station (AQS) from CETESB QUALAR System.
+* `cetesb_retrieve_pol`: Download criteria pollutants from one AQS from CETESB QUALAR System.
+* `cetesb_retrieve_met`: Download meteorological parameters from one AQS from CETESB QUALAR System.
+* `cetesb_retrieve_met_pol`: Download meteorological parameters and criteria pollutants from one AQS from CETESB QUALAR System.
+* `monitor_ar_retrieve_param`: Download a list of different parameters from MonitorAr - Rio program.
+* `monitor_ar_retrieve_pol`: Download criteria pollutants from one AQS from MonitorAr - Rio program.
+* `monitor_ar_retrieve_met`: Download meteorological parameters from one AQS from MonitorAr - Rio program.
+* `monitor_ar_retrieve_met_pol`: Download meteorological parameters and criteria pollutants from one AQS from MonitorAr - Rio Program.
 
 
 These functions return a data frame, with a `date` column in POSIXct, which allows you
@@ -47,7 +47,7 @@ To download the information for São Paulo, you first need to have an account in
 MonitorAr doesn't require an account.
 
 Then you have to know the AQS and parameter codes (i.e. pollutant or meteorological data) to use these functions.
-Currently, `CetesbRetrieve` family functions also accept the parameter abbreviation (i.e "O3" instead of 63), and the complete name of the AQS (i.e "Pinheiros" instead of 99) as inputs.
+Currently, `cetesb_retrieve` family functions also accept the parameter abbreviation (i.e "O3" instead of 63), and the complete name of the AQS (i.e "Pinheiros" instead of 99) as inputs.
 To check those parameters you can check the following datasets:
 
 ```R
@@ -85,7 +85,7 @@ pin_code <- 99
 start_date <- "01/01/2020"
 end_date <- "07/01/2020"
 
-pin_o3 <- CetesbRetrieveParam(my_user_name,
+pin_o3 <- cetesb_retrieve_param(my_user_name,
                               my_password,
                               "O3",
                               pin_code, # It could also be "Pinheiros"
@@ -93,7 +93,7 @@ pin_o3 <- CetesbRetrieveParam(my_user_name,
                               end_date)
 
 ```
-(Note: Previous `CetesbRetrieve` function now is depreciated use `CetesbRetrieveParam` instead)
+(Note: Previous `cetesb_retrieve` function now is depreciated use `cetesb_retrieve_param` instead)
 
 Maybe you just need a couple of parameters.
 For example, if you want to download ozone and wind speed and direction from Pinheiros AQS,
@@ -111,7 +111,7 @@ end_date <- "07/01/2020"
 
 cetesb_param # To check ozone, wind speed and wind direction abbreviations
 
-pin_o3_ws_wd <- CetesbRetrieveParam(my_user_name,
+pin_o3_ws_wd <- cetesb_retrieve_param(my_user_name,
                                     my_password,
                                     c("O3", "VV", "VD"),
                                     "Pinheiros",
@@ -122,7 +122,7 @@ pin_o3_ws_wd <- CetesbRetrieveParam(my_user_name,
 
 #### Downloading criteria pollutants from one AQS
 
-We use `CetesbRetrievePol`. This function already have the parameter codes for O<sub>3</sub>, NO, NO<sub>2</sub>,  NO<sub>X</sub>, CO, PM<sub>10</sub> and PM<sub>2.5</sub>. So, it doesn't require `pol_code`, only `aqs_code`. CO is in ppm and  NO<sub>X</sub> is in ppb, the other pollutants are in &mu;g/m<sup>3</sup>.
+We use `cetesb_retrieve_pol`. This function already have the parameter codes for O<sub>3</sub>, NO, NO<sub>2</sub>,  NO<sub>X</sub>, CO, PM<sub>10</sub> and PM<sub>2.5</sub>. So, it doesn't require `pol_code`, only `aqs_code`. CO is in ppm and  NO<sub>X</sub> is in ppb, the other pollutants are in &mu;g/m<sup>3</sup>.
 In this example, we download all these pollutants from Pinheiros AQS.
 
 ```R
@@ -136,7 +136,7 @@ pin_code <- 99
 start_date <- "01/01/2020"
 end_date <- "07/01/2020"
 
-pin_pol <- CetesbRetrievePol(my_user_name,
+pin_pol <- cetesb_retrieve_pol(my_user_name,
                              my_password,
                              pin_code, # It could also be "Pinheiros"
                              start_date,
@@ -146,7 +146,7 @@ pin_pol <- CetesbRetrievePol(my_user_name,
 
 #### Downloading meteorological parameters from one AQS
 
-We use `CetesbRetrieveMet`. This function already has the parameter codes for Temperature (&deg;C), Relative Humidity (%), Wind Speed (m/s) and wind Direction (&deg;), and Pressure (hPa). So, it doesn't require `pol_code`, only `aqs_code`.
+We use `cetesb_retrieve_met`. This function already has the parameter codes for Temperature (&deg;C), Relative Humidity (%), Wind Speed (m/s) and wind Direction (&deg;), and Pressure (hPa). So, it doesn't require `pol_code`, only `aqs_code`.
 In this example, we download all these parameters from Pinheiros AQS. Remember that CETESB uses 777 and 888 values in wind direction to indicate calm wind and no data, these values appear in the final data frame.
 
 ```R
@@ -160,7 +160,7 @@ pin_code <- 99
 start_date <- "01/01/2020"
 end_date <- "07/01/2020"
 
-pin_met <- CetesbRetrieveMet(my_user_name,
+pin_met <- cetesb_retrieve_met(my_user_name,
                              my_password,
                              pin_code, # It could also be Pinheiros
                              start_date,
@@ -169,7 +169,7 @@ pin_met <- CetesbRetrieveMet(my_user_name,
 ```
 #### Downloading meteorological and criteria pollutant from one AQS
 
-This is the equivalent to run `CetesbRetrieveMet` and `CetesbRetrievePol` at the same time, and
+This is the equivalent to run `cetesb_retrieve_met` and `cetesb_retrieve_pol` at the same time, and
 It will return all the data in one data frame.
 
 ```R
@@ -183,7 +183,7 @@ pin_code <- 99
 start_date <- "01/01/2020"
 end_date <- "07/01/2020"
 
-pin_all <- CetesbRetrieveMetPol(my_user_name,
+pin_all <- cetesb_retrieve_met_pol(my_user_name,
                                 my_password,
                                 pin_code,
                                 start_date,
@@ -213,7 +213,7 @@ ibi_code <- 83
 start_date <- "01/01/2020"
 end_date <- "07/01/2020"
 
-ibi_all <- CetesbRetrieveMetPol(my_user_name,
+ibi_all <- cetesb_retrieve_met_pol(my_user_name,
                                 my_password,
                                 ibi_code,
                                 start_date,
@@ -239,7 +239,7 @@ start_date <- "01/01/2019"
 end_date <- "31/12/2019"
 
 # All_o3 is a list with a data frame per AQS
-all_o3 <- lapply(cetesb_aqs$code, CetesbRetrieveParam,
+all_o3 <- lapply(cetesb_aqs$code, cetesb_retrieve_param,
                  username = my_user_name,
                  password = my_password,
                  parameters = "O3",
@@ -312,7 +312,7 @@ pin_code <- 99
 start_date <- "01/01/2020"
 end_date <- "07/01/2020"
 
-pin_o3 <- CetesbRetrieveParam(Sys.getenv("QUALAR_USER"), # calling your user
+pin_o3 <- cetesb_retrieve_param(Sys.getenv("QUALAR_USER"), # calling your user
                               Sys.getenv("QUALAR_PASS"),  # calling your passord  
                               o3_code,
                               pin_code,
@@ -327,7 +327,7 @@ This idea came from this [awesome post](https://towardsdatascience.com/ten-time-
 
 #### Downloading one parameter from one AQS
 
-Here we will download Ozone information from Iraja AQS for all February 2019 by using `MonitorArRetrieve` function.
+Here we will download Ozone information from Iraja AQS for all February 2019 by using `monitor_ar_retrieve_param` function.
 
 ```R
 library(qualR)
@@ -339,13 +339,13 @@ end_date <- "01/03/2019"
 aqs_code <- "IR"
 param <- "O3"
 
-ir_o3 <- MonitorArRetrieve(date_start, date_end, aqs_code, param)
+ir_o3 <- monitor_ar_retrieve_param(date_start, date_end, aqs_code, param)
 
 ```
 
 #### Downloading multiple parameters from one AQS
 
-`MonitorArRetrieve` is similar to `CetesbRetrieveParam`, so it allows us to download multiple parameters.
+`monitor_ar_retrieve_param` is similar to `cetesb_retrieve_param`, so it allows us to download multiple parameters.
 Here, we will download Ozone, Nitric oxide, Nitrogen dioxide, wind speed and direction.
 
 ```R
@@ -359,7 +359,7 @@ aqs_code <- "IR"
 params <- c("O3", "NO", "NO2", "Dir_Vento", "Vel_Vento")
 
 
-ir_data <- MonitorArRetrieve(date_start, date_end, aqs_code, params)
+ir_data <- monitor_ar_retrieve_param(date_start, date_end, aqs_code, params)
 ```
 
 

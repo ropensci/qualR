@@ -26,11 +26,11 @@
 #' start_date <- "01/01/2020"
 #' end_date <- "07/01/2020"
 #'
-#' pin_o3 <- CetesbRetrieve(my_user_name, my_pass_word, o3_code, pin_code,
-#'                          start_date, end_date)
+#' pin_o3 <- cetesb_retrieve(my_user_name, my_pass_word, o3_code, pin_code,
+#'                           start_date, end_date)
 #'
 #' }
-CetesbRetrieve <- function(username, password,
+cetesb_retrieve <- function(username, password,
                            pol_code, aqs_code,
                            start_date, end_date,
                            verbose = TRUE, to_csv = FALSE){
@@ -141,7 +141,7 @@ CetesbRetrieve <- function(username, password,
   }
 
   if (to_csv){
-    WriteCSV(dat, aqs_name, start_date, end_date, pol_abr) # nocov
+    write_csv(dat, aqs_name, start_date, end_date, pol_abr) # nocov
   }
 
   return(dat)

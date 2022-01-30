@@ -24,11 +24,11 @@
 #' # from CENTRO AQS from January first to 7th of 2020
 #' start_date <- "01/01/2020"
 #' end_date <- "07/01/2020"
-#' ca_all <- MonitorArRetrieceMetPol(start_date, end_date, "CA")
+#' ca_all <- monitor_ar_retrieve_met_pol(start_date, end_date, "CA")
 #' }
-MonitorArRetrieveMetPol <- function(start_date, end_date, aqs_code,
-                                    verbose = TRUE, to_local = TRUE,
-                                    to_csv = FALSE, csv_path = ""){
+monitor_ar_retrieve_met_pol <- function(start_date, end_date, aqs_code,
+                                        verbose = TRUE, to_local = TRUE,
+                                        to_csv = FALSE, csv_path = ""){
   # Check is aqs_code is valid
   if (!(aqs_code %in% aqs_monitor_ar$code)){
     stop("Wrong aqs_code, please check monitor_ar_aqs", call. = FALSE) # nocov
@@ -47,9 +47,9 @@ MonitorArRetrieveMetPol <- function(start_date, end_date, aqs_code,
     message("Period: From ", start_date, " to ", end_date)
   }
 
-  all_data <- MonitorArRetrieveParam(start_date, end_date, aqs_code,
-                                     params, to_local = to_local,
-                                     verbose = FALSE)
+  all_data <- monitor_ar_retrieve_param(start_date, end_date, aqs_code,
+                                        params, to_local = to_local,
+                                        verbose = FALSE)
 
   names(all_data) <- c("date", tolower(params), "aqs")
   names(all_data)[2:6] <- c("tc", "rh", "ws", "wd", "p")
@@ -60,7 +60,7 @@ MonitorArRetrieveMetPol <- function(start_date, end_date, aqs_code,
                                       as.numeric)
 
   if (to_csv){                                                  # nocov start
-    WriteCSV(all_data, aqs_name, start_date, end_date, "MET_POL", csv_path)
+    write_csv(all_data, aqs_name, start_date, end_date, "MET_POL", csv_path)
   }                                                             # nocov end
 
   return(all_data)

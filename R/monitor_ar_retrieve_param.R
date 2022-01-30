@@ -24,12 +24,12 @@
 #' date_end <- "01/03/2019"
 #' aqs_code <- "CA"
 #' param <- "O3"
-#' ca_o3 <- MonitorArRetrieve(date_start, date_end, aqs_code, param)
+#' ca_o3 <- monitor_ar_retrieve_param(date_start, date_end, aqs_code, param)
 #'
 #' }
-MonitorArRetrieveParam <- function(start_date, end_date, aqs_code, parameters,
-                                   to_local=TRUE, verbose = TRUE,
-                                   to_csv = FALSE, csv_path = ""){
+monitor_ar_retrieve_param <- function(start_date, end_date, aqs_code,
+                                      parameters, to_local=TRUE, verbose = TRUE,
+                                      to_csv = FALSE, csv_path = ""){
 
   # Check if params are measured
   if (!prod(parameters %in% param_monitor_ar$code)){
@@ -177,7 +177,7 @@ MonitorArRetrieveParam <- function(start_date, end_date, aqs_code, parameters,
 
 
   if (to_csv){                                                  # nocov start
-    WriteCSV(data_aqs, aqs_name, start_date, end_date, parameters, csv_path)
+    write_csv                                                                                                       (data_aqs, aqs_name, start_date, end_date, parameters, csv_path)
   }                                                             # nocov end
 
   return(data_aqs)

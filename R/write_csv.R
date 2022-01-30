@@ -9,8 +9,8 @@
 #' @noRd
 #' @keywords internal
 
-WriteCSV <- function(aqs_data_df, aqs_name, start_date, end_date,
-                     vars, csv_path){
+write_csv <- function(aqs_data_df, aqs_name, start_date, end_date,
+                      vars, csv_path){
   file_name <- paste0(aqs_name, "_",
                       paste0(vars, collapse = "_"), "_",
                       gsub("/", "-", start_date), "_",

@@ -30,18 +30,18 @@
 #' end_date <- "07/01/2020"
 #' params <- c("o3","NOX", "VV")
 #'
-#' pin_param <- CetesbRetrieveParam(my_user_name, my_pass_word,
-#'                                  params, pin_code,
-#'                                  start_date, end_date)
+#' pin_param <- cetesb_retrieve_param(my_user_name, my_pass_word,
+#'                                    params, pin_code,
+#'                                    start_date, end_date)
 #' }
-CetesbRetrieveParam <- function(username, password, parameters,
-                                aqs_code, start_date, end_date,
-                                verbose = TRUE, to_csv = FALSE,
+cetesb_retrieve_param <- function(username, password, parameters,
+                                  aqs_code, start_date, end_date,
+                                  verbose = TRUE, to_csv = FALSE,
                                 csv_path = ""){
 
   # Check if aqs_code is valid
   aqs <- cetesb
-  check_code <- CheckCetesbCode(aqs, aqs_code)
+  check_code <- check_cetesb_code(aqs, aqs_code)
   aqs_name <- check_code[1]
   aqs_code <- as.numeric(check_code[2])
 
@@ -73,7 +73,7 @@ CetesbRetrieveParam <- function(username, password, parameters,
   }
 
   # Downloading data
-  aqs_data <-  lapply(codes_df$code, CetesbRetrieve,
+  aqs_data <-  lapply(codes_df$code, cetesb_retrieve,
                       username = username,
                       password = password,
                       aqs_code = aqs_code,
@@ -113,7 +113,7 @@ CetesbRetrieveParam <- function(username, password, parameters,
                                          as.numeric)
 
   if (to_csv){                                                  # nocov start
-    WriteCSV(aqs_data_df, aqs_name, start_date, end_date, param, csv_path)
+    write_csv(aqs_data_df, aqs_name, start_date, end_date, param, csv_path)
   }                                                             # nocov end
 
   return(aqs_data_df)
