@@ -66,9 +66,9 @@ monitor_ar_param
 PM10 `code` is `PM10`. So we use the function `monitor_ar_retrieve_param()`.
 ```{r}
 rj_centro <- monitor_ar_retrieve_param(start_date = "01/01/2019",
-                                    end_date = "31/12/2019",
-                                    aqs_code = "CA",
-                                    parameters = "PM10")
+                                       end_date = "31/12/2019",
+                                       aqs_code = "CA",
+                                       parameters = "PM10")
 
 head(rj_centro)
 ```
@@ -104,9 +104,9 @@ with `NA`) with a `date` column in `POSIXct`. This ensure compatibility with the
 
 Here is the code to  use openair `timeVariation()` function. Note that no 
 preprocessing is needed.
-```{r eval=FALSE}
+```{r fig.height=5, fig.width=8, warning=FALSE}
 library(openair)
-openair::timeVariation(rj_centro, pollutant = "PM10")
+openair::timeVariation(rj_centro, pollutant = "pm10")
 ```
 
 # Example to download data from São Paulo State stations
