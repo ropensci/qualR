@@ -116,7 +116,9 @@ cetesb_retrieve <- function(username, password,
     dat <- data.frame(date = all.dates$date , pol = NA, aqs = aqs_name,  # nocov
                       stringsAsFactors = FALSE)                          # nocov
     message(paste0('No data available for ', pol_name))                  # nocov
-  } else if (ncol(dat) == 19) {
+  }
+
+  if (ncol(dat) == 19) {
     names(dat) <- cet.names
     dat$date <- paste(dat$day, dat$hour, sep = '_')
     dat$date <- as.POSIXct(strptime(dat$date, format = '%d/%m/%Y_%H:%M'),
