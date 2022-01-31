@@ -115,7 +115,10 @@ cetesb_retrieve <- function(username, password,
   if (ncol(dat) != 19){
     dat <- data.frame(date = all.dates$date , pol = NA, aqs = aqs_name,  # nocov
                       stringsAsFactors = FALSE)                          # nocov
-    message(paste0('No data available for ', pol_name))                  # nocov
+    message(paste0(                                                      # nocov
+      'No data available for ',                                          # nocov
+      pol_name,                                                          # nocov
+      ". Filling with NA."))                                              # nocov
   }
 
   if (ncol(dat) == 19) {
