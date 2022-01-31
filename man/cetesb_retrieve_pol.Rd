@@ -40,6 +40,9 @@ Units are ug/m3 except for CO which is in ppm, and NOx which is in ppb.
 This function download the criteria pollutants from one air quality station
 (AQS) of CETESB AQS network.
 It will pad out the date with missing data with NA.
+This function required to have
+\href{https://seguranca.cetesb.sp.gov.br/Home/CadastrarUsuario}{an account}
+in \href{https://qualar.cetesb.sp.gov.br/qualar/home.do}{CETESB QUALAR}.
 }
 \examples{
 \dontrun{

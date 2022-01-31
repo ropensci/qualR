@@ -3,7 +3,9 @@
 #' This function download the main meteorological parameters for
 #' model evaluation from one air quality station (AQS) of CETESB AQS network.
 #' It will pad out the date with missing data with NA.
-#'
+#' This function requires to have
+#' \href{https://seguranca.cetesb.sp.gov.br/Home/CadastrarUsuario}{an account}
+#' in \href{https://qualar.cetesb.sp.gov.br/qualar/home.do}{CETESB QUALAR}.
 #'
 #' @param username User name of CETESB QUALAR
 #' @param password User name's password of CETESB QUALAR

@@ -4,6 +4,9 @@
 #' evaluation, together with criteria pollutants for one
 #' air quality station (AQS). It will pad out the date with
 #' missing data with NA.
+#' This function required to have
+#' \href{https://seguranca.cetesb.sp.gov.br/Home/CadastrarUsuario}{an account}
+#' in \href{https://qualar.cetesb.sp.gov.br/qualar/home.do}{CETESB QUALAR}.
 #'
 #' @param username User name of CETESB QUALAR
 #' @param password User name's password of CETESB QUALAR

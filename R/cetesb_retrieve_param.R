@@ -1,8 +1,11 @@
 #' Download list of observation from CETESB QUALAR
 #'
-#' This function downloads the parameters in a vector, this parameters
+#' This function downloads the parameters in a vector. These parameters
 #' can be both pollutants or meteorological observations for one air
 #' quality station (AQS). It will pad out the date with missing data
+#' with NA. This function requires to have
+#' \href{https://seguranca.cetesb.sp.gov.br/Home/CadastrarUsuario}{an account}
+#' in \href{https://qualar.cetesb.sp.gov.br/qualar/home.do}{CETESB QUALAR}.
 #'
 #' @param username User name of CETESB QUALAR
 #' @param password User name's password of CETESB QUALAR
