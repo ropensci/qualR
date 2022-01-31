@@ -104,7 +104,7 @@ with `NA`) with a `date` column in `POSIXct`. This ensure compatibility with the
 
 Here is the code to  use openair `timeVariation()` function. Note that no 
 preprocessing is needed.
-```{r fig.height=5, fig.width=8, warning=FALSE}
+```{r eval=FALSE}
 library(openair)
 openair::timeVariation(rj_centro, pollutant = "pm10")
 ```

@@ -7,7 +7,7 @@
 \title{qualR: An R package to download Sao Paulo and Rio de Janeiro
 air pollution data}
 \description{
-A package to download information from CETESB QUALAR and MonitorAr systems. It contains function to download different parameters, a set of criteria pollutants and the most frequent meteorological parameters used in air quality data analysis and air quality model evaluation.
+A package to download information from CETESB QUALAR <https://cetesb.sp.gov.br/ar/qualar/> and MonitorAr <https://www.rio.rj.gov.br/web/smac/monitorar-rio1> systems. It contains function to download different parameters, a set of criteria pollutants and the most frequent meteorological parameters used in air quality data analysis and air quality model evaluation.
 }
 \seealso{
 \strong{Useful links:}
