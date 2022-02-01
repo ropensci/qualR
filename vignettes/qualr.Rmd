@@ -95,7 +95,43 @@ mtext(expression(PM[10]~" ("*mu*"g/m"^3*")"), side = 2, line = 2.5)
 
 ```
 
+# An example using `tidyverse`
 
+`tidyverse` is a powerful collection of R package. Here is an example using `purrr`to download data from multiple stations and `ggplot2`to visualize the relation between Ozone and air temperature. 
+As we know Ozone is formed by photochemical reaction which means the participation of solar radiation.
+
+```{r}
+library(qualR)
+library(purrr)
+
+# Retrieve data from all stations in Rio
+rj_params <- purrr::map_dfr(.x = qualR::monitor_ar_aqs$code, 
+                            .f = monitor_ar_retrieve_param,
+                            start_date = "01/01/2020",
+                            end_date = "31/12/2020",
+                            parameters = c("O3", "Temp")
+)
+```
+
+Now we can visualize all the data simultaneity using `ggplot2` facet:
+
+```{r fig.height=5, fig.width=5}
+library(magrittr)
+library(ggplot2)
+
+# making the graph with facet
+rj_params %>% 
+  ggplot() +
+  geom_point(aes(x = tc, y = o3), size = 0.5,  alpha = 0.5) +
+  labs(x = "Air temperature (º)",
+       y = expression(O[3]~" ("*mu*"g/m"^3*")"),
+       caption = "Source: Data from MonitorAr - Rio, retrieved with qualR R package. "
+       )+
+  theme_bw()+
+  facet_wrap(~aqs)
+```
+
+PS: Special thanks to [@beatrizmilz](https://github.com/beatrizmilz) for inspiring this example.
 
 # Compatibility with `openair`
 `qualR` functions returns a completed data frame (i.e. missing hours padded out
@@ -104,7 +140,8 @@ with `NA`) with a `date` column in `POSIXct`. This ensure compatibility with the
 
 Here is the code to  use openair `timeVariation()` function. Note that no 
 preprocessing is needed.
-```{r eval=FALSE}
+```{r fig.height=5, fig.width=5, eval=FALSE}
+#install.package("openair")
 library(openair)
 openair::timeVariation(rj_centro, pollutant = "pm10")
 ```

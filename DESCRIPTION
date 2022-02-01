@@ -38,7 +38,11 @@ Suggests:
     knitr,
     covr,
     testthat (>= 3.0.0),
-    rmarkdown
+    rmarkdown,
+    openair,
+    ggplot2,
+    purrr,
+    magrittr
 Depends: 
     R (>= 3.5.0)
 Config/testthat/edition: 3
