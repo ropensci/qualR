@@ -24,6 +24,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -36,18 +38,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">qualR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.9.6</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
@@ -69,7 +65,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/quishqa/qualR/">
+  <a href="https://github.com/quishqa/qualR/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -86,49 +82,31 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="qualr-an-r-package-to-download-são-paulo-and-rio-de-janeiro-air-pollution-data" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#qualr-an-r-package-to-download-s%C3%A3o-paulo-and-rio-de-janeiro-air-pollution-data" class="anchor"></a>qualR: An R package to download São Paulo and Rio de Janeiro air pollution data</h1></div>
+<div class="section level1">
+<div class="page-header"><h1 id="qualr-an-r-package-to-download-são-paulo-and-rio-de-janeiro-air-pollution-data">qualR: An R package to download São Paulo and Rio de Janeiro air pollution data<a class="anchor" aria-label="anchor" href="#qualr-an-r-package-to-download-s%C3%A3o-paulo-and-rio-de-janeiro-air-pollution-data"></a>
+</h1></div>
 
-<p>The goal of <code>qualR</code> is to facilitate the download of air pollutants and meteorological information from <a href="https://qualar.cetesb.sp.gov.br/qualar/home.do">CETESB QUALAR System</a> for São Paulo, and <a href="https://www.data.rio/datasets/dados-hor%C3%A1rios-do-monitoramento-da-qualidade-do-ar-monitorar">MonitorAr Program</a>, for Rio de Janeiro. This information is often used for air pollution data analysis and for air quality model evaluation.</p>
-<p><code>qualR</code> functions return completed data frames (missing hours padded out with <code>NA</code>), with a <code>date</code> column in <code>POSIXct</code> for temporal aggregation and for compatibility with <a href="https://github.com/davidcarslaw/openair"><code>openair</code> package</a>. <code>qualR</code> improves air pollution research by easily producing ready-to-use datasets, by facilitating exploratory data analysis, and by fostering reproducibility.</p>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
+<p>The goal of <code>qualR</code> is to facilitate the download of air pollutants and meteorological information from <a href="https://qualar.cetesb.sp.gov.br/qualar/home.do" class="external-link">CETESB QUALAR System</a> for São Paulo, and <a href="https://www.data.rio/datasets/dados-hor%C3%A1rios-do-monitoramento-da-qualidade-do-ar-monitorar" class="external-link">MonitorAr Program</a>, for Rio de Janeiro. This information is often used for air pollution data analysis and for air quality model evaluation.</p>
+<p><code>qualR</code> functions return completed data frames (missing hours padded out with <code>NA</code>), with a <code>date</code> column in <code>POSIXct</code> for temporal aggregation and for compatibility with <a href="https://github.com/davidcarslaw/openair" class="external-link"><code>openair</code> package</a>. <code>qualR</code> improves air pollution research by easily producing ready-to-use datasets, by facilitating exploratory data analysis, and by fostering reproducibility.</p>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
 <p>First, you need to install <code>devtools</code>:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span></code></pre></div>
 <p>Then, you can install <code>qualR</code> by:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"quishqa/qualR"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/remote-reexports.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"quishqa/qualR"</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="how-to-use" class="section level2">
-<h2 class="hasAnchor">
-<a href="#how-to-use" class="anchor"></a>How to use</h2>
-<p><code>qualR</code> have the following functions:</p>
-<ul>
-<li>
-<code>cetesb_retrieve_param</code>: Download a list of different parameter from one air quality station (AQS) from CETESB QUALAR System.</li>
-<li>
-<code>cetesb_retrieve_pol</code>: Download criteria pollutants from one AQS from CETESB QUALAR System.</li>
-<li>
-<code>cetesb_retrieve_met</code>: Download meteorological parameters from one AQS from CETESB QUALAR System.</li>
-<li>
-<code>cetesb_retrieve_met_pol</code>: Download meteorological parameters and criteria pollutants from one AQS from CETESB QUALAR System.</li>
-<li>
-<code>monitor_ar_retrieve_param</code>: Download a list of different parameters from MonitorAr - Rio program.</li>
-<li>
-<code>monitor_ar_retrieve_pol</code>: Download criteria pollutants from one AQS from MonitorAr - Rio program.</li>
-<li>
-<code>monitor_ar_retrieve_met</code>: Download meteorological parameters from one AQS from MonitorAr - Rio program.</li>
-<li>
-<code>monitor_ar_retrieve_met_pol</code>: Download meteorological parameters and criteria pollutants from one AQS from MonitorAr - Rio Program.</li>
-</ul>
-<p>These functions return a data frame, with a <code>date</code> column in POSIXct, which allows you to use other packages for data analysis, such as <a href="https://davidcarslaw.github.io/openair/">openair</a>.</p>
-<p>To download the information for São Paulo, you first need to have an account in <a href="https://qualar.cetesb.sp.gov.br/qualar/home.do">CETESB QUALAR system</a>. <a href="https://seguranca.cetesb.sp.gov.br/Home/CadastrarUsuario">Here</a>, you can sign up to CETESB QUALAR system. MonitorAr doesn’t require an account.</p>
+<div class="section level2">
+<h2 id="how-to-use">How to use<a class="anchor" aria-label="anchor" href="#how-to-use"></a>
+</h2>
+<p><code>qualR</code> have the following functions: * <code>cetesb_retrieve_param</code>: Download a list of different parameter from one air quality station (AQS) from CETESB QUALAR System. * <code>cetesb_retrieve_pol</code>: Download criteria pollutants from one AQS from CETESB QUALAR System. * <code>cetesb_retrieve_met</code>: Download meteorological parameters from one AQS from CETESB QUALAR System. * <code>cetesb_retrieve_met_pol</code>: Download meteorological parameters and criteria pollutants from one AQS from CETESB QUALAR System. * <code>monitor_ar_retrieve_param</code>: Download a list of different parameters from MonitorAr - Rio program. * <code>monitor_ar_retrieve_pol</code>: Download criteria pollutants from one AQS from MonitorAr - Rio program. * <code>monitor_ar_retrieve_met</code>: Download meteorological parameters from one AQS from MonitorAr - Rio program. * <code>monitor_ar_retrieve_met_pol</code>: Download meteorological parameters and criteria pollutants from one AQS from MonitorAr - Rio Program.</p>
+<p>These functions return a data frame, with a <code>date</code> column in POSIXct, which allows you to use other packages for data analysis, such as <a href="https://davidcarslaw.github.io/openair/" class="external-link">openair</a>.</p>
+<p>To download the information for São Paulo, you first need to have an account in <a href="https://qualar.cetesb.sp.gov.br/qualar/home.do" class="external-link">CETESB QUALAR system</a>. <a href="https://seguranca.cetesb.sp.gov.br/Home/CadastrarUsuario" class="external-link">Here</a>, you can sign up to CETESB QUALAR system. MonitorAr doesn’t require an account.</p>
 <p>Then you have to know the AQS and parameter codes (i.e. pollutant or meteorological data) to use these functions. Currently, <code>cetesb_retrieve</code> family functions also accept the parameter abbreviation (i.e “O3” instead of 63), and the complete name of the AQS (i.e “Pinheiros” instead of 99) as inputs. To check those parameters you can check the following datasets:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR">qualR</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR" class="external-link">qualR</a></span><span class="op">)</span>
 
 <span class="co"># To see all CETESB AQS names with their codes and lat lon</span>
 <span class="va">cetesb_aqs</span>
@@ -142,15 +120,15 @@
 <span class="co"># To see all MonitorAr-Rio parameters with their codes</span>
 <span class="va">monitor_ar_param</span></code></pre></div>
 </div>
-<div id="using-qualr-to-download-cetesb-data" class="section level2">
-<h2 class="hasAnchor">
-<a href="#using-qualr-to-download-cetesb-data" class="anchor"></a>Using <code>qualR</code> to download CETESB data</h2>
-<div id="downloading-multiple-parameter-from-one-aqs" class="section level4">
-<h4 class="hasAnchor">
-<a href="#downloading-multiple-parameter-from-one-aqs" class="anchor"></a>Downloading multiple parameter from one AQS</h4>
+<div class="section level2">
+<h2 id="using-qualr-to-download-cetesb-data">Using <code>qualR</code> to download CETESB data<a class="anchor" aria-label="anchor" href="#using-qualr-to-download-cetesb-data"></a>
+</h2>
+<div class="section level4">
+<h4 id="downloading-multiple-parameter-from-one-aqs">Downloading multiple parameter from one AQS<a class="anchor" aria-label="anchor" href="#downloading-multiple-parameter-from-one-aqs"></a>
+</h4>
 <p>If you want to download Ozone information from Pinheiros AQS, from January first to January 7th, you can do:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR">qualR</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR" class="external-link">qualR</a></span><span class="op">)</span>
 
 <span class="va">cetesb_aqs</span> <span class="co"># To check Pinheiros aqs_code</span>
 <span class="va">cetesb_param</span> <span class="co"># To check Ozone pol_code</span>
@@ -170,7 +148,7 @@
 <p>(Note: Previous <code>cetesb_retrieve</code> function now is depreciated use <code>cetesb_retrieve_param</code> instead)</p>
 <p>Maybe you just need a couple of parameters. For example, if you want to download ozone and wind speed and direction from Pinheiros AQS, you can do the following:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR">qualR</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR" class="external-link">qualR</a></span><span class="op">)</span>
 
 <span class="va">cetesb_aqs</span> <span class="co"># To check Pinheiros aqs_code</span>
 
@@ -183,17 +161,17 @@
 
 <span class="va">pin_o3_ws_wd</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/cetesb_retrieve_param.html">cetesb_retrieve_param</a></span><span class="op">(</span><span class="va">my_user_name</span>,
                                     <span class="va">my_password</span>,
-                                    <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"O3"</span>, <span class="st">"VV"</span>, <span class="st">"VD"</span><span class="op">)</span>,
+                                    <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"O3"</span>, <span class="st">"VV"</span>, <span class="st">"VD"</span><span class="op">)</span>,
                                     <span class="st">"Pinheiros"</span>,
                                     start_date <span class="op">=</span> <span class="st">"01/01/2020"</span>,
                                     end_date <span class="op">=</span> <span class="st">"07/01/2020"</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="downloading-criteria-pollutants-from-one-aqs" class="section level4">
-<h4 class="hasAnchor">
-<a href="#downloading-criteria-pollutants-from-one-aqs" class="anchor"></a>Downloading criteria pollutants from one AQS</h4>
+<div class="section level4">
+<h4 id="downloading-criteria-pollutants-from-one-aqs">Downloading criteria pollutants from one AQS<a class="anchor" aria-label="anchor" href="#downloading-criteria-pollutants-from-one-aqs"></a>
+</h4>
 <p>We use <code>cetesb_retrieve_pol</code>. This function already have the parameter codes for O<sub>3</sub>, NO, NO<sub>2</sub>, NO<sub>X</sub>, CO, PM<sub>10</sub> and PM<sub>2.5</sub>. So, it doesn’t require <code>pol_code</code>, only <code>aqs_code</code>. CO is in ppm and NO<sub>X</sub> is in ppb, the other pollutants are in μg/m<sup>3</sup>. In this example, we download all these pollutants from Pinheiros AQS.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR">qualR</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR" class="external-link">qualR</a></span><span class="op">)</span>
 
 <span class="va">cetesb_aqs</span> <span class="co"># To check Pinheiros aqs_code</span>
 
@@ -209,12 +187,12 @@
                              <span class="va">start_date</span>,
                              <span class="va">end_date</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="downloading-meteorological-parameters-from-one-aqs" class="section level4">
-<h4 class="hasAnchor">
-<a href="#downloading-meteorological-parameters-from-one-aqs" class="anchor"></a>Downloading meteorological parameters from one AQS</h4>
+<div class="section level4">
+<h4 id="downloading-meteorological-parameters-from-one-aqs">Downloading meteorological parameters from one AQS<a class="anchor" aria-label="anchor" href="#downloading-meteorological-parameters-from-one-aqs"></a>
+</h4>
 <p>We use <code>cetesb_retrieve_met</code>. This function already has the parameter codes for Temperature (°C), Relative Humidity (%), Wind Speed (m/s) and wind Direction (°), and Pressure (hPa). So, it doesn’t require <code>pol_code</code>, only <code>aqs_code</code>. In this example, we download all these parameters from Pinheiros AQS. Remember that CETESB uses 777 and 888 values in wind direction to indicate calm wind and no data, these values appear in the final data frame.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR">qualR</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR" class="external-link">qualR</a></span><span class="op">)</span>
 
 <span class="va">cetesb_aqs</span> <span class="co"># To check Pinheiros aqs_code</span>
 
@@ -230,12 +208,12 @@
                              <span class="va">start_date</span>,
                              <span class="va">end_date</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="downloading-meteorological-and-criteria-pollutant-from-one-aqs" class="section level4">
-<h4 class="hasAnchor">
-<a href="#downloading-meteorological-and-criteria-pollutant-from-one-aqs" class="anchor"></a>Downloading meteorological and criteria pollutant from one AQS</h4>
+<div class="section level4">
+<h4 id="downloading-meteorological-and-criteria-pollutant-from-one-aqs">Downloading meteorological and criteria pollutant from one AQS<a class="anchor" aria-label="anchor" href="#downloading-meteorological-and-criteria-pollutant-from-one-aqs"></a>
+</h4>
 <p>This is the equivalent to run <code>cetesb_retrieve_met</code> and <code>cetesb_retrieve_pol</code> at the same time, and It will return all the data in one data frame.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR">qualR</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR" class="external-link">qualR</a></span><span class="op">)</span>
 
 <span class="va">cetesb_aqs</span> <span class="co"># To check Pinheiros aqs_code</span>
 
@@ -251,17 +229,17 @@
                                 <span class="va">start_date</span>,
                                 <span class="va">end_date</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="some-other-examples" class="section level4">
-<h4 class="hasAnchor">
-<a href="#some-other-examples" class="anchor"></a>Some other examples</h4>
-<div id="to-csv" class="section level5">
-<h5 class="hasAnchor">
-<a href="#to-csv" class="anchor"></a>To <code>.csv</code>
+<div class="section level4">
+<h4 id="some-other-examples">Some other examples<a class="anchor" aria-label="anchor" href="#some-other-examples"></a>
+</h4>
+<div class="section level5">
+<h5 id="to-csv">To <code>.csv</code>
+<a class="anchor" aria-label="anchor" href="#to-csv"></a>
 </h5>
 <p>Now, We want to download all the information from Ibirapuera AQS, and then export this data in <code>.csv</code> to be read by other software. <code>qualR</code> functions have the argument <code>to_csv</code>, which by default has a <code>FALSE</code> value. So, if you want to export the data to <code>csv</code>, you just need to change it to <code>TRUE</code>.</p>
 <p>The csv file have the following file name: <code>{aqs_name}_{pol}_{start_date}_{end_date}.csv</code>. For the functions that retrieve more than one parameter the file name is: <code>{aqs_name}_{TYPE}_{start_date}_{end_date}.csv</code>, where <code>TYPE</code> is “POL”, “MET”, or “MET_POL”.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR">qualR</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR" class="external-link">qualR</a></span><span class="op">)</span>
 
 <span class="va">cetesb_aqs</span> <span class="co"># To check Ibirapuera aqs_code</span>
 
@@ -279,12 +257,12 @@
                                 to_csv <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <p>In this case, we will get the file <code>Ibirapuera_MET_POL_01-01-2020_07-01-2020.csv</code>.</p>
 </div>
-<div id="a-variable-from-all-cetesb-aqs" class="section level5">
-<h5 class="hasAnchor">
-<a href="#a-variable-from-all-cetesb-aqs" class="anchor"></a>A variable from all CETESB AQS</h5>
+<div class="section level5">
+<h5 id="a-variable-from-all-cetesb-aqs">A variable from all CETESB AQS<a class="anchor" aria-label="anchor" href="#a-variable-from-all-cetesb-aqs"></a>
+</h5>
 <p>Sometimes, to check the spatial distribution of air pollutants, you need to download a pollutant from all the AQS. In this example, we download a year of Ozone from all CETESB AQS.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR">qualR</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR" class="external-link">qualR</a></span><span class="op">)</span>
 
 <span class="va">my_user_name</span> <span class="op">&lt;-</span> <span class="st">"john.doe@mymail.com"</span>
 <span class="va">my_password</span> <span class="op">&lt;-</span> <span class="st">"drowssap"</span>
@@ -293,7 +271,7 @@
 <span class="va">end_date</span> <span class="op">&lt;-</span> <span class="st">"31/12/2019"</span>
 
 <span class="co"># All_o3 is a list with a data frame per AQS</span>
-<span class="va">all_o3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">cetesb_aqs</span><span class="op">$</span><span class="va">code</span>, <span class="va">cetesb_retrieve_param</span>,
+<span class="va">all_o3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">cetesb_aqs</span><span class="op">$</span><span class="va">code</span>, <span class="va">cetesb_retrieve_param</span>,
                  username <span class="op">=</span> <span class="va">my_user_name</span>,
                  password <span class="op">=</span> <span class="va">my_password</span>,
                  parameters <span class="op">=</span> <span class="st">"O3"</span>,
@@ -301,45 +279,40 @@
                  end_date <span class="op">=</span> <span class="va">end_date</span><span class="op">)</span>
 
 <span class="co"># If you want  to export all in csv</span>
-<span class="va">all_o3_csv</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/do.call.html">do.call</a></span><span class="op">(</span><span class="va">rbind</span>, <span class="va">all_o3</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.table</a></span><span class="op">(</span><span class="va">all_o3_csv</span>, <span class="st">"all_o3_csv.csv"</span>, sep <span class="op">=</span> <span class="st">","</span>, row.names <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></code></pre></div>
+<span class="va">all_o3_csv</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/do.call.html" class="external-link">do.call</a></span><span class="op">(</span><span class="va">rbind</span>, <span class="va">all_o3</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/write.table.html" class="external-link">write.table</a></span><span class="op">(</span><span class="va">all_o3_csv</span>, <span class="st">"all_o3_csv.csv"</span>, sep <span class="op">=</span> <span class="st">","</span>, row.names <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="aqs-latitudes-and-longitudes" class="section level5">
-<h5 class="hasAnchor">
-<a href="#aqs-latitudes-and-longitudes" class="anchor"></a>AQS latitudes and longitudes</h5>
+<div class="section level5">
+<h5 id="aqs-latitudes-and-longitudes">AQS latitudes and longitudes<a class="anchor" aria-label="anchor" href="#aqs-latitudes-and-longitudes"></a>
+</h5>
 <p>Maybe you need to make a map of the AQS you used in your study. Now, we added latitude and longitude in degrees in the <code>cetesb_aqs</code> dataset:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR">qualR</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR" class="external-link">qualR</a></span><span class="op">)</span>
 
 <span class="co"># To see all the AQS latitude and longitude</span>
 <span class="va">cetesb_aqs</span></code></pre></div>
-<p>Here are some examples to make some plots:</p>
-<ul>
-<li><a href="https://randroll.wordpress.com/2020/06/18/a-point-concentration-map-with-r/">A pollutant concentration point map.</a></li>
-<li><a href="https://randroll.wordpress.com/2019/10/28/heatmaps-in-r-an-example-using-ozone-concentrations/">An AQS location map.</a></li>
-<li><a href="https://randroll.wordpress.com/2018/04/18/making-a-simple-map-with-r/">An AQS location map using shapefiles.</a></li>
-</ul>
+<p>Here are some examples to make some plots: * <a href="https://randroll.wordpress.com/2020/06/18/a-point-concentration-map-with-r/" class="external-link">A pollutant concentration point map.</a> * <a href="https://randroll.wordpress.com/2019/10/28/heatmaps-in-r-an-example-using-ozone-concentrations/" class="external-link">An AQS location map.</a> * <a href="https://randroll.wordpress.com/2018/04/18/making-a-simple-map-with-r/" class="external-link">An AQS location map using shapefiles.</a></p>
 </div>
-<div id="a-better-way-to-save-your-credentials" class="section level5">
-<h5 class="hasAnchor">
-<a href="#a-better-way-to-save-your-credentials" class="anchor"></a>A better way to save your credentials</h5>
+<div class="section level5">
+<h5 id="a-better-way-to-save-your-credentials">A better way to save your credentials<a class="anchor" aria-label="anchor" href="#a-better-way-to-save-your-credentials"></a>
+</h5>
 <p>It is not so safe to write your user and password when you are coding, it is even more dangerous when we have to share our scripts. For this reason, it is a better practice (and safer) to save your credentials (i.e. user and password) in your <strong>global environment</strong>.</p>
 <p>An easier way to do it is by using <code>usethis</code> package. So, first install it by:</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"usethis"</span><span class="op">)</span></code></pre></div>
-<p>Then use the function <code><a href="https://usethis.r-lib.org/reference/edit.html">edit_r_environ()</a></code>. It will show a new file called <code>.Renviron</code>, where you’ll define your user and password.</p>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"usethis"</span><span class="op">)</span></code></pre></div>
+<p>Then use the function <code><a href="https://usethis.r-lib.org/reference/edit.html" class="external-link">edit_r_environ()</a></code>. It will show a new file called <code>.Renviron</code>, where you’ll define your user and password.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://usethis.r-lib.org">usethis</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://usethis.r-lib.org" class="external-link">usethis</a></span><span class="op">)</span>
 
-<span class="fu"><a href="https://usethis.r-lib.org/reference/edit.html">edit_r_environ</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://usethis.r-lib.org/reference/edit.html" class="external-link">edit_r_environ</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>It will open <code>.Renviron</code> file, there you define your credentials:</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">QUALAR_USER</span><span class="op">=</span><span class="st">"john.doe@mymail.com"</span>
 <span class="va">QUALAR_PASS</span><span class="op">=</span><span class="st">"drowssap"</span></code></pre></div>
-<p>Save it, and the changes will work after restart R. To call them, you use <code><a href="https://rdrr.io/r/base/Sys.getenv.html">Sys.getenv()</a></code>.</p>
+<p>Save it, and the changes will work after restart R. To call them, you use <code><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv()</a></code>.</p>
 <p>So now, if we replicate the previous example <em>Downloading multiple parameter from one AQS</em>, it will be something like this:</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR">qualR</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR" class="external-link">qualR</a></span><span class="op">)</span>
 
 <span class="va">cetesb_aqs</span> <span class="co"># To check Pinheiros aqs_code</span>
 <span class="va">cetesb_param</span> <span class="co"># To check Ozone pol_code</span>
@@ -349,25 +322,25 @@
 <span class="va">start_date</span> <span class="op">&lt;-</span> <span class="st">"01/01/2020"</span>
 <span class="va">end_date</span> <span class="op">&lt;-</span> <span class="st">"07/01/2020"</span>
 
-<span class="va">pin_o3</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/cetesb_retrieve_param.html">cetesb_retrieve_param</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html">Sys.getenv</a></span><span class="op">(</span><span class="st">"QUALAR_USER"</span><span class="op">)</span>, <span class="co"># calling your user</span>
-                              <span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html">Sys.getenv</a></span><span class="op">(</span><span class="st">"QUALAR_PASS"</span><span class="op">)</span>,  <span class="co"># calling your passord  </span>
+<span class="va">pin_o3</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/cetesb_retrieve_param.html">cetesb_retrieve_param</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="st">"QUALAR_USER"</span><span class="op">)</span>, <span class="co"># calling your user</span>
+                              <span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="st">"QUALAR_PASS"</span><span class="op">)</span>,  <span class="co"># calling your passord  </span>
                               <span class="va">o3_code</span>,
                               <span class="va">pin_code</span>,
                               <span class="va">start_date</span>,
                               <span class="va">end_date</span><span class="op">)</span></code></pre></div>
-<p>This idea came from this <a href="https://towardsdatascience.com/ten-time-saving-r-hacks-b411add26b96">awesome post</a>.</p>
+<p>This idea came from this <a href="https://towardsdatascience.com/ten-time-saving-r-hacks-b411add26b96" class="external-link">awesome post</a>.</p>
 </div>
 </div>
 </div>
-<div id="using-qualr-to-download-monitorar---rio-data" class="section level2">
-<h2 class="hasAnchor">
-<a href="#using-qualr-to-download-monitorar---rio-data" class="anchor"></a>Using <code>qualR</code> to download MonitorAr - Rio data</h2>
-<div id="downloading-one-parameter-from-one-aqs" class="section level4">
-<h4 class="hasAnchor">
-<a href="#downloading-one-parameter-from-one-aqs" class="anchor"></a>Downloading one parameter from one AQS</h4>
+<div class="section level2">
+<h2 id="using-qualr-to-download-monitorar---rio-data">Using <code>qualR</code> to download MonitorAr - Rio data<a class="anchor" aria-label="anchor" href="#using-qualr-to-download-monitorar---rio-data"></a>
+</h2>
+<div class="section level4">
+<h4 id="downloading-one-parameter-from-one-aqs">Downloading one parameter from one AQS<a class="anchor" aria-label="anchor" href="#downloading-one-parameter-from-one-aqs"></a>
+</h4>
 <p>Here we will download Ozone information from Iraja AQS for all February 2019 by using <code>monitor_ar_retrieve_param</code> function.</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR">qualR</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR" class="external-link">qualR</a></span><span class="op">)</span>
 <span class="va">monitor_ar_aqs</span> <span class="co"># To check Iraja AQS code</span>
 <span class="va">monitor_ar_param</span> <span class="co"># To check Ozone code</span>
 
@@ -378,27 +351,27 @@
 
 <span class="va">ir_o3</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/monitor_ar_retrieve_param.html">monitor_ar_retrieve_param</a></span><span class="op">(</span><span class="va">date_start</span>, <span class="va">date_end</span>, <span class="va">aqs_code</span>, <span class="va">param</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="downloading-multiple-parameters-from-one-aqs" class="section level4">
-<h4 class="hasAnchor">
-<a href="#downloading-multiple-parameters-from-one-aqs" class="anchor"></a>Downloading multiple parameters from one AQS</h4>
+<div class="section level4">
+<h4 id="downloading-multiple-parameters-from-one-aqs">Downloading multiple parameters from one AQS<a class="anchor" aria-label="anchor" href="#downloading-multiple-parameters-from-one-aqs"></a>
+</h4>
 <p><code>monitor_ar_retrieve_param</code> is similar to <code>cetesb_retrieve_param</code>, so it allows us to download multiple parameters. Here, we will download Ozone, Nitric oxide, Nitrogen dioxide, wind speed and direction.</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR">qualR</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR" class="external-link">qualR</a></span><span class="op">)</span>
 <span class="va">monitor_ar_aqs</span> <span class="co"># To check Iraja AQS code</span>
 <span class="va">monitor_ar_param</span> <span class="co"># To check parameter codes</span>
 
 <span class="va">date_start</span> <span class="op">&lt;-</span> <span class="st">"01/02/2019"</span>
 <span class="va">date_end</span> <span class="op">&lt;-</span> <span class="st">"01/03/2019"</span>
 <span class="va">aqs_code</span> <span class="op">&lt;-</span> <span class="st">"IR"</span>
-<span class="va">params</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"O3"</span>, <span class="st">"NO"</span>, <span class="st">"NO2"</span>, <span class="st">"Dir_Vento"</span>, <span class="st">"Vel_Vento"</span><span class="op">)</span>
+<span class="va">params</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"O3"</span>, <span class="st">"NO"</span>, <span class="st">"NO2"</span>, <span class="st">"Dir_Vento"</span>, <span class="st">"Vel_Vento"</span><span class="op">)</span>
 
 
 <span class="va">ir_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/monitor_ar_retrieve_param.html">monitor_ar_retrieve_param</a></span><span class="op">(</span><span class="va">date_start</span>, <span class="va">date_end</span>, <span class="va">aqs_code</span>, <span class="va">params</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
-<div id="caveat-emptor" class="section level2">
-<h2 class="hasAnchor">
-<a href="#caveat-emptor" class="anchor"></a>Caveat emptor</h2>
+<div class="section level2">
+<h2 id="caveat-emptor">Caveat emptor<a class="anchor" aria-label="anchor" href="#caveat-emptor"></a>
+</h2>
 <ul>
 <li>CETESB QUALAR system describes midnight as 24:00, and the first hour of each day starts at 1:00. <code>qualR</code> transform it to get the time in 00-23 hour notation, for that reason you’ll get <code>NA</code> at 00:00 of your first downloaded day. So, consider download one day before your study period.</li>
 <li>To pad-out with <code>NA</code> when there is a missing date, <code>qualR</code> “tricks” the date information, an assume it’s on <strong>UTC</strong> (when in reality it’s on <strong>“America/Sao_Paulo”</strong> time). This avoids problems with merging data frames and also with Daylight saving time (DST) issues. Beware of this,when dealing with study periods that include <strong>DST</strong>. It always a good idea, to double check by retrieving the suspicious date from CETESB QUALAR system.</li>
@@ -406,21 +379,21 @@
 <li>Currently, MonitorAr only has data until March, 2021.</li>
 </ul>
 </div>
-<div id="code-of-conduct" class="section level2">
-<h2 class="hasAnchor">
-<a href="#code-of-conduct" class="anchor"></a>Code of Conduct</h2>
-<p>Please note that the qualR project is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
+<div class="section level2">
+<h2 id="code-of-conduct">Code of Conduct<a class="anchor" aria-label="anchor" href="#code-of-conduct"></a>
+</h2>
+<p>Please note that the qualR project is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html" class="external-link">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
-<div id="acknowledgments" class="section level2">
-<h2 class="hasAnchor">
-<a href="#acknowledgments" class="anchor"></a>Acknowledgments</h2>
-<p>Thanks to <a href="https://cetesb.sp.gov.br/ar/">CETESB</a> and to <a href="https://www.rio.rj.gov.br/web/smac/monitorar-rio1">MonitorAr Program</a> for make public this atmospheric data.</p>
+<div class="section level2">
+<h2 id="acknowledgments">Acknowledgments<a class="anchor" aria-label="anchor" href="#acknowledgments"></a>
+</h2>
+<p>Thanks to <a href="https://cetesb.sp.gov.br/ar/" class="external-link">CETESB</a> and to <a href="https://www.rio.rj.gov.br/web/smac/monitorar-rio1" class="external-link">MonitorAr Program</a> for make public this atmospheric data.</p>
 <p>This work was supported by the Wellcome Trust [grant number 216087/Z/19/Z]. We acknowledge the programs CAPES (Coordenadoria de Aperfeiçoamento de Pessoal de Nível Superior), CNPq (Conselho Nacional de Desenvolvimento Científico e Tecnológico), FAPESP (2016/18438-0 - Fundação de Amparo à Pesquisa do Estado do São Paulo).</p>
-<p>Finally, we want to thanks to the <a href="http://www.lapat.iag.usp.br/">LAPAT-IAG team</a> for test and help to improve <code>qualR</code>.</p>
+<p>Finally, we want to thanks to the <a href="http://www.lapat.iag.usp.br/" class="external-link">LAPAT-IAG team</a> for test and help to improve <code>qualR</code>.</p>
 </div>
-<div id="last-but-not-least" class="section level2">
-<h2 class="hasAnchor">
-<a href="#last-but-not-least" class="anchor"></a>Last but not least</h2>
+<div class="section level2">
+<h2 id="last-but-not-least">Last but not least<a class="anchor" aria-label="anchor" href="#last-but-not-least"></a>
+</h2>
 <p>I hope this package will help you on your research!</p>
 </div>
 </div>
@@ -428,62 +401,67 @@
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Browse source code at <br><a href="https://github.com/quishqa/qualR/">https://​github.com/​quishqa/​qualR/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/quishqa/qualR/issues">https://​github.com/​quishqa/​qualR/​issues</a>
-</li>
+<li><a href="https://github.com/quishqa/qualR/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/quishqa/qualR/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
-<li><small><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
+<li><small><a href="https://opensource.org/licenses/mit-license.php" class="external-link">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
 </ul>
 </div>
+
 <div class="community">
-<h2>Community</h2>
+<h2 data-toc-skip>Community</h2>
 <ul class="list-unstyled">
 <li><a href="CONTRIBUTING.html">Contributing guide</a></li>
 <li><a href="CODE_OF_CONDUCT.html">Code of conduct</a></li>
 </ul>
 </div>
+
 <div class="citation">
-<h2>Citation</h2>
+<h2 data-toc-skip>Citation</h2>
 <ul class="list-unstyled">
-<li><a href="authors.html">Citing qualR</a></li>
-</ul>
-</div>
-<div class="developers">
-<h2>Developers</h2>
-<ul class="list-unstyled">
-<li>Mario Gavidia-Calderón <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-7371-1116" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>Daniel Schuch <br><small class="roles"> Author, contributor </small> <a href="https://orcid.org/0000-0001-5977-4519" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li><a href="authors.html">All authors...</a></li>
+<li><a href="authors.html#citation">Citing qualR</a></li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li><a href="https://ci.appveyor.com/project/quishqa/qualR"><img src="https://ci.appveyor.com/api/projects/status/github/quishqa/qualR?branch=master&amp;svg=true" alt="AppVeyor build status"></a></li>
-<li><a href="https://codecov.io/github/quishqa/qualR?branch=master"><img src="https://img.shields.io/codecov/c/github/quishqa/qualR/master.svg" alt="Coverage Status"></a></li>
-<li><a href="https://zenodo.org/badge/latestdoi/267442363"><img src="https://zenodo.org/badge/267442363.svg" alt="DOI"></a></li>
-<li><a href="https://github.com/ropensci/software-review/issues/474"><img src="https://badges.ropensci.org/474_status.svg"></a></li>
+<li>Mario Gavidia-Calderón <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-7371-1116" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Daniel Schuch <br><small class="roles"> Author, contributor </small> <a href="https://orcid.org/0000-0001-5977-4519" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li><a href="authors.html">More about authors...</a></li>
 </ul>
 </div>
+
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://ci.appveyor.com/project/quishqa/qualR" class="external-link"><img src="https://ci.appveyor.com/api/projects/status/github/quishqa/qualR?branch=master&amp;svg=true" alt="AppVeyor build status"></a></li>
+<li><a href="https://codecov.io/github/quishqa/qualR?branch=master" class="external-link"><img src="https://img.shields.io/codecov/c/github/quishqa/qualR/master.svg" alt="Coverage Status"></a></li>
+<li><a href="https://zenodo.org/badge/latestdoi/267442363" class="external-link"><img src="https://zenodo.org/badge/267442363.svg" alt="DOI"></a></li>
+<li><a href="https://github.com/ropensci/software-review/issues/474" class="external-link"><img src="https://badges.ropensci.org/474_status.svg"></a></li>
+</ul>
 </div>
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Mario Gavidia-Calderón, Daniel Schuch.</p>
+  <p></p>
+<p>Developed by Mario Gavidia-Calderón, Daniel Schuch.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer>
@@ -491,6 +469,8 @@
 
   
 
+
+  
 
   </body>
 </html>
