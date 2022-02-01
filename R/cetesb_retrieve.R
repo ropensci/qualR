@@ -118,7 +118,7 @@ cetesb_retrieve <- function(username, password,
     message(paste0(                                                      # nocov
       'No data available for ',                                          # nocov
       pol_name,                                                          # nocov
-      ". Filling with NA."))                                              # nocov
+      ". Filling with NA."))                                             # nocov
   }
 
   if (ncol(dat) == 19) {
