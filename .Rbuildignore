@@ -15,3 +15,4 @@
 ^CONTRIBUTING\.md$
 ^CODE_OF_CONDUCT\.md$
 ^inst/paper$
+^\.github$
