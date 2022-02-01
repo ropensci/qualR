@@ -85,7 +85,7 @@
       <h1 data-toc-skip>How to use qualR</h1>
                         <h4 class="author">Mario Gavidia-Calderón, Daniel Schuch &amp; Maria de Fatima Andrade</h4>
                         
-            <h4 class="date">2022-01-25</h4>
+            <h4 class="date">2022-01-31</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/quishqa/qualR/blob/master/vignettes/qualr.Rmd"><code>vignettes/qualr.Rmd</code></a></small>
       <div class="hidden name"><code>qualr.Rmd</code></div>
@@ -97,7 +97,7 @@
 <div id="context" class="section level1">
 <h1 class="hasAnchor">
 <a href="#context" class="anchor"></a>Context</h1>
-<p>Both the State of São Paulo and Rio de Janeiro have one of the most extensive air quality stations network in South America. <a href="">CETESB QUALAR System</a> provide to the user the air quality data from the State of São Paulo. QUALAR System limits the download to one parameter from one air station for one year in a simple query (three parameter in advance query). The data can have missing hours (e.g. due to calibration), the decimal separator is “,”, and the output is a CSV file. <a href="">data.rio</a> hosts the air quality information from Monitor Ar Program. It is not an user-friendly API and the data needs the same preprocessor as the data from QUALAR System.</p>
+<p>Both the State of São Paulo and Rio de Janeiro have one of the most extensive air quality stations network in South America. <a href="https://cetesb.sp.gov.br/ar/qualar/">CETESB QUALAR System</a> provide to the user the air quality data from the State of São Paulo. QUALAR System limits the download to one parameter from one air station for one year in a simple query (three parameter in advance query). The data can have missing hours (e.g. due to calibration), the decimal separator is “,”, and the output is a CSV file. <a href="https://www.data.rio/maps/PCRJ::qualidade-do-ar-dados-hor%C3%A1rios/about">data.rio</a> hosts the air quality information from Monitor Ar Program. It is not an user-friendly API and the data needs the same preprocessor as the data from QUALAR System.</p>
 <p><code>qualR</code> surpasses these limitations and brings to your R session ready-to use data frames with the information of air quality station from the State of São Paulo and the city of Rio de Janeiro.</p>
 </div>
 <div id="approach" class="section level1">
@@ -106,21 +106,21 @@
 <p><code>qualR</code> has the following functions:</p>
 <ul>
 <li>
-<code>CetesbRetrieveParam</code>: Download a list of different parameter from one air quality station (AQS) from CETESB QUALAR System.</li>
+<code>cetesb_retrieve_param</code>: Download a list of different parameter from one air quality station (AQS) from CETESB QUALAR System.</li>
 <li>
-<code>CetesbRetrievePol</code>: Download criteria pollutants from one AQS from CETESB QUALAR System.</li>
+<code>cetesb_retrieve_pol</code>: Download criteria pollutants from one AQS from CETESB QUALAR System.</li>
 <li>
-<code>CetesbRetrieveMet</code>: Download meteorological parameters from one AQS from CETESB QUALAR System.</li>
+<code>cetesb_retrieve_met</code>: Download meteorological parameters from one AQS from CETESB QUALAR System.</li>
 <li>
-<code>CetesbRetrieveMetPol</code>: Download meteorological parameters and criteria pollutants from one AQS from CETESB QUALAR System.</li>
+<code>cetesb_retrieve_met_pol</code>: Download meteorological parameters and criteria pollutants from one AQS from CETESB QUALAR System.</li>
 <li>
-<code>MonitorArRetrieve</code>: Download a list of different parameters from MonitorAr - Rio program.</li>
+<code>monitor_ar_retrieve_param</code>: Download a list of different parameters from MonitorAr - Rio program.</li>
 <li>
-<code>MonitorArRetrievePol</code>: Download criteria pollutants from one AQS from MonitorAr - Rio program.</li>
+<code>monitor_ar_retrieve_pol</code>: Download criteria pollutants from one AQS from MonitorAr - Rio program.</li>
 <li>
-<code>MonitorArRetrieveMet</code>: Download meteorological parameters from one AQS from MonitorAr - Rio program.</li>
+<code>monitor_ar_retrieve_met</code>: Download meteorological parameters from one AQS from MonitorAr - Rio program.</li>
 <li>
-<code>MonitorArRetrieveMetPol</code>: Download meteorological parameters and criteria pollutants from one AQS from MonitorAr - Rio Program.</li>
+<code>monitor_ar_retrieve_met_pol</code>: Download meteorological parameters and criteria pollutants from one AQS from MonitorAr - Rio Program.</li>
 </ul>
 </div>
 <div id="example-to-download-data-from-rio-de-janeiro" class="section level1">
@@ -133,7 +133,7 @@
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR">qualR</a></span><span class="op">)</span>
 <span class="va">monitor_ar_aqs</span>
-<span class="co">#&gt;                         name code       lon       lat X_UTM_Sirgas2000</span>
+<span class="co">#&gt;                         name code       lon       lat x_utm_sirgas2000</span>
 <span class="co">#&gt; 1 ESTACAO PEDRA DE GUARATIBA   PG -43.62901 -23.00438         640506.0</span>
 <span class="co">#&gt; 2              ESTACAO BANGU   BG -43.47107 -22.88791         656828.8</span>
 <span class="co">#&gt; 3       ESTACAO CAMPO GRANDE   CG -43.55652 -22.88625         648064.5</span>
@@ -142,7 +142,7 @@
 <span class="co">#&gt; 6             ESTACAO TIJUCA   SP -43.23266 -22.92492         681240.2</span>
 <span class="co">#&gt; 7      ESTACAO SAO CRISTOVAO   SC -43.22175 -22.89777         682395.8</span>
 <span class="co">#&gt; 8             ESTACAO CENTRO   CA -43.17815 -22.90834         686853.7</span>
-<span class="co">#&gt;   Y_UTM_Sirgas2000</span>
+<span class="co">#&gt;   y_utm_sirgas2000</span>
 <span class="co">#&gt; 1          7455338</span>
 <span class="co">#&gt; 2          7468075</span>
 <span class="co">#&gt; 3          7468346</span>
@@ -176,23 +176,23 @@
 <span class="co">#&gt; 17 Dir_Vento                    Direcao do Vento     º</span>
 <span class="co">#&gt; 18 Vel_Vento                 Velocidade do Vento   m/s</span></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
-<li>We have that the air quality station <code>code</code> is <code>CA</code> (Estação Centro), and PM10 <code>code</code> is <code>PM10</code>. So we use the function <code><a href="../reference/MonitorArRetrieveParam.html">MonitorArRetrieveParam()</a></code>.</li>
+<li>We have that the air quality station <code>code</code> is <code>CA</code> (Estação Centro), and PM10 <code>code</code> is <code>PM10</code>. So we use the function <code><a href="../reference/monitor_ar_retrieve_param.html">monitor_ar_retrieve_param()</a></code>.</li>
 </ol>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">rj_centro</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/MonitorArRetrieveParam.html">MonitorArRetrieveParam</a></span><span class="op">(</span>start_date <span class="op">=</span> <span class="st">"01/01/2019"</span>,
-                                    end_date <span class="op">=</span> <span class="st">"31/12/2019"</span>,
-                                    aqs_code <span class="op">=</span> <span class="st">"CA"</span>,
-                                    parameters <span class="op">=</span> <span class="st">"PM10"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">rj_centro</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/monitor_ar_retrieve_param.html">monitor_ar_retrieve_param</a></span><span class="op">(</span>start_date <span class="op">=</span> <span class="st">"01/01/2019"</span>,
+                                       end_date <span class="op">=</span> <span class="st">"31/12/2019"</span>,
+                                       aqs_code <span class="op">=</span> <span class="st">"CA"</span>,
+                                       parameters <span class="op">=</span> <span class="st">"PM10"</span><span class="op">)</span>
 <span class="co">#&gt; Your query is:</span>
-<span class="co">#&gt; Parameter: PM10 </span>
-<span class="co">#&gt; Air quality station: ESTACAO CENTRO </span>
-<span class="co">#&gt; Period: From 01/01/2019 to 31/12/2019 </span>
-<span class="co">#&gt; Succesful request </span>
-<span class="co">#&gt; Downloading  PM10 </span>
+<span class="co">#&gt; Parameter: PM10</span>
+<span class="co">#&gt; Air quality station: ESTACAO CENTRO</span>
+<span class="co">#&gt; Period: From 01/01/2019 to 31/12/2019</span>
+<span class="co">#&gt; Succesful request</span>
+<span class="co">#&gt; Downloading  PM10</span>
 <span class="co">#&gt; Padding out missing dates with NA</span>
 
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">rj_centro</span><span class="op">)</span>
-<span class="co">#&gt;                  date PM10 aqs</span>
+<span class="co">#&gt;                  date pm10 aqs</span>
 <span class="co">#&gt; 1 2018-12-31 22:30:00   51  CA</span>
 <span class="co">#&gt; 2 2018-12-31 23:30:00   73  CA</span>
 <span class="co">#&gt; 3 2019-01-01 00:30:00  119  CA</span>
@@ -205,30 +205,30 @@
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">to_dwld</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"PM10"</span>, <span class="st">"Vel_Vento"</span><span class="op">)</span>
 
-<span class="va">rj_ca_params</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/MonitorArRetrieveParam.html">MonitorArRetrieveParam</a></span><span class="op">(</span>start_date <span class="op">=</span> <span class="st">"01/01/2019"</span>,
+<span class="va">rj_ca_params</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/monitor_ar_retrieve_param.html">monitor_ar_retrieve_param</a></span><span class="op">(</span>start_date <span class="op">=</span> <span class="st">"01/01/2019"</span>,
                                     end_date <span class="op">=</span> <span class="st">"31/12/2019"</span>,
                                     aqs_code <span class="op">=</span> <span class="st">"CA"</span>,
                                     parameters <span class="op">=</span> <span class="va">to_dwld</span><span class="op">)</span>
 <span class="co">#&gt; Your query is:</span>
-<span class="co">#&gt; Parameter: PM10, Vel_Vento </span>
-<span class="co">#&gt; Air quality station: ESTACAO CENTRO </span>
-<span class="co">#&gt; Period: From 01/01/2019 to 31/12/2019 </span>
-<span class="co">#&gt; Succesful request </span>
-<span class="co">#&gt; Downloading  PM10 Vel_Vento </span>
+<span class="co">#&gt; Parameter: PM10, Vel_Vento</span>
+<span class="co">#&gt; Air quality station: ESTACAO CENTRO</span>
+<span class="co">#&gt; Period: From 01/01/2019 to 31/12/2019</span>
+<span class="co">#&gt; Succesful request</span>
+<span class="co">#&gt; Downloading  PM10 Vel_Vento</span>
 <span class="co">#&gt; Padding out missing dates with NA</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">rj_ca_params</span><span class="op">)</span>
-<span class="co">#&gt;                  date PM10 Vel_Vento aqs</span>
-<span class="co">#&gt; 1 2018-12-31 22:30:00   51      0.85  CA</span>
-<span class="co">#&gt; 2 2018-12-31 23:30:00   73      0.45  CA</span>
-<span class="co">#&gt; 3 2019-01-01 00:30:00  119      0.53  CA</span>
-<span class="co">#&gt; 4 2019-01-01 01:30:00   92      0.45  CA</span>
-<span class="co">#&gt; 5 2019-01-01 02:30:00   57      0.25  CA</span>
-<span class="co">#&gt; 6 2019-01-01 03:30:00   43      0.53  CA</span></code></pre></div>
+<span class="co">#&gt;                  date pm10   ws aqs</span>
+<span class="co">#&gt; 1 2018-12-31 22:30:00   51 0.85  CA</span>
+<span class="co">#&gt; 2 2018-12-31 23:30:00   73 0.45  CA</span>
+<span class="co">#&gt; 3 2019-01-01 00:30:00  119 0.53  CA</span>
+<span class="co">#&gt; 4 2019-01-01 01:30:00   92 0.45  CA</span>
+<span class="co">#&gt; 5 2019-01-01 02:30:00   57 0.25  CA</span>
+<span class="co">#&gt; 6 2019-01-01 03:30:00   43 0.53  CA</span></code></pre></div>
 <ol start="5" style="list-style-type: decimal">
 <li>Now we can make a simple plot</li>
 </ol>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">rj_ca_params</span><span class="op">$</span><span class="va">Vel_Vento</span>, <span class="va">rj_ca_params</span><span class="op">$</span><span class="va">PM10</span>,
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">rj_ca_params</span><span class="op">$</span><span class="va">ws</span>, <span class="va">rj_ca_params</span><span class="op">$</span><span class="va">pm10</span>,
      xlab <span class="op">=</span> <span class="st">"Wind speed (m/s)"</span>,
      ylab <span class="op">=</span> <span class="st">""</span>,
      xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">4</span><span class="op">)</span>,
@@ -236,21 +236,119 @@
 <span class="fu"><a href="https://rdrr.io/r/graphics/mtext.html">mtext</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="va">PM</span><span class="op">[</span><span class="fl">10</span><span class="op">]</span><span class="op">~</span><span class="st">" ("</span><span class="op">*</span><span class="va">mu</span><span class="op">*</span><span class="st">"g/m"</span><span class="op">^</span><span class="fl">3</span><span class="op">*</span><span class="st">")"</span><span class="op">)</span>, side <span class="op">=</span> <span class="fl">2</span>, line <span class="op">=</span> <span class="fl">2.5</span><span class="op">)</span></code></pre></div>
 <p><img src="qualr_files/figure-html/unnamed-chunk-5-1.png" width="480"></p>
 </div>
+<div id="an-example-using-tidyverse" class="section level1">
+<h1 class="hasAnchor">
+<a href="#an-example-using-tidyverse" class="anchor"></a>An example using <code>tidyverse</code>
+</h1>
+<p><code>tidyverse</code> is a powerful collection of R package. Here is an example using <code>purrr</code>to download data from multiple stations and <code>ggplot2</code>to visualize the relation between Ozone and air temperature. As we know Ozone is formed by photochemical reaction which means the participation of solar radiation.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR">qualR</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://purrr.tidyverse.org">purrr</a></span><span class="op">)</span>
+
+<span class="co"># Retrieve data from all stations in Rio</span>
+<span class="va">rj_params</span> <span class="op">&lt;-</span> <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map_dfr</a></span><span class="op">(</span>.x <span class="op">=</span> <span class="fu">qualR</span><span class="fu">::</span><span class="va"><a href="../reference/monitor_ar_aqs.html">monitor_ar_aqs</a></span><span class="op">$</span><span class="va">code</span>, 
+                            .f <span class="op">=</span> <span class="va">monitor_ar_retrieve_param</span>,
+                            start_date <span class="op">=</span> <span class="st">"01/01/2020"</span>,
+                            end_date <span class="op">=</span> <span class="st">"31/12/2020"</span>,
+                            parameters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"O3"</span>, <span class="st">"Temp"</span><span class="op">)</span>
+<span class="op">)</span>
+<span class="co">#&gt; Your query is:</span>
+<span class="co">#&gt; Parameter: O3, Temp</span>
+<span class="co">#&gt; Air quality station: ESTACAO PEDRA DE GUARATIBA</span>
+<span class="co">#&gt; Period: From 01/01/2020 to 31/12/2020</span>
+<span class="co">#&gt; Succesful request</span>
+<span class="co">#&gt; Downloading  O3 Temp</span>
+<span class="co">#&gt; Padding out missing dates with NA</span>
+<span class="co">#&gt; Your query is:</span>
+<span class="co">#&gt; Parameter: O3, Temp</span>
+<span class="co">#&gt; Air quality station: ESTACAO BANGU</span>
+<span class="co">#&gt; Period: From 01/01/2020 to 31/12/2020</span>
+<span class="co">#&gt; Succesful request</span>
+<span class="co">#&gt; Downloading  O3 Temp</span>
+<span class="co">#&gt; Padding out missing dates with NA</span>
+<span class="co">#&gt; Your query is:</span>
+<span class="co">#&gt; Parameter: O3, Temp</span>
+<span class="co">#&gt; Air quality station: ESTACAO CAMPO GRANDE</span>
+<span class="co">#&gt; Period: From 01/01/2020 to 31/12/2020</span>
+<span class="co">#&gt; Succesful request</span>
+<span class="co">#&gt; Downloading  O3 Temp</span>
+<span class="co">#&gt; Padding out missing dates with NA</span>
+<span class="co">#&gt; Your query is:</span>
+<span class="co">#&gt; Parameter: O3, Temp</span>
+<span class="co">#&gt; Air quality station: ESTACAO IRAJA</span>
+<span class="co">#&gt; Period: From 01/01/2020 to 31/12/2020</span>
+<span class="co">#&gt; Succesful request</span>
+<span class="co">#&gt; Downloading  O3 Temp</span>
+<span class="co">#&gt; Padding out missing dates with NA</span>
+<span class="co">#&gt; Your query is:</span>
+<span class="co">#&gt; Parameter: O3, Temp</span>
+<span class="co">#&gt; Air quality station: ESTACAO COPACABANA</span>
+<span class="co">#&gt; Period: From 01/01/2020 to 31/12/2020</span>
+<span class="co">#&gt; Succesful request</span>
+<span class="co">#&gt; Downloading  O3 Temp</span>
+<span class="co">#&gt; Padding out missing dates with NA</span>
+<span class="co">#&gt; Your query is:</span>
+<span class="co">#&gt; Parameter: O3, Temp</span>
+<span class="co">#&gt; Air quality station: ESTACAO TIJUCA</span>
+<span class="co">#&gt; Period: From 01/01/2020 to 31/12/2020</span>
+<span class="co">#&gt; Succesful request</span>
+<span class="co">#&gt; Downloading  O3 Temp</span>
+<span class="co">#&gt; Padding out missing dates with NA</span>
+<span class="co">#&gt; Your query is:</span>
+<span class="co">#&gt; Parameter: O3, Temp</span>
+<span class="co">#&gt; Air quality station: ESTACAO SAO CRISTOVAO</span>
+<span class="co">#&gt; Period: From 01/01/2020 to 31/12/2020</span>
+<span class="co">#&gt; Succesful request</span>
+<span class="co">#&gt; Downloading  O3 Temp</span>
+<span class="co">#&gt; Padding out missing dates with NA</span>
+<span class="co">#&gt; Your query is:</span>
+<span class="co">#&gt; Parameter: O3, Temp</span>
+<span class="co">#&gt; Air quality station: ESTACAO CENTRO</span>
+<span class="co">#&gt; Period: From 01/01/2020 to 31/12/2020</span>
+<span class="co">#&gt; Succesful request</span>
+<span class="co">#&gt; Downloading  O3 Temp</span>
+<span class="co">#&gt; Padding out missing dates with NA</span></code></pre></div>
+<p>Now we can visualize all the data simultaneity using <code>ggplot2</code> facet:</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://magrittr.tidyverse.org">magrittr</a></span><span class="op">)</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Attaching package: 'magrittr'</span>
+<span class="co">#&gt; The following object is masked from 'package:purrr':</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;     set_names</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
+
+<span class="co"># making the graph with facet</span>
+<span class="va">rj_params</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">tc</span>, y <span class="op">=</span> <span class="va">o3</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">0.5</span>,  alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Air temperature (º)"</span>,
+       y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="va">O</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span><span class="op">~</span><span class="st">" ("</span><span class="op">*</span><span class="va">mu</span><span class="op">*</span><span class="st">"g/m"</span><span class="op">^</span><span class="fl">3</span><span class="op">*</span><span class="st">")"</span><span class="op">)</span>,
+       caption <span class="op">=</span> <span class="st">"Source: Data from MonitorAr - Rio, retrieved with qualR R package. "</span>
+       <span class="op">)</span><span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">aqs</span><span class="op">)</span>
+<span class="co">#&gt; Warning: Removed 12455 rows containing missing values (geom_point).</span></code></pre></div>
+<p><img src="qualr_files/figure-html/unnamed-chunk-7-1.png" width="480"></p>
+<p>PS: Special thanks to <span class="citation">[@beatrizmilz]</span>(<a href="https://github.com/beatrizmilz" class="uri">https://github.com/beatrizmilz</a>) for inspiring this example.</p>
+</div>
 <div id="compatibility-with-openair" class="section level1">
 <h1 class="hasAnchor">
 <a href="#compatibility-with-openair" class="anchor"></a>Compatibility with <code>openair</code>
 </h1>
 <p><code>qualR</code> functions returns a completed data frame (i.e. missing hours padded out with <code>NA</code>) with a <code>date</code> column in <code>POSIXct</code>. This ensure compatibility with the <code>openair</code>package.</p>
-<p>Here is the code to use openair <code>timeVariation()</code> function. Note that no preprocessing is needed.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">openair</span><span class="fu">::</span><span class="fu"><a href="https://davidcarslaw.github.io/openair/reference/timeVariation.html">timeVariation</a></span><span class="op">(</span><span class="va">rj_centro</span>, pollutant <span class="op">=</span> <span class="st">"PM10"</span><span class="op">)</span></code></pre></div>
+<p>Here is the code to use openair <code><a href="https://davidcarslaw.github.io/openair/reference/timeVariation.html">timeVariation()</a></code> function. Note that no preprocessing is needed.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#install.package("openair")</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://davidcarslaw.github.io/openair/">openair</a></span><span class="op">)</span>
+<span class="fu">openair</span><span class="fu">::</span><span class="fu"><a href="https://davidcarslaw.github.io/openair/reference/timeVariation.html">timeVariation</a></span><span class="op">(</span><span class="va">rj_centro</span>, pollutant <span class="op">=</span> <span class="st">"pm10"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="example-to-download-data-from-são-paulo-state-stations" class="section level1">
 <h1 class="hasAnchor">
 <a href="#example-to-download-data-from-s%C3%A3o-paulo-state-stations" class="anchor"></a>Example to download data from São Paulo State stations</h1>
-<p>To use <code>CetesbRetrieve</code> you first need to create an account in <a href="https://seguranca.cetesb.sp.gov.br/Home/CadastrarUsuario">CETESB QUALAR System</a>. The <code>CetesbRetrieve</code> functions are similar as <code>MonitorArRetrieve</code> functions, but they require the <code>username</code> and <code>password</code> arguments. <a href="https://github.com/quishqa/qualR#a-better-way-to-save-your-credentials">Check this section</a> on <code>qualR</code> README to safely configure your user name and password on your R session.</p>
+<p>To use <code>cetesb_retrieve</code> you first need to create an account in <a href="https://seguranca.cetesb.sp.gov.br/Home/CadastrarUsuario">CETESB QUALAR System</a>. The <code>cetesb_retrieve</code> functions are similar as <code>monitor_ar_retrieve_param</code> functions, but they require the <code>username</code> and <code>password</code> arguments. <a href="https://github.com/quishqa/qualR#a-better-way-to-save-your-credentials">Check this section</a> on <code>qualR</code> README to safely configure your user name and password on your R session.</p>
 <p>In this example, we download Ozone concentration from an air quality station located at Universidade de São Paulo (USP-Ipen) for August, 2021. 1. Check the station <code>code</code> or <code>name</code></p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">cetesb_aqs</span>, <span class="fl">15</span><span class="op">)</span>
 <span class="co">#&gt;                          name code       lat       lon</span>
 <span class="co">#&gt; 1                   Americana  290 -22.72425 -47.33955</span>
@@ -271,7 +369,7 @@
 <ol start="2" style="list-style-type: decimal">
 <li>Check ozone <code>code</code> or abbreviation</li>
 </ol>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">cetesb_param</span>, <span class="fl">15</span><span class="op">)</span>
 <span class="co">#&gt;                                          name units code</span>
 <span class="co">#&gt; 1                               BEN (Benzeno) ug/m3   61</span>
@@ -290,15 +388,15 @@
 <span class="co">#&gt; 14               RADG (Radiacao Solar Global)  W/m2   26</span>
 <span class="co">#&gt; 15             RADUV (Radiacao Ultra-violeta)  W/m2   56</span></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
-<li>The air quality station is <code>95</code> and ozone code is <code>63</code>. So to retrieve the data we should use the <code>CetesbRetrieveParam</code>function like this:</li>
+<li>The air quality station is <code>95</code> and ozone code is <code>63</code>. So to retrieve the data we should use the <code>cetesb_retrieve_param</code>function like this:</li>
 </ol>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">usp_o3</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/CetesbRetrieveParam.html">CetesbRetrieveParam</a></span><span class="op">(</span>username <span class="op">=</span> <span class="va">my_user</span>,
-                              password <span class="op">=</span> <span class="va">my_password</span>,
-                              parameters <span class="op">=</span> <span class="st">"O3"</span>, <span class="co"># or 63</span>
-                              aqs_code <span class="op">=</span> <span class="st">"Cid.Universitaria-USP-Ipen"</span>,  <span class="co"># or 95</span>
-                              start_date <span class="op">=</span> <span class="st">"01/08/2021"</span>,
-                              end_date <span class="op">=</span> <span class="st">"31/08/2021"</span><span class="op">)</span>      </code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">usp_o3</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/cetesb_retrieve_param.html">cetesb_retrieve_param</a></span><span class="op">(</span>username <span class="op">=</span> <span class="va">my_user</span>,
+                                password <span class="op">=</span> <span class="va">my_password</span>,
+                                parameters <span class="op">=</span> <span class="st">"O3"</span>, <span class="co"># or 63</span>
+                                aqs_code <span class="op">=</span> <span class="st">"Cid.Universitaria-USP-Ipen"</span>,  <span class="co"># or 95</span>
+                                start_date <span class="op">=</span> <span class="st">"01/08/2021"</span>,
+                                end_date <span class="op">=</span> <span class="st">"31/08/2021"</span><span class="op">)</span>      </code></pre></div>
 </div>
 <div id="more-information" class="section level1">
 <h1 class="hasAnchor">

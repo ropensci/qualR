@@ -12,8 +12,10 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="An R package to download São Paulo and Rio de Janeiro air pollution data">
-<meta property="og:description" content="A package to download information from CETESB QUALAR and
-    MonitorAr systems. It contains function to download different parameters, a set of
+<meta property="og:description" content="A package to download information from 
+    CETESB QUALAR &lt;https://cetesb.sp.gov.br/ar/qualar/&gt; and
+    MonitorAr &lt;https://www.rio.rj.gov.br/web/smac/monitorar-rio1&gt; 
+    systems. It contains function to download different parameters, a set of
     criteria pollutants and the most frequent meteorological parameters used in
     air quality data analysis and air quality model evaluation.">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -106,25 +108,25 @@
 <p><code>qualR</code> have the following functions:</p>
 <ul>
 <li>
-<code>CetesbRetrieveParam</code>: Download a list of different parameter from one air quality station (AQS) from CETESB QUALAR System.</li>
+<code>cetesb_retrieve_param</code>: Download a list of different parameter from one air quality station (AQS) from CETESB QUALAR System.</li>
 <li>
-<code>CetesbRetrievePol</code>: Download criteria pollutants from one AQS from CETESB QUALAR System.</li>
+<code>cetesb_retrieve_pol</code>: Download criteria pollutants from one AQS from CETESB QUALAR System.</li>
 <li>
-<code>CetesbRetrieveMet</code>: Download meteorological parameters from one AQS from CETESB QUALAR System.</li>
+<code>cetesb_retrieve_met</code>: Download meteorological parameters from one AQS from CETESB QUALAR System.</li>
 <li>
-<code>CetesbRetrieveMetPol</code>: Download meteorological parameters and criteria pollutants from one AQS from CETESB QUALAR System.</li>
+<code>cetesb_retrieve_met_pol</code>: Download meteorological parameters and criteria pollutants from one AQS from CETESB QUALAR System.</li>
 <li>
-<code>MonitorArRetrieve</code>: Download a list of different parameters from MonitorAr - Rio program.</li>
+<code>monitor_ar_retrieve_param</code>: Download a list of different parameters from MonitorAr - Rio program.</li>
 <li>
-<code>MonitorArRetrievePol</code>: Download criteria pollutants from one AQS from MonitorAr - Rio program.</li>
+<code>monitor_ar_retrieve_pol</code>: Download criteria pollutants from one AQS from MonitorAr - Rio program.</li>
 <li>
-<code>MonitorArRetrieveMet</code>: Download meteorological parameters from one AQS from MonitorAr - Rio program.</li>
+<code>monitor_ar_retrieve_met</code>: Download meteorological parameters from one AQS from MonitorAr - Rio program.</li>
 <li>
-<code>MonitorArRetrieveMetPol</code>: Download meteorological parameters and criteria pollutants from one AQS from MonitorAr - Rio Program.</li>
+<code>monitor_ar_retrieve_met_pol</code>: Download meteorological parameters and criteria pollutants from one AQS from MonitorAr - Rio Program.</li>
 </ul>
 <p>These functions return a data frame, with a <code>date</code> column in POSIXct, which allows you to use other packages for data analysis, such as <a href="https://davidcarslaw.github.io/openair/">openair</a>.</p>
 <p>To download the information for São Paulo, you first need to have an account in <a href="https://qualar.cetesb.sp.gov.br/qualar/home.do">CETESB QUALAR system</a>. <a href="https://seguranca.cetesb.sp.gov.br/Home/CadastrarUsuario">Here</a>, you can sign up to CETESB QUALAR system. MonitorAr doesn’t require an account.</p>
-<p>Then you have to know the AQS and parameter codes (i.e. pollutant or meteorological data) to use these functions. Currently, <code>CetesbRetrieve</code> family functions also accept the parameter abbreviation (i.e “O3” instead of 63), and the complete name of the AQS (i.e “Pinheiros” instead of 99) as inputs. To check those parameters you can check the following datasets:</p>
+<p>Then you have to know the AQS and parameter codes (i.e. pollutant or meteorological data) to use these functions. Currently, <code>cetesb_retrieve</code> family functions also accept the parameter abbreviation (i.e “O3” instead of 63), and the complete name of the AQS (i.e “Pinheiros” instead of 99) as inputs. To check those parameters you can check the following datasets:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR">qualR</a></span><span class="op">)</span>
 
@@ -159,13 +161,13 @@
 <span class="va">start_date</span> <span class="op">&lt;-</span> <span class="st">"01/01/2020"</span>
 <span class="va">end_date</span> <span class="op">&lt;-</span> <span class="st">"07/01/2020"</span>
 
-<span class="va">pin_o3</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/CetesbRetrieveParam.html">CetesbRetrieveParam</a></span><span class="op">(</span><span class="va">my_user_name</span>,
+<span class="va">pin_o3</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/cetesb_retrieve_param.html">cetesb_retrieve_param</a></span><span class="op">(</span><span class="va">my_user_name</span>,
                               <span class="va">my_password</span>,
                               <span class="st">"O3"</span>,
                               <span class="va">pin_code</span>, <span class="co"># It could also be "Pinheiros"</span>
                               <span class="va">start_date</span>,
                               <span class="va">end_date</span><span class="op">)</span></code></pre></div>
-<p>(Note: Previous <code>CetesbRetrieve</code> function now is depreciated use <code>CetesbRetrieveParam</code> instead)</p>
+<p>(Note: Previous <code>cetesb_retrieve</code> function now is depreciated use <code>cetesb_retrieve_param</code> instead)</p>
 <p>Maybe you just need a couple of parameters. For example, if you want to download ozone and wind speed and direction from Pinheiros AQS, you can do the following:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR">qualR</a></span><span class="op">)</span>
@@ -179,7 +181,7 @@
 
 <span class="va">cetesb_param</span> <span class="co"># To check ozone, wind speed and wind direction abbreviations</span>
 
-<span class="va">pin_o3_ws_wd</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/CetesbRetrieveParam.html">CetesbRetrieveParam</a></span><span class="op">(</span><span class="va">my_user_name</span>,
+<span class="va">pin_o3_ws_wd</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/cetesb_retrieve_param.html">cetesb_retrieve_param</a></span><span class="op">(</span><span class="va">my_user_name</span>,
                                     <span class="va">my_password</span>,
                                     <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"O3"</span>, <span class="st">"VV"</span>, <span class="st">"VD"</span><span class="op">)</span>,
                                     <span class="st">"Pinheiros"</span>,
@@ -189,7 +191,7 @@
 <div id="downloading-criteria-pollutants-from-one-aqs" class="section level4">
 <h4 class="hasAnchor">
 <a href="#downloading-criteria-pollutants-from-one-aqs" class="anchor"></a>Downloading criteria pollutants from one AQS</h4>
-<p>We use <code>CetesbRetrievePol</code>. This function already have the parameter codes for O<sub>3</sub>, NO, NO<sub>2</sub>, NO<sub>X</sub>, CO, PM<sub>10</sub> and PM<sub>2.5</sub>. So, it doesn’t require <code>pol_code</code>, only <code>aqs_code</code>. CO is in ppm and NO<sub>X</sub> is in ppb, the other pollutants are in μg/m<sup>3</sup>. In this example, we download all these pollutants from Pinheiros AQS.</p>
+<p>We use <code>cetesb_retrieve_pol</code>. This function already have the parameter codes for O<sub>3</sub>, NO, NO<sub>2</sub>, NO<sub>X</sub>, CO, PM<sub>10</sub> and PM<sub>2.5</sub>. So, it doesn’t require <code>pol_code</code>, only <code>aqs_code</code>. CO is in ppm and NO<sub>X</sub> is in ppb, the other pollutants are in μg/m<sup>3</sup>. In this example, we download all these pollutants from Pinheiros AQS.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR">qualR</a></span><span class="op">)</span>
 
@@ -201,7 +203,7 @@
 <span class="va">start_date</span> <span class="op">&lt;-</span> <span class="st">"01/01/2020"</span>
 <span class="va">end_date</span> <span class="op">&lt;-</span> <span class="st">"07/01/2020"</span>
 
-<span class="va">pin_pol</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/CetesbRetrievePol.html">CetesbRetrievePol</a></span><span class="op">(</span><span class="va">my_user_name</span>,
+<span class="va">pin_pol</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/cetesb_retrieve_pol.html">cetesb_retrieve_pol</a></span><span class="op">(</span><span class="va">my_user_name</span>,
                              <span class="va">my_password</span>,
                              <span class="va">pin_code</span>, <span class="co"># It could also be "Pinheiros"</span>
                              <span class="va">start_date</span>,
@@ -210,7 +212,7 @@
 <div id="downloading-meteorological-parameters-from-one-aqs" class="section level4">
 <h4 class="hasAnchor">
 <a href="#downloading-meteorological-parameters-from-one-aqs" class="anchor"></a>Downloading meteorological parameters from one AQS</h4>
-<p>We use <code>CetesbRetrieveMet</code>. This function already has the parameter codes for Temperature (°C), Relative Humidity (%), Wind Speed (m/s) and wind Direction (°), and Pressure (hPa). So, it doesn’t require <code>pol_code</code>, only <code>aqs_code</code>. In this example, we download all these parameters from Pinheiros AQS. Remember that CETESB uses 777 and 888 values in wind direction to indicate calm wind and no data, these values appear in the final data frame.</p>
+<p>We use <code>cetesb_retrieve_met</code>. This function already has the parameter codes for Temperature (°C), Relative Humidity (%), Wind Speed (m/s) and wind Direction (°), and Pressure (hPa). So, it doesn’t require <code>pol_code</code>, only <code>aqs_code</code>. In this example, we download all these parameters from Pinheiros AQS. Remember that CETESB uses 777 and 888 values in wind direction to indicate calm wind and no data, these values appear in the final data frame.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR">qualR</a></span><span class="op">)</span>
 
@@ -222,7 +224,7 @@
 <span class="va">start_date</span> <span class="op">&lt;-</span> <span class="st">"01/01/2020"</span>
 <span class="va">end_date</span> <span class="op">&lt;-</span> <span class="st">"07/01/2020"</span>
 
-<span class="va">pin_met</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/CetesbRetrieveMet.html">CetesbRetrieveMet</a></span><span class="op">(</span><span class="va">my_user_name</span>,
+<span class="va">pin_met</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/cetesb_retrieve_met.html">cetesb_retrieve_met</a></span><span class="op">(</span><span class="va">my_user_name</span>,
                              <span class="va">my_password</span>,
                              <span class="va">pin_code</span>, <span class="co"># It could also be Pinheiros</span>
                              <span class="va">start_date</span>,
@@ -231,7 +233,7 @@
 <div id="downloading-meteorological-and-criteria-pollutant-from-one-aqs" class="section level4">
 <h4 class="hasAnchor">
 <a href="#downloading-meteorological-and-criteria-pollutant-from-one-aqs" class="anchor"></a>Downloading meteorological and criteria pollutant from one AQS</h4>
-<p>This is the equivalent to run <code>CetesbRetrieveMet</code> and <code>CetesbRetrievePol</code> at the same time, and It will return all the data in one data frame.</p>
+<p>This is the equivalent to run <code>cetesb_retrieve_met</code> and <code>cetesb_retrieve_pol</code> at the same time, and It will return all the data in one data frame.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR">qualR</a></span><span class="op">)</span>
 
@@ -243,7 +245,7 @@
 <span class="va">start_date</span> <span class="op">&lt;-</span> <span class="st">"01/01/2020"</span>
 <span class="va">end_date</span> <span class="op">&lt;-</span> <span class="st">"07/01/2020"</span>
 
-<span class="va">pin_all</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/CetesbRetrieveMetPol.html">CetesbRetrieveMetPol</a></span><span class="op">(</span><span class="va">my_user_name</span>,
+<span class="va">pin_all</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/cetesb_retrieve_met_pol.html">cetesb_retrieve_met_pol</a></span><span class="op">(</span><span class="va">my_user_name</span>,
                                 <span class="va">my_password</span>,
                                 <span class="va">pin_code</span>,
                                 <span class="va">start_date</span>,
@@ -269,7 +271,7 @@
 <span class="va">start_date</span> <span class="op">&lt;-</span> <span class="st">"01/01/2020"</span>
 <span class="va">end_date</span> <span class="op">&lt;-</span> <span class="st">"07/01/2020"</span>
 
-<span class="va">ibi_all</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/CetesbRetrieveMetPol.html">CetesbRetrieveMetPol</a></span><span class="op">(</span><span class="va">my_user_name</span>,
+<span class="va">ibi_all</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/cetesb_retrieve_met_pol.html">cetesb_retrieve_met_pol</a></span><span class="op">(</span><span class="va">my_user_name</span>,
                                 <span class="va">my_password</span>,
                                 <span class="va">ibi_code</span>,
                                 <span class="va">start_date</span>,
@@ -291,7 +293,7 @@
 <span class="va">end_date</span> <span class="op">&lt;-</span> <span class="st">"31/12/2019"</span>
 
 <span class="co"># All_o3 is a list with a data frame per AQS</span>
-<span class="va">all_o3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">cetesb_aqs</span><span class="op">$</span><span class="va">code</span>, <span class="va">CetesbRetrieveParam</span>,
+<span class="va">all_o3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">cetesb_aqs</span><span class="op">$</span><span class="va">code</span>, <span class="va">cetesb_retrieve_param</span>,
                  username <span class="op">=</span> <span class="va">my_user_name</span>,
                  password <span class="op">=</span> <span class="va">my_password</span>,
                  parameters <span class="op">=</span> <span class="st">"O3"</span>,
@@ -347,7 +349,7 @@
 <span class="va">start_date</span> <span class="op">&lt;-</span> <span class="st">"01/01/2020"</span>
 <span class="va">end_date</span> <span class="op">&lt;-</span> <span class="st">"07/01/2020"</span>
 
-<span class="va">pin_o3</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/CetesbRetrieveParam.html">CetesbRetrieveParam</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html">Sys.getenv</a></span><span class="op">(</span><span class="st">"QUALAR_USER"</span><span class="op">)</span>, <span class="co"># calling your user</span>
+<span class="va">pin_o3</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/cetesb_retrieve_param.html">cetesb_retrieve_param</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html">Sys.getenv</a></span><span class="op">(</span><span class="st">"QUALAR_USER"</span><span class="op">)</span>, <span class="co"># calling your user</span>
                               <span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html">Sys.getenv</a></span><span class="op">(</span><span class="st">"QUALAR_PASS"</span><span class="op">)</span>,  <span class="co"># calling your passord  </span>
                               <span class="va">o3_code</span>,
                               <span class="va">pin_code</span>,
@@ -363,7 +365,7 @@
 <div id="downloading-one-parameter-from-one-aqs" class="section level4">
 <h4 class="hasAnchor">
 <a href="#downloading-one-parameter-from-one-aqs" class="anchor"></a>Downloading one parameter from one AQS</h4>
-<p>Here we will download Ozone information from Iraja AQS for all February 2019 by using <code>MonitorArRetrieve</code> function.</p>
+<p>Here we will download Ozone information from Iraja AQS for all February 2019 by using <code>monitor_ar_retrieve_param</code> function.</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR">qualR</a></span><span class="op">)</span>
 <span class="va">monitor_ar_aqs</span> <span class="co"># To check Iraja AQS code</span>
@@ -374,12 +376,12 @@
 <span class="va">aqs_code</span> <span class="op">&lt;-</span> <span class="st">"IR"</span>
 <span class="va">param</span> <span class="op">&lt;-</span> <span class="st">"O3"</span>
 
-<span class="va">ir_o3</span> <span class="op">&lt;-</span> <span class="fu">MonitorArRetrieve</span><span class="op">(</span><span class="va">date_start</span>, <span class="va">date_end</span>, <span class="va">aqs_code</span>, <span class="va">param</span><span class="op">)</span></code></pre></div>
+<span class="va">ir_o3</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/monitor_ar_retrieve_param.html">monitor_ar_retrieve_param</a></span><span class="op">(</span><span class="va">date_start</span>, <span class="va">date_end</span>, <span class="va">aqs_code</span>, <span class="va">param</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="downloading-multiple-parameters-from-one-aqs" class="section level4">
 <h4 class="hasAnchor">
 <a href="#downloading-multiple-parameters-from-one-aqs" class="anchor"></a>Downloading multiple parameters from one AQS</h4>
-<p><code>MonitorArRetrieve</code> is similar to <code>CetesbRetrieveParam</code>, so it allows us to download multiple parameters. Here, we will download Ozone, Nitric oxide, Nitrogen dioxide, wind speed and direction.</p>
+<p><code>monitor_ar_retrieve_param</code> is similar to <code>cetesb_retrieve_param</code>, so it allows us to download multiple parameters. Here, we will download Ozone, Nitric oxide, Nitrogen dioxide, wind speed and direction.</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR">qualR</a></span><span class="op">)</span>
 <span class="va">monitor_ar_aqs</span> <span class="co"># To check Iraja AQS code</span>
@@ -391,7 +393,7 @@
 <span class="va">params</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"O3"</span>, <span class="st">"NO"</span>, <span class="st">"NO2"</span>, <span class="st">"Dir_Vento"</span>, <span class="st">"Vel_Vento"</span><span class="op">)</span>
 
 
-<span class="va">ir_data</span> <span class="op">&lt;-</span> <span class="fu">MonitorArRetrieve</span><span class="op">(</span><span class="va">date_start</span>, <span class="va">date_end</span>, <span class="va">aqs_code</span>, <span class="va">params</span><span class="op">)</span></code></pre></div>
+<span class="va">ir_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/monitor_ar_retrieve_param.html">monitor_ar_retrieve_param</a></span><span class="op">(</span><span class="va">date_start</span>, <span class="va">date_end</span>, <span class="va">aqs_code</span>, <span class="va">params</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
 <div id="caveat-emptor" class="section level2">
