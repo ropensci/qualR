@@ -1,0 +1,20 @@
+reference:
+- title: "Datasets"
+  contents:
+  - cetesb_aqs
+  - cetesb_param
+  - monitor_ar_aqs
+  - monitor_ar_param
+- title: "Functions"
+  contents:
+  - cetesb_retrieve_param
+  - cetesb_retrieve_pol
+  - cetesb_retrieve_met
+  - cetesb_retrieve_met_pol
+  - monitor_ar_retrieve_param
+  - monitor_ar_retrieve_pol
+  - monitor_ar_retrieve_met
+  - monitor_ar_retrieve_met_pol
+- title: "About"
+  contents:
+  - qualR
