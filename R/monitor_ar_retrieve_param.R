@@ -141,12 +141,13 @@ monitor_ar_retrieve_param <- function(start_date, end_date, aqs_code,
     attributes(data_aqs$Data)$tzone <- "America/Sao_Paulo"
   }
 
-  # Ensure columns as numeric
-  cols_unchange <- -c(1, ncol(data_aqs))
-  data_aqs[, cols_unchange] <- sapply(data_aqs[, cols_unchange], as.numeric)
 
   # Changing Data column name to date
   colnames(data_aqs)[1] <- "date"
+
+  # Ensure columns as numeric
+  cols_unchange <-  !(colnames(data_aqs) %in% c("date", "aqs"))
+  data_aqs[, cols_unchange] <- sapply(data_aqs[, cols_unchange], as.numeric)
 
   # Changing wind speed and direction columns to ws and wd
   if ("Dir_Vento" %in% names(data_aqs)){

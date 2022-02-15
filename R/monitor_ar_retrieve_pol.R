@@ -52,7 +52,7 @@ monitor_ar_retrieve_pol <- function(start_date, end_date, aqs_code,
   names(all_pol)[8] <- "pm25"
 
   # Ensure columns as numeric
-  cols_unchange <- -c(-1, -ncol(all_pol))
+  cols_unchange <- !(colnames(all_pol) %in% c("date", "aqs"))
   all_pol[, cols_unchange] <- sapply(all_pol[, cols_unchange], as.numeric)
 
   if (to_csv){
