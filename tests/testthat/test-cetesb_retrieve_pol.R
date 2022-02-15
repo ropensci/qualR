@@ -1,4 +1,4 @@
-test_that("cetesb_retrieve_pol.R works", {
+test_that("cetesb_retrieve_pol.R works!", {
 
   load("sysdata.rda")
 
@@ -21,6 +21,7 @@ test_that("cetesb_retrieve_pol.R works", {
 
   # Testing data.frame classes
   expect_equal(TRUE,  "data.frame" %in% class(pin_pol))
+  expect_equal(TRUE,  "POSIXct" %in% class(pin_pol$date))
   expect_equal(TRUE,  "numeric" %in% class(pin_pol$o3))
   expect_equal(TRUE,  "numeric" %in% class(pin_pol$no))
   expect_equal(TRUE,  "numeric" %in% class(pin_pol$no2))
