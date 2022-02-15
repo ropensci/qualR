@@ -111,7 +111,7 @@ cetesb_retrieve_param <- function(username, password, parameters,
   }
 
   # Ensure columns as numeric
-  cols_unchange <- c(-1, -ncol(aqs_data_df))
+  cols_unchange <- !(colnames(aqs_data_df) %in% c("date", "aqs"))
   aqs_data_df[, cols_unchange] <- sapply(aqs_data_df[, cols_unchange],
                                          as.numeric)
 
