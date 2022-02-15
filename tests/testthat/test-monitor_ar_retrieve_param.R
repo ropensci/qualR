@@ -1,4 +1,4 @@
-test_that("MonitorArRetrieve works", {
+test_that("monitor_ar_retrieve works!", {
 
   csv_path <- file.path(tempdir(), "cetesb-data")
   dir.create(csv_path)

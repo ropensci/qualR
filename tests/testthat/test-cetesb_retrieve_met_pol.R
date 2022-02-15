@@ -1,4 +1,4 @@
-test_that("CetesbRetrieveMetPol", {
+test_that("cetesb_retrieve_met_pol works!", {
 
   load("sysdata.rda")
 

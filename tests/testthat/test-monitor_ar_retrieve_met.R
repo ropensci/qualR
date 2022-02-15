@@ -1,4 +1,4 @@
-test_that("multiplication works", {
+test_that("monitor_ar_retrieve_met works!", {
 
   start_date <- "01/01/2020"
   end_date   <- "07/01/2020"
