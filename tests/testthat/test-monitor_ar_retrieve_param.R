@@ -18,7 +18,7 @@ test_that("monitor_ar_retrieve works!", {
 
   # Testing data.frame output
   expect_equal(ncol(ca_o3), 3)
-  expect_equal(nrow(ca_o3), 672)
+  expect_equal(TRUE, nrow(ca_o3) >= 672)
 
   # Testing data.frame values
   o3_mean <- mean(ca_o3$o3, na.rm = TRUE)

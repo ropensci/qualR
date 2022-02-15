@@ -6,7 +6,7 @@ test_that("monitor_ar_retrieve_pol works!", {
 
   # Testing data.frame dims
   expect_equal(ncol(ca_pol), 9)
-  expect_equal(nrow(ca_pol), 144)
+  expect_equal(TRUE, nrow(ca_pol) >= 144)
 
   # Testing data.frame values
   pol_means<- colMeans(ca_pol[, 2:8], na.rm = TRUE)
