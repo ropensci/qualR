@@ -32,8 +32,8 @@ Imports:
     XML,
     httr,
     jsonlite
-URL: https://github.com/quishqa/qualR
-BugReports: https://github.com/quishqa/qualR/issues
+URL: https://github.com/ropensci/qualR
+BugReports: https://github.com/ropensci/qualR/issues
 Suggests:
     knitr,
     covr,

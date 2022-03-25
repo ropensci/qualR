@@ -21,7 +21,7 @@ install.packages("devtools")
 Then, you can install `qualR` by:
 
 ```R
-devtools::install_github("quishqa/qualR")
+devtools::install_github("ropensci/qualR")
 ```
 
 ## How to use
