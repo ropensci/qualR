@@ -8,7 +8,7 @@ citEntry(
                person("Daniel", "Schuch"),
                person("Maria de Fatima", "Andrade")),
   year     = 2022,
-  url      = "https://quishqa.github.io/qualR/",
+  url      = "https://docs.ropensci.org/qualR/",
   textVersion = paste("Gavidia-Calderón, M., Schuch, D., Andrade, Maria de Fatima  (2022).",
   "qualR: An R package to download Sao Paulo and Rio de Janeiro air pollution data.",
   "URL: https://docs.ropensci.org/qualR/"
