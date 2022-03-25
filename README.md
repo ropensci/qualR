@@ -24,6 +24,10 @@ Then, you can install `qualR` by:
 devtools::install_github("ropensci/qualR")
 ```
 
+Or, you can install it directly using:
+```R
+install.packages("qualR", repos="https//ropensci.r-universe.dev")
+```
 ## How to use
 
 
