@@ -65,7 +65,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/quishqa/qualR/" class="external-link">
+  <a href="https://github.com/ropensci/qualR/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -96,17 +96,38 @@
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span></code></pre></div>
 <p>Then, you can install <code>qualR</code> by:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/remote-reexports.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"quishqa/qualR"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/remote-reexports.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"ropensci/qualR"</span><span class="op">)</span></code></pre></div>
+<p>Or, you can install it directly using:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"qualR"</span>, repos<span class="op">=</span><span class="st">"https//ropensci.r-universe.dev"</span><span class="op">)</span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="how-to-use">How to use<a class="anchor" aria-label="anchor" href="#how-to-use"></a>
 </h2>
-<p><code>qualR</code> have the following functions: * <code>cetesb_retrieve_param</code>: Download a list of different parameter from one air quality station (AQS) from CETESB QUALAR System. * <code>cetesb_retrieve_pol</code>: Download criteria pollutants from one AQS from CETESB QUALAR System. * <code>cetesb_retrieve_met</code>: Download meteorological parameters from one AQS from CETESB QUALAR System. * <code>cetesb_retrieve_met_pol</code>: Download meteorological parameters and criteria pollutants from one AQS from CETESB QUALAR System. * <code>monitor_ar_retrieve_param</code>: Download a list of different parameters from MonitorAr - Rio program. * <code>monitor_ar_retrieve_pol</code>: Download criteria pollutants from one AQS from MonitorAr - Rio program. * <code>monitor_ar_retrieve_met</code>: Download meteorological parameters from one AQS from MonitorAr - Rio program. * <code>monitor_ar_retrieve_met_pol</code>: Download meteorological parameters and criteria pollutants from one AQS from MonitorAr - Rio Program.</p>
+<p><code>qualR</code> have the following functions:</p>
+<ul>
+<li>
+<code>cetesb_retrieve_param</code>: Download a list of different parameter from one air quality station (AQS) from CETESB QUALAR System.</li>
+<li>
+<code>cetesb_retrieve_pol</code>: Download criteria pollutants from one AQS from CETESB QUALAR System.</li>
+<li>
+<code>cetesb_retrieve_met</code>: Download meteorological parameters from one AQS from CETESB QUALAR System.</li>
+<li>
+<code>cetesb_retrieve_met_pol</code>: Download meteorological parameters and criteria pollutants from one AQS from CETESB QUALAR System.</li>
+<li>
+<code>monitor_ar_retrieve_param</code>: Download a list of different parameters from MonitorAr - Rio program.</li>
+<li>
+<code>monitor_ar_retrieve_pol</code>: Download criteria pollutants from one AQS from MonitorAr - Rio program.</li>
+<li>
+<code>monitor_ar_retrieve_met</code>: Download meteorological parameters from one AQS from MonitorAr - Rio program.</li>
+<li>
+<code>monitor_ar_retrieve_met_pol</code>: Download meteorological parameters and criteria pollutants from one AQS from MonitorAr - Rio Program.</li>
+</ul>
 <p>These functions return a data frame, with a <code>date</code> column in POSIXct, which allows you to use other packages for data analysis, such as <a href="https://davidcarslaw.github.io/openair/" class="external-link">openair</a>.</p>
 <p>To download the information for São Paulo, you first need to have an account in <a href="https://qualar.cetesb.sp.gov.br/qualar/home.do" class="external-link">CETESB QUALAR system</a>. <a href="https://seguranca.cetesb.sp.gov.br/Home/CadastrarUsuario" class="external-link">Here</a>, you can sign up to CETESB QUALAR system. MonitorAr doesn’t require an account.</p>
 <p>Then you have to know the AQS and parameter codes (i.e. pollutant or meteorological data) to use these functions. Currently, <code>cetesb_retrieve</code> family functions also accept the parameter abbreviation (i.e “O3” instead of 63), and the complete name of the AQS (i.e “Pinheiros” instead of 99) as inputs. To check those parameters you can check the following datasets:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR" class="external-link">qualR</a></span><span class="op">)</span>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/qualR" class="external-link">qualR</a></span><span class="op">)</span>
 
 <span class="co"># To see all CETESB AQS names with their codes and lat lon</span>
 <span class="va">cetesb_aqs</span>
@@ -127,8 +148,8 @@
 <h4 id="downloading-multiple-parameter-from-one-aqs">Downloading multiple parameter from one AQS<a class="anchor" aria-label="anchor" href="#downloading-multiple-parameter-from-one-aqs"></a>
 </h4>
 <p>If you want to download Ozone information from Pinheiros AQS, from January first to January 7th, you can do:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR" class="external-link">qualR</a></span><span class="op">)</span>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/qualR" class="external-link">qualR</a></span><span class="op">)</span>
 
 <span class="va">cetesb_aqs</span> <span class="co"># To check Pinheiros aqs_code</span>
 <span class="va">cetesb_param</span> <span class="co"># To check Ozone pol_code</span>
@@ -147,8 +168,8 @@
                               <span class="va">end_date</span><span class="op">)</span></code></pre></div>
 <p>(Note: Previous <code>cetesb_retrieve</code> function now is depreciated use <code>cetesb_retrieve_param</code> instead)</p>
 <p>Maybe you just need a couple of parameters. For example, if you want to download ozone and wind speed and direction from Pinheiros AQS, you can do the following:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR" class="external-link">qualR</a></span><span class="op">)</span>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/qualR" class="external-link">qualR</a></span><span class="op">)</span>
 
 <span class="va">cetesb_aqs</span> <span class="co"># To check Pinheiros aqs_code</span>
 
@@ -170,8 +191,8 @@
 <h4 id="downloading-criteria-pollutants-from-one-aqs">Downloading criteria pollutants from one AQS<a class="anchor" aria-label="anchor" href="#downloading-criteria-pollutants-from-one-aqs"></a>
 </h4>
 <p>We use <code>cetesb_retrieve_pol</code>. This function already have the parameter codes for O<sub>3</sub>, NO, NO<sub>2</sub>, NO<sub>X</sub>, CO, PM<sub>10</sub> and PM<sub>2.5</sub>. So, it doesn’t require <code>pol_code</code>, only <code>aqs_code</code>. CO is in ppm and NO<sub>X</sub> is in ppb, the other pollutants are in μg/m<sup>3</sup>. In this example, we download all these pollutants from Pinheiros AQS.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR" class="external-link">qualR</a></span><span class="op">)</span>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/qualR" class="external-link">qualR</a></span><span class="op">)</span>
 
 <span class="va">cetesb_aqs</span> <span class="co"># To check Pinheiros aqs_code</span>
 
@@ -191,8 +212,8 @@
 <h4 id="downloading-meteorological-parameters-from-one-aqs">Downloading meteorological parameters from one AQS<a class="anchor" aria-label="anchor" href="#downloading-meteorological-parameters-from-one-aqs"></a>
 </h4>
 <p>We use <code>cetesb_retrieve_met</code>. This function already has the parameter codes for Temperature (°C), Relative Humidity (%), Wind Speed (m/s) and wind Direction (°), and Pressure (hPa). So, it doesn’t require <code>pol_code</code>, only <code>aqs_code</code>. In this example, we download all these parameters from Pinheiros AQS. Remember that CETESB uses 777 and 888 values in wind direction to indicate calm wind and no data, these values appear in the final data frame.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR" class="external-link">qualR</a></span><span class="op">)</span>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/qualR" class="external-link">qualR</a></span><span class="op">)</span>
 
 <span class="va">cetesb_aqs</span> <span class="co"># To check Pinheiros aqs_code</span>
 
@@ -212,8 +233,8 @@
 <h4 id="downloading-meteorological-and-criteria-pollutant-from-one-aqs">Downloading meteorological and criteria pollutant from one AQS<a class="anchor" aria-label="anchor" href="#downloading-meteorological-and-criteria-pollutant-from-one-aqs"></a>
 </h4>
 <p>This is the equivalent to run <code>cetesb_retrieve_met</code> and <code>cetesb_retrieve_pol</code> at the same time, and It will return all the data in one data frame.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR" class="external-link">qualR</a></span><span class="op">)</span>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/qualR" class="external-link">qualR</a></span><span class="op">)</span>
 
 <span class="va">cetesb_aqs</span> <span class="co"># To check Pinheiros aqs_code</span>
 
@@ -238,8 +259,8 @@
 </h5>
 <p>Now, We want to download all the information from Ibirapuera AQS, and then export this data in <code>.csv</code> to be read by other software. <code>qualR</code> functions have the argument <code>to_csv</code>, which by default has a <code>FALSE</code> value. So, if you want to export the data to <code>csv</code>, you just need to change it to <code>TRUE</code>.</p>
 <p>The csv file have the following file name: <code>{aqs_name}_{pol}_{start_date}_{end_date}.csv</code>. For the functions that retrieve more than one parameter the file name is: <code>{aqs_name}_{TYPE}_{start_date}_{end_date}.csv</code>, where <code>TYPE</code> is “POL”, “MET”, or “MET_POL”.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR" class="external-link">qualR</a></span><span class="op">)</span>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/qualR" class="external-link">qualR</a></span><span class="op">)</span>
 
 <span class="va">cetesb_aqs</span> <span class="co"># To check Ibirapuera aqs_code</span>
 
@@ -261,8 +282,8 @@
 <h5 id="a-variable-from-all-cetesb-aqs">A variable from all CETESB AQS<a class="anchor" aria-label="anchor" href="#a-variable-from-all-cetesb-aqs"></a>
 </h5>
 <p>Sometimes, to check the spatial distribution of air pollutants, you need to download a pollutant from all the AQS. In this example, we download a year of Ozone from all CETESB AQS.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR" class="external-link">qualR</a></span><span class="op">)</span>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/qualR" class="external-link">qualR</a></span><span class="op">)</span>
 
 <span class="va">my_user_name</span> <span class="op">&lt;-</span> <span class="st">"john.doe@mymail.com"</span>
 <span class="va">my_password</span> <span class="op">&lt;-</span> <span class="st">"drowssap"</span>
@@ -286,8 +307,8 @@
 <h5 id="aqs-latitudes-and-longitudes">AQS latitudes and longitudes<a class="anchor" aria-label="anchor" href="#aqs-latitudes-and-longitudes"></a>
 </h5>
 <p>Maybe you need to make a map of the AQS you used in your study. Now, we added latitude and longitude in degrees in the <code>cetesb_aqs</code> dataset:</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR" class="external-link">qualR</a></span><span class="op">)</span>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/qualR" class="external-link">qualR</a></span><span class="op">)</span>
 
 <span class="co"># To see all the AQS latitude and longitude</span>
 <span class="va">cetesb_aqs</span></code></pre></div>
@@ -298,21 +319,21 @@
 </h5>
 <p>It is not so safe to write your user and password when you are coding, it is even more dangerous when we have to share our scripts. For this reason, it is a better practice (and safer) to save your credentials (i.e. user and password) in your <strong>global environment</strong>.</p>
 <p>An easier way to do it is by using <code>usethis</code> package. So, first install it by:</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"usethis"</span><span class="op">)</span></code></pre></div>
 <p>Then use the function <code><a href="https://usethis.r-lib.org/reference/edit.html" class="external-link">edit_r_environ()</a></code>. It will show a new file called <code>.Renviron</code>, where you’ll define your user and password.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://usethis.r-lib.org" class="external-link">usethis</a></span><span class="op">)</span>
 
 <span class="fu"><a href="https://usethis.r-lib.org/reference/edit.html" class="external-link">edit_r_environ</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>It will open <code>.Renviron</code> file, there you define your credentials:</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">QUALAR_USER</span><span class="op">=</span><span class="st">"john.doe@mymail.com"</span>
 <span class="va">QUALAR_PASS</span><span class="op">=</span><span class="st">"drowssap"</span></code></pre></div>
 <p>Save it, and the changes will work after restart R. To call them, you use <code><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv()</a></code>.</p>
 <p>So now, if we replicate the previous example <em>Downloading multiple parameter from one AQS</em>, it will be something like this:</p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR" class="external-link">qualR</a></span><span class="op">)</span>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/qualR" class="external-link">qualR</a></span><span class="op">)</span>
 
 <span class="va">cetesb_aqs</span> <span class="co"># To check Pinheiros aqs_code</span>
 <span class="va">cetesb_param</span> <span class="co"># To check Ozone pol_code</span>
@@ -339,8 +360,8 @@
 <h4 id="downloading-one-parameter-from-one-aqs">Downloading one parameter from one AQS<a class="anchor" aria-label="anchor" href="#downloading-one-parameter-from-one-aqs"></a>
 </h4>
 <p>Here we will download Ozone information from Iraja AQS for all February 2019 by using <code>monitor_ar_retrieve_param</code> function.</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR" class="external-link">qualR</a></span><span class="op">)</span>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/qualR" class="external-link">qualR</a></span><span class="op">)</span>
 <span class="va">monitor_ar_aqs</span> <span class="co"># To check Iraja AQS code</span>
 <span class="va">monitor_ar_param</span> <span class="co"># To check Ozone code</span>
 
@@ -355,8 +376,8 @@
 <h4 id="downloading-multiple-parameters-from-one-aqs">Downloading multiple parameters from one AQS<a class="anchor" aria-label="anchor" href="#downloading-multiple-parameters-from-one-aqs"></a>
 </h4>
 <p><code>monitor_ar_retrieve_param</code> is similar to <code>cetesb_retrieve_param</code>, so it allows us to download multiple parameters. Here, we will download Ozone, Nitric oxide, Nitrogen dioxide, wind speed and direction.</p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/quishqa/qualR" class="external-link">qualR</a></span><span class="op">)</span>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/qualR" class="external-link">qualR</a></span><span class="op">)</span>
 <span class="va">monitor_ar_aqs</span> <span class="co"># To check Iraja AQS code</span>
 <span class="va">monitor_ar_param</span> <span class="co"># To check parameter codes</span>
 
@@ -382,7 +403,7 @@
 <div class="section level2">
 <h2 id="code-of-conduct">Code of Conduct<a class="anchor" aria-label="anchor" href="#code-of-conduct"></a>
 </h2>
-<p>Please note that the qualR project is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html" class="external-link">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
+<p>Please note that this package is released with a <a href="https://ropensci.org/code-of-conduct/" class="external-link">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
 <div class="section level2">
 <h2 id="acknowledgments">Acknowledgments<a class="anchor" aria-label="anchor" href="#acknowledgments"></a>
@@ -403,8 +424,8 @@
     <div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li><a href="https://github.com/quishqa/qualR/" class="external-link">Browse source code</a></li>
-<li><a href="https://github.com/quishqa/qualR/issues" class="external-link">Report a bug</a></li>
+<li><a href="https://github.com/ropensci/qualR/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/ropensci/qualR/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
 
