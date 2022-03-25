@@ -32,14 +32,15 @@ install.packages("qualR", repos="https//ropensci.r-universe.dev")
 
 
 `qualR` have the following functions:
-* `cetesb_retrieve_param`: Download a list of different parameter from one air quality station (AQS) from CETESB QUALAR System.
-* `cetesb_retrieve_pol`: Download criteria pollutants from one AQS from CETESB QUALAR System.
-* `cetesb_retrieve_met`: Download meteorological parameters from one AQS from CETESB QUALAR System.
-* `cetesb_retrieve_met_pol`: Download meteorological parameters and criteria pollutants from one AQS from CETESB QUALAR System.
-* `monitor_ar_retrieve_param`: Download a list of different parameters from MonitorAr - Rio program.
-* `monitor_ar_retrieve_pol`: Download criteria pollutants from one AQS from MonitorAr - Rio program.
-* `monitor_ar_retrieve_met`: Download meteorological parameters from one AQS from MonitorAr - Rio program.
-* `monitor_ar_retrieve_met_pol`: Download meteorological parameters and criteria pollutants from one AQS from MonitorAr - Rio Program.
+
+ * `cetesb_retrieve_param`: Download a list of different parameter from one air quality station (AQS) from CETESB QUALAR System.
+ * `cetesb_retrieve_pol`: Download criteria pollutants from one AQS from CETESB QUALAR System.
+ * `cetesb_retrieve_met`: Download meteorological parameters from one AQS from CETESB QUALAR System.
+ * `cetesb_retrieve_met_pol`: Download meteorological parameters and criteria pollutants from one AQS from CETESB QUALAR System.
+ * `monitor_ar_retrieve_param`: Download a list of different parameters from MonitorAr - Rio program.
+ * `monitor_ar_retrieve_pol`: Download criteria pollutants from one AQS from MonitorAr - Rio program.
+ * `monitor_ar_retrieve_met`: Download meteorological parameters from one AQS from MonitorAr - Rio program.
+ * `monitor_ar_retrieve_met_pol`: Download meteorological parameters and criteria pollutants from one AQS from MonitorAr - Rio Program.
 
 
 These functions return a data frame, with a `date` column in POSIXct, which allows you
