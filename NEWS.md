@@ -1,3 +1,13 @@
+# qualR 0.9.6
+
+## Changes
+- Function names from CamelCase to snake_case
+- Better and consistent naming of returned data frames variables and datasets.
+
+## New Features
+- Updated qualR site.
+- Vignette with examples are available.
+
 # qualR 0.9.5
 
 ## Changes
