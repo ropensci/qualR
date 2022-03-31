@@ -16,7 +16,16 @@ Authors@R: c(
            family = "Schuch",
            role = c("aut","ctb"),
            email = "d.schuch@northeastern.edu",
-           comment = c(ORCID = "0000-0001-5977-4519")))
+           comment = c(ORCID = "0000-0001-5977-4519")),
+    person(given = "Beatriz",
+           family = "Milz",
+           role = "rev",
+           comment = "Beatriz reviewed the package (v. 0.9.6) for rOpenSci"),
+    person(given = "Kaue",
+           family = "de Sousa",
+           role = "rev",
+           comment = "Kaue reviewed the package (v. 0.9.6) for rOpenSci")
+       )
 Description: A package to download information from 
     CETESB QUALAR <https://cetesb.sp.gov.br/ar/qualar/> and
     MonitorAr <https://www.rio.rj.gov.br/web/smac/monitorar-rio1> 
