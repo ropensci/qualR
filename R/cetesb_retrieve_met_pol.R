@@ -53,7 +53,7 @@ cetesb_retrieve_met_pol <- function(username, password,
     message(paste("Parameter: TC, RH, WS, WD, Pressure,",
                   "O3, NO, NO2, NOX, PM2.5, PM10, CO"))
     message("Air quality station: ", aqs_name)
-    message("Period: From", start_date, " to ", end_date)
+    message("Period: From ", start_date, " to ", end_date)
   }
 
   tc <- cetesb_retrieve(username, password, 25,
