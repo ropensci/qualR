@@ -379,6 +379,7 @@ This avoids problems with merging data frames and also with Daylight saving time
  It always a good idea, to double check by retrieving the suspicious date from CETESB QUALAR system.
 * Take into account that in CETESB data, the hourly averaged is the mean **until the  hour**.
 That is, a concentration value for **22:00 is the mean from 21:01 to 22:00**.
+* Consider the previous three points if you need to change from local time to UTC.
 * Currently, MonitorAr only has data until March, 2021.
 
 ## Code of Conduct
