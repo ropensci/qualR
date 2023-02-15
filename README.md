@@ -1,5 +1,5 @@
 # qualR: An R package to download São Paulo and Rio de Janeiro air pollution data
-[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/quishqa/qualR?branch=master&svg=true)](https://ci.appveyor.com/project/quishqa/qualR)  [![Coverage Status](https://img.shields.io/codecov/c/github/quishqa/qualR/master.svg)](https://codecov.io/github/quishqa/qualR?branch=master) [![DOI](https://zenodo.org/badge/267442363.svg)](https://zenodo.org/badge/latestdoi/267442363) [![](https://badges.ropensci.org/474_status.svg)](https://github.com/ropensci/software-review/issues/474)
+  [![R-CMD-check](https://github.com/ropensci/qualR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ropensci/qualR/actions/workflows/R-CMD-check.yaml) [![Coverage Status](https://img.shields.io/codecov/c/github/quishqa/qualR/master.svg)](https://codecov.io/github/quishqa/qualR?branch=master)  [![](https://badges.ropensci.org/474_status.svg)](https://github.com/ropensci/software-review/issues/474) [![DOI](https://zenodo.org/badge/267442363.svg)](https://zenodo.org/badge/latestdoi/267442363)
 
 
 
