@@ -26,7 +26,7 @@ devtools::install_github("ropensci/qualR")
 
 Or, you can install it directly using:
 ```R
-install.packages("qualR", repos="https//ropensci.r-universe.dev")
+install.packages('qualR', repos = c('https://ropensci.r-universe.dev', 'https://cloud.r-project.org'))
 ```
 ## How to use
 
