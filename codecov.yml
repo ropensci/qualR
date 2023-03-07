@@ -1,9 +1,10 @@
 comment: false
 
-<p>language: R</p>
-<p>sudo: false</p>
-<p>cache: packages</p>
-<p>after_success: </p>
+language: R
+sudo: false
+cache: packages
+after_success: 
+- Rscript -e 'covr::codecov()'
 
 coverage:
   status:
@@ -18,4 +19,3 @@ coverage:
         threshold: 1%
         informational: true
 
-- Rscript -e 'covr::codecov()'
