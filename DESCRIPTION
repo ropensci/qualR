@@ -1,6 +1,6 @@
 Package: qualR
 Title: An R package to download São Paulo and Rio de Janeiro air pollution data
-Version: 0.9.6
+Version: 0.9.7
 Authors@R: c(
     person(given = "Mario",
            family = "Gavidia-Calderón",
@@ -28,7 +28,7 @@ Authors@R: c(
        )
 Description: A package to download information from 
     CETESB QUALAR <https://cetesb.sp.gov.br/ar/qualar/> and
-    MonitorAr <https://www.rio.rj.gov.br/web/smac/monitorar-rio1> 
+    MonitorAr <http://jeap.rio.rj.gov.br/je-metinfosmac/institucional/index.html> 
     systems. It contains function to download different parameters, a set of
     criteria pollutants and the most frequent meteorological parameters used in
     air quality data analysis and air quality model evaluation.
@@ -36,7 +36,7 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.1
 Imports: 
     XML,
     httr,

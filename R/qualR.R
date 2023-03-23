@@ -9,10 +9,10 @@
 #'\strong{Useful links:}
 #' \itemize{
 #' \item{Development repository:
-#'  \url{https://github.com/quishqa/qualR}}
+#'  \url{https://github.com/ropensci/qualR}}
 #' \item{Report bugs:
-#'  \url{https://github.com/quishqa/qualR/issues}}
+#'  \url{https://github.com/ropensci/qualR/issues}}
 #' \item{qualR site:
-#'  \url{https://quishqa.github.io/qualR/}}
+#'  \url{https://docs.ropensci.org/qualR/}}
 #' }
 "_PACKAGE"
