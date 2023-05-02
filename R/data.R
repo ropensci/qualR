@@ -4,12 +4,13 @@
 #' Use this to check the AQS \code{aqs_code} argument in CetesbRetrieveParam()
 #' function. AQS names are without diacritics.
 #'
-#' @format A data frame with 68 observations and 4 variables:
+#' @format A data frame with 68 observations and 5 variables:
 #' \describe{
 #' \item{name}{CETESB AQS name.}
 #' \item{code}{CETESB AQS code in QUALAR System.}
 #' \item{lat}{CETESB AQS latitude.}
 #' \item{lon}{CETESB AQS longitude.}
+#' \item{loc}{CETESB AQS location.}
 #' }
 #' @examples
 #' cetesb_aqs

@@ -5,12 +5,13 @@
 \alias{cetesb_aqs}
 \title{CETESB AQS station latitude and longitude}
 \format{
-A data frame with 68 observations and 4 variables:
+A data frame with 68 observations and 5 variables:
 \describe{
 \item{name}{CETESB AQS name.}
 \item{code}{CETESB AQS code in QUALAR System.}
 \item{lat}{CETESB AQS latitude.}
 \item{lon}{CETESB AQS longitude.}
+\item{loc}{CETESB AQS location.}
 }
 }
 \usage{
