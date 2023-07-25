@@ -112,7 +112,7 @@ monitor_ar_retrieve_param <- function(start_date, end_date, aqs_code,
 
 
   # Changing epoch to human readable date
-  data_aqs$Data <- as.POSIXct(data_aqs$Data/1000,
+  data_aqs$data <- as.POSIXct(data_aqs$data/1000,
                               origin = "1970-01-01", tz = "UTC")
 
   # Check completion
@@ -120,7 +120,7 @@ monitor_ar_retrieve_param <- function(start_date, end_date, aqs_code,
   end_date2 <- paste(as.character(as.Date(end_date_format) - 1), "23:30")
 
   all_dates <- data.frame(
-    Data = seq(as.POSIXct(strptime(start_date2, format="%Y-%m-%d %H:%M"),
+    data = seq(as.POSIXct(strptime(start_date2, format="%Y-%m-%d %H:%M"),
                           tz = "UTC"),
                as.POSIXct(strptime(end_date2, format="%Y-%m-%d %H:%M"),
                           tz = "UTC"),
@@ -138,7 +138,7 @@ monitor_ar_retrieve_param <- function(start_date, end_date, aqs_code,
 
   # Changing to local time
   if (to_local){
-    attributes(data_aqs$Data)$tzone <- "America/Sao_Paulo"
+    attributes(data_aqs$data)$tzone <- "America/Sao_Paulo"
   }
 
 
