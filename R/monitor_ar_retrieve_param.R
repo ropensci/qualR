@@ -150,23 +150,23 @@ monitor_ar_retrieve_param <- function(start_date, end_date, aqs_code,
   data_aqs[, cols_unchange] <- sapply(data_aqs[, cols_unchange], as.numeric)
 
   # Changing wind speed and direction columns to ws and wd
-  if ("Dir_Vento" %in% names(data_aqs)){
-    names(data_aqs)[names(data_aqs) == "Dir_Vento"] <- "wd"      # nocov
+  if ("dir_vento" %in% names(data_aqs)){
+    names(data_aqs)[names(data_aqs) == "dir_vento"] <- "wd"      # nocov
   }
-  if ("Vel_Vento" %in% names(data_aqs)){
-    names(data_aqs)[names(data_aqs) == "Vel_Vento"] <- "ws"
+  if ("vel_vento" %in% names(data_aqs)){
+    names(data_aqs)[names(data_aqs) == "vel_vento"] <- "ws"
   }
-  if ("UR" %in% names(data_aqs)){
-    names(data_aqs)[names(data_aqs) == "UR"] <- "rh"      # nocov
+  if ("ur" %in% names(data_aqs)){
+    names(data_aqs)[names(data_aqs) == "ur"] <- "rh"      # nocov
   }
-  if ("Chuva" %in% names(data_aqs)){
-    names(data_aqs)[names(data_aqs) == "Chuva"] <- "rain"      # nocov
+  if ("chuva" %in% names(data_aqs)){
+    names(data_aqs)[names(data_aqs) == "chuva"] <- "rain"      # nocov
   }
   if ("Pres" %in% names(data_aqs)){
     names(data_aqs)[names(data_aqs) == "Pres"] <- "p"      # nocov
   }
-  if ("Temp" %in% names(data_aqs)){
-    names(data_aqs)[names(data_aqs) == "Temp"] <- "tc"    # nocov
+  if ("temp" %in% names(data_aqs)){
+    names(data_aqs)[names(data_aqs) == "temp"] <- "tc"    # nocov
   }
   if ("PM2_5" %in% names(data_aqs)){
     names(data_aqs)[names(data_aqs) == "PM2_5"] <- "pm25"  # nocov
