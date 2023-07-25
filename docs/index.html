@@ -4,17 +4,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="A package to download information from 
+    CETESB QUALAR &lt;https://cetesb.sp.gov.br/ar/qualar/&gt; and
+    MonitorAr &lt;http://jeap.rio.rj.gov.br/je-metinfosmac/institucional/index.html&gt; 
+    systems. It contains function to download different parameters, a set of
+    criteria pollutants and the most frequent meteorological parameters used in
+    air quality data analysis and air quality model evaluation.">
 <title>An R package to download São Paulo and Rio de Janeiro air pollution data • qualR</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
-<script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script><meta property="og:title" content="An R package to download São Paulo and Rio de Janeiro air pollution data">
+<!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="An R package to download São Paulo and Rio de Janeiro air pollution data">
 <meta property="og:description" content="A package to download information from 
     CETESB QUALAR &lt;https://cetesb.sp.gov.br/ar/qualar/&gt; and
-    MonitorAr &lt;https://www.rio.rj.gov.br/web/smac/monitorar-rio1&gt; 
+    MonitorAr &lt;http://jeap.rio.rj.gov.br/je-metinfosmac/institucional/index.html&gt; 
     systems. It contains function to download different parameters, a set of
     criteria pollutants and the most frequent meteorological parameters used in
     air quality data analysis and air quality model evaluation.">
@@ -23,66 +28,55 @@
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-<body data-spy="scroll" data-target="#toc">
+<body>
+    <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
-    <div class="container template-home">
-      <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <span class="navbar-brand">
-        <a class="navbar-link" href="index.html">qualR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.9.6</span>
-      </span>
-    </div>
+    <nav class="navbar fixed-top navbar-light navbar-expand-lg bg-light"><div class="container">
+    
+    <a class="navbar-brand me-2" href="index.html">qualR</a>
 
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-<li>
-  <a href="reference/index.html">Reference</a>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.7</small>
+
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar" class="collapse navbar-collapse ms-3">
+      <ul class="navbar-nav me-auto">
+<li class="nav-item">
+  <a class="nav-link" href="reference/index.html">Reference</a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-<li>
-      <a href="articles/qualr.html">How to use qualR</a>
-    </li>
-  </ul>
-</li>
-<li>
-  <a href="news/index.html">Changelog</a>
-</li>
-      </ul>
-<ul class="nav navbar-nav navbar-right">
-<li>
-  <a href="https://github.com/ropensci/qualR/" class="external-link">
-    <span class="fab fa-github fa-lg"></span>
-     
-  </a>
-</li>
-      </ul>
-</div>
-<!--/.nav-collapse -->
+<li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
+  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
+    <a class="dropdown-item" href="articles/qualr.html">How to use qualR</a>
   </div>
-<!--/.container -->
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="news/index.html">Changelog</a>
+</li>
+      </ul>
+<form class="form-inline my-2 my-lg-0" role="search">
+        <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="search.json" id="search-input" placeholder="Search for" autocomplete="off">
+</form>
+
+      <ul class="navbar-nav">
+<li class="nav-item">
+  <a class="external-link nav-link" href="https://github.com/ropensci/qualR/" aria-label="github">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
 </div>
-<!--/.navbar -->
 
-      
-
-      </header><div class="row">
-  <div class="contents col-md-9">
-<div class="section level1">
+    
+  </div>
+</nav><div class="container template-home">
+<div class="row">
+  <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header"><h1 id="qualr-an-r-package-to-download-são-paulo-and-rio-de-janeiro-air-pollution-data">qualR: An R package to download São Paulo and Rio de Janeiro air pollution data<a class="anchor" aria-label="anchor" href="#qualr-an-r-package-to-download-s%C3%A3o-paulo-and-rio-de-janeiro-air-pollution-data"></a>
 </h1></div>
 
@@ -93,13 +87,13 @@
 </h2>
 <p>First, you need to install <code>devtools</code>:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span></span></code></pre></div>
 <p>Then, you can install <code>qualR</code> by:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/remote-reexports.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"ropensci/qualR"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"ropensci/qualR"</span><span class="op">)</span></span></code></pre></div>
 <p>Or, you can install it directly using:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"qualR"</span>, repos<span class="op">=</span><span class="st">"https//ropensci.r-universe.dev"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">'qualR'</span>, repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'https://ropensci.r-universe.dev'</span>, <span class="st">'https://cloud.r-project.org'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="how-to-use">How to use<a class="anchor" aria-label="anchor" href="#how-to-use"></a>
@@ -127,19 +121,19 @@
 <p>To download the information for São Paulo, you first need to have an account in <a href="https://qualar.cetesb.sp.gov.br/qualar/home.do" class="external-link">CETESB QUALAR system</a>. <a href="https://seguranca.cetesb.sp.gov.br/Home/CadastrarUsuario" class="external-link">Here</a>, you can sign up to CETESB QUALAR system. MonitorAr doesn’t require an account.</p>
 <p>Then you have to know the AQS and parameter codes (i.e. pollutant or meteorological data) to use these functions. Currently, <code>cetesb_retrieve</code> family functions also accept the parameter abbreviation (i.e “O3” instead of 63), and the complete name of the AQS (i.e “Pinheiros” instead of 99) as inputs. To check those parameters you can check the following datasets:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/qualR" class="external-link">qualR</a></span><span class="op">)</span>
-
-<span class="co"># To see all CETESB AQS names with their codes and lat lon</span>
-<span class="va">cetesb_aqs</span>
-
-<span class="co"># To see all CETESB AQS parameters with their codes and abbreviation</span>
-<span class="va">cetesb_param</span>
-
-<span class="co"># To see all MonitorAr-Rio AQS names with their codes and lat and lon</span>
-<span class="va">monitor_ar_aqs</span>
-
-<span class="co"># To see all MonitorAr-Rio parameters with their codes</span>
-<span class="va">monitor_ar_param</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/qualR" class="external-link">qualR</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># To see all CETESB AQS names with their codes and lat lon</span></span>
+<span><span class="va">cetesb_aqs</span></span>
+<span></span>
+<span><span class="co"># To see all CETESB AQS parameters with their codes and abbreviation</span></span>
+<span><span class="va">cetesb_param</span></span>
+<span></span>
+<span><span class="co"># To see all MonitorAr-Rio AQS names with their codes and lat and lon</span></span>
+<span><span class="va">monitor_ar_aqs</span></span>
+<span></span>
+<span><span class="co"># To see all MonitorAr-Rio parameters with their codes</span></span>
+<span><span class="va">monitor_ar_param</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="using-qualr-to-download-cetesb-data">Using <code>qualR</code> to download CETESB data<a class="anchor" aria-label="anchor" href="#using-qualr-to-download-cetesb-data"></a>
@@ -149,106 +143,106 @@
 </h4>
 <p>If you want to download Ozone information from Pinheiros AQS, from January first to January 7th, you can do:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/qualR" class="external-link">qualR</a></span><span class="op">)</span>
-
-<span class="va">cetesb_aqs</span> <span class="co"># To check Pinheiros aqs_code</span>
-<span class="va">cetesb_param</span> <span class="co"># To check Ozone pol_code</span>
-
-<span class="va">my_user_name</span> <span class="op">&lt;-</span> <span class="st">"john.doe@mymail.com"</span>
-<span class="va">my_password</span> <span class="op">&lt;-</span> <span class="st">"drowssap"</span>
-<span class="va">pin_code</span> <span class="op">&lt;-</span> <span class="fl">99</span>
-<span class="va">start_date</span> <span class="op">&lt;-</span> <span class="st">"01/01/2020"</span>
-<span class="va">end_date</span> <span class="op">&lt;-</span> <span class="st">"07/01/2020"</span>
-
-<span class="va">pin_o3</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/cetesb_retrieve_param.html">cetesb_retrieve_param</a></span><span class="op">(</span><span class="va">my_user_name</span>,
-                              <span class="va">my_password</span>,
-                              <span class="st">"O3"</span>,
-                              <span class="va">pin_code</span>, <span class="co"># It could also be "Pinheiros"</span>
-                              <span class="va">start_date</span>,
-                              <span class="va">end_date</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/qualR" class="external-link">qualR</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">cetesb_aqs</span> <span class="co"># To check Pinheiros aqs_code</span></span>
+<span><span class="va">cetesb_param</span> <span class="co"># To check Ozone pol_code</span></span>
+<span></span>
+<span><span class="va">my_user_name</span> <span class="op">&lt;-</span> <span class="st">"john.doe@mymail.com"</span></span>
+<span><span class="va">my_password</span> <span class="op">&lt;-</span> <span class="st">"drowssap"</span></span>
+<span><span class="va">pin_code</span> <span class="op">&lt;-</span> <span class="fl">99</span></span>
+<span><span class="va">start_date</span> <span class="op">&lt;-</span> <span class="st">"01/01/2020"</span></span>
+<span><span class="va">end_date</span> <span class="op">&lt;-</span> <span class="st">"07/01/2020"</span></span>
+<span></span>
+<span><span class="va">pin_o3</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/cetesb_retrieve_param.html">cetesb_retrieve_param</a></span><span class="op">(</span><span class="va">my_user_name</span>,</span>
+<span>                              <span class="va">my_password</span>,</span>
+<span>                              <span class="st">"O3"</span>,</span>
+<span>                              <span class="va">pin_code</span>, <span class="co"># It could also be "Pinheiros"</span></span>
+<span>                              <span class="va">start_date</span>,</span>
+<span>                              <span class="va">end_date</span><span class="op">)</span></span></code></pre></div>
 <p>(Note: Previous <code>cetesb_retrieve</code> function now is depreciated use <code>cetesb_retrieve_param</code> instead)</p>
 <p>Maybe you just need a couple of parameters. For example, if you want to download ozone and wind speed and direction from Pinheiros AQS, you can do the following:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/qualR" class="external-link">qualR</a></span><span class="op">)</span>
-
-<span class="va">cetesb_aqs</span> <span class="co"># To check Pinheiros aqs_code</span>
-
-<span class="va">my_user_name</span> <span class="op">&lt;-</span> <span class="st">"john.doe@mymail.com"</span>
-<span class="va">my_password</span> <span class="op">&lt;-</span> <span class="st">"drowssap"</span>
-<span class="va">start_date</span> <span class="op">&lt;-</span> <span class="st">"01/01/2020"</span>
-<span class="va">end_date</span> <span class="op">&lt;-</span> <span class="st">"07/01/2020"</span>
-
-<span class="va">cetesb_param</span> <span class="co"># To check ozone, wind speed and wind direction abbreviations</span>
-
-<span class="va">pin_o3_ws_wd</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/cetesb_retrieve_param.html">cetesb_retrieve_param</a></span><span class="op">(</span><span class="va">my_user_name</span>,
-                                    <span class="va">my_password</span>,
-                                    <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"O3"</span>, <span class="st">"VV"</span>, <span class="st">"VD"</span><span class="op">)</span>,
-                                    <span class="st">"Pinheiros"</span>,
-                                    start_date <span class="op">=</span> <span class="st">"01/01/2020"</span>,
-                                    end_date <span class="op">=</span> <span class="st">"07/01/2020"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/qualR" class="external-link">qualR</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">cetesb_aqs</span> <span class="co"># To check Pinheiros aqs_code</span></span>
+<span></span>
+<span><span class="va">my_user_name</span> <span class="op">&lt;-</span> <span class="st">"john.doe@mymail.com"</span></span>
+<span><span class="va">my_password</span> <span class="op">&lt;-</span> <span class="st">"drowssap"</span></span>
+<span><span class="va">start_date</span> <span class="op">&lt;-</span> <span class="st">"01/01/2020"</span></span>
+<span><span class="va">end_date</span> <span class="op">&lt;-</span> <span class="st">"07/01/2020"</span></span>
+<span></span>
+<span><span class="va">cetesb_param</span> <span class="co"># To check ozone, wind speed and wind direction abbreviations</span></span>
+<span></span>
+<span><span class="va">pin_o3_ws_wd</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/cetesb_retrieve_param.html">cetesb_retrieve_param</a></span><span class="op">(</span><span class="va">my_user_name</span>,</span>
+<span>                                    <span class="va">my_password</span>,</span>
+<span>                                    <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"O3"</span>, <span class="st">"VV"</span>, <span class="st">"VD"</span><span class="op">)</span>,</span>
+<span>                                    <span class="st">"Pinheiros"</span>,</span>
+<span>                                    start_date <span class="op">=</span> <span class="st">"01/01/2020"</span>,</span>
+<span>                                    end_date <span class="op">=</span> <span class="st">"07/01/2020"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="downloading-criteria-pollutants-from-one-aqs">Downloading criteria pollutants from one AQS<a class="anchor" aria-label="anchor" href="#downloading-criteria-pollutants-from-one-aqs"></a>
 </h4>
 <p>We use <code>cetesb_retrieve_pol</code>. This function already have the parameter codes for O<sub>3</sub>, NO, NO<sub>2</sub>, NO<sub>X</sub>, CO, PM<sub>10</sub> and PM<sub>2.5</sub>. So, it doesn’t require <code>pol_code</code>, only <code>aqs_code</code>. CO is in ppm and NO<sub>X</sub> is in ppb, the other pollutants are in μg/m<sup>3</sup>. In this example, we download all these pollutants from Pinheiros AQS.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/qualR" class="external-link">qualR</a></span><span class="op">)</span>
-
-<span class="va">cetesb_aqs</span> <span class="co"># To check Pinheiros aqs_code</span>
-
-<span class="va">my_user_name</span> <span class="op">&lt;-</span> <span class="st">"john.doe@mymail.com"</span>
-<span class="va">my_password</span> <span class="op">&lt;-</span> <span class="st">"drowssap"</span>
-<span class="va">pin_code</span> <span class="op">&lt;-</span> <span class="fl">99</span>
-<span class="va">start_date</span> <span class="op">&lt;-</span> <span class="st">"01/01/2020"</span>
-<span class="va">end_date</span> <span class="op">&lt;-</span> <span class="st">"07/01/2020"</span>
-
-<span class="va">pin_pol</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/cetesb_retrieve_pol.html">cetesb_retrieve_pol</a></span><span class="op">(</span><span class="va">my_user_name</span>,
-                             <span class="va">my_password</span>,
-                             <span class="va">pin_code</span>, <span class="co"># It could also be "Pinheiros"</span>
-                             <span class="va">start_date</span>,
-                             <span class="va">end_date</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/qualR" class="external-link">qualR</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">cetesb_aqs</span> <span class="co"># To check Pinheiros aqs_code</span></span>
+<span></span>
+<span><span class="va">my_user_name</span> <span class="op">&lt;-</span> <span class="st">"john.doe@mymail.com"</span></span>
+<span><span class="va">my_password</span> <span class="op">&lt;-</span> <span class="st">"drowssap"</span></span>
+<span><span class="va">pin_code</span> <span class="op">&lt;-</span> <span class="fl">99</span></span>
+<span><span class="va">start_date</span> <span class="op">&lt;-</span> <span class="st">"01/01/2020"</span></span>
+<span><span class="va">end_date</span> <span class="op">&lt;-</span> <span class="st">"07/01/2020"</span></span>
+<span></span>
+<span><span class="va">pin_pol</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/cetesb_retrieve_pol.html">cetesb_retrieve_pol</a></span><span class="op">(</span><span class="va">my_user_name</span>,</span>
+<span>                             <span class="va">my_password</span>,</span>
+<span>                             <span class="va">pin_code</span>, <span class="co"># It could also be "Pinheiros"</span></span>
+<span>                             <span class="va">start_date</span>,</span>
+<span>                             <span class="va">end_date</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="downloading-meteorological-parameters-from-one-aqs">Downloading meteorological parameters from one AQS<a class="anchor" aria-label="anchor" href="#downloading-meteorological-parameters-from-one-aqs"></a>
 </h4>
 <p>We use <code>cetesb_retrieve_met</code>. This function already has the parameter codes for Temperature (°C), Relative Humidity (%), Wind Speed (m/s) and wind Direction (°), and Pressure (hPa). So, it doesn’t require <code>pol_code</code>, only <code>aqs_code</code>. In this example, we download all these parameters from Pinheiros AQS. Remember that CETESB uses 777 and 888 values in wind direction to indicate calm wind and no data, these values appear in the final data frame.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/qualR" class="external-link">qualR</a></span><span class="op">)</span>
-
-<span class="va">cetesb_aqs</span> <span class="co"># To check Pinheiros aqs_code</span>
-
-<span class="va">my_user_name</span> <span class="op">&lt;-</span> <span class="st">"john.doe@mymail.com"</span>
-<span class="va">my_password</span> <span class="op">&lt;-</span> <span class="st">"drowssap"</span>
-<span class="va">pin_code</span> <span class="op">&lt;-</span> <span class="fl">99</span>
-<span class="va">start_date</span> <span class="op">&lt;-</span> <span class="st">"01/01/2020"</span>
-<span class="va">end_date</span> <span class="op">&lt;-</span> <span class="st">"07/01/2020"</span>
-
-<span class="va">pin_met</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/cetesb_retrieve_met.html">cetesb_retrieve_met</a></span><span class="op">(</span><span class="va">my_user_name</span>,
-                             <span class="va">my_password</span>,
-                             <span class="va">pin_code</span>, <span class="co"># It could also be Pinheiros</span>
-                             <span class="va">start_date</span>,
-                             <span class="va">end_date</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/qualR" class="external-link">qualR</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">cetesb_aqs</span> <span class="co"># To check Pinheiros aqs_code</span></span>
+<span></span>
+<span><span class="va">my_user_name</span> <span class="op">&lt;-</span> <span class="st">"john.doe@mymail.com"</span></span>
+<span><span class="va">my_password</span> <span class="op">&lt;-</span> <span class="st">"drowssap"</span></span>
+<span><span class="va">pin_code</span> <span class="op">&lt;-</span> <span class="fl">99</span></span>
+<span><span class="va">start_date</span> <span class="op">&lt;-</span> <span class="st">"01/01/2020"</span></span>
+<span><span class="va">end_date</span> <span class="op">&lt;-</span> <span class="st">"07/01/2020"</span></span>
+<span></span>
+<span><span class="va">pin_met</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/cetesb_retrieve_met.html">cetesb_retrieve_met</a></span><span class="op">(</span><span class="va">my_user_name</span>,</span>
+<span>                             <span class="va">my_password</span>,</span>
+<span>                             <span class="va">pin_code</span>, <span class="co"># It could also be Pinheiros</span></span>
+<span>                             <span class="va">start_date</span>,</span>
+<span>                             <span class="va">end_date</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="downloading-meteorological-and-criteria-pollutant-from-one-aqs">Downloading meteorological and criteria pollutant from one AQS<a class="anchor" aria-label="anchor" href="#downloading-meteorological-and-criteria-pollutant-from-one-aqs"></a>
 </h4>
 <p>This is the equivalent to run <code>cetesb_retrieve_met</code> and <code>cetesb_retrieve_pol</code> at the same time, and It will return all the data in one data frame.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/qualR" class="external-link">qualR</a></span><span class="op">)</span>
-
-<span class="va">cetesb_aqs</span> <span class="co"># To check Pinheiros aqs_code</span>
-
-<span class="va">my_user_name</span> <span class="op">&lt;-</span> <span class="st">"john.doe@mymail.com"</span>
-<span class="va">my_password</span> <span class="op">&lt;-</span> <span class="st">"drowssap"</span>
-<span class="va">pin_code</span> <span class="op">&lt;-</span> <span class="fl">99</span>
-<span class="va">start_date</span> <span class="op">&lt;-</span> <span class="st">"01/01/2020"</span>
-<span class="va">end_date</span> <span class="op">&lt;-</span> <span class="st">"07/01/2020"</span>
-
-<span class="va">pin_all</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/cetesb_retrieve_met_pol.html">cetesb_retrieve_met_pol</a></span><span class="op">(</span><span class="va">my_user_name</span>,
-                                <span class="va">my_password</span>,
-                                <span class="va">pin_code</span>,
-                                <span class="va">start_date</span>,
-                                <span class="va">end_date</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/qualR" class="external-link">qualR</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">cetesb_aqs</span> <span class="co"># To check Pinheiros aqs_code</span></span>
+<span></span>
+<span><span class="va">my_user_name</span> <span class="op">&lt;-</span> <span class="st">"john.doe@mymail.com"</span></span>
+<span><span class="va">my_password</span> <span class="op">&lt;-</span> <span class="st">"drowssap"</span></span>
+<span><span class="va">pin_code</span> <span class="op">&lt;-</span> <span class="fl">99</span></span>
+<span><span class="va">start_date</span> <span class="op">&lt;-</span> <span class="st">"01/01/2020"</span></span>
+<span><span class="va">end_date</span> <span class="op">&lt;-</span> <span class="st">"07/01/2020"</span></span>
+<span></span>
+<span><span class="va">pin_all</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/cetesb_retrieve_met_pol.html">cetesb_retrieve_met_pol</a></span><span class="op">(</span><span class="va">my_user_name</span>,</span>
+<span>                                <span class="va">my_password</span>,</span>
+<span>                                <span class="va">pin_code</span>,</span>
+<span>                                <span class="va">start_date</span>,</span>
+<span>                                <span class="va">end_date</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="some-other-examples">Some other examples<a class="anchor" aria-label="anchor" href="#some-other-examples"></a>
@@ -260,22 +254,22 @@
 <p>Now, We want to download all the information from Ibirapuera AQS, and then export this data in <code>.csv</code> to be read by other software. <code>qualR</code> functions have the argument <code>to_csv</code>, which by default has a <code>FALSE</code> value. So, if you want to export the data to <code>csv</code>, you just need to change it to <code>TRUE</code>.</p>
 <p>The csv file have the following file name: <code>{aqs_name}_{pol}_{start_date}_{end_date}.csv</code>. For the functions that retrieve more than one parameter the file name is: <code>{aqs_name}_{TYPE}_{start_date}_{end_date}.csv</code>, where <code>TYPE</code> is “POL”, “MET”, or “MET_POL”.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/qualR" class="external-link">qualR</a></span><span class="op">)</span>
-
-<span class="va">cetesb_aqs</span> <span class="co"># To check Ibirapuera aqs_code</span>
-
-<span class="va">my_user_name</span> <span class="op">&lt;-</span> <span class="st">"john.doe@mymail.com"</span>
-<span class="va">my_password</span> <span class="op">&lt;-</span> <span class="st">"drowssap"</span>
-<span class="va">ibi_code</span> <span class="op">&lt;-</span> <span class="fl">83</span>
-<span class="va">start_date</span> <span class="op">&lt;-</span> <span class="st">"01/01/2020"</span>
-<span class="va">end_date</span> <span class="op">&lt;-</span> <span class="st">"07/01/2020"</span>
-
-<span class="va">ibi_all</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/cetesb_retrieve_met_pol.html">cetesb_retrieve_met_pol</a></span><span class="op">(</span><span class="va">my_user_name</span>,
-                                <span class="va">my_password</span>,
-                                <span class="va">ibi_code</span>,
-                                <span class="va">start_date</span>,
-                                <span class="va">end_date</span>,
-                                to_csv <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/qualR" class="external-link">qualR</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">cetesb_aqs</span> <span class="co"># To check Ibirapuera aqs_code</span></span>
+<span></span>
+<span><span class="va">my_user_name</span> <span class="op">&lt;-</span> <span class="st">"john.doe@mymail.com"</span></span>
+<span><span class="va">my_password</span> <span class="op">&lt;-</span> <span class="st">"drowssap"</span></span>
+<span><span class="va">ibi_code</span> <span class="op">&lt;-</span> <span class="fl">83</span></span>
+<span><span class="va">start_date</span> <span class="op">&lt;-</span> <span class="st">"01/01/2020"</span></span>
+<span><span class="va">end_date</span> <span class="op">&lt;-</span> <span class="st">"07/01/2020"</span></span>
+<span></span>
+<span><span class="va">ibi_all</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/cetesb_retrieve_met_pol.html">cetesb_retrieve_met_pol</a></span><span class="op">(</span><span class="va">my_user_name</span>,</span>
+<span>                                <span class="va">my_password</span>,</span>
+<span>                                <span class="va">ibi_code</span>,</span>
+<span>                                <span class="va">start_date</span>,</span>
+<span>                                <span class="va">end_date</span>,</span>
+<span>                                to_csv <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p>In this case, we will get the file <code>Ibirapuera_MET_POL_01-01-2020_07-01-2020.csv</code>.</p>
 </div>
 <div class="section level5">
@@ -283,35 +277,35 @@
 </h5>
 <p>Sometimes, to check the spatial distribution of air pollutants, you need to download a pollutant from all the AQS. In this example, we download a year of Ozone from all CETESB AQS.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/qualR" class="external-link">qualR</a></span><span class="op">)</span>
-
-<span class="va">my_user_name</span> <span class="op">&lt;-</span> <span class="st">"john.doe@mymail.com"</span>
-<span class="va">my_password</span> <span class="op">&lt;-</span> <span class="st">"drowssap"</span>
-<span class="va">o3_code</span> <span class="op">&lt;-</span> <span class="fl">63</span>
-<span class="va">start_date</span> <span class="op">&lt;-</span> <span class="st">"01/01/2019"</span>
-<span class="va">end_date</span> <span class="op">&lt;-</span> <span class="st">"31/12/2019"</span>
-
-<span class="co"># All_o3 is a list with a data frame per AQS</span>
-<span class="va">all_o3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">cetesb_aqs</span><span class="op">$</span><span class="va">code</span>, <span class="va">cetesb_retrieve_param</span>,
-                 username <span class="op">=</span> <span class="va">my_user_name</span>,
-                 password <span class="op">=</span> <span class="va">my_password</span>,
-                 parameters <span class="op">=</span> <span class="st">"O3"</span>,
-                 start_date <span class="op">=</span> <span class="va">start_date</span>,
-                 end_date <span class="op">=</span> <span class="va">end_date</span><span class="op">)</span>
-
-<span class="co"># If you want  to export all in csv</span>
-<span class="va">all_o3_csv</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/do.call.html" class="external-link">do.call</a></span><span class="op">(</span><span class="va">rbind</span>, <span class="va">all_o3</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/write.table.html" class="external-link">write.table</a></span><span class="op">(</span><span class="va">all_o3_csv</span>, <span class="st">"all_o3_csv.csv"</span>, sep <span class="op">=</span> <span class="st">","</span>, row.names <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/qualR" class="external-link">qualR</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">my_user_name</span> <span class="op">&lt;-</span> <span class="st">"john.doe@mymail.com"</span></span>
+<span><span class="va">my_password</span> <span class="op">&lt;-</span> <span class="st">"drowssap"</span></span>
+<span><span class="va">o3_code</span> <span class="op">&lt;-</span> <span class="fl">63</span></span>
+<span><span class="va">start_date</span> <span class="op">&lt;-</span> <span class="st">"01/01/2019"</span></span>
+<span><span class="va">end_date</span> <span class="op">&lt;-</span> <span class="st">"31/12/2019"</span></span>
+<span></span>
+<span><span class="co"># All_o3 is a list with a data frame per AQS</span></span>
+<span><span class="va">all_o3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">cetesb_aqs</span><span class="op">$</span><span class="va">code</span>, <span class="va">cetesb_retrieve_param</span>,</span>
+<span>                 username <span class="op">=</span> <span class="va">my_user_name</span>,</span>
+<span>                 password <span class="op">=</span> <span class="va">my_password</span>,</span>
+<span>                 parameters <span class="op">=</span> <span class="st">"O3"</span>,</span>
+<span>                 start_date <span class="op">=</span> <span class="va">start_date</span>,</span>
+<span>                 end_date <span class="op">=</span> <span class="va">end_date</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># If you want  to export all in csv</span></span>
+<span><span class="va">all_o3_csv</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/do.call.html" class="external-link">do.call</a></span><span class="op">(</span><span class="va">rbind</span>, <span class="va">all_o3</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html" class="external-link">write.table</a></span><span class="op">(</span><span class="va">all_o3_csv</span>, <span class="st">"all_o3_csv.csv"</span>, sep <span class="op">=</span> <span class="st">","</span>, row.names <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level5">
 <h5 id="aqs-latitudes-and-longitudes">AQS latitudes and longitudes<a class="anchor" aria-label="anchor" href="#aqs-latitudes-and-longitudes"></a>
 </h5>
 <p>Maybe you need to make a map of the AQS you used in your study. Now, we added latitude and longitude in degrees in the <code>cetesb_aqs</code> dataset:</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/qualR" class="external-link">qualR</a></span><span class="op">)</span>
-
-<span class="co"># To see all the AQS latitude and longitude</span>
-<span class="va">cetesb_aqs</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/qualR" class="external-link">qualR</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># To see all the AQS latitude and longitude</span></span>
+<span><span class="va">cetesb_aqs</span></span></code></pre></div>
 <p>Here are some examples to make some plots: * <a href="https://randroll.wordpress.com/2020/06/18/a-point-concentration-map-with-r/" class="external-link">A pollutant concentration point map.</a> * <a href="https://randroll.wordpress.com/2019/10/28/heatmaps-in-r-an-example-using-ozone-concentrations/" class="external-link">An AQS location map.</a> * <a href="https://randroll.wordpress.com/2018/04/18/making-a-simple-map-with-r/" class="external-link">An AQS location map using shapefiles.</a></p>
 </div>
 <div class="section level5">
@@ -320,35 +314,35 @@
 <p>It is not so safe to write your user and password when you are coding, it is even more dangerous when we have to share our scripts. For this reason, it is a better practice (and safer) to save your credentials (i.e. user and password) in your <strong>global environment</strong>.</p>
 <p>An easier way to do it is by using <code>usethis</code> package. So, first install it by:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"usethis"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"usethis"</span><span class="op">)</span></span></code></pre></div>
 <p>Then use the function <code><a href="https://usethis.r-lib.org/reference/edit.html" class="external-link">edit_r_environ()</a></code>. It will show a new file called <code>.Renviron</code>, where you’ll define your user and password.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://usethis.r-lib.org" class="external-link">usethis</a></span><span class="op">)</span>
-
-<span class="fu"><a href="https://usethis.r-lib.org/reference/edit.html" class="external-link">edit_r_environ</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://usethis.r-lib.org" class="external-link">usethis</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://usethis.r-lib.org/reference/edit.html" class="external-link">edit_r_environ</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>It will open <code>.Renviron</code> file, there you define your credentials:</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">QUALAR_USER</span><span class="op">=</span><span class="st">"john.doe@mymail.com"</span>
-<span class="va">QUALAR_PASS</span><span class="op">=</span><span class="st">"drowssap"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">QUALAR_USER</span><span class="op">=</span><span class="st">"john.doe@mymail.com"</span></span>
+<span><span class="va">QUALAR_PASS</span><span class="op">=</span><span class="st">"drowssap"</span></span></code></pre></div>
 <p>Save it, and the changes will work after restart R. To call them, you use <code><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv()</a></code>.</p>
 <p>So now, if we replicate the previous example <em>Downloading multiple parameter from one AQS</em>, it will be something like this:</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/qualR" class="external-link">qualR</a></span><span class="op">)</span>
-
-<span class="va">cetesb_aqs</span> <span class="co"># To check Pinheiros aqs_code</span>
-<span class="va">cetesb_param</span> <span class="co"># To check Ozone pol_code</span>
-
-<span class="va">o3_code</span> <span class="op">&lt;-</span> <span class="fl">63</span>
-<span class="va">pin_code</span> <span class="op">&lt;-</span> <span class="fl">99</span>
-<span class="va">start_date</span> <span class="op">&lt;-</span> <span class="st">"01/01/2020"</span>
-<span class="va">end_date</span> <span class="op">&lt;-</span> <span class="st">"07/01/2020"</span>
-
-<span class="va">pin_o3</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/cetesb_retrieve_param.html">cetesb_retrieve_param</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="st">"QUALAR_USER"</span><span class="op">)</span>, <span class="co"># calling your user</span>
-                              <span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="st">"QUALAR_PASS"</span><span class="op">)</span>,  <span class="co"># calling your passord  </span>
-                              <span class="va">o3_code</span>,
-                              <span class="va">pin_code</span>,
-                              <span class="va">start_date</span>,
-                              <span class="va">end_date</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/qualR" class="external-link">qualR</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">cetesb_aqs</span> <span class="co"># To check Pinheiros aqs_code</span></span>
+<span><span class="va">cetesb_param</span> <span class="co"># To check Ozone pol_code</span></span>
+<span></span>
+<span><span class="va">o3_code</span> <span class="op">&lt;-</span> <span class="fl">63</span></span>
+<span><span class="va">pin_code</span> <span class="op">&lt;-</span> <span class="fl">99</span></span>
+<span><span class="va">start_date</span> <span class="op">&lt;-</span> <span class="st">"01/01/2020"</span></span>
+<span><span class="va">end_date</span> <span class="op">&lt;-</span> <span class="st">"07/01/2020"</span></span>
+<span></span>
+<span><span class="va">pin_o3</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/cetesb_retrieve_param.html">cetesb_retrieve_param</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="st">"QUALAR_USER"</span><span class="op">)</span>, <span class="co"># calling your user</span></span>
+<span>                              <span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="st">"QUALAR_PASS"</span><span class="op">)</span>,  <span class="co"># calling your passord  </span></span>
+<span>                              <span class="va">o3_code</span>,</span>
+<span>                              <span class="va">pin_code</span>,</span>
+<span>                              <span class="va">start_date</span>,</span>
+<span>                              <span class="va">end_date</span><span class="op">)</span></span></code></pre></div>
 <p>This idea came from this <a href="https://towardsdatascience.com/ten-time-saving-r-hacks-b411add26b96" class="external-link">awesome post</a>.</p>
 </div>
 </div>
@@ -361,33 +355,33 @@
 </h4>
 <p>Here we will download Ozone information from Iraja AQS for all February 2019 by using <code>monitor_ar_retrieve_param</code> function.</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/qualR" class="external-link">qualR</a></span><span class="op">)</span>
-<span class="va">monitor_ar_aqs</span> <span class="co"># To check Iraja AQS code</span>
-<span class="va">monitor_ar_param</span> <span class="co"># To check Ozone code</span>
-
-<span class="va">start_date</span> <span class="op">&lt;-</span> <span class="st">"01/02/2019"</span>
-<span class="va">end_date</span> <span class="op">&lt;-</span> <span class="st">"01/03/2019"</span>
-<span class="va">aqs_code</span> <span class="op">&lt;-</span> <span class="st">"IR"</span>
-<span class="va">param</span> <span class="op">&lt;-</span> <span class="st">"O3"</span>
-
-<span class="va">ir_o3</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/monitor_ar_retrieve_param.html">monitor_ar_retrieve_param</a></span><span class="op">(</span><span class="va">date_start</span>, <span class="va">date_end</span>, <span class="va">aqs_code</span>, <span class="va">param</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/qualR" class="external-link">qualR</a></span><span class="op">)</span></span>
+<span><span class="va">monitor_ar_aqs</span> <span class="co"># To check Iraja AQS code</span></span>
+<span><span class="va">monitor_ar_param</span> <span class="co"># To check Ozone code</span></span>
+<span></span>
+<span><span class="va">start_date</span> <span class="op">&lt;-</span> <span class="st">"01/02/2019"</span></span>
+<span><span class="va">end_date</span> <span class="op">&lt;-</span> <span class="st">"01/03/2019"</span></span>
+<span><span class="va">aqs_code</span> <span class="op">&lt;-</span> <span class="st">"IR"</span></span>
+<span><span class="va">param</span> <span class="op">&lt;-</span> <span class="st">"O3"</span></span>
+<span></span>
+<span><span class="va">ir_o3</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/monitor_ar_retrieve_param.html">monitor_ar_retrieve_param</a></span><span class="op">(</span><span class="va">date_start</span>, <span class="va">date_end</span>, <span class="va">aqs_code</span>, <span class="va">param</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="downloading-multiple-parameters-from-one-aqs">Downloading multiple parameters from one AQS<a class="anchor" aria-label="anchor" href="#downloading-multiple-parameters-from-one-aqs"></a>
 </h4>
 <p><code>monitor_ar_retrieve_param</code> is similar to <code>cetesb_retrieve_param</code>, so it allows us to download multiple parameters. Here, we will download Ozone, Nitric oxide, Nitrogen dioxide, wind speed and direction.</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/qualR" class="external-link">qualR</a></span><span class="op">)</span>
-<span class="va">monitor_ar_aqs</span> <span class="co"># To check Iraja AQS code</span>
-<span class="va">monitor_ar_param</span> <span class="co"># To check parameter codes</span>
-
-<span class="va">date_start</span> <span class="op">&lt;-</span> <span class="st">"01/02/2019"</span>
-<span class="va">date_end</span> <span class="op">&lt;-</span> <span class="st">"01/03/2019"</span>
-<span class="va">aqs_code</span> <span class="op">&lt;-</span> <span class="st">"IR"</span>
-<span class="va">params</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"O3"</span>, <span class="st">"NO"</span>, <span class="st">"NO2"</span>, <span class="st">"Dir_Vento"</span>, <span class="st">"Vel_Vento"</span><span class="op">)</span>
-
-
-<span class="va">ir_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/monitor_ar_retrieve_param.html">monitor_ar_retrieve_param</a></span><span class="op">(</span><span class="va">date_start</span>, <span class="va">date_end</span>, <span class="va">aqs_code</span>, <span class="va">params</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/qualR" class="external-link">qualR</a></span><span class="op">)</span></span>
+<span><span class="va">monitor_ar_aqs</span> <span class="co"># To check Iraja AQS code</span></span>
+<span><span class="va">monitor_ar_param</span> <span class="co"># To check parameter codes</span></span>
+<span></span>
+<span><span class="va">date_start</span> <span class="op">&lt;-</span> <span class="st">"01/02/2019"</span></span>
+<span><span class="va">date_end</span> <span class="op">&lt;-</span> <span class="st">"01/03/2019"</span></span>
+<span><span class="va">aqs_code</span> <span class="op">&lt;-</span> <span class="st">"IR"</span></span>
+<span><span class="va">params</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"O3"</span>, <span class="st">"NO"</span>, <span class="st">"NO2"</span>, <span class="st">"Dir_Vento"</span>, <span class="st">"Vel_Vento"</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="va">ir_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/monitor_ar_retrieve_param.html">monitor_ar_retrieve_param</a></span><span class="op">(</span><span class="va">date_start</span>, <span class="va">date_end</span>, <span class="va">aqs_code</span>, <span class="va">params</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
@@ -397,6 +391,7 @@
 <li>CETESB QUALAR system describes midnight as 24:00, and the first hour of each day starts at 1:00. <code>qualR</code> transform it to get the time in 00-23 hour notation, for that reason you’ll get <code>NA</code> at 00:00 of your first downloaded day. So, consider download one day before your study period.</li>
 <li>To pad-out with <code>NA</code> when there is a missing date, <code>qualR</code> “tricks” the date information, an assume it’s on <strong>UTC</strong> (when in reality it’s on <strong>“America/Sao_Paulo”</strong> time). This avoids problems with merging data frames and also with Daylight saving time (DST) issues. Beware of this,when dealing with study periods that include <strong>DST</strong>. It always a good idea, to double check by retrieving the suspicious date from CETESB QUALAR system.</li>
 <li>Take into account that in CETESB data, the hourly averaged is the mean <strong>until the hour</strong>. That is, a concentration value for <strong>22:00 is the mean from 21:01 to 22:00</strong>.</li>
+<li>Consider the previous three points if you need to change from local time to UTC.</li>
 <li>Currently, MonitorAr only has data until March, 2021.</li>
 </ul>
 </div>
@@ -418,10 +413,7 @@
 <p>I hope this package will help you on your research!</p>
 </div>
 </div>
-  </div>
-
-  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
-    <div class="links">
+  </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
 <li><a href="https://github.com/ropensci/qualR/" class="external-link">Browse source code</a></li>
@@ -464,32 +456,32 @@
 <div class="dev-status">
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://ci.appveyor.com/project/quishqa/qualR" class="external-link"><img src="https://ci.appveyor.com/api/projects/status/github/quishqa/qualR?branch=master&amp;svg=true" alt="AppVeyor build status"></a></li>
+<li><a href="https://github.com/ropensci/qualR/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/ropensci/qualR/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
 <li><a href="https://codecov.io/github/quishqa/qualR?branch=master" class="external-link"><img src="https://img.shields.io/codecov/c/github/quishqa/qualR/master.svg" alt="Coverage Status"></a></li>
-<li><a href="https://zenodo.org/badge/latestdoi/267442363" class="external-link"><img src="https://zenodo.org/badge/267442363.svg" alt="DOI"></a></li>
 <li><a href="https://github.com/ropensci/software-review/issues/474" class="external-link"><img src="https://badges.ropensci.org/474_status.svg"></a></li>
+<li><a href="https://zenodo.org/badge/latestdoi/267442363" class="external-link"><img src="https://zenodo.org/badge/267442363.svg" alt="DOI"></a></li>
+<li><a href="https://www.codefactor.io/repository/github/ropensci/qualr" class="external-link"><img src="https://www.codefactor.io/repository/github/ropensci/qualr/badge" alt="CodeFactor"></a></li>
 </ul>
 </div>
 
-  </div>
+  </aside>
 </div>
 
 
-      <footer><div class="copyright">
+    <footer><div class="pkgdown-footer-left">
   <p></p>
 <p>Developed by Mario Gavidia-Calderón, Daniel Schuch.</p>
 </div>
 
-<div class="pkgdown">
+<div class="pkgdown-footer-right">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
-      </footer>
+    </footer>
 </div>
 
   
-
 
   
 
