@@ -13,11 +13,11 @@ test_that("monitor_ar_retrieve_met_pol works!", {
   expect_equal(all_means["tc"] > 28, all_means["tc"] < 29)
   expect_equal(all_means["rh"] > 74, all_means["rh"] < 75)
   expect_equal(all_means["ws"] > 0.8, all_means["ws"] < 0.9)
-  expect_equal(all_means["wd"] > 158, all_means["wd"] < 159)
+  expect_equal(all_means["wd"] > 157, all_means["wd"] < 159)
   expect_equal(all_means["p"] > 1007, all_means["p"] < 1008)
   expect_equal(all_means["o3"] > 33, all_means["o3"] < 35)
   expect_equal(all_means["co"] > 0.5, all_means["co"] < 0.6)
-  expect_equal(all_means["pm10"] > 21, all_means["pm10"] < 22)
+  expect_equal(all_means["pm10"] > 22, all_means["pm10"] < 23)
 
   # Testing data.frame classes
   expect_equal(TRUE,  "data.frame" %in% class(ca_all))

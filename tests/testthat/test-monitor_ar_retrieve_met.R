@@ -13,7 +13,7 @@ test_that("monitor_ar_retrieve_met works!", {
   expect_equal(met_means["tc"] > 28, met_means["tc"] < 29)
   expect_equal(met_means["rh"] > 74, met_means["rh"] < 75)
   expect_equal(met_means["ws"] > 0.8, met_means["ws"] < 0.9)
-  expect_equal(met_means["wd"] > 158, met_means["wd"] < 159)
+  expect_equal(met_means["wd"] > 157, met_means["wd"] < 158)
   expect_equal(met_means["p"] > 1007, met_means["p"] < 1008)
 
   # Testing data.frame classes

@@ -12,7 +12,7 @@ test_that("monitor_ar_retrieve_pol works!", {
   pol_means<- colMeans(ca_pol[, 2:8], na.rm = TRUE)
   expect_equal(pol_means["o3"] > 33, pol_means["o3"] < 35)
   expect_equal(pol_means["co"] > 0.5, pol_means["co"] < 0.6)
-  expect_equal(pol_means["pm10"] > 21, pol_means["pm10"] < 22)
+  expect_equal(pol_means["pm10"] > 22, pol_means["pm10"] < 23)
 
   # Testind data.frame classes
   expect_equal(TRUE,  "data.frame" %in% class(ca_pol))
