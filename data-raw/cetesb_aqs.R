@@ -20,6 +20,18 @@ cetesb_aqs$loc[cetesb_aqs$code %in% rmsp] <- "MASP"
 cetesb_aqs$loc[cetesb_aqs$code %in% litoral] <- "Coast"
 cetesb_aqs$loc[cetesb_aqs$code %in% interior] <- "Interior"
 
+missing_aqs <- data.frame(
+  name = c("Lapa", "Perus"),
+  code = c(84, 293),
+  lat = c(-23.50897, -23.41321),
+  lon = c(-46.70122, -46.75605),
+  loc = c("São Paulo", "São Paulo")
+)
+
+cetesb_aqs <- rbind(cetesb_aqs, missing_aqs)
+cetesb_aqs <- cetesb_aqs[order(cetesb_aqs$name), ]
+row.names(cetesb_aqs) <- NULL
+
 Encoding(cetesb_aqs$name) <- "UTF-8"
 save(cetesb_aqs, file = "data/cetesb_aqs.rda")
 usethis::use_data(cetesb_aqs, overwrite = TRUE)
