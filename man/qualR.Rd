@@ -2,8 +2,8 @@
 % Please edit documentation in R/qualR.R
 \docType{package}
 \name{qualR}
-\alias{qualR}
 \alias{qualR-package}
+\alias{qualR}
 \title{qualR: An R package to download Sao Paulo and Rio de Janeiro
 air pollution data}
 \description{

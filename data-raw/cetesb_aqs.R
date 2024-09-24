@@ -1,6 +1,6 @@
 ## code to prepare `DATASET` dataset goes here
 
-cetesb_aqs <- read.table("cetesb_aqs.dat",
+cetesb_aqs <- read.table("data-raw/cetesb_aqs.dat",
                           sep = ",", header = TRUE, dec = ".",
                           stringsAsFactors = F)
 
