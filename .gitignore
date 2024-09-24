@@ -2,5 +2,6 @@
 .Rhistory
 .RData
 .qualR.Rproj
+*.dat
 inst/doc
 docs

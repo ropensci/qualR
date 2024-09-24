@@ -1,8 +1,8 @@
 ## code to prepare `DATASET` dataset goes here
 
-cetesb_aqs <- read.table("~/R_tests/cetesb2017_latlon.dat",
-                            sep = ",", header = TRUE, dec = ".",
-                            stringsAsFactors = F)
+cetesb_aqs <- read.table("cetesb_aqs.dat",
+                          sep = ",", header = TRUE, dec = ".",
+                          stringsAsFactors = F)
 
 sao_paulo_city <- c(269, 91, 95, 73, 98, 83, 262,
                     266, 97, 270, 85, 96, 72, 284,
