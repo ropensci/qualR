@@ -1,7 +1,5 @@
 test_that("cetesb_retrieve_met_pol works!", {
 
-  load("sysdata.rda")
-
   pinheiros <- cetesb_retrieve_met_pol(u,p,aqs_code = 99,
                                        start_date   = "01/01/2020",
                                        end_date     = "07/01/2020")
