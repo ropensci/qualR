@@ -34,7 +34,10 @@ test_that("cetesb_retrieve_met_pol works!", {
   expect_gt(param_means["pm25"], 7)
 
   # Testing data.frame classes
-  expect_equal(TRUE,  "data.frame" %in% class(pinheiros))
+  expect_s3_class(pinheiros, "data.frame")
+  expect_type(pinheiros$tc, "double")
+  # but probably better
+  # expect_setequal(unname(apply(pinheiros, 2, class)), c(<vector-of-classes>))
   expect_equal(TRUE,  "numeric" %in% class(pinheiros$tc))
   expect_equal(TRUE,  "numeric" %in% class(pinheiros$rh))
   expect_equal(TRUE,  "numeric" %in% class(pinheiros$ws))
