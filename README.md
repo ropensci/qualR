@@ -13,18 +13,8 @@ This information is often used for air pollution data analysis and for air quali
 
 ## Installation
 
-First, you need to install `devtools`:
-```R
-install.packages("devtools")
-```
+You can install it directly using:
 
-Then, you can install `qualR` by:
-
-```R
-devtools::install_github("ropensci/qualR")
-```
-
-Or, you can install it directly using:
 ```R
 install.packages('qualR', repos = c('https://ropensci.r-universe.dev', 'https://cloud.r-project.org'))
 ```

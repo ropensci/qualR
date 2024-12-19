@@ -1,8 +1,8 @@
 ## code to prepare `DATASET` dataset goes here
 
-cetesb_aqs <- read.table("~/R_tests/cetesb2017_latlon.dat",
-                            sep = ",", header = TRUE, dec = ".",
-                            stringsAsFactors = F)
+cetesb_aqs <- read.table("data-raw/cetesb_aqs.dat",
+                          sep = ",", header = TRUE, dec = ".",
+                          stringsAsFactors = F)
 
 sao_paulo_city <- c(269, 91, 95, 73, 98, 83, 262,
                     266, 97, 270, 85, 96, 72, 284,
@@ -21,11 +21,16 @@ cetesb_aqs$loc[cetesb_aqs$code %in% litoral] <- "Coast"
 cetesb_aqs$loc[cetesb_aqs$code %in% interior] <- "Interior"
 
 missing_aqs <- data.frame(
-  name = c("Lapa", "Perus"),
-  code = c(84, 293),
-  lat = c(-23.50897, -23.41321),
-  lon = c(-46.70122, -46.75605),
-  loc = c("São Paulo", "São Paulo")
+  name = c("Lapa", "Perus", "Americana-Vila Sta Maria",
+           "Paulínia-Sta Terezinha",  "Rio Claro-Jd.Guanabara",
+           "São Sebastião" ),
+  code = c(84, 293, 105, 291, 292, 294),
+  lat = c(-23.50897, -23.41321, -22.72425,
+          -22.78021, -22.43906, -23.8052),
+  lon = c(-46.70122, -46.75605, -41.33955,
+          -41.113904, -41.58144, -39.40007),
+  loc = c("São Paulo", "São Paulo", "Interior", "Interior",
+          "Interior", "Litoral")
 )
 
 cetesb_aqs <- rbind(cetesb_aqs, missing_aqs)
