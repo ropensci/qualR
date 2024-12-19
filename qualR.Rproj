@@ -1,4 +1,5 @@
 Version: 1.0
+ProjectId: 99a2c02e-7918-41e1-a5fc-bd82519f7b2a
 
 RestoreWorkspace: No
 SaveWorkspace: No
@@ -19,5 +20,5 @@ LineEndingConversion: Posix
 BuildType: Package
 PackageUseDevtools: Yes
 PackageInstallArgs: --no-multiarch --with-keep.source
-PackageCheckArgs: --no-multiarch --as-cran
+PackageCheckArgs: --as-cran --run-donttest --no-multiarch
 PackageRoxygenize: rd,collate,namespace
