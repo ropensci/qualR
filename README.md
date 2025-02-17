@@ -266,6 +266,8 @@ Here are some examples to make some plots:
 
 ##### A better way to save your credentials
 
+###### Using `usethis` and `edit_r_environ`
+
 It is not so safe to write your user and password when you are coding,
 it is even more dangerous when we have to share our scripts.
 For this reason, it is a better practice (and safer) to save your credentials (i.e. user and password) in your **global environment**.
@@ -308,15 +310,44 @@ start_date <- "01/01/2020"
 end_date <- "07/01/2020"
 
 pin_o3 <- cetesb_retrieve_param(Sys.getenv("QUALAR_USER"), # calling your user
-                              Sys.getenv("QUALAR_PASS"),  # calling your passord  
-                              o3_code,
-                              pin_code,
-                              start_date,
-                              end_date)
+                                Sys.getenv("QUALAR_PASS"),  # calling your passord  
+                                o3_code,
+                                pin_code,
+                                start_date,
+                                end_date)
 ```
 
 This idea came from this [awesome post](https://towardsdatascience.com/ten-time-saving-r-hacks-b411add26b96).
 
+###### Using `keyring`
+
+Another way to save your credentials is to use [`keyring`](https://blog.r-hub.io/2024/02/28/key-advantages-of-using-keyring/).
+First, you need to install the package:
+
+```R
+# install.packages("pak")
+pak::pak("keyring")
+```
+
+Then, you can write your credential using `key_set()` function. 
+A window will pop up to enter the credential. It also have the advantage that it does not requiere to restart R.
+
+```R
+library(pak)
+key_set(QUALAR_USER) # Then you add your user
+key_set(QUALAR_PASS) # Then you add your password
+```
+Finally, the previous example using `keyring` will be:
+
+```R
+pin_o3 <- cetesb_retrieve_param(key_get("QUALAR_USER"), # calling your user
+                                key_get("QUALAR_PASS"),  # calling your passord  
+                                o3_code,
+                                pin_code,
+                                start_date,
+                                end_date)
+
+```
 
 ## Using `qualR` to download MonitorAr - Rio data
 
