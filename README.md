@@ -333,7 +333,7 @@ Then, you can write your credential using `key_set()` function.
 A window will pop up to enter the credential. It also have the advantage that it does not requiere to restart R.
 
 ```R
-library(pak)
+library(keyring)
 key_set(QUALAR_USER) # Then you add your user
 key_set(QUALAR_PASS) # Then you add your password
 ```
