@@ -1,5 +1,5 @@
 test_that("monitor_ar_retrieve works!", {
-  csv_path <- withr::local_tempdir
+  csv_folder <- withr::local_tempdir()
 
   ca_o3 <- monitor_ar_retrieve_param(
     start_date = "01/02/2015",
@@ -7,14 +7,14 @@ test_that("monitor_ar_retrieve works!", {
     aqs_code = "CA",
     parameters = "O3",
     to_csv = TRUE,
-    csv_path = csv_path
+    csv_path = csv_folder
   )
   # Testing writing output
   expect_equal(
     TRUE,
     file.exists(
       paste0(
-        csv_path,
+        csv_folder,
         "/ESTACAO CENTRO_O3_01-02-2015_01-03-2015.csv"
       )
     )
