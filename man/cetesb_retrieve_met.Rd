@@ -10,7 +10,6 @@ cetesb_retrieve_met(
   aqs_code,
   start_date,
   end_date,
-  verbose = TRUE,
   to_csv = FALSE,
   csv_path = ""
 )
@@ -25,8 +24,6 @@ cetesb_retrieve_met(
 \item{start_date}{Date to start downloading in dd/mm/yyyy}
 
 \item{end_date}{Date to end downloading in dd/mm/yyyy}
-
-\item{verbose}{Print query summary}
 
 \item{to_csv}{Creates a csv file. FALSE by default}
 

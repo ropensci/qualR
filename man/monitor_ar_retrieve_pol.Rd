@@ -8,7 +8,6 @@ monitor_ar_retrieve_pol(
   start_date,
   end_date,
   aqs_code,
-  verbose = TRUE,
   to_local = TRUE,
   to_csv = FALSE,
   csv_path = ""
@@ -20,8 +19,6 @@ monitor_ar_retrieve_pol(
 \item{end_date}{Date to end downloading in dd/mm/yyyy.}
 
 \item{aqs_code}{Code of AQS.}
-
-\item{verbose}{Print query summary.}
 
 \item{to_local}{Date information in local time. TRUE by default.}
 

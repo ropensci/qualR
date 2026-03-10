@@ -115,10 +115,7 @@ cetesb_retrieve <- function(username, password,
   if (ncol(dat) != 19){
     dat <- data.frame(date = all.dates$date , pol = NA, aqs = aqs_name,  # nocov
                       stringsAsFactors = FALSE)                          # nocov
-    message(paste0(                                                      # nocov
-      'No data available for ',                                          # nocov
-      pol_name,                                                          # nocov
-      ". Filling with NA."))                                             # nocov
+    padding_out_message_for(pol_name)                                             # nocov
   }
 
   if (ncol(dat) == 19) {
@@ -139,7 +136,7 @@ cetesb_retrieve <- function(username, password,
                         aqs = aqs_name,
                         stringsAsFactors = FALSE)
     } else {
-      message(paste0('Download OK ', pol_abr))
+      download_ok_cetesb_msg(pol_abr)
       dat <- data.frame(date = all.dates$date , pol = dat$value ,
                         aqs = aqs_name, stringsAsFactors = FALSE)
     }                                                             # nocov end

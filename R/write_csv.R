@@ -23,5 +23,9 @@ write_csv <- function(aqs_data_df, aqs_name, start_date, end_date,
   }
 
   utils::write.table(aqs_data_df, file_path, sep = ",", row.names = FALSE)
+
+  if (getOption("qualR.quiet", FALSE)) {
+    return()
+  }
   message(paste(file_path, "was created"))
 }

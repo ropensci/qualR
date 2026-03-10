@@ -1,6 +1,8 @@
 test_that("cetesb_retrieve_met_pol works!", {
   load("sysdata.rda")
 
+  u <- Sys.getenv('QUALAR_USER')
+  p <- Sys.getenv('QUALAR_PASS')
   pinheiros <- cetesb_retrieve_met_pol(u, p,
     aqs_code = 99,
     start_date = "01/01/2020",
