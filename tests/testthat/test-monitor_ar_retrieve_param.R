@@ -1,6 +1,5 @@
 test_that("monitor_ar_retrieve works!", {
-  csv_path <- file.path(tempdir(), "cetesb-data")
-  dir.create(csv_path)
+  csv_path <- withr::local_tempdir
 
   ca_o3 <- monitor_ar_retrieve_param(
     start_date = "01/02/2015",

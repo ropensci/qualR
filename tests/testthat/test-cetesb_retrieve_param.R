@@ -1,8 +1,7 @@
 test_that("cetesb_retrieve_param works!", {
   load("sysdata.rda")
 
-  csv_path <- file.path(tempdir(), "cetesb-data2")
-  dir.create(csv_path)
+  csv_path <- withr::local_tempdir()
 
   pin_param <- cetesb_retrieve_param(u, p, c("o3", "NOX", "VV"), 99,
     "01/01/2020", "07/01/2020",
