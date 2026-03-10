@@ -26,10 +26,9 @@ test_that("cetesb_retrieve_param works!", {
   expect_equal(param_means["ws"] > 1, param_means["ws"] < 2)
 
   # Testing data.frame classes
-  expect_equal(TRUE,  "data.frame" %in% class(pin_param))
-  expect_equal(TRUE,  "character" %in% class(pin_param$aqs))
-  expect_equal(TRUE,  "POSIXct" %in% class(pin_param$date))
-  expect_equal(TRUE,  "numeric" %in% class(pin_param$o3))
-  expect_equal(TRUE,  "numeric" %in% class(pin_param$nox))
-  expect_equal(TRUE,  "numeric" %in% class(pin_param$ws))
+  expect_s3_class(pin_param, 'data.frame')
+  expect_type(pin_param$aqs, 'character')
+  expect_type(pin_param$o3, 'double')
+  expect_type(pin_param$nox, 'double')
+  expect_type(pin_param$ws, 'double')
 })

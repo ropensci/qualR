@@ -17,13 +17,12 @@ test_that("monitor_ar_retrieve_met works!", {
   expect_equal(met_means["p"] > 1007, met_means["p"] < 1008)
 
   # Testing data.frame classes
-  expect_equal(TRUE,  "data.frame" %in% class(ca_met))
-  expect_equal(TRUE,  "character" %in% class(ca_met$aqs))
-  expect_equal(TRUE,  "POSIXct" %in% class(ca_met$date))
-  expect_equal(TRUE,  "numeric" %in% class(ca_met$tc))
-  expect_equal(TRUE,  "numeric" %in% class(ca_met$rh))
-  expect_equal(TRUE,  "numeric" %in% class(ca_met$ws))
-  expect_equal(TRUE,  "numeric" %in% class(ca_met$wd))
-  expect_equal(TRUE,  "numeric" %in% class(ca_met$p))
-
+  expect_s3_class(ca_met, 'data.frame')
+  expect_s3_class(ca_met$date, 'POSIXct')
+  expect_type(ca_met$tc, 'double')
+  expect_type(ca_met$rh, 'double')
+  expect_type(ca_met$ws, 'double')
+  expect_type(ca_met$wd, 'double')
+  expect_type(ca_met$p, 'double')
+  expect_type(ca_met$aqs, 'character')
 })

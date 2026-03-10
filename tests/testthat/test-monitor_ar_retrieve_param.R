@@ -25,8 +25,8 @@ test_that("monitor_ar_retrieve works!", {
   expect_equal(o3_mean > 22, o3_mean < 23)
 
   # Testing data.frame classes
-  expect_equal(TRUE,  "data.frame" %in% class(ca_o3))
-  expect_equal(TRUE,  "character" %in% class(ca_o3$aqs))
-  expect_equal(TRUE,  "POSIXct" %in% class(ca_o3$date))
-  expect_equal(TRUE,  "numeric" %in% class(ca_o3$o3))
+  expect_s3_class(ca_o3, 'data.frame')
+  expect_s3_class(ca_o3$date, 'POSIXct')
+  expect_type(ca_o3$aqs, 'character')
+  expect_type(ca_o3$o3, 'double')
 })
