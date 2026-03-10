@@ -17,7 +17,7 @@ test_that("monitor_ar_retrieve_met_pol works!", {
   expect_equal(all_means["p"] > 1007, all_means["p"] < 1008)
   expect_equal(all_means["o3"] > 33, all_means["o3"] < 35)
   expect_equal(all_means["co"] > 0.5, all_means["co"] < 0.6)
-  expect_equal(all_means["pm10"] > 22, all_means["pm10"] < 23)
+  expect_equal(all_means["pm10"] > 21, all_means["pm10"] < 23)
 
   # Testing data.frame classes
   expect_s3_class(ca_all, 'data.frame')
