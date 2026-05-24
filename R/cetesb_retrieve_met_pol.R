@@ -13,7 +13,6 @@
 #' @param aqs_code Code of AQS
 #' @param start_date Date to start downloading in dd/mm/yyyy
 #' @param end_date Date to end downloading in dd/mm/yyyy
-#' @param verbose Print query summary
 #' @param to_csv Creates a csv file. FALSE by default
 #' @param csv_path Path to save the csv file.
 #'
@@ -38,8 +37,8 @@
 #' }
 cetesb_retrieve_met_pol <- function(username, password,
                                     aqs_code, start_date,
-                                    end_date, verbose = TRUE,
-                                    to_csv = FALSE, csv_path = ""){
+                                    end_date, to_csv = FALSE,
+                                    csv_path = ""){
 
   # Check if aqs_code is valid
   aqs <- cetesb
@@ -48,13 +47,8 @@ cetesb_retrieve_met_pol <- function(username, password,
   aqs_code <- as.numeric(check_code[2])
 
   # Adding query summary
-  if (verbose){
-    message("Your query is: ")
-    message(paste("Parameter: TC, RH, WS, WD, Pressure,",
-                  "O3, NO, NO2, NOX, PM2.5, PM10, CO"))
-    message("Air quality station: ", aqs_name)
-    message("Period: From ", start_date, " to ", end_date)
-  }
+  query_summary(start_date, end_date, aqs_name, "met_pol")
+
 
   tc <- cetesb_retrieve(username, password, 25,
                        aqs_code, start_date,

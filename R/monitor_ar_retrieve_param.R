@@ -9,7 +9,6 @@
 #' @param parameters Parameters to download.
 #' It can be a vector with many parameters.
 #' @param to_local Date information in local time. TRUE by default.
-#' @param verbose Print query summary.
 #' @param to_csv Creates a csv file. FALSE by default
 #' @param csv_path Path to save the csv file.
 #'
@@ -28,7 +27,7 @@
 #'
 #' }
 monitor_ar_retrieve_param <- function(start_date, end_date, aqs_code,
-                                      parameters, to_local=TRUE, verbose = TRUE,
+                                      parameters, to_local=TRUE,
                                       to_csv = FALSE, csv_path = ""){
 
   # Check if params are measured
@@ -45,12 +44,8 @@ monitor_ar_retrieve_param <- function(start_date, end_date, aqs_code,
   aqs_name <- aqs_monitor_ar$name[aqs_monitor_ar$code == aqs_code]
 
   # Adding query summary
-  if (verbose){
-    message("Your query is:")
-    message("Parameter: ", paste(parameters, collapse = ", "))
-    message("Air quality station: ", aqs_name)
-    message("Period: From ", start_date, " to ", end_date)
-  }
+  query_summary(start_date, end_date, aqs_name, "param", parameters)
+
 
   start_date_format <- as.POSIXct(strptime(start_date, format="%d/%m/%Y"),
                                   tz = "UTC")
@@ -89,12 +84,13 @@ monitor_ar_retrieve_param <- function(start_date, end_date, aqs_code,
                      f = 'json'
                    ))
   # Checking request
-  if (res$status_code == 200){
-    message("Succesful request")
-    message(paste("Downloading ", paste(parameters, collapse = " ")))
-  } else {
-    stop("Unsuccesful request. Something goes wrong", call. = FALSE)     # nocov
-  }
+  download_ok_monitor_msg(res, parameters)
+  # if (res$status_code == 200){
+  #   message("Succesful request")
+  #   message(paste("Downloading ", paste(parameters, collapse = " ")))
+  # } else {
+  #   stop("Unsuccesful request. Something goes wrong", call. = FALSE)     # nocov
+  # }
 
   # Reading json
   raw_data <- jsonlite::fromJSON(rawToChar(res$content))

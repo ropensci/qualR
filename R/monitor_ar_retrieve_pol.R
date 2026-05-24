@@ -7,7 +7,6 @@
 #' @param start_date Date to start downloading in dd/mm/yyyy.
 #' @param end_date Date to end downloading in dd/mm/yyyy.
 #' @param aqs_code Code of AQS.
-#' @param verbose Print query summary.
 #' @param to_local Date information in local time. TRUE by default.
 #' @param to_csv Creates a csv file. FALSE by default.
 #' @param csv_path Path to save the csv file.
@@ -25,8 +24,8 @@
 #' ca_pol <- monitor_ar_retrieve_pol(start_date, end_date, "CA")
 #' }
 monitor_ar_retrieve_pol <- function(start_date, end_date, aqs_code,
-                                    verbose = TRUE, to_local = TRUE,
-                                    to_csv = FALSE, csv_path = ""){
+                                    to_local = TRUE, to_csv = FALSE,
+                                    csv_path = ""){
   # Check is aqs_code is valid
   if (!(aqs_code %in% aqs_monitor_ar$code)){
     stop("Wrong aqs_code, please check monitor_ar_aqs", call. = FALSE) # nocov
@@ -37,16 +36,8 @@ monitor_ar_retrieve_pol <- function(start_date, end_date, aqs_code,
   # Adding query summary
   aqs_name <- aqs_monitor_ar$name[aqs_monitor_ar$code == aqs_code]
 
-  if (verbose){
-    message("Your query is:")
-    message("Parameter: ", paste(params, collapse = ", "))
-    message("Air quality station: ", aqs_name)
-    message("Period: From ", start_date, " to ", end_date)
-  }
-
   all_pol <- monitor_ar_retrieve_param(start_date, end_date, aqs_code,
-                                       params, to_local = to_local,
-                                       verbose = FALSE)
+                                       params, to_local = to_local)
 
   names(all_pol) <- c("date", tolower(params), "aqs")
   names(all_pol)[8] <- "pm25"

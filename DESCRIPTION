@@ -51,7 +51,8 @@ Suggests:
     openair,
     ggplot2,
     purrr,
-    magrittr
+    magrittr,
+    withr
 Depends: 
     R (>= 3.5.0)
 Config/testthat/edition: 3

@@ -10,7 +10,6 @@ monitor_ar_retrieve_param(
   aqs_code,
   parameters,
   to_local = TRUE,
-  verbose = TRUE,
   to_csv = FALSE,
   csv_path = ""
 )
@@ -26,8 +25,6 @@ monitor_ar_retrieve_param(
 It can be a vector with many parameters.}
 
 \item{to_local}{Date information in local time. TRUE by default.}
-
-\item{verbose}{Print query summary.}
 
 \item{to_csv}{Creates a csv file. FALSE by default}
 

@@ -14,7 +14,6 @@
 #' @param aqs_code Code of AQS
 #' @param start_date Date to start downloading in dd/mm/yyyy
 #' @param end_date Date to end downloading in dd/mm/yyyy
-#' @param verbose Print query summary
 #' @param to_csv  Creates a csv file. FALSE by default
 #' @param csv_path Path to save the csv file
 #'
@@ -39,8 +38,8 @@
 #' }
 cetesb_retrieve_param <- function(username, password, parameters,
                                   aqs_code, start_date, end_date,
-                                  verbose = TRUE, to_csv = FALSE,
-                                csv_path = ""){
+                                  to_csv = FALSE,
+                                  csv_path = ""){
 
   # Check if aqs_code is valid
   aqs <- cetesb
@@ -68,12 +67,14 @@ cetesb_retrieve_param <- function(username, password, parameters,
 
 
   # Adding query summary
-  if (verbose){
-    message("Your query is:")
-    message("Parameter: ", paste(codes_df$name, collapse = ", "))
-    message("Air quality station: ", aqs_name)
-    message("Period: From ", start_date, " to ", end_date)
-  }
+  query_summary(start_date, end_date, aqs_name, "param",
+                codes_df$name)
+  # if (verbose){
+  #   message("Your query is:")
+  #   message("Parameter: ", paste(codes_df$name, collapse = ", "))
+  #   message("Air quality station: ", aqs_name)
+  #   message("Period: From ", start_date, " to ", end_date)
+  # }
 
   # Downloading data
   aqs_data <-  lapply(codes_df$code, cetesb_retrieve,
